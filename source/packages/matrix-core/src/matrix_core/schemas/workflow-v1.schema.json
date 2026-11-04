@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/workflow-v1.schema.json",
+  "title": "MATRIX workflow plan v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "project_id",
+    "recipe_key",
+    "recipe_title",
+    "objective",
+    "status",
+    "created_utc",
+    "updated_utc",
+    "revision",
+    "observed_sections",
+    "observed_artifacts",
+    "steps"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.workflow.v1"},
+    "project_id": {"type": "string", "minLength": 1},
+    "recipe_key": {"type": "string", "minLength": 1},
+    "recipe_title": {"type": "string", "minLength": 1},
+    "objective": {"type": "string"},
+    "status": {"enum": ["pending", "running", "completed", "failed", "cancelled"]},
+    "created_utc": {"type": "string", "format": "date-time"},
+    "updated_utc": {"type": "string", "format": "date-time"},
+    "revision": {"type": "integer", "minimum": 1},
+    "observed_sections": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "observed_artifacts": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/step"}
+    }
+  },
+  "$defs": {
+    "stringArray": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "backend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "provider", "execution", "method", "keywords"],
+      "properties": {
+        "role": {"type": "string"},
+        "provider": {"type": "string"},
+        "execution": {"enum": ["auto", "internal", "local", "remote", "external"]},
+        "method": {"type": "string"},
+        "keywords": {"$ref": "#/$defs/stringArray"}
+      }
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["processors", "memory_gb", "gpu_policy", "walltime_minutes"],
+      "properties": {
+        "processors": {"type": ["integer", "null"], "minimum": 1},
+        "memory_gb": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "gpu_policy": {"enum": ["auto", "never", "prefer", "require"]},
+        "walltime_minutes": {"type": ["integer", "null"], "minimum": 1}
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "tool", "action", "title", "description", "depends_on",
+        "required_sections", "required_artifacts", "produced_sections",
+        "produced_artifacts", "backend", "resources", "confirmation_policy",
+        "status", "confirmed", "attempts", "run_id", "last_error"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*$"},
+        "tool": {"type": "string", "minLength": 1},
+        "action": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "depends_on": {"$ref": "#/$defs/stringArray"},
+        "required_sections": {"$ref": "#/$defs/stringArray"},
+        "required_artifacts": {"$ref": "#/$defs/stringArray"},
+        "produced_sections": {"$ref": "#/$defs/stringArray"},
+        "produced_artifacts": {"$ref": "#/$defs/stringArray"},
+        "backend": {"$ref": "#/$defs/backend"},
+        "resources": {"$ref": "#/$defs/resources"},
+        "confirmation_policy": {"enum": ["none", "user", "remote", "costly"]},
+        "status": {"enum": ["pending", "blocked", "ready", "awaiting_confirmation", "running", "completed", "failed", "cancelled"]},
+        "confirmed": {"type": "boolean"},
+        "attempts": {"type": "integer", "minimum": 0},
+        "run_id": {"type": "string"},
+        "last_error": {"type": "string"}
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+[hbond]
+# X-H...Y contacts are detected on a non-covalent interaction graph.
+# They are used for BDPCS3 geometry correction and constraints, not for
+# covalent GIC/ring topology.
+angle_threshold_deg = 130.0
+distance_cutoff_ang = 3.0
+distance_width_ang = 0.15
+search_cutoff_ang = 3.8
+donor_atomic_numbers = [7, 8, 16]
+acceptor_atomic_numbers = [7, 8]
+average_mixed_n_o = true
+
+[hbond.corrections_ang]
+# Keys are "donorZ-acceptorZ" for X-H...Y.
+"8-8" = -0.055
+"7-7" = -0.055
+
+[weights]
+profile = "web-is1"
+stretch = 1000.0
+angle = 100.0
+hbond = 100.0
+torsion_min = 1.0
+fragment = 1.0

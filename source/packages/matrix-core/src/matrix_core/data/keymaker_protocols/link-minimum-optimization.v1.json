@@ -1,0 +1,60 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "entrypoint": "KEYMAKER",
+  "aliases": [],
+  "change_policy": "new_version_and_explicit_approval",
+  "protocol_id": "link-minimum-optimization.v1",
+  "owner_operation": "link",
+  "title": "LINK minimum optimization",
+  "summary": "Optimize a minimum using the frozen ORACLE/SMITH chart and a declared E/G/H evaluator.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "dependencies": [
+    "sonic-soop-default.v1"
+  ],
+  "routes": [
+    {
+      "menu": "exploitation",
+      "action": "keymaker.l0_l1_pl1_exploitation",
+      "option_equals": {
+        "stationary_point": "minimum"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "sonic_definition",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "oracle_state",
+      "schema": "matrix.oracle.enriched_xyzin.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "optimized_geometry",
+      "schema": "matrix.link.optimized_geometry.v1",
+      "required": true
+    },
+    {
+      "name": "qm_result",
+      "schema": "matrix.qm.result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "converged minimum",
+    "final ORACLE reanalysis",
+    "validated energy and derivative units"
+  ],
+  "implementation": {
+    "owner_api": "matrix_link.optimizer",
+    "action": "optimize_geometry"
+  },
+  "coordinate_policy": "Use the certified SMITH representation and LINK chart lifecycle.",
+  "backend_policy": "Evaluator selected by the approved backend capability manifest. With MATRIX-GFN2, preserve its native SCC charges and bond orders; do not replace them with APOC CM5/Mayer observables."
+}

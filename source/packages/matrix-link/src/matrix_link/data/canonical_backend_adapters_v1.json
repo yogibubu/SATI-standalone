@@ -1,0 +1,46 @@
+{
+  "schema": "matrix.link.canonical_backend_adapters.v1",
+  "registry_id": "matrix-canonical-backend-adapters-v1",
+  "manifest_version": "1.1.12",
+  "status": "approved_validation",
+  "execution_contract": {
+    "point_result": "oracle.link.point_result.v1",
+    "optimizer": "link-sonic-optimizer-v2@2.39.0",
+    "modal_hessian": "matrix.link.modal_hessian_result.v2",
+    "state_identity_owner": "APOC",
+    "frozen_core_owner": "MATRIX_QM",
+    "external_qm_source_modified": false
+  },
+  "records": [
+    {"capability_id": "xtb.gfn2.ground.any.v1", "backend": "xtb", "engine_method": "GFN2-xTB", "engine_reference": "GFN2-xTB", "point_adapter": "matrix_link.scan:xTB", "status": "implemented_certified", "blockers": []},
+    {"capability_id": "pyscf.hf.sto3g.rhf.v1", "backend": "pyscf", "engine_method": "HF", "engine_reference": "RHF", "point_adapter": "matrix_pyscf", "status": "implemented_pending_certification", "blockers": ["full_key_energy_gradient_parity"]},
+    {"capability_id": "pyscf.hf.sto3g.rohf.v1", "backend": "pyscf", "engine_method": "HF", "engine_reference": "ROHF", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["exact_ROHF_writer_and_gradient_certification"]},
+    {"capability_id": "pyscf.cis.sto3g.rhf.v1", "backend": "pyscf", "engine_method": "TDA-HF", "engine_reference": "RHF", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["strict_APOC_transition_density_export"]},
+    {"capability_id": "pyscf.pbe0d3bj.def2svp.rks.v1", "backend": "pyscf", "engine_method": "PBE0", "engine_reference": "RKS", "point_adapter": "matrix_pyscf", "status": "implemented_pending_certification", "blockers": ["full_key_energy_gradient_parity"]},
+    {"capability_id": "pyscf.pbe0d3bj.def2svp.roks.v1", "backend": "pyscf", "engine_method": "PBE0", "engine_reference": "ROKS", "point_adapter": "matrix_pyscf", "status": "implemented_pending_certification", "blockers": ["full_key_energy_gradient_parity"]},
+    {"capability_id": "pyscf.tdapbe0d3bj.def2svp.rks.v1", "backend": "pyscf", "engine_method": "TDA-PBE0", "engine_reference": "RKS", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["strict_APOC_transition_density_export", "shared_explicit_D3BJ_ATM_energy_gradient"]},
+    {"capability_id": "pyscf.mp2.def2tzvp.rhf.v1", "backend": "pyscf", "engine_method": "MP2", "engine_reference": "RHF", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["explicit_frozen_orbital_writer_and_verification"]},
+    {"capability_id": "pyscf.ccsd.def2tzvp.rhf.v1", "backend": "pyscf", "engine_method": "CCSD", "engine_reference": "RHF", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["explicit_frozen_orbital_writer_and_verification"]},
+    {"capability_id": "pyscf.ccsdt.def2tzvpp.rhf.v1", "backend": "pyscf", "engine_method": "CCSD(T)", "engine_reference": "RHF", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["complete_CCSDT_gradient_response_certification"]},
+    {"capability_id": "pyscf.ccsdt.def2tzvpp.uhf.v1", "backend": "pyscf", "engine_method": "UCCSD(T)", "engine_reference": "stable_UHF_from_L3_ROHF", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["ROHF_to_stable_UHF_restart_handoff", "complete_UCCSDT_gradient_response_certification"]},
+    {"capability_id": "pyscf.fno_ccsdt.def2tzvpp.rhf.v1", "backend": "pyscf", "engine_method": "FNO-CCSD(T)", "engine_reference": "RHF", "point_adapter": "matrix_pyscf", "status": "mapping_only", "blockers": ["FNO_definition_and_MP2_discarded_space_correction"]},
+    {"capability_id": "et.ccsd.def2tzvp.rhf.v1", "backend": "et", "engine_method": "CCSD", "engine_reference": "RHF", "point_adapter": "matrix_et", "status": "implemented_pending_certification", "blockers": ["explicit_frozen_orbital_translation_verification"]},
+    {"capability_id": "et.eomccsd.def2tzvp.rhf.fc.v1", "backend": "et", "engine_method": "CCSD", "engine_reference": "RHF", "point_adapter": "matrix_et", "status": "implemented_pending_certification", "blockers": ["explicit_frozen_orbital_translation_verification", "strict_APOC_cross_geometry_metric"]},
+    {"capability_id": "et.cc3.def2tzvpp.rhf.v1", "backend": "et", "engine_method": "CC3", "engine_reference": "RHF", "point_adapter": "matrix_et", "status": "implemented_pending_certification", "blockers": ["explicit_frozen_orbital_translation_verification", "strict_APOC_cross_geometry_metric"]},
+    {"capability_id": "orca.rimp2.def2tzvp.rhf.fc.v1", "backend": "orca", "engine_method": "RI-MP2", "engine_reference": "RHF", "engine_route": "RHF RIJCOSX FrozenCore def2/J def2-TZVP/C", "point_adapter": "matrix_orca", "status": "implemented_pending_certification", "blockers": ["full_key_energy_gradient_parity"]},
+    {"capability_id": "orca.rimp2.def2tzvp.rhf.fc.energy-only.v1", "backend": "orca", "engine_method": "RI-MP2", "engine_reference": "RHF", "engine_route": "RHF RIJCOSX FrozenCore def2/J def2-TZVP/C", "scf_convergence": {"energy_tolerance": 1.0e-10, "orbital_gradient_tolerance": 1.0e-7, "diis_error_tolerance": 1.0e-8}, "restart_policy": "central_point_orbitals", "point_adapter": "matrix_orca", "status": "implemented_pending_certification", "blockers": ["full_key_energy_only_parity"]},
+    {"capability_id": "orca.rimp2.def2tzvp.rohf.fc.v1", "backend": "orca", "engine_method": "RI-MP2", "engine_reference": "semicanonical_ROHF", "engine_route": "ROHF RIJCOSX FrozenCore def2/J def2-TZVP/C", "scf_convergence": {"energy_tolerance": 1.0e-10, "orbital_gradient_tolerance": 1.0e-7, "diis_error_tolerance": 1.0e-8}, "restart_policy": "independent_points", "point_adapter": "matrix_orca", "status": "implemented_pending_certification", "blockers": ["formal_ROHF_stability_analysis_unavailable_in_ORCA", "ORCA_6_1_1_strict_ROHF_restart_GUESS_failure", "full_key_energy_only_reference_continuity"]},
+    {"capability_id": "orca.revdsdpbep86d4.def2tzvp.rks.v1", "backend": "orca", "engine_method": "revDSD-PBEP86-D4", "engine_reference": "RKS", "point_adapter": "matrix_orca", "status": "mapping_only", "blockers": ["complete_D4_grid_auxiliary_RI_COSX_relaxed_response_settings"]},
+    {"capability_id": "orca.dlpno_ccsdt1.def2tzvpp.rhf.v1", "backend": "orca", "engine_method": "DLPNO-CCSD(T1)", "engine_reference": "RHF", "point_adapter": "matrix_orca", "status": "mapping_only", "blockers": ["complete_TightPNO_threshold_profile"]},
+    {"capability_id": "psi4.mp2.def2tzvp.rohf.v1", "backend": "psi4", "engine_method": "MP2", "engine_reference": "semicanonical_ROHF", "point_adapter": "matrix_psi4", "status": "mapping_only", "blockers": ["executable_point_adapter", "restricted_open_semantics_certification"]},
+    {"capability_id": "psi4.ccsd.def2tzvp.rohf.v1", "backend": "psi4", "engine_method": "CCSD", "engine_reference": "semicanonical_ROHF", "point_adapter": "matrix_psi4", "status": "mapping_only", "blockers": ["executable_point_adapter", "restricted_open_semantics_certification"]}
+  ],
+  "governance": {
+    "mapping_key": "exact_capability_id",
+    "uncertified_execution": "explicit_validation_only",
+    "missing_mapping": "fail_closed",
+    "molecule_specific_patches": false,
+    "backend_specific_optimizer_patches": false,
+    "change_policy": "new_manifest_version_and_explicit_approval"
+  }
+}

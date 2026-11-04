@@ -1,0 +1,41 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-isotope-deltabvib-acquisition.v1",
+  "manifest_version": "1.0.1",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY isotope DeltaBvib acquisition",
+  "summary": "Acquire isotope-specific DeltaBvib from independent composite energies and gradients or transform one complete parent cubic field acquired from analytic Hessians.",
+  "calculation_protocol": "surface.selective_anharmonic.v1",
+  "aliases": ["trinity_isotope_deltabvib_acquisition"],
+  "dependencies": ["trinity-harmonic-field.v1"],
+  "routes": [
+    {"menu": "prediction_assignment", "action": "trinity.acquire_isotope_deltabvib", "option_equals": {"method": "isotope_energy_gradient"}},
+    {"menu": "prediction_assignment", "action": "trinity.acquire_isotope_deltabvib", "option_equals": {"method": "parent_analytic_hessian"}},
+    {"menu": "prediction_assignment", "action": "trinity.acquire_isotope_deltabvib", "option_equals": {"method": "auto"}}
+  ],
+  "inputs": [
+    {"name": "smith_geometry", "schema": "matrix.smith.definition.v1", "required": true},
+    {"name": "composite_hessian", "schema": "matrix.qm.hessian.v1", "required": true},
+    {"name": "v4_force_field", "schema": "matrix.zaff.force_field.v1", "required": true},
+    {"name": "isotope_observations", "schema": "matrix.morpheus.microwave_observations.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "isotope_deltabvib", "schema": "matrix.trinity.isotope_deltabvib_acquisition.v1", "required": true}
+  ],
+  "gates": [
+    "frozen v4 composite reference Hessian and stationary gradient",
+    "independent resident GFN2 SCF at every displaced point",
+    "isotope-specific Wilson GF modes for energy-gradient stencils",
+    "complete parent cubic field with B/B-prime isotope transformation for Hessian stencils",
+    "two-step derivative convergence and explicit input fingerprints"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.isotope_acquisition",
+    "action": "acquire_isotope_deltabvib"
+  },
+  "coordinate_policy": "Use frozen SMITH nonredundant primitives for the parent field and isotope-specific Wilson GF modes; never transform an incomplete semidiagonal cubic field between isotopologues.",
+  "backend_policy": "LINK evaluates resident GFN2-XTB plus Delta(ZAFF) v4 with an independent SCF state per point; TRINITY assembles the requested derivatives and isotope corrections.",
+  "change_policy": "new_version_and_explicit_approval"
+}

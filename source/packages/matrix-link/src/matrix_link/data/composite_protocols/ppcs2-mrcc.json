@@ -1,0 +1,59 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.ppcs2.mrcc.v1",
+  "selector": "ppcs2-mrcc",
+  "model": "PPCS2",
+  "backend": "mrcc",
+  "frozen": true,
+  "formula": "LNO-CCSD(T)/jun-cc-pVTZ + MP2-F12/jun-cc-pVTZ - MP2/jun-cc-pVTZ + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "jun-cc-pVTZ",
+    "artifact": "jun-cc-pVTZ.GENBAS",
+    "sha256": "e5f4bb623a98ddb274e2317f8ca81fa324786bde91e3873ca9fb394ee6000830",
+    "definition": "H/He use cc-pVTZ; Li-Ne use aug-cc-pVTZ; Na-Ar use aug-cc-pV(T+d)Z. The outermost diffuse f primitive is removed while the third-period tight d function is retained"
+  },
+  "high_level": {
+    "label": "LNO-CCSD(T)/jun-cc-pVTZ",
+    "method": "LNO-CCSD(T)",
+    "basis": "jun-cc-pVTZ",
+    "route": "localcc=2024 mpitasks=1 dfbasis_scf=cc-pVTZ-RI-JK dfbasis_cor=aug-cc-pVTZ-RI",
+    "correlation_model": "LNO",
+    "triples": "(T)",
+    "derivative": "one_sided_totally_symmetric_sonic_numerical",
+    "numerical_gradient_step_bohr": 0.001
+  },
+  "f12_correction": {
+    "explicitly_correlated": {
+      "label": "MP2-F12/jun-cc-pVTZ",
+      "method": "MP2-F12",
+      "basis": "jun-cc-pVTZ",
+      "route": "dfbasis_scf=cc-pVTZ-RI-JK dfbasis_cor=aug-cc-pVTZ-RI dfbasis_cab=aug-cc-pVTZ-OPTRI",
+      "derivative": "one_sided_totally_symmetric_sonic_numerical",
+      "auxiliary_bases": {
+        "scf": "cc-pVTZ-RI-JK",
+        "correlation": "aug-cc-pVTZ-RI",
+        "cabs": "aug-cc-pVTZ-OPTRI"
+      }
+    },
+    "conventional": {
+      "label": "MP2/jun-cc-pVTZ",
+      "method": "DF-MP2",
+      "basis": "jun-cc-pVTZ",
+      "route": "dfbasis_scf=cc-pVTZ-RI-JK dfbasis_cor=aug-cc-pVTZ-RI",
+      "derivative": "analytic"
+    }
+  },
+  "core_valence": {
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "all_electron": {"method": "DF-MP2", "route": "core=corr"},
+    "frozen_core": {"method": "DF-MP2", "route": ""},
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "orca",
+    "route": "B3LYP 6-31G* VeryTightSCF Freq"
+  }
+}

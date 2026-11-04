@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/canonical-qm-ladder-v1.schema.json",
+  "title": "MATRIX canonical QM ladder v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "protocol_id",
+    "manifest_version",
+    "status",
+    "production_ready",
+    "scope",
+    "owners",
+    "governance",
+    "legacy_namespaces",
+    "optimizer_contract",
+    "applicability",
+    "preparation",
+    "levels",
+    "dispersion_contracts",
+    "corrections",
+    "profiles",
+    "validation_state"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.qm.canonical_ladder.v1"},
+    "protocol_id": {"const": "matrix-canonical-qm-ladder-v1"},
+    "manifest_version": {"const": "1.0.11"},
+    "status": {"const": "approved"},
+    "production_ready": {"const": false},
+    "scope": {"type": "string", "minLength": 1},
+    "owners": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scientific_resolution",
+        "geometry_quality_and_symmetry",
+        "coordinate_definition",
+        "optimization_and_hessians",
+        "electronic_state_identity",
+        "structural_preparation",
+        "human_orchestration"
+      ],
+      "properties": {
+        "scientific_resolution": {"const": "MATRIX_QM"},
+        "geometry_quality_and_symmetry": {"const": "ORACLE"},
+        "coordinate_definition": {"const": "SMITH"},
+        "optimization_and_hessians": {"const": "LINK"},
+        "electronic_state_identity": {"const": "APOC"},
+        "structural_preparation": {"const": "ARCHITECT"},
+        "human_orchestration": {"const": "KEYMAKER"}
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "legacy_manifests_unchanged",
+        "silent_substitution",
+        "molecule_specific_patches",
+        "backend_specific_optimizer_patches",
+        "method_specific_optimizer_patches",
+        "external_qm_source_modified",
+        "change_policy"
+      ],
+      "properties": {
+        "legacy_manifests_unchanged": {"const": true},
+        "silent_substitution": {"const": false},
+        "molecule_specific_patches": {"const": false},
+        "backend_specific_optimizer_patches": {"const": false},
+        "method_specific_optimizer_patches": {"const": false},
+        "external_qm_source_modified": {"const": false},
+        "change_policy": {"const": "new_manifest_version_and_explicit_approval"}
+      }
+    },
+    "legacy_namespaces": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "optimizer_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["protocol_id", "manifest_version", "settings_duplicated"],
+      "properties": {
+        "protocol_id": {"const": "link-sonic-optimizer-v2"},
+        "manifest_version": {"const": "2.15.9"},
+        "settings_duplicated": {"const": false}
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "required": ["l2_open_shell_derivative_policy"],
+      "properties": {
+        "l2_open_shell_derivative_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "domain", "reference", "gradient", "formal_stability_analysis", "unrestricted_substitution", "activation_policy"],
+          "properties": {
+            "status": {"const": "validation_only_energy_only"},
+            "domain": {"const": "high_spin_single_reference_ground_state"},
+            "reference": {"const": "semicanonical_ROHF"},
+            "gradient": {"const": "LINK_one_sided_numerical_energy"},
+            "formal_stability_analysis": {"const": "unavailable_in_ORCA"},
+            "unrestricted_substitution": {"const": false},
+            "activation_policy": {"const": "exact_energy_and_reference_continuity_certification"}
+          }
+        }
+      }
+    },
+    "preparation": {"type": "object"},
+    "levels": {
+      "type": "array",
+      "minItems": 6,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/level"}
+    },
+    "dispersion_contracts": {"type": "object", "minProperties": 1},
+    "corrections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["element_policy_id", "cbs", "core_valence", "bsse"],
+      "properties": {
+        "element_policy_id": {"const": "matrix-qm-element-policy-v1"},
+        "cbs": {"type": "object"},
+        "core_valence": {"type": "object"},
+        "bsse": {"type": "object"}
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/profile"}
+    },
+    "validation_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "production_enabled",
+        "certification_required_per_full_capability_key",
+        "uncertified_combination"
+      ],
+      "properties": {
+        "production_enabled": {"const": false},
+        "certification_required_per_full_capability_key": {"const": true},
+        "uncertified_combination": {"const": "unsupported"}
+      }
+    }
+  },
+  "$defs": {
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["electronic_state", "spin", "method", "reference", "status"],
+      "properties": {
+        "electronic_state": {"enum": ["ground", "excited"]},
+        "spin": {"enum": ["closed_shell", "open_shell", "any"]},
+        "method": {"type": ["string", "null"]},
+        "reference": {"type": ["string", "null"]},
+        "state_model": {"type": "string"},
+        "status": {"enum": ["defined", "unsupported"]},
+        "domain": {"type": "string"}
+      }
+    },
+    "level": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role", "basis", "frozen_core", "variants"],
+      "properties": {
+        "id": {"enum": ["PRE0", "L0", "L1", "L2", "L3", "L4"]},
+        "role": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "frozen_core": {"enum": ["mandatory", "not_applicable"]},
+        "dispersion_contract": {"type": "string", "minLength": 1},
+        "variants": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/variant"}
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "required": [
+        "id",
+        "canonical_replacement",
+        "scope",
+        "method",
+        "basis",
+        "reference",
+        "frozen_core",
+        "derivative"
+      ],
+      "properties": {
+        "id": {"enum": ["DL2", "FL4", "PL4"]},
+        "canonical_replacement": {"const": false},
+        "scope": {"const": "closed_shell_ground_state"},
+        "method": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "reference": {"type": "string", "minLength": 1},
+        "frozen_core": {"const": "mandatory"},
+        "derivative": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

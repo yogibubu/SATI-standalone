@@ -1,0 +1,64 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "entrypoint": "KEYMAKER",
+  "aliases": [],
+  "change_policy": "new_version_and_explicit_approval",
+  "protocol_id": "morpheus-semiexperimental-refinement.v1",
+  "owner_operation": "morpheus",
+  "title": "MORPHEUS semiexperimental refinement",
+  "summary": "Resolve cached or TRINITY-computed isotope corrections, then fit and validate the semiexperimental structure.",
+  "calculation_protocol": "refinement.semiexperimental.v1",
+  "dependencies": [
+    "trinity-selective-anharmonic-field.v1",
+    "link-minimum-optimization.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "morpheus.fit_semiexperimental_geometry",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "isotopologue_observations",
+      "schema": "matrix.morpheus.microwave_observations.v1",
+      "required": true
+    },
+    {
+      "name": "structural_reference",
+      "schema": "matrix.morpheus.structural_reference.v1",
+      "required": true
+    },
+    {
+      "name": "anharmonic_field",
+      "schema": "matrix.trinity.selective_anharmonic_field.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "refined_structure",
+      "schema": "matrix.morpheus.refined_structure.v1",
+      "required": true
+    },
+    {
+      "name": "fit_diagnostics",
+      "schema": "matrix.morpheus.reliability.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "complete isotope-specific DeltaBvib or TRINITY service",
+    "full-rank structural fit",
+    "independent reference and uncertainty report"
+  ],
+  "implementation": {
+    "owner_api": "matrix_morpheus.trinity_deltabvib",
+    "action": "fit_semiexperimental_with_trinity"
+  },
+  "coordinate_policy": "Use the frozen SMITH fit basis and retain the Cartesian representation check.",
+  "backend_policy": "MORPHEUS fits; TRINITY owns missing vibrational corrections."
+}

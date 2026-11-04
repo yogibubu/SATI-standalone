@@ -1,0 +1,80 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-esalci-gvpt2-ir-smith-metric-eckart.v5",
+  "manifest_version": "5.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY ESALC-I GVPT2 and IR with automatic Eckart gauge",
+  "summary": "Preserve the frozen SMITH analytic metric and single-mode stencils, align every geometry to the reference Eckart frame, and require harmonic ESALC-I/ESALC-C frequency and IR identity.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [
+    "trinity_esalci_gvpt2_ir_smith_metric_eckart"
+  ],
+  "dependencies": [
+    "sonic-soop-default.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_smith_metric_eckart",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "frozen_esalci_chart",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "cartesian_gradient_hessian_evaluator",
+      "schema": "matrix.qm.cartesian_gradient_hessian_provider.v1",
+      "required": true
+    },
+    {
+      "name": "dipole_value_or_jacobian_provider",
+      "schema": "matrix.qm.dipole_provider.v1",
+      "required": true
+    },
+    {
+      "name": "frozen_smith_definition",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "esalci_gf",
+      "schema": "matrix.gf.internal_result.v1",
+      "required": true
+    },
+    {
+      "name": "curvilinear_anharmonic_field",
+      "schema": "matrix.trinity.sonic_vpt2_field.v1",
+      "required": true
+    },
+    {
+      "name": "gvpt2_ir_spectrum",
+      "schema": "matrix.trinity.gvpt2_ir_spectrum.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Frozen SMITH definition and ESALC-I chart have the same full-rank Wilson row space",
+    "Sparse B prime has no numerical fallback primitives at any stencil point",
+    "Fixed SMITH-to-ESALC-I row transform and Cartesian angstrom-to-bohr derivative conversion",
+    "Complete vibrational G double-prime from single-mode differences of analytic Wilson G prime",
+    "Only reference and plus/minus single-mode Cartesian Hessians and dipole samples",
+    "Fermi-only resonance polyads and second-order IR transition moments",
+    "Automatic mass-weighted Eckart alignment at every displaced ESALC-I geometry",
+    "Harmonic ESALC-I/ESALC-C frequencies and IR intensities from the same Cartesian Hessian and dipole Jacobian agree within numerical tolerance"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.keymaker_esalci_gvpt2",
+    "action": "run_esalci_gvpt2_smith_metric_eckart_protocol"
+  },
+  "coordinate_policy": "Use one frozen full-rank ESALC-I chart and a matching SMITH definition. Map native SMITH B rows to the chart with a fixed reference transformation; construct B prime at each single-mode point and reject any numerical fallback. Orient every realization automatically in the reference Eckart frame.",
+  "backend_policy": "KeyMaker authorizes Cartesian E/G/H and dipole providers; SMITH supplies the frozen Wilson definition and B, the resident sparse B-prime builder supplies analytic derivatives, and TRINITY constructs G prime, G double-prime, GVPT2 and IR intensities. Require the Cartesian harmonic reference to match both internal frequencies and IR intensities.",
+  "change_policy": "new_version_and_explicit_approval"
+}

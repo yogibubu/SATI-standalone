@@ -1,0 +1,51 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "sati-harmonic-vibronic.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "Native harmonic FC/HT vibronic spectroscopy",
+  "summary": "Native harmonic FC/HT vibronic spectroscopy through its existing scientific owner; registration validates the contract and does not imply molecular or experimental accuracy.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "sati.vibronic",
+      "option_equals": {}
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.vibronic",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "configuration",
+      "schema": "matrix.trinity.esalc_vibronic_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.trinity.esalc_vibronic_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "TI strength convergence is declared",
+    "TD time-window convergence is declared",
+    "When TI and TD are both supplied their correlation functions agree within the unreported-strength bound"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.vibronic_workflow",
+    "action": "run_esalc_vibronic_workflow"
+  },
+  "coordinate_policy": "Consume explicit frozen initial/final ESALC states and transport properties through the same native GF basis.",
+  "backend_policy": "Use declared local numerical kernels and resource budgets. This protocol submits no implicit electronic-structure calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

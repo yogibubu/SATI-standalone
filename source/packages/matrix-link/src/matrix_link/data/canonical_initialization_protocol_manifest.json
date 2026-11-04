@@ -1,0 +1,214 @@
+{
+  "schema": "matrix.link.canonical_initialization_protocol.v2",
+  "protocol_id": "matrix-canonical-initialization-v2",
+  "manifest_version": "2.8.0",
+  "status": "approved_validation",
+  "replaces_legacy_protocol": false,
+  "canonical_ladder": {
+    "protocol_id": "matrix-canonical-qm-ladder-v1",
+    "manifest_version": "1.0.11"
+  },
+  "optimizer_contract": {
+    "protocol_id": "link-sonic-optimizer-v2",
+    "manifest_version": "2.39.0",
+    "settings_duplicated": false,
+    "required_observation": "GDIIS_first_eligible_at_optimizer_iteration_2"
+  },
+  "owners": {
+    "geometry_quality_and_symmetry": "ORACLE",
+    "structural_preparation": "ARCHITECT",
+    "connectivity_seed": "SWITCH",
+    "coordinate_definition": "SMITH",
+    "hessian_audit_and_optimization": "LINK",
+    "scientific_and_backend_resolution": "MATRIX_QM",
+    "electronic_state_density_fock_and_scf_reuse": "APOC",
+    "human_orchestration": "KEYMAKER"
+  },
+  "governance": {
+    "inspect_existing_implementation_before_change": true,
+    "reuse_existing_algorithms": "mandatory",
+    "parallel_reimplementation": "forbidden",
+    "silent_scientific_substitution": false,
+    "molecule_specific_patches": false,
+    "backend_specific_optimizer_patches": false,
+    "method_specific_optimizer_patches": false,
+    "change_policy": "new_manifest_version_and_explicit_approval"
+  },
+  "geometry_routes": {
+    "credible_xyz": [
+      "KEYMAKER_accept_declared_GOOD_geometry_without_LCB26_or_preoptimization",
+      "ORACLE_detect_and_symmetrize",
+      "preserve_ORACLE_projected_geometry_without_structural_preoptimization",
+      "SMITH_build_frozen_symmetry_adapted_SONIC",
+      "LINK_seed_hessian_audit"
+    ],
+    "noncredible_or_generated": [
+      "SWITCH_connectivity_and_crude_seed_if_source_is_SMILES",
+      "KEYMAKER_select_exact_LCB26_geometry_or_MATRIX_GFN2_fallback",
+      "LINK_resident_GFN2_xTB_Cartesian_basin_preoptimization_when_needed",
+      "ORACLE_detect_topology_quality_and_symmetrize_after_preoptimization",
+      "SMITH_build_frozen_symmetry_adapted_SONIC",
+      "LINK_seed_hessian_audit"
+    ],
+    "invalid": ["stop_before_electronic_structure_evaluation"]
+  },
+  "seed_routes": {
+    "ground": {
+      "PRE0": {
+        "primary": "Lindh_1995_ANC_plus_Swart_2006_special",
+        "progressive_with_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef"],
+        "progressive_without_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef", "UFF"],
+        "target_hessian": "explicit_only"
+      },
+      "L0": {
+        "primary_with_xtb": "PRE0",
+        "primary_without_xtb": "Lindh_1995_ANC_plus_Swart_2006_special",
+        "progressive_with_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef", "PRE0"],
+        "progressive_without_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef", "UFF"],
+        "target_hessian": "explicit_only_and_label_as_target_level"
+      },
+      "L1": {
+        "primary": "L0",
+        "progressive_with_xtb": ["PRE0", "L0"],
+        "progressive_without_xtb": ["L0"],
+        "target_hessian": "explicit_only"
+      },
+      "L2": {
+        "primary": "L1",
+        "progressive_with_xtb": ["PRE0", "L0", "L1"],
+        "progressive_without_xtb": ["L0", "L1"],
+        "target_hessian": "explicit_only"
+      },
+      "L3": {
+        "primary": "L2",
+        "progressive_with_xtb": ["PRE0", "L0", "L1", "L2"],
+        "progressive_without_xtb": ["L0", "L1", "L2"],
+        "target_hessian": "explicit_only"
+      },
+      "L4": {
+        "primary": "L3",
+        "progressive_with_xtb": ["PRE0", "L0", "L1", "L2", "L3"],
+        "progressive_without_xtb": ["L0", "L1", "L2", "L3"],
+        "target_hessian": "explicit_only"
+      },
+      "DL2": {
+        "primary": "L1",
+        "progressive_with_xtb": ["PRE0", "L0", "L1"],
+        "progressive_without_xtb": ["L0", "L1"],
+        "target_hessian": "explicit_only"
+      },
+      "FL4": {
+        "primary": "L3",
+        "progressive_with_xtb": ["PRE0", "L0", "L1", "L2", "L3"],
+        "progressive_without_xtb": ["L0", "L1", "L2", "L3"],
+        "target_hessian": "unsupported_until_complete_response_gradient_is_certified"
+      },
+      "PL4": {
+        "primary": "L3",
+        "progressive_with_xtb": ["PRE0", "L0", "L1", "L2", "L3"],
+        "progressive_without_xtb": ["L0", "L1", "L2", "L3"],
+        "target_hessian": "unsupported_for_energy_only_profile"
+      }
+    },
+    "excited_closed_shell": {
+      "L0": {
+        "primary": "Lindh_1995_ANC_plus_Swart_2006_special_or_Almloef_fallback_or_UFF_ground_state_seed",
+        "progressive_with_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef", "PRE0_ground_state"],
+        "progressive_without_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef", "UFF"],
+        "target_hessian": "explicit_only_and_requires_APOC"
+      },
+      "L1": {
+        "primary": "L0_excited",
+        "progressive_with_xtb": ["PRE0_ground_state", "L0_excited"],
+        "progressive_without_xtb": ["L0_excited"],
+        "target_hessian": "explicit_only_and_requires_APOC"
+      },
+      "L3": {
+        "primary": "L1_excited",
+        "progressive_with_xtb": ["L0_excited", "L1_excited"],
+        "progressive_without_xtb": ["L0_excited", "L1_excited"],
+        "target_hessian": "modal_finite_difference_requires_APOC"
+      },
+      "L4": {
+        "primary": "L3_excited",
+        "progressive_with_xtb": ["L0_excited", "L1_excited", "L3_excited"],
+        "progressive_without_xtb": ["L0_excited", "L1_excited", "L3_excited"],
+        "target_hessian": "unavailable_use_frozen_L3_excited_modes"
+      }
+    },
+    "excited_open_shell": {
+      "L0": {
+        "primary": "Lindh_1995_ANC_plus_Swart_2006_special_or_Almloef_fallback_or_UFF_ground_state_seed",
+        "progressive_with_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef", "PRE0_ground_state"],
+        "progressive_without_xtb": ["Lindh_1995_ANC_plus_Swart_2006_special", "Almloef", "UFF"],
+        "target_hessian": "explicit_only_and_requires_APOC"
+      }
+    }
+  },
+  "symmetry_stability_contract": {
+    "protocol": "matrix.link.symmetry_stability.standard.v1",
+    "scope": "all_non_totally_symmetric_SONIC_blocks_before_symmetry_constrained_exploitation",
+    "backend_property": "analytic_cartesian_gradient",
+    "center_gradient": "reuse_when_available_otherwise_evaluate_once",
+    "positive_displacements": "one_per_selected_SONIC_coordinate",
+    "negative_displacements": "generated_from_parent_symmetry_without_backend_evaluation",
+    "curvature_problem": "Wilson_GF_in_selected_symmetry_blocks",
+    "negative_frequency_cutoff_cm": -10.0,
+    "stable_outcome": "continue_KEYMAKER_exploitation_with_frozen_parent_contract",
+    "unstable_outcome": "displace_along_most_negative_mode_then_rebuild_ORACLE_and_SMITH_contracts",
+    "molecule_specific_overrides": false
+  },
+  "seed_hessian_contract": {
+    "evaluation_geometry": "exact_geometry_handed_to_final_optimization",
+    "default_final_optimizer_guess": {
+      "all_ground_state_minima": "GFN2-xTB_at_accepted_geometry",
+      "provider": "autonomous_in_process_MATRIX_GFN2",
+      "geometry_preoptimization": "GFN2-xTB_Cartesian_geometry_seed_only_when_quality_requires_it",
+      "sonic_construction": "after_optional_preoptimization",
+      "override_policy": "explicit_user_Hessian_or_explicit_disable_only"
+    },
+    "canonical_internal_model": "Lindh_1995_ANC_plus_Swart_2006_special",
+    "internal_model_fallback": "Fischer_Almloef_only_after_explicit_seed_audit_failure",
+    "model_hessian_source_coordinates": "Lindh_cartesian_base_plus_SMITH_declared_special_interactions_on_pseudobond_source_independent_of_active_optimization_chart",
+    "force_field_hessian_source_coordinates": "SMITH_pseudobonds_independent_of_active_optimization_chart",
+    "qm_hessian_source_coordinates": "active_frozen_SONIC",
+    "special_edge_policy": "any_ORACLE_SMITH_declared_special_edge_or_center_uses_declared_effective_order_independent_of_molecule_or_hapticity",
+    "transform": "exact_cartesian_to_frozen_SONIC_with_same_level_gradient_B_prime",
+    "final_physical_transform": "include_B_prime",
+    "soft_stiff_policy": "diagnose_and_scale_but_never_delete_physical_cross_couplings",
+    "checks": [
+      "dimension",
+      "finite_values",
+      "matrix_symmetry",
+      "translation_rotation_null_space",
+      "point_group_block_structure",
+      "stationary_point_inertia",
+      "physical_curvatures",
+      "condition_number",
+      "cartesian_modal_SONIC_consistency",
+      "metric_and_trust_conditioning_stability",
+      "physical_coupling_preservation"
+    ],
+    "minimum": "zero_negative_modes_in_complete_symmetry_blocked_vibrational_space",
+    "transition_state": "exactly_one_negative_mode_with_approved_reaction_mode_overlap",
+    "non_totally_symmetric_negative_mode": "lower_symmetry_along_most_negative_mode_then_rebuild_ORACLE_SMITH_contracts",
+    "threshold_status": "provisional_requires_dedicated_validation"
+  },
+  "audit_outcomes": {
+    "accepted": "use_candidate_hessian",
+    "geometry_inconsistent": "optimize_at_same_lower_level_then_recompute_complete_hessian",
+    "provider_inadequate": "advance_to_next_declared_lower_level_candidate",
+    "ambiguous": "stop_without_guessing",
+    "all_lower_levels_failed": "stop_or_use_explicitly_requested_and_labelled_target_level_hessian"
+  },
+  "stage_contract": {
+    "symmetry": "ORACLE_symmetrizes_every_geometry_and_every_gradient_is_symmetrized_at_each_iteration",
+    "coordinates": "one_frozen_SMITH_SONIC_definition_policy_for_every_backend",
+    "state_following": "APOC_required_for_every_excited_state_stage_and_displacement",
+    "scf_state_reuse": "APOC_owns_density_Fock_overlap_projection_extrapolation_and_accepted_history",
+    "hessian_timing": "fresh_complete_hessian_at_completed_stage_geometry",
+    "hessian_geometry_consistency": "mandatory_even_when_geometry_and_hessian_methods_differ",
+    "provenance": "record_geometry_hash_hessian_hash_provider_level_method_basis_reference_backend_executable_state_and_authority_hashes",
+    "unsupported": "fail_closed_without_method_basis_reference_or_backend_substitution"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "matrix.keymaker.architect_zaff_hierarchy.v1",
+  "protocol_id": "architect-zaff-hierarchy.v1",
+  "status": "approved_reference",
+  "change_policy": "new_version_and_explicit_user_approval",
+  "owner_operation": "architect",
+  "population": {
+    "method": "PBE0/def2-SVP",
+    "charges": "complete_atom_mapped_CM5",
+    "bond_orders": "complete_atom_mapped_Mayer",
+    "geometry": "declared_ZAFF_reference_geometry"
+  },
+  "nonbonded": {
+    "electrostatics": "all_atom_pairs_Gaussian_charge_penetration",
+    "vdw": "noncovalent_ExpPE_with_declared_topological_exclusions",
+    "rule": "same_nonbonded_field_at_every_zoom_level_and_subtracted_once"
+  },
+  "stationary_qm_reference": {
+    "energy": "E_QM(x)-[E_QM(x_ref)-E_QM(x_QM_min)]-g_QM(x_ref).(x-x_ref)",
+    "gradient": "g_QM(x)-g_QM(x_ref)",
+    "analytic_hessian": "H_QM(x)_unchanged",
+    "reference_geometry": "ZAFF_stationary_minimum",
+    "minimum_energy_policy": "record_same_level_QM_minimum_or_declare_arbitrary_energy_zero"
+  },
+  "levels": [
+    {
+      "id": "ZAFF0",
+      "rule": "library_field_from_CM5_Mayer_and_synthons_with_complete_nonbonded",
+      "exploration": "rigid_bonds_and_angles_active_acyclic_torsions_and_rigid_bodies"
+    },
+    {
+      "id": "ZAFF1",
+      "rule": "corrected_QM_primitive_diagonal_field_with_library_De_Morse_stretches_and_dissociating_geminal_XH_couplings",
+      "hessian_claim": "diagonal_and_geminal_only"
+    },
+    {
+      "id": "ZAFF2",
+      "rule": "add_native_harmonic_couplings_to_reconstruct_complete_QM_Cartesian_hessian",
+      "hessian_claim": "complete_with_nonbonded_restored"
+    },
+    {
+      "id": "ZAFF3",
+      "rule": "fit_QM_minus_complete_ZAFF2_on_additional_primitive_displacements_and_LAM_scans",
+      "native_functions": "inverse_distance_cosine_Fourier_and_ZAFF_switches",
+      "reference_jet": "zero_energy_gradient_and_hessian_correction",
+      "selection": "automatic_rank_checked_smallest_support_passing_independent_energy_gradient_and_available_hessian_gates"
+    }
+  ],
+  "providers": ["ORACLE", "SMITH", "LINK", "ARCHITECT", "ZAFF", "TRINITY"],
+  "invariants": [
+    "mapped_topology_and_population_provenance",
+    "one_frozen_nonbonded_field",
+    "total_ZAFF_gradient_zero_at_reference",
+    "total_Cartesian_hessian_matches_QM_at_ZAFF2_and_ZAFF3",
+    "all_LAM_scans_and_independent_holdout_required_for_ZAFF3"
+  ]
+}

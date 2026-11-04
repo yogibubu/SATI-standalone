@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.package-capability-registry.v1",
+  "title": "MATRIX package capability registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "package_count", "capability_count", "packages", "capability_index"],
+  "properties": {
+    "schema": {"const": "matrix.package-capability-registry.v1"},
+    "package_count": {"type": "integer", "minimum": 1},
+    "capability_count": {"type": "integer", "minimum": 1},
+    "packages": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/package"}
+    },
+    "capability_index": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": "string", "pattern": "^matrix-[a-z0-9-]+$"},
+        "minItems": 1,
+        "uniqueItems": true
+      }
+    }
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package", "import_name", "layer", "role", "keymaker_mode",
+        "capabilities", "commands", "python_apis", "tool_contracts",
+        "consumed_artifacts", "produced_artifacts", "provider_programs",
+        "native_backends", "supported_systems", "supported_architectures",
+        "portable_fallback", "capability_requirements"
+      ],
+      "properties": {
+        "package": {"type": "string", "pattern": "^matrix-[a-z0-9-]+$"},
+        "import_name": {"type": "string", "pattern": "^matrix_[a-z0-9_]+$"},
+        "layer": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1},
+        "keymaker_mode": {"enum": ["direct", "orchestrator", "provider", "support"]},
+        "capabilities": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]*$"},
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "commands": {"$ref": "#/$defs/stringArray"},
+        "python_apis": {"$ref": "#/$defs/stringArray"},
+        "tool_contracts": {"$ref": "#/$defs/stringArray"},
+        "consumed_artifacts": {"$ref": "#/$defs/stringArray"},
+        "produced_artifacts": {"$ref": "#/$defs/stringArray"},
+        "provider_programs": {"$ref": "#/$defs/stringArray"},
+        "native_backends": {"$ref": "#/$defs/stringArray"},
+        "supported_systems": {"$ref": "#/$defs/stringArray"},
+        "supported_architectures": {"$ref": "#/$defs/stringArray"},
+        "portable_fallback": {"type": "boolean"},
+        "capability_requirements": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "systems": {"$ref": "#/$defs/stringArray"},
+              "architectures": {"$ref": "#/$defs/stringArray"},
+              "gpu_count": {"type": "integer", "minimum": 0},
+              "neural_engine_count": {"type": "integer", "minimum": 0}
+            }
+          }
+        }
+      }
+    }
+  }
+}

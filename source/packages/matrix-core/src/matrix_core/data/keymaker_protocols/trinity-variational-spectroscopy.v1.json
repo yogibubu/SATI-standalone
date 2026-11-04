@@ -1,0 +1,21 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-variational-spectroscopy.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY variational spectroscopy preparation",
+  "summary": "Validate and hand off a versioned anharmonic field for variational rovibrational solution.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": ["trinity_variational_spectroscopy"],
+  "dependencies": ["trinity-selective-anharmonic-field.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "trinity.solve_variational_spectrum", "option_equals": {}}],
+  "inputs": [{"name": "anharmonic_field", "schema": "matrix.trinity.selective_anharmonic_field.v1", "required": true}],
+  "outputs": [{"name": "solver_handoff", "schema": "matrix.trinity.variational_handoff.v1", "required": true}],
+  "gates": ["bounded coordinate domain", "field completeness", "solver-basis convergence contract", "immutable provenance"],
+  "implementation": {"owner_api": "matrix_trinity.dual_representation", "action": "prepare_variational_handoff"},
+  "coordinate_policy": "Preserve the certified representation and explicit transformation provenance.",
+  "backend_policy": "Resident solver handoff selected only through KEYMAKER.",
+  "change_policy": "new_version_and_explicit_approval"
+}

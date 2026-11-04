@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "model_id": "SF-TDA-MATRIX-GFN2-R.v1",
+  "ground_state_model": "MATRIX-GFN2",
+  "reference": {
+    "kind": "restricted-open-shell",
+    "shared_spatial_orbitals": true,
+    "minimum_multiplicity": 2,
+    "finite_temperature_policy": "reject_fractional_frontier_occupations"
+  },
+  "excitation_space": {
+    "ansatz": "spin-flip Tamm-Dancoff",
+    "primary_channel": "alpha-occupied to beta-virtual",
+    "delta_ms": -1,
+    "amplitude_metric": "Euclidean",
+    "selection": "Grimme orbital window, complete diagonal primary threshold, and PT2 external-CSF screening"
+  },
+  "solver": {
+    "initial_implementation": "matrix-free Davidson",
+    "dense_reference_required": true,
+    "root_following_owner": "APOC transition-density maximum-overlap assignment"
+  },
+  "electronic_properties": {
+    "transition_density": "beta-alpha AO spin-transition block",
+    "difference_density": "TDA hole-particle one-body density difference",
+    "natural_transition_orbitals": true,
+    "spin_square_diagnostic": "Grimme SF-sTDA expression",
+    "reference_to_sf_electric_dipole": "spin-forbidden in the nonrelativistic model"
+  },
+  "kernel_profiles": {
+    "initial": "grimme-xtb-sf-stda",
+    "initial_parameters": {
+      "exact_exchange_fraction": 0.36,
+      "atomic_hardness_scale": 0.504,
+      "distance_exponent": 3.0
+    },
+    "status": "reference profile pending MATRIX-specific refit"
+  },
+  "gradient": {
+    "stage_1": "implemented frozen-AO-orbital analytic derivative with fixed CSF selection",
+    "stage_1_terms": [
+      "generalized Rayleigh orbital energies",
+      "Lowdin square-root Frechet derivative",
+      "atom transition-charge populations",
+      "screened gamma interaction",
+      "rejected-CSF PT2 correction"
+    ],
+    "stage_1_inputs": "analytic AO overlap and frozen-density Fock derivatives",
+    "stage_2": "relaxed orbital and SCC response",
+    "variational_in_tda_amplitudes": true,
+    "z_vector_required_for_orbital_response": true
+  },
+  "production_dependencies": {
+    "external_xtb": false,
+    "external_stda": false,
+    "orbital_source": "resident MATRIX-GFN2 state"
+  }
+}

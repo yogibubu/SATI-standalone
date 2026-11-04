@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0", "numpy==2.3.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-zaff"
+version = "0.1.0rc8"
+description = "Resident analytic runtime for compiled ZAFF force fields"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "autograd>=1.8,<2",
+  "matrix-chem==0.1.0rc8",
+  "matrix-epoc==0.1.0rc8",
+  "matrix-engines==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "numba>=0.62,<0.63",
+  "numpy>=1.24,<2.4",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+fmm = ["fmm3dpy>=2.1.0"]
+
+[tool.setuptools.package-data]
+matrix_zaff = ["data/*.json", "data/*.npz"]
+
+[tool.setuptools.exclude-package-data]
+matrix_zaff = ["*.cpp"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+extend-select = ["F"]

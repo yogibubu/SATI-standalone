@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-framework"
+version = "0.1.0rc8"
+description = "nano-Matrix computational chemistry framework monorepo"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+test = [
+  "ase>=3.22",
+  "jsonschema>=4.0",
+  # OpenMM 8.4 is the newest wheel currently published for CPython 3.11 on
+  # Linux; the exercised resident-session API is available throughout 8.x.
+  "openmm>=8.1,<9",
+  "PySide6>=6.7",
+  "pytest>=8.0",
+  "pytest-qt>=4.4",
+]
+
+# The repository root is an installable dependency-only metapackage.  Every
+# MATRIX implementation package is built independently from packages/*; do not
+# let setuptools mistake data, protocols, or third-party sources for Python
+# distributions when preparing a clean qualification environment.
+[tool.setuptools]
+packages = []
+
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib -m 'not external_qm'"
+testpaths = ["tests", "packages"]
+markers = [
+  "external_qm: explicit qualification requiring real licensed or remote QM engines and a provenance-bearing report",
+]
+filterwarnings = [
+  "ignore:remove_linear_dep_ is deprecated:DeprecationWarning:pyscf",
+  "ignore:builtin type SwigPyPacked has no __module__:DeprecationWarning",
+  "ignore:builtin type SwigPyObject has no __module__:DeprecationWarning",
+  'ignore:.*roundoff error is detected.*:Warning',
+  'ignore:.*use of fork\(\) may lead to deadlocks.*:DeprecationWarning',
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["subrepos"]
+
+[tool.ruff.lint]
+# CI gates syntax errors and the complete Pyflakes rule family repository-wide.
+# Style-only cleanup remains a separate maintenance track.
+select = ["E9", "F"]

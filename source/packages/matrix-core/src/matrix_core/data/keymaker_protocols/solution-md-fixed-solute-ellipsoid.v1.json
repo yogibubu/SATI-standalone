@@ -1,0 +1,36 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "solution-md-fixed-solute-ellipsoid.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "keymaker",
+  "entrypoint": "KEYMAKER",
+  "title": "Immutable solvated-ellipsoid MD initialization",
+  "summary": "For every solution MD request, construct a spherical solvent bath around a principal-axis solute, carve its cavity, deform and clip the bath to the target ellipsoid, and keep the solute pose fixed for propagation and restart; pure-solvent MD is exempt.",
+  "calculation_protocol": "sampling.molecular_dynamics.v1",
+  "aliases": ["solution_md", "fixed_solute_solution_md", "solvated_ellipsoid_md"],
+  "dependencies": [],
+  "routes": [],
+  "inputs": [
+    {"name": "simulation_request", "schema": "matrix.keymaker.simulation_request.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "boundary", "schema": "matrix.epoc.boundary_request.v1", "required": true},
+    {"name": "trajectory", "schema": "matrix.keymaker.mifune_rigid_trajectory.v1", "required": true}
+  ],
+  "gates": [
+    "exactly one count-one solute and one solvent species",
+    "ARCHITECT spherical-parent cavity deformation and whole-molecule clipping",
+    "explicit ellipsoid derived from principal-frame solute bounds, solvent vdW diameter, shell count and end clearance",
+    "immutable zero solute mobility, momentum and pose across propagation and restart",
+    "boundary and packing digest validation",
+    "pure-solvent-only exemption"
+  ],
+  "implementation": {
+    "owner_api": "matrix_gui.owner_engines.simulation_boundary",
+    "action": "resolve_boundary_contract"
+  },
+  "coordinate_policy": "Place the solute geometric centre at the ellipsoid centre, align it with deterministic principal axes, and preserve that initial pose exactly.",
+  "backend_policy": "KEYMAKER delegates construction to ARCHITECT, confinement to EPOC and rigid propagation to MIFUNE; no solution-MD backend may bypass the frozen packing.",
+  "change_policy": "new_version_and_explicit_approval"
+}

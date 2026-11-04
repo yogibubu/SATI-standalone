@@ -1,0 +1,823 @@
+{
+  "schema": "matrix.calculation_protocol_atlas.v1",
+  "atlas_id": "nano-matrix-calculation-protocols-v13",
+  "manifest_version": "13.0.0",
+  "status": "approved",
+  "entrypoint_policy": "keymaker_is_the_only_user_facing_calculation_launcher",
+  "scientific_decision_policy": "scientific_owner_only",
+  "change_policy": "new_manifest_version_and_explicit_approval",
+  "lifecycle": [
+    "request",
+    "owner_prepare",
+    "owner_preflight",
+    "exact_launch_plan",
+    "explicit_authorization",
+    "execute",
+    "monitor",
+    "owner_validate",
+    "promote",
+    "provenance"
+  ],
+  "protocols": [
+    {
+      "id": "input.switch.v1",
+      "aliases": [
+        "switch_normalization"
+      ],
+      "category": "input",
+      "owner_operation": "switch",
+      "stationary_point": "not_applicable",
+      "topology_policy": "source_graph_only_oracle_perceives",
+      "coordinate_policy": "deterministic_cartesian_seed",
+      "backend_policy": "resident_switch_parser",
+      "result_gate": "validated_atom_mapping_and_geometry_seed"
+    },
+    {
+      "id": "analysis.apoc.v1",
+      "aliases": [
+        "apoc_electronic_state"
+      ],
+      "category": "analysis",
+      "owner_operation": "apoc",
+      "stationary_point": "not_applicable",
+      "topology_policy": "frozen_oracle_atom_mapping",
+      "coordinate_policy": "validated_ao_metric_and_electronic_state",
+      "backend_policy": "declared_qm_result_only",
+      "result_gate": "validated_electron_count_density_and_observables"
+    },
+    {
+      "id": "qm.energy.v1",
+      "aliases": [
+        "single_point",
+        "energy"
+      ],
+      "category": "qm",
+      "owner_operation": "qm",
+      "stationary_point": "not_applicable",
+      "topology_policy": "frozen_after_oracle",
+      "coordinate_policy": "owner_declared",
+      "backend_policy": "exact_qm_capability_registry",
+      "result_gate": "validated_energy_and_electronic_state"
+    },
+    {
+      "id": "qm.gradient.v1",
+      "aliases": [
+        "gradient",
+        "energy_gradient"
+      ],
+      "category": "qm",
+      "owner_operation": "qm",
+      "stationary_point": "not_applicable",
+      "topology_policy": "frozen_after_oracle",
+      "coordinate_policy": "owner_declared",
+      "backend_policy": "exact_qm_capability_registry",
+      "result_gate": "validated_energy_gradient_and_state"
+    },
+    {
+      "id": "qm.hessian.v1",
+      "aliases": [
+        "hessian",
+        "frequency",
+        "stationary_hessian"
+      ],
+      "category": "qm",
+      "owner_operation": "qm",
+      "stationary_point": "explicit_minimum_or_transition_state",
+      "topology_policy": "frozen_after_oracle",
+      "coordinate_policy": "sonic_or_mass_weighted_normal_modes_as_declared",
+      "backend_policy": "exact_qm_capability_registry",
+      "result_gate": "validated_symmetric_hessian_rank_and_mode_contract"
+    },
+    {
+      "id": "optimization.minimum.v1",
+      "aliases": [
+        "minimum",
+        "minimum_optimization"
+      ],
+      "category": "optimization",
+      "owner_operation": "link",
+      "stationary_point": "minimum",
+      "topology_policy": "minimum_atlas_frozen_for_external_optimizers_dynamic_only_in_link",
+      "coordinate_policy": "minimum_oracle_smith_contract",
+      "backend_policy": "backend_supplies_only_declared_derivatives",
+      "result_gate": "converged_minimum_and_final_oracle_reanalysis"
+    },
+    {
+      "id": "optimization.transition_state.v1",
+      "aliases": [
+        "transition_state",
+        "ts_optimization"
+      ],
+      "category": "optimization",
+      "owner_operation": "link",
+      "stationary_point": "transition_state",
+      "topology_policy": "reactive_zone_from_oracle_ts_contract",
+      "coordinate_policy": "transition_state_oracle_smith_contract",
+      "backend_policy": "backend_supplies_only_declared_derivatives",
+      "result_gate": "converged_stationary_point_and_approximate_hessian_index_one"
+    },
+    {
+      "id": "optimization.conical_intersection.v1",
+      "aliases": [
+        "meci",
+        "conical_intersection"
+      ],
+      "category": "optimization",
+      "owner_operation": "link",
+      "stationary_point": "minimum_energy_crossing_seam",
+      "topology_policy": "oracle_topology_frozen_with_link_chart_lifecycle",
+      "coordinate_policy": "symmetry_adapted_nonredundant_sycart_or_sonic",
+      "backend_policy": "fast_tda_energies_gradients_and_interstate_numerator_with_apoc_subspace_tracking",
+      "result_gate": "closed_energy_gap_and_projected_seam_gradient_with_rank_two_branching_plane"
+    },
+    {
+      "id": "reaction_path.irc.v1",
+      "aliases": [
+        "irc",
+        "reaction_path"
+      ],
+      "category": "reaction_path",
+      "owner_operation": "link",
+      "stationary_point": "transition_state",
+      "topology_policy": "dynamic_oracle_reperception_at_accepted_points",
+      "coordinate_policy": "link_path_contract",
+      "backend_policy": "backend_supplies_only_declared_derivatives",
+      "result_gate": "validated_bidirectional_basin_connection"
+    },
+    {
+      "id": "surface.scan.v1",
+      "aliases": [
+        "scan",
+        "pes_scan",
+        "pes_exploration"
+      ],
+      "category": "surface",
+      "owner_operation": "link",
+      "stationary_point": "not_applicable",
+      "topology_policy": "oracle_reperception_at_declared_boundaries",
+      "coordinate_policy": "declared_sonic_or_cartesian_scan_variables",
+      "backend_policy": "backend_supplies_only_declared_properties",
+      "result_gate": "complete_validated_scan_grid"
+    },
+    {
+      "id": "surface.selective_anharmonic.v1",
+      "aliases": [
+        "selective_anharmonic",
+        "transverse_qff"
+      ],
+      "category": "surface",
+      "owner_operation": "trinity",
+      "stationary_point": "explicit_minimum_or_transition_state",
+      "topology_policy": "frozen_after_oracle",
+      "coordinate_policy": "validated_sonic_subspace",
+      "backend_policy": "exact_qm_capability_registry",
+      "result_gate": "validated_reduced_force_field"
+    },
+    {
+      "id": "sampling.conformer.v1",
+      "aliases": [
+        "conformer_search",
+        "exploration"
+      ],
+      "category": "sampling",
+      "owner_operation": "sentinel",
+      "stationary_point": "not_applicable",
+      "topology_policy": "dynamic_oracle_contract",
+      "coordinate_policy": "sentinel_declared_proposal_space",
+      "backend_policy": "resident_field_or_authorized_qm_evaluator",
+      "result_gate": "validated_ensemble_and_cypher_reduction"
+    },
+    {
+      "id": "sampling.molecular_dynamics.v1",
+      "aliases": [
+        "md",
+        "molecular_dynamics"
+      ],
+      "category": "sampling",
+      "owner_operation": "mifune",
+      "stationary_point": "not_applicable",
+      "topology_policy": "owner_declared_fixed_or_reactive_model",
+      "coordinate_policy": "cartesian_phase_space",
+      "backend_policy": "resident_field_or_authorized_evaluator",
+      "result_gate": "restartable_trajectory_and_conservation_diagnostics"
+    },
+    {
+      "id": "sampling.monte_carlo.v1",
+      "aliases": [
+        "mc",
+        "monte_carlo"
+      ],
+      "category": "sampling",
+      "owner_operation": "sentinel",
+      "stationary_point": "not_applicable",
+      "topology_policy": "owner_declared_fixed_or_reactive_model",
+      "coordinate_policy": "sentinel_declared_proposal_space",
+      "backend_policy": "resident_field_or_authorized_evaluator",
+      "result_gate": "restartable_chain_and_acceptance_diagnostics"
+    },
+    {
+      "id": "sampling.npt.v1",
+      "aliases": [
+        "npt",
+        "npt_dynamics"
+      ],
+      "category": "sampling",
+      "owner_operation": "mifune",
+      "stationary_point": "not_applicable",
+      "topology_policy": "owner_declared_fixed_or_reactive_model",
+      "coordinate_policy": "cartesian_phase_space_and_cell",
+      "backend_policy": "resident_field_or_authorized_evaluator",
+      "result_gate": "restartable_npt_state_and_ensemble_diagnostics"
+    },
+    {
+      "id": "field.fit.v1",
+      "aliases": [
+        "zaff_fit",
+        "force_field_fit"
+      ],
+      "category": "field",
+      "owner_operation": "architect",
+      "stationary_point": "not_applicable",
+      "topology_policy": "oracle_contract_per_training_geometry",
+      "coordinate_policy": "smith_sonic_training_contract",
+      "backend_policy": "architect_declared_reference_data",
+      "result_gate": "validated_transferability_and_residual_contract"
+    },
+    {
+      "id": "spectroscopy.variational.v1",
+      "aliases": [
+        "dvr",
+        "vci",
+        "rovibrational"
+      ],
+      "category": "spectroscopy",
+      "owner_operation": "trinity",
+      "stationary_point": "explicit_minimum_or_transition_state",
+      "topology_policy": "frozen_validated_input_contract",
+      "coordinate_policy": "owner_validated_mode_or_path_basis",
+      "backend_policy": "resident_solver",
+      "result_gate": "validated_levels_assignments_and_convergence"
+    },
+    {
+      "id": "refinement.semiexperimental.v1",
+      "aliases": [
+        "morpheus",
+        "semiexperimental_refinement"
+      ],
+      "category": "refinement",
+      "owner_operation": "morpheus",
+      "stationary_point": "minimum",
+      "topology_policy": "frozen_oracle_contract",
+      "coordinate_policy": "smith_sonic_fit_basis",
+      "backend_policy": "resident_fit_with_explicit_observation_policy",
+      "result_gate": "full_rank_reliable_fit_and_structural_gate"
+    },
+    {
+      "id": "thermochemistry.rrho.v1",
+      "aliases": [
+        "thermochemistry",
+        "rrho"
+      ],
+      "category": "thermochemistry",
+      "owner_operation": "thermo",
+      "stationary_point": "explicit_minimum_or_transition_state",
+      "topology_policy": "frozen_validated_input_contract",
+      "coordinate_policy": "validated_normal_modes",
+      "backend_policy": "resident_analysis",
+      "result_gate": "validated_partition_functions_and_state_count"
+    },
+    {
+      "id": "kinetics.network.v1",
+      "aliases": [
+        "kinetics",
+        "rate_network",
+        "rrkm"
+      ],
+      "category": "kinetics",
+      "owner_operation": "kinetics",
+      "stationary_point": "explicit_minima_and_transition_states",
+      "topology_policy": "versioned_reaction_network",
+      "coordinate_policy": "validated_dos_and_transition_state_handoffs",
+      "backend_policy": "resident_analysis",
+      "result_gate": "validated_rates_balance_and_network_solution"
+    },
+    {
+      "id": "perception.oracle.v1",
+      "aliases": [
+        "oracle_perception"
+      ],
+      "category": "perception",
+      "owner_operation": "oracle",
+      "stationary_point": "explicit_minimum_or_transition_state",
+      "topology_policy": "oracle_atlas_selected_by_declared_task_regime",
+      "coordinate_policy": "primitive_sources_only",
+      "backend_policy": "resident_analysis",
+      "result_gate": "validated_oracle_contract"
+    },
+    {
+      "id": "coordinates.sonic.v1",
+      "aliases": [
+        "smith_sonic"
+      ],
+      "category": "coordinates",
+      "owner_operation": "smith",
+      "stationary_point": "inherited_from_oracle_contract",
+      "topology_policy": "consume_oracle_contract_without_reperception",
+      "coordinate_policy": "atlas_primitives_salcs_and_macrofamilies",
+      "backend_policy": "resident_analysis",
+      "result_gate": "exact_rank_and_serialization_preflight"
+    },
+    {
+      "id": "spectroscopy.rotational.v1",
+      "aliases": [
+        "rotational_spectroscopy",
+        "wms_rot"
+      ],
+      "category": "spectroscopy",
+      "owner_operation": "rovib",
+      "stationary_point": "minimum",
+      "topology_policy": "frozen_validated_input_contract",
+      "coordinate_policy": "principal_axes_and_declared_reduction",
+      "backend_policy": "resident_analysis",
+      "result_gate": "validated_rotational_constants_or_spectrum"
+    },
+    {
+      "id": "spectroscopy.electronic.v1",
+      "aliases": [
+        "electronic_spectroscopy",
+        "uv_vis"
+      ],
+      "category": "spectroscopy",
+      "owner_operation": "et",
+      "stationary_point": "not_applicable",
+      "topology_policy": "frozen_validated_input_contract",
+      "coordinate_policy": "cartesian_electronic_property_evaluation",
+      "backend_policy": "exact_qm_capability_registry",
+      "result_gate": "validated_electronic_states_transitions_and_spectrum"
+    },
+    {
+      "id": "spectroscopy.hdcpt2_gfn2_zaff.v1",
+      "aliases": [
+        "hdcpt2_gfn2_zaff"
+      ],
+      "category": "spectroscopy",
+      "owner_operation": "vpt2_vci",
+      "stationary_point": "minimum_or_declared_harmonic_mode",
+      "topology_policy": "frozen_oracle_atom_mapping",
+      "coordinate_policy": "composite_f2_normal_modes_at_frozen_reference_geometry",
+      "backend_policy": "resident_gfn2_analytic_hessian_and_primitive_delta_zaff",
+      "result_gate": "converged_scc_cpscf_symmetric_qff_finite_fundamentals_and_effective_x"
+    }
+  ],
+  "keymaker_routes": [
+    {
+      "menu": "input",
+      "action": "switch.normalize_source",
+      "option_equals": {},
+      "protocol": "input.switch.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "apoc.analyze_electronic_state",
+      "option_equals": {},
+      "protocol": "analysis.apoc.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "fast_xtb.evaluate",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "qm.gradient.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "sf_tda.evaluate",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "spectroscopy.electronic.v1"
+    },
+    {
+      "menu": "perception",
+      "action": "oracle.perceive",
+      "option_equals": {},
+      "protocol": "perception.oracle.v1"
+    },
+    {
+      "menu": "perception",
+      "action": "smith.build_sonic",
+      "option_equals": {},
+      "protocol": "coordinates.sonic.v1"
+    },
+    {
+      "menu": "exploration",
+      "action": "sentinel_mifune.sample_then_cypher_cluster",
+      "option_equals": {},
+      "protocol": "sampling.conformer.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "keymaker.l0_l1_pl1_exploitation",
+      "option_equals": {
+        "stationary_point": "minimum"
+      },
+      "protocol": "optimization.minimum.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "keymaker.l0_l1_pl1_exploitation",
+      "option_equals": {
+        "stationary_point": "transition_state"
+      },
+      "protocol": "optimization.transition_state.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "tunneling",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "rovib.ground_state_rotational_constants",
+      "option_equals": {},
+      "protocol": "spectroscopy.rotational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "rovib.wmsrot_simulate_and_render",
+      "option_equals": {},
+      "protocol": "spectroscopy.rotational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "morpheus.fit_semiexperimental_geometry",
+      "option_equals": {},
+      "protocol": "refinement.semiexperimental.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "morpheus.fit_msr_cached_corrections",
+      "option_equals": {},
+      "protocol": "refinement.semiexperimental.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "rovib.matched_ir_raman",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "thermo.conformer_ensemble",
+      "option_equals": {},
+      "protocol": "thermochemistry.rrho.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "link.search_ts_then_kinetics.consume_handoff",
+      "option_equals": {},
+      "protocol": "kinetics.network.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "et.excited_states_uv_vis",
+      "option_equals": {},
+      "protocol": "spectroscopy.electronic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "diagonal"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "sparse"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "stretch_coupled"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "geminal_coupled"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "gfn2_residual"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "gfn2_residual_primitive"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "gfn2_residual_two_morse"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "gfn2_morse_cubic_refit"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_xtb_hessian_scales",
+      "option_equals": {
+        "model_version": "1"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_xtb_hessian_scales",
+      "option_equals": {
+        "model_version": "2"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_xtb_hessian_corpus",
+      "option_equals": {
+        "model_version": "2"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_xtb_hessian_corpus",
+      "option_equals": {
+        "model_version": "3"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_xtb_hessian_corpus",
+      "option_equals": {
+        "model_version": "4"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.build_harmonic_field",
+      "option_equals": {},
+      "protocol": "qm.hessian.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.build_selective_anharmonic_field",
+      "option_equals": {},
+      "protocol": "surface.selective_anharmonic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.acquire_isotope_deltabvib",
+      "option_equals": {
+        "method": "auto"
+      },
+      "protocol": "surface.selective_anharmonic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.acquire_isotope_deltabvib",
+      "option_equals": {
+        "method": "isotope_energy_gradient"
+      },
+      "protocol": "surface.selective_anharmonic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.acquire_isotope_deltabvib",
+      "option_equals": {
+        "method": "parent_analytic_hessian"
+      },
+      "protocol": "surface.selective_anharmonic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.normal_mode_derivatives",
+      "option_equals": {},
+      "protocol": "surface.selective_anharmonic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.solve_variational_spectrum",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_single_mode",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_analytic_metric",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_smith_metric",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "exploration",
+      "action": "mifune.detect_connectivity_events",
+      "option_equals": {},
+      "protocol": "sampling.molecular_dynamics.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "link.parallel_sycart_hessian",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "qm.hessian.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_sf_tda",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "optimization.minimum.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_gfn2_zaff",
+      "option_equals": {
+        "backend": "gfn2_zaff_composite"
+      },
+      "protocol": "optimization.minimum.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_gfn2_zaff",
+      "option_equals": {
+        "backend": "gfn2_zaff_composite_two_morse"
+      },
+      "protocol": "optimization.minimum.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_gfn2_zaff",
+      "option_equals": {
+        "backend": "gfn2_zaff_composite_cubic_refit"
+      },
+      "protocol": "optimization.minimum.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_sf_tda_meci",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "optimization.conical_intersection.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "cypher.beyond_pmm_tight_binding",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "spectroscopy.electronic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "fast_tda.qualify_two_photon",
+      "option_equals": {
+        "reference": "std2"
+      },
+      "protocol": "spectroscopy.electronic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "fast_tda.qualify_two_photon_corpus",
+      "option_equals": {
+        "reference": "std2"
+      },
+      "protocol": "spectroscopy.electronic.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "fast_tda.two_photon_gradient",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "spectroscopy.electronic.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_tda_two_photon_strength",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      },
+      "protocol": "optimization.minimum.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "vpt2_vci.solve_hdcpt2_gfn2_zaff",
+      "option_equals": {
+        "model": "gfn2_zaff_harmonic_residual"
+      },
+      "protocol": "spectroscopy.hdcpt2_gfn2_zaff.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "gfn2_residual_two_morse_energy_xh"
+      },
+      "protocol": "field.fit.v1"
+    },
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_gfn2_zaff",
+      "option_equals": {
+        "backend": "gfn2_zaff_composite_two_morse_energy_xh"
+      },
+      "protocol": "optimization.minimum.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "vpt2_vci.solve_hdcpt2_gfn2_zaff",
+      "option_equals": {
+        "model": "gfn2_zaff_harmonic_residual_energy_xh"
+      },
+      "protocol": "spectroscopy.hdcpt2_gfn2_zaff.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_smith_metric_eckart",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_gdv_frame",
+      "option_equals": {},
+      "protocol": "spectroscopy.variational.v1"
+    }
+  ],
+  "execution_directives": [
+    {
+      "id": "gaussian.initial_hessian.owner_selected.v1",
+      "owner_operation": "qm",
+      "applies_to": [
+        "optimization.minimum.v1",
+        "optimization.transition_state.v1"
+      ],
+      "keyword": "CalcHFFC",
+      "allowed_conditions": [
+        "the owner protocol explicitly requires an approximate initial Hessian",
+        "a provenance-matched Hessian checkpoint is unavailable"
+      ],
+      "forbidden_keywords": [
+        "CalcFC"
+      ],
+      "writer_policy": "writer_validates_declared_directive_but_never_selects_it"
+    }
+  ]
+}

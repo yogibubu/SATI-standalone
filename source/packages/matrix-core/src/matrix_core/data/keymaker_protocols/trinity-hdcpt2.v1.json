@@ -1,0 +1,45 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-hdcpt2.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "Completed vibrational HDC Hamiltonian",
+  "summary": "Completed vibrational HDC Hamiltonian through its existing scientific owner; registration validates the contract and does not imply molecular or experimental accuracy.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.hdcpt2",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "configuration",
+      "schema": "matrix.trinity.esalc_hdc_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.trinity.esalc_hdc_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "The TRINITY single-state request schema is mandatory",
+    "Operator units, initial populations and optional temperature are explicit"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.vibronic_hdc_workflow",
+    "action": "run_esalc_hdc_workflow"
+  },
+  "coordinate_policy": "Consume explicit frozen initial/final ESALC states and transport properties through the same native GF basis.",
+  "backend_policy": "Use declared local numerical kernels and resource budgets. This protocol submits no implicit electronic-structure calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

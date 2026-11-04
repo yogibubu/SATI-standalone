@@ -1,0 +1,23 @@
+{
+  "schema": "matrix.gaussian.route-policy.v2",
+  "version": "2.0.0",
+  "default_action": "reject",
+  "forbidden_rules": {
+    "nosymm": {
+      "description": "Disabling Gaussian symmetry is always forbidden.",
+      "aliases": ["NoSymm", "NoSymmetry", "Symm=None", "Symmetry=None"]
+    },
+    "tight": {
+      "description": "Tight Gaussian convergence settings are forbidden by default.",
+      "aliases": ["Tight", "VeryTight", "TightSCF", "VeryTightSCF"]
+    }
+  },
+  "override_policy": {
+    "explicit": true,
+    "route_digest_required": true,
+    "reason_required": true,
+    "per_rule_authorization": true,
+    "non_overridable_rules": ["nosymm"]
+  },
+  "change_policy": "new_manifest_version_and_explicit_approval"
+}

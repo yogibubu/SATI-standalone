@@ -1,0 +1,46 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "entrypoint": "KEYMAKER",
+  "aliases": [],
+  "change_policy": "new_version_and_explicit_approval",
+  "protocol_id": "switch-source-normalization.v1",
+  "owner_operation": "switch",
+  "title": "SWITCH source normalization",
+  "summary": "Normalize a molecular source and produce a deterministic mapped Cartesian seed before ORACLE perception.",
+  "calculation_protocol": "input.switch.v1",
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "input",
+      "action": "switch.normalize_source",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "molecular_source",
+      "schema": "matrix.keymaker.source.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "geometry_seed",
+      "schema": "matrix.geometry.seed.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "supported input format",
+    "stable atom mapping",
+    "finite Cartesian coordinates"
+  ],
+  "implementation": {
+    "owner_api": "matrix_switch.keymaker_handoff",
+    "action": "normalize_source"
+  },
+  "coordinate_policy": "SWITCH creates a mapped seed; ORACLE alone owns chemical perception.",
+  "backend_policy": "Resident SWITCH conversion."
+}

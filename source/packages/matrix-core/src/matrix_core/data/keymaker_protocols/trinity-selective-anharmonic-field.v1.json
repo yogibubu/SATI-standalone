@@ -1,0 +1,21 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-selective-anharmonic-field.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY selective anharmonic field",
+  "summary": "Construct the approved reduced anharmonic field in a validated SONIC or normal-mode subspace.",
+  "calculation_protocol": "surface.selective_anharmonic.v1",
+  "aliases": ["trinity_selective_anharmonic_field"],
+  "dependencies": ["trinity-harmonic-field.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "trinity.build_selective_anharmonic_field", "option_equals": {}}],
+  "inputs": [{"name": "harmonic_field", "schema": "matrix.trinity.harmonic_field.v1", "required": true}],
+  "outputs": [{"name": "anharmonic_field", "schema": "matrix.trinity.selective_anharmonic_field.v1", "required": true}],
+  "gates": ["validated mode selection", "complete displacement stencil", "field symmetry", "restartable provenance"],
+  "implementation": {"owner_api": "matrix_trinity.anharmonic_fields", "action": "build_normal_mode_anharmonic_field"},
+  "coordinate_policy": "Use the validated SONIC subspace or its certified normal-mode image.",
+  "backend_policy": "QM backends provide declared energies or derivatives; TRINITY owns field assembly.",
+  "change_policy": "new_version_and_explicit_approval"
+}

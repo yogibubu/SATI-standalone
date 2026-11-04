@@ -1,0 +1,21 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "mifune-connectivity-events.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "mifune",
+  "entrypoint": "KEYMAKER",
+  "title": "MIFUNE persistent connectivity-event detection",
+  "summary": "Detect persistent bond-breaking and bond-forming events from a restartable trajectory without promoting them to transition states.",
+  "calculation_protocol": "sampling.molecular_dynamics.v1",
+  "aliases": ["mifune_bbfs_events", "mifune_bots_events"],
+  "dependencies": [],
+  "routes": [{"menu": "exploration", "action": "mifune.detect_connectivity_events", "option_equals": {}}],
+  "inputs": [{"name": "trajectory", "schema": "matrix.mifune.trajectory.v1", "required": true}],
+  "outputs": [{"name": "events", "schema": "matrix.mifune.connectivity_events.v1", "required": true}],
+  "gates": ["persistent-window confirmation", "atom-pair canonicalization", "one event per signature", "restartable frame provenance"],
+  "implementation": {"owner_api": "matrix_mifune.events", "action": "detect_bbfs_events"},
+  "coordinate_policy": "Analyze the Cartesian trajectory owned by MIFUNE; subsequent guesses are separate handoffs.",
+  "backend_policy": "Resident event analysis over stored trajectory and bond-order observables.",
+  "change_policy": "new_version_and_explicit_approval"
+}

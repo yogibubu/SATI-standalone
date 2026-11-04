@@ -1,0 +1,41 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-chart-evidence-validation.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY frozen chart evidence validation",
+  "summary": "Verify every archived electronic stencil member and require a source-checked DVR diagnostic for each declared large-amplitude mode.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": ["trinity_chart_evidence_validation"],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.validate_chart_evidence",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {"name": "electronic_stencil_archive", "schema": "matrix.trinity.electronic_stencil_archive.v1", "required": false},
+    {"name": "electronic_stencil_manifest", "schema": "matrix.trinity.electronic_stencil_manifest.v1", "required": false},
+    {"name": "large_amplitude_dvr_assessments", "schema": "matrix.trinity.large_amplitude_dvr.v1", "required": false}
+  ],
+  "outputs": [
+    {"name": "chart_evidence_validation", "schema": "matrix.trinity.chart_evidence_validation.v1", "required": true}
+  ],
+  "gates": [
+    "An electronic stencil archive and its external manifest must be supplied together; empty evidence is rejected",
+    "Archive SHA256, embedded manifest, exact member list, member sizes and member SHA256 values must match",
+    "Every declared large-amplitude mode requires a passing DVR diagnostic for the same one-based mode",
+    "Every DVR diagnostic source file must match its recorded SHA256"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.keymaker_chart_evidence",
+    "action": "validate_chart_evidence"
+  },
+  "coordinate_policy": "Validate chart evidence without changing the frozen ESALC-C or ESALC-I coordinate definitions. Mode numbers in KeyMaker are one-based and converted to zero-based diagnostic indices.",
+  "backend_policy": "Read only saved electronic and DVR evidence; never launch a QM backend during validation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

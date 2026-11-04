@@ -1,0 +1,54 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff4-native-coupling-prune.v1",
+  "manifest_version": "1.0.1",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Observable-controlled pruning and refit of native ZAFF4 couplings",
+  "summary": "Inspect every native mixed coupling, remove redundant or insignificant complete terms, refit retained coefficients and reject reductions failing any available observable or the reference E/G/H gate.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": [
+    "zaff4_prune_couplings"
+  ],
+  "dependencies": [
+    "zaff4-native-coupling-fit.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.prune_native_couplings",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "request",
+      "schema": "matrix.architect.native_coupling_pruning_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "reduction",
+      "schema": "matrix.architect.native_coupling_pruning_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Cover every mapped mixed native coupling; the frozen nonbonded field is unchanged",
+    "Significance is the normalized contribution to declared observables, never a raw coefficient cutoff",
+    "Unobserved couplings are protected rather than assumed insignificant",
+    "Remove complete terms or prelinked symmetry groups including defining-bond switches",
+    "Bound cumulative fixed-coefficient removals, refit retained coefficients and reevaluate every training and independent validation row",
+    "Preserve reference E/G/H to 1e-9 atomic units; reject failed reduction and retain the original artifact",
+    "Finite-observable compression does not certify global potential, spectrum or Golden Rule rate"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.native_coupling_pruning",
+    "action": "run_native_coupling_pruning"
+  },
+  "coordinate_policy": "Retain frozen native primitive identity and symmetry-linked column definitions across training, validation and output.",
+  "backend_policy": "Declared remote host, 128 GiB process limit and worker budget. New quantum controls use LINK/GDV with 128 GB each. Reference consolidation: architect-zaff-hierarchy.v7 preserves the canonical parent forms; native PIC candidates require independent qualification.",
+  "change_policy": "new_version_and_explicit_approval"
+}

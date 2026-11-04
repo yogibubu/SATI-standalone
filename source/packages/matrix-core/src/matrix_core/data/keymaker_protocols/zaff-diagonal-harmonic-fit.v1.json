@@ -1,0 +1,26 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff-diagonal-harmonic-fit.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "ZAFF diagonal harmonic fit",
+  "summary": "Fit symmetry-shared diagonal primitive curvatures from a validated reference Hessian while keeping nonbonded terms explicit.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["zaff_diagonal_harmonic_fit"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "architect.fit_validate_zaff", "option_equals": {"model": "diagonal"}}],
+  "inputs": [
+    {"name": "reference_hessian", "schema": "matrix.qm.hessian.v1", "required": true},
+    {"name": "primitive_manifest", "schema": "matrix.smith.definition.v1", "required": true},
+    {"name": "electrostatics", "schema": "matrix.apoc.charges.v1", "required": true},
+    {"name": "zaff_seed", "schema": "matrix.zaff.field.v1", "required": true}
+  ],
+  "outputs": [{"name": "diagonal_fit", "schema": "matrix.architect.zaff_diagonal_harmonic_fit.v1", "required": true}],
+  "gates": ["approved SONIC/SOOP dependency", "vibrational-rank match", "frequency and assigned-mode residual report", "stationarity report"],
+  "implementation": {"owner_api": "matrix_architect.diagonal_harmonic", "action": "fit_diagonal_harmonic_zaff"},
+  "coordinate_policy": "Use the complete frozen SOOP primitive pool supplied by SMITH.",
+  "backend_policy": "ARCHITECT fits the field; TRINITY owns Hessian representation transformations.",
+  "change_policy": "new_version_and_explicit_approval"
+}

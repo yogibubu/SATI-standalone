@@ -1,0 +1,63 @@
+{
+  "schema": "matrix.ts_exploration_campaign.v1",
+  "campaign_id": "reaction-atlas-ts-exploration-gfn2-v1",
+  "default_expected_outcome": "TRANSITION_STATE",
+  "screening_backend": "GFN2-xTB",
+  "default_image_count": 7,
+  "endpoint_policy": "TWO_OPTIMIZED_MINIMA_WITH_EXPLICIT_ATOM_MAPPING",
+  "reference_sets": [
+    {"set_id":"MATRIX_BAKER_25","role":"qualified exploitation baseline","source":"local qualification artifacts"},
+    {"set_id":"ML_FSM_RIC_40PLUS","role":"public double-ended exploration benchmark","source":"https://github.com/thegomeslab/ML-FSM"}
+  ],
+  "qualification": {
+    "seed_policy": "HIGHEST_BRACKETED_PATH_ENERGY_WITH_LOCAL_CONCAVE_INTERPOLATION",
+    "saddle_policy": "EXACTLY_ONE_NEGATIVE_EXACT_HESSIAN_EIGENVALUE",
+    "connectivity_policy": "BOTH_DESCENDING_BRANCHES_RECOVER_THE_DECLARED_ENDPOINT_BASINS",
+    "comparison_metrics": [
+      "exploration_energy_evaluations",
+      "exploration_gradient_evaluations",
+      "standard_ts_iterations",
+      "seed_to_saddle_mass_weighted_rms",
+      "unintended_topology_changes"
+    ]
+  },
+  "tiers": [
+    {
+      "tier": 0,
+      "method": "ATLAS_PATH_SEVEN_POINT_ENERGY_SCAN",
+      "description": "Periodic SONIC interpolation for connected systems and quaternion SE(3) interpolation for rigid noncovalent partners."
+    },
+    {
+      "tier": 1,
+      "method": "ORTHOGONALLY_RELAXED_SONIC_SCAN",
+      "description": "At fixed endpoint progress, minimize the energy in the SONIC complement using forward and backward continuation."
+    },
+    {
+      "tier": 2,
+      "method": "INTERNAL_COORDINATE_FREEZING_STRING",
+      "description": "Grow locally relaxed internal-coordinate images from both minima when a fixed progress line is too curved.",
+      "campaign_comparators": ["ELASTIC_IMAGE_PAIR", "BITSS", "DIRECT_MAXFLUX"]
+    },
+    {
+      "tier": 3,
+      "method": "DOUBLE_ENDED_GROWING_STRING",
+      "description": "Use a full double-ended string only for multi-step, bifurcating, or persistently branch-inconsistent paths."
+    }
+  ],
+  "cases": [
+    {"case_id":"A01","reaction_class_id":"ATOM_TRANSFER","system":"2-pyridone <-> 2-hydroxypyridine","role":"qualified reference","tier0_builder":"DUAL_ATTACHMENT_CHART","endpoint_source":"LCB26 local records"},
+    {"case_id":"A02","reaction_class_id":"FRAGMENT_TRANSFER","system":"Claisen rearrangement benchmark fragment transfer","role":"polyatomic mobile-fragment test","tier0_builder":"DUAL_FRAGMENT_POSE_CHART","endpoint_source":"ML-FSM Baker case 17 endpoint pair"},
+    {"case_id":"A03","reciprocal_case_id":"A04","reaction_class_id":"RING_OPENING","system":"bicyclo[1.1.0]butane <-> trans-1,3-butadiene","role":"bond breaking plus periodic rehybridization","tier0_builder":"RING_EDGE_AND_PUCKERING_CHART","endpoint_source":"local LCB structures plus ML-FSM benchmark mapping"},
+    {"case_id":"A04","reciprocal_case_id":"A03","reaction_class_id":"RING_CLOSURE","system":"trans-1,3-butadiene <-> bicyclo[1.1.0]butane","role":"reverse-path reciprocity test","tier0_builder":"RING_EDGE_AND_PUCKERING_CHART","endpoint_source":"same mapped endpoints as A03"},
+    {"case_id":"A05","reciprocal_case_id":"A06","reaction_class_id":"DIATOMIC_ELIMINATION","system":"ethane <-> ethene + H2","role":"two-atom leaving-fragment test","tier0_builder":"DIATOMIC_POSE_AND_INTERNAL_CHART","endpoint_source":"campaign endpoint preparation required"},
+    {"case_id":"A06","reciprocal_case_id":"A05","reaction_class_id":"DIATOMIC_ADDITION","system":"ethene + H2 <-> ethane","role":"reverse-path reciprocity test","tier0_builder":"DIATOMIC_POSE_AND_INTERNAL_CHART","endpoint_source":"same mapped endpoints as A05"},
+    {"case_id":"A07","reaction_class_id":"SUBSTITUTION","system":"Cl- + CH3Br <-> CH3Cl + Br-","role":"incoming/leaving-group coupling test","tier0_builder":"COUPLED_INCOMING_LEAVING_CHART","endpoint_source":"campaign endpoint preparation required"},
+    {"case_id":"A08","reaction_class_id":"REARRANGEMENT","system":"H2PO4- intramolecular rearrangement","role":"distributed multibond reaction-kernel test","tier0_builder":"REACTION_KERNEL_CHART","endpoint_source":"ML-FSM Baker case 16 endpoint pair"},
+    {"case_id":"A09","reaction_class_id":"CONFORMATIONAL_TRANSITION","system":"acrolein torsional rotation","role":"acyclic periodic-coordinate test","tier0_builder":"COMMON_PERIODIC_SONIC_PATH","endpoint_source":"ML-FSM Baker case 21 endpoint pair"},
+    {"case_id":"A10","reaction_class_id":"CONFORMATIONAL_TRANSITION","system":"cyclohexane chair <-> chair","role":"ring-puckering path test","tier0_builder":"COMMON_PERIODIC_SONIC_PATH","endpoint_source":"campaign endpoint preparation required"},
+    {"case_id":"A11","reaction_class_id":"NONCOVALENT_REORIENTATION","system":"water-dimer donor/acceptor minima","role":"quaternion orientation and translation test","tier0_builder":"QUATERNION_RIGID_POSE_PATH","endpoint_source":"LCB noncovalent library or campaign preparation"},
+    {"case_id":"A12","reaction_class_id":"NONCOVALENT_REORIENTATION","system":"ammonia-water alternative minima","role":"heterodimer quaternion and hydrogen-bond switch test","tier0_builder":"QUATERNION_RIGID_POSE_PATH","endpoint_source":"LCB noncovalent library or campaign preparation"},
+    {"case_id":"C01","reaction_class_id":"ATOM_ELIMINATION","expected_outcome":"NO_TRANSITION_STATE","system":"homolytic single-atom loss control","role":"expected no-TS negative control","tier0_builder":"DISSOCIATION_SCAN","endpoint_source":"campaign endpoint preparation required"},
+    {"case_id":"C02","reaction_class_id":"ATOM_ADDITION","expected_outcome":"NO_TRANSITION_STATE","system":"reverse single-atom association control","role":"expected no-TS negative control","tier0_builder":"ASSOCIATION_SCAN","endpoint_source":"same mapped endpoints as C01"}
+  ]
+}

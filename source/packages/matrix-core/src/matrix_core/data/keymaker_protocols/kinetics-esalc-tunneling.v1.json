@@ -1,0 +1,85 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "protocol_id": "kinetics-esalc-tunneling.v1",
+  "entrypoint": "KEYMAKER",
+  "owner_operation": "kinetics",
+  "title": "ESALC-I SCT/ZCT and Miller HDCPT2 Wang-Landau kinetics",
+  "summary": "Native internal-coordinate covariant path curvature and centrifugal-dominant SCT/ZCT; certified local Miller channels and finite-action HDC occupation thermal flux. Anharmonic ZPE is unregularized ground-only perturbation theory. HDCPT2 applies to excited spacings. Synthetic mathematical qualification only; no molecular benchmark or global saddle extrapolation is certified.",
+  "calculation_protocol": "kinetics.tunneling.v1",
+  "aliases": [
+    "kinetics_sct",
+    "kinetics_miller_hdc_wl"
+  ],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "kinetics.advanced_tunneling",
+      "option_equals": {
+        "method": "sct"
+      }
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "kinetics.advanced_tunneling",
+      "option_equals": {
+        "method": "zct"
+      }
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "kinetics.advanced_tunneling",
+      "option_equals": {
+        "method": "miller"
+      }
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "kinetics.advanced_tunneling",
+      "option_equals": {
+        "method": "miller_hdc_wang_landau"
+      }
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "kinetics.advanced_tunneling",
+      "option_equals": {
+        "method": "miller_hdc_enumeration"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "tunneling_request",
+      "schema": "matrix.kinetics.advanced_tunneling_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "tunneling_result",
+      "schema": "matrix.kinetics.advanced_tunneling_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Native nonredundant ESALC-I F2/F3/F4/G/G1/G2 with explicit quartic coverage and coordinate identity",
+    "Exactly one unstable saddle mode; the reactive coordinate is never a bound occupation",
+    "SCT and Miller use identical saddle tensors; covariant cubic TS curvature and path-Hessian continuation",
+    "Anharmonic ZPE from vacuum perturbation with positive frequency-sum denominators, without HDC regularization",
+    "HDCPT2 excitation polynomial and existing SENTINEL Wang-Landau; common finite occupation support and independent replicas",
+    "SCT single monotone-sided adiabatic barrier, stable transverse modes and owner-confirmed asymptotes",
+    "Scalar HDC action-domain monotonicity certificate; finite-window rate labels and endpoint terms retained",
+    "All energies and reactant partition functions share one origin; ZPE and barrier counted once",
+    "Local synthetic qualification does not certify deep-tunneling asymptotes or molecular rate accuracy"
+  ],
+  "implementation": {
+    "owner_api": "matrix_kinetics.tunneling_workflow",
+    "action": "run_advanced_tunneling_request"
+  },
+  "coordinate_policy": "Native ESALC-I partial potential derivatives and contravariant metric derivatives. Covariant curvature includes Levi-Civita terms. Arc length in bohr sqrt(amu). Transverse fields must be prepared in the local constrained gauge.",
+  "backend_policy": "Native postprocessing only. LINK/electronic field acquisition is upstream and separately authorized. SCT is an alternative to Miller, not a multiplicative correction to it. HDC rates retain finite local support.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,106 @@
+{
+  "acetone": {
+    "identifier": "resident:acetone",
+    "smiles": "CC(=O)C"
+  },
+  "alanine": {
+    "identifier": "resident:alanine-unspecified-stereochemistry",
+    "smiles": "CC(N)C(=O)O"
+  },
+  "ammonia": {
+    "identifier": "resident:ammonia",
+    "smiles": "N"
+  },
+  "ammoniaca": {
+    "identifier": "resident:ammonia",
+    "smiles": "N"
+  },
+  "benzene": {
+    "identifier": "resident:benzene",
+    "smiles": "c1ccccc1"
+  },
+  "benzene (italian)": {
+    "identifier": "resident:benzene",
+    "smiles": "c1ccccc1"
+  },
+  "etanolo": {
+    "identifier": "resident:ethanol",
+    "smiles": "CCO"
+  },
+  "ethanol": {
+    "identifier": "resident:ethanol",
+    "smiles": "CCO"
+  },
+  "formaldehyde": {
+    "identifier": "resident:formaldehyde",
+    "smiles": "C=O"
+  },
+  "formaldeide": {
+    "identifier": "resident:formaldehyde",
+    "smiles": "C=O"
+  },
+  "formamide": {
+    "identifier": "resident:formamide",
+    "smiles": "NC=O"
+  },
+  "formammide": {
+    "identifier": "resident:formamide",
+    "smiles": "NC=O"
+  },
+  "glycine": {
+    "identifier": "resident:glycine",
+    "smiles": "NCC(=O)O"
+  },
+  "glicina": {
+    "identifier": "resident:glycine",
+    "smiles": "NCC(=O)O"
+  },
+  "methane": {
+    "identifier": "resident:methane",
+    "smiles": "C"
+  },
+  "metano": {
+    "identifier": "resident:methane",
+    "smiles": "C"
+  },
+  "methanol": {
+    "identifier": "resident:methanol",
+    "smiles": "CO"
+  },
+  "metanolo": {
+    "identifier": "resident:methanol",
+    "smiles": "CO"
+  },
+  "saccharin": {
+    "identifier": "resident:saccharin",
+    "smiles": "O=C1NS(=O)(=O)c2ccccc12"
+  },
+  "saccarina": {
+    "identifier": "resident:saccharin",
+    "smiles": "O=C1NS(=O)(=O)c2ccccc12"
+  },
+  "uracil": {
+    "identifier": "resident:uracil",
+    "smiles": "O=C1NC=CC(=O)N1"
+  },
+  "uracile": {
+    "identifier": "resident:uracil",
+    "smiles": "O=C1NC=CC(=O)N1"
+  },
+  "imidazole": {
+    "identifier": "resident:imidazole",
+    "smiles": "c1ncc[nH]1"
+  },
+  "imidazolo": {
+    "identifier": "resident:imidazole",
+    "smiles": "c1ncc[nH]1"
+  },
+  "water": {
+    "identifier": "resident:water",
+    "smiles": "O"
+  },
+  "acqua": {
+    "identifier": "resident:water",
+    "smiles": "O"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schemas/suite-registry-v1.schema.json",
+  "title": "MATRIX unified suite registry v1",
+  "type": "object",
+  "required": ["schema", "packages", "capability_index", "operations"],
+  "properties": {
+    "schema": {"const": "matrix.suite-registry.v1"},
+    "packages": {"type": "array", "minItems": 1},
+    "capability_index": {"type": "object"},
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tool", "operation", "owner_package", "owner_api", "contract"],
+        "properties": {
+          "tool": {"type": "string", "minLength": 1},
+          "operation": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "owner_package": {"type": "string", "pattern": "^matrix-[a-z0-9-]+$"},
+          "owner_api": {"type": "string", "pattern": "^matrix_[A-Za-z0-9_.]+$"},
+          "contract": {"type": "object"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

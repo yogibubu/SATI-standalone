@@ -1,0 +1,41 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "lcb26-mp2-harmonic.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "keymaker",
+  "entrypoint": "KEYMAKER",
+  "title": "LCB26 MP2/def2-TZVP analytic harmonic reference",
+  "summary": "Optimize an exact ordered LCB26 geometry and compute its analytic MP2/def2-TZVP Cartesian Hessian through a certified SONIC ReadAllGIC KeyMaker job.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": ["lcb26_mp2_harmonic", "mp2_def2_tzvp_harmonic_reference"],
+  "dependencies": ["sonic-soop-default.v1", "trinity-harmonic-field.v1"],
+  "routes": [],
+  "inputs": [
+    {"name": "lcb26_geometry", "schema": "matrix.geometry.xyz.v1", "required": true},
+    {"name": "oracle_perception", "schema": "matrix.oracle.topology_snapshot.v1", "required": true},
+    {"name": "sonic_definition", "schema": "matrix.smith.definition.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "analytic_cartesian_hessian", "schema": "matrix.qm.hessian.v1", "required": true},
+    {"name": "lcb26_harmonic_record", "schema": "matrix.lcb26.harmonic_record.v1", "required": true}
+  ],
+  "gates": [
+    "exact LCB26 atom order and starting geometry",
+    "ORACLE perception followed by a complete symmetry-adapted SMITH SONIC chart",
+    "native GDV MP2/def2-TZVP Opt+Freq with ReadAllGIC",
+    "GDV detects the point group and follows it; forced PG and NoSymm are forbidden",
+    "two threads and 8 GB per authorized job",
+    "exact requested execution target with fail-closed routing",
+    "normal termination and one analytic Cartesian Hessian",
+    "Hessian-derived and printed harmonic frequencies agree within the importer tolerance",
+    "optimized geometry and Hessian are rigidly aligned to the immutable LCB26 frame"
+  ],
+  "implementation": {
+    "owner_api": "matrix_gui.keymaker_exploitation",
+    "action": "run_exploitation"
+  },
+  "coordinate_policy": "Retain the exact ordered LCB26 Cartesian seed, freeze the complete SMITH SONIC chart, transport it with ReadAllGIC, and rotate the final geometry and Hessian back to the parent LCB26 frame without remapping atoms.",
+  "backend_policy": "KeyMaker alone authorizes and routes native GDV MP2/def2-TZVP Opt+Freq; GDV detects and follows symmetry, the requested host is mandatory, and neither direct backend launch nor NoSymm nor forced PG is permitted.",
+  "change_policy": "new_version_and_explicit_approval"
+}

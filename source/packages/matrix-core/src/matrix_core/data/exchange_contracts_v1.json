@@ -1,0 +1,3185 @@
+{
+  "schema": "matrix.exchange_contract_index.v1",
+  "contracts": [
+    {
+      "identifier": "matrix.lock.adaptive_nmode_couplings.v1",
+      "required_fields": [
+        "basis_convergence_certified",
+        "basis_convergence_scope",
+        "combined_error_estimate_MHz",
+        "coupled_mode_indices",
+        "evaluated_models",
+        "evaluation_count",
+        "experimental_data_used_for_selection",
+        "frequency_budget_MHz",
+        "full_frequencies_MHz",
+        "history",
+        "mandatory_blocks",
+        "maximum_error_ratio",
+        "maximum_evaluations",
+        "numerical_checks",
+        "numerical_envelope_MHz",
+        "numerical_policy",
+        "observable_comparisons",
+        "omitted_blocks",
+        "property_basis_convergence_certified",
+        "qualified",
+        "schema",
+        "scope",
+        "selected_blocks",
+        "selected_frequencies_MHz",
+        "selected_minus_full_MHz",
+        "selection_rule"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/adaptive_couplings.py",
+          "line": 294,
+          "scope": "select_nmode_couplings",
+          "literal_fields": [
+            "schema",
+            "qualified",
+            "selected_blocks",
+            "omitted_blocks",
+            "mandatory_blocks",
+            "frequency_budget_MHz",
+            "coupled_mode_indices",
+            "evaluated_models",
+            "selection_rule",
+            "maximum_error_ratio",
+            "selected_minus_full_MHz",
+            "evaluation_count",
+            "maximum_evaluations",
+            "history",
+            "full_frequencies_MHz",
+            "selected_frequencies_MHz",
+            "basis_convergence_certified",
+            "numerical_policy",
+            "numerical_checks",
+            "numerical_envelope_MHz",
+            "combined_error_estimate_MHz",
+            "experimental_data_used_for_selection",
+            "observable_comparisons",
+            "property_basis_convergence_certified",
+            "basis_convergence_scope",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.assignment_candidates.v1",
+      "required_fields": [
+        "accepted_count",
+        "rows",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_search.py",
+          "line": 200,
+          "scope": "propose_spectral_assignments",
+          "literal_fields": [
+            "schema",
+            "rows",
+            "accepted_count",
+            "network",
+            "search",
+            "scope"
+          ]
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_review.py",
+          "line": 86,
+          "scope": "reviewed_assignment_report",
+          "literal_fields": [
+            "schema",
+            "rows",
+            "accepted_count",
+            "review_sha256",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.assignment_exploration.v1",
+      "required_fields": [
+        "parameter_groups_preserved",
+        "physical_LAM_core_preserved",
+        "rotational_order",
+        "schema",
+        "scope",
+        "spin_surfaces_preserved",
+        "suppressed",
+        "symmetry_metadata_preserved"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_exploration.py",
+          "line": 55,
+          "scope": "build_assignment_exploration",
+          "literal_fields": [
+            "schema",
+            "rotational_order",
+            "suppressed",
+            "physical_LAM_core_preserved",
+            "symmetry_metadata_preserved",
+            "parameter_groups_preserved",
+            "spin_surfaces_preserved",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.assignment_hypotheses.v1",
+      "required_fields": [
+        "all_fits_qualified",
+        "budget",
+        "common_measurement_ids",
+        "criterion",
+        "hypotheses",
+        "null_alternative_retained",
+        "objective_gap",
+        "schema",
+        "scope",
+        "search_complete",
+        "selected_assignments",
+        "selected_identity",
+        "selected_refinement",
+        "status"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_hypotheses.py",
+          "line": 115,
+          "scope": "compare_assignment_hypotheses",
+          "literal_fields": [
+            "schema",
+            "hypotheses",
+            "selected_identity",
+            "selected_assignments",
+            "selected_refinement",
+            "status",
+            "objective_gap",
+            "search_complete",
+            "null_alternative_retained",
+            "all_fits_qualified",
+            "common_measurement_ids",
+            "budget",
+            "criterion",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.assignment_refinement.v1",
+      "required_fields": [
+        "completed",
+        "last_accepted_values",
+        "observations",
+        "schema",
+        "stages",
+        "status"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_refinement.py",
+          "line": 251,
+          "scope": "refine_exploratory_assignments",
+          "literal_fields": [
+            "schema",
+            "status",
+            "completed",
+            "stages",
+            "observations",
+            "last_accepted_values",
+            "measurement_covariance",
+            "resumed_from_stage",
+            "executed_stages",
+            "declared_evaluation_budget",
+            "scope"
+          ]
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_refinement.py",
+          "line": 152,
+          "scope": "refine_exploratory_assignments",
+          "literal_fields": [
+            "schema",
+            "status",
+            "completed",
+            "stages",
+            "observations",
+            "last_accepted_values"
+          ]
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_spin.py",
+          "line": 397,
+          "scope": "refine_spin_assignments",
+          "literal_fields": [
+            "schema",
+            "backend",
+            "status",
+            "completed",
+            "stages",
+            "observations",
+            "last_accepted_values",
+            "measurement_covariance",
+            "resumed_from_stage",
+            "executed_stages",
+            "declared_evaluation_budget",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.assignment_review.v1",
+      "required_fields": [
+        "alternatives",
+        "catalogue",
+        "decisions",
+        "events",
+        "parameter_diagnostic_scope",
+        "parameters",
+        "profile",
+        "rows",
+        "schema",
+        "scope",
+        "source_sha256"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_review.py",
+          "line": 47,
+          "scope": "record_assignment_decision",
+          "literal_fields": []
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_review.py",
+          "line": 35,
+          "scope": "build_assignment_review",
+          "literal_fields": [
+            "schema",
+            "source_sha256",
+            "rows",
+            "catalogue",
+            "parameters",
+            "parameter_diagnostic_scope",
+            "alternatives",
+            "profile",
+            "events",
+            "decisions",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.assignment_workflow.v1",
+      "required_fields": [
+        "exploration",
+        "peaks",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_workflow.py",
+          "line": 16,
+          "scope": "run_assignment_workflow",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.assignment_workflow_result.v1",
+      "required_fields": [
+        "alternatives",
+        "assignments",
+        "catalogue",
+        "exploration",
+        "refinement",
+        "schema",
+        "scope",
+        "status"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_workflow.py",
+          "line": 83,
+          "scope": "run_assignment_workflow",
+          "literal_fields": [
+            "schema",
+            "status",
+            "exploration",
+            "catalogue",
+            "assignments",
+            "refinement",
+            "alternatives",
+            "scope"
+          ]
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_review.py",
+          "line": 8,
+          "scope": "build_assignment_review",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.blocked_validation.v1",
+      "required_fields": [
+        "all_converged",
+        "folds",
+        "initialization",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/structured_discrepancy.py",
+          "line": 207,
+          "scope": "cross_validate_lam_blocks",
+          "literal_fields": [
+            "schema",
+            "folds",
+            "all_converged",
+            "initialization"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.fit_closure_diagnostics.v1",
+      "required_fields": [
+        "augmented",
+        "bounds",
+        "experimental",
+        "remaining_local_data_rms",
+        "schema",
+        "scope",
+        "stationarity",
+        "whitened_data_rms"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/closure_diagnostics.py",
+          "line": 36,
+          "scope": "diagnose_spectral_fit",
+          "literal_fields": [
+            "schema",
+            "stationarity",
+            "experimental",
+            "augmented",
+            "bounds",
+            "whitened_data_rms",
+            "remaining_local_data_rms",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.full_fit_benchmark.v1",
+      "required_fields": [
+        "blas_threads",
+        "environment",
+        "frequency_tolerance_MHz",
+        "memory_scope",
+        "qualified",
+        "reference_frequencies_MHz",
+        "restart_scope",
+        "runs",
+        "schema",
+        "summaries",
+        "timing_scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/fit_benchmark.py",
+          "line": 91,
+          "scope": "benchmark_lam_fit",
+          "literal_fields": [
+            "schema",
+            "runs",
+            "summaries",
+            "reference_frequencies_MHz",
+            "qualified",
+            "frequency_tolerance_MHz",
+            "blas_threads",
+            "timing_scope",
+            "memory_scope",
+            "restart_scope",
+            "environment"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.joint_rotational_observables.v1",
+      "required_fields": [
+        "covariance_MHz2",
+        "global_jacobian",
+        "ordering",
+        "records",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_global_fit.py",
+          "line": 551,
+          "scope": "_fit_global_lam_spectra",
+          "literal_fields": [
+            "schema",
+            "records",
+            "global_jacobian",
+            "covariance_MHz2",
+            "ordering"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.kinetic_comparison.v1",
+      "required_fields": [
+        "basis_convergence_certified",
+        "frequency_tolerance_MHz",
+        "full_frequencies_MHz",
+        "maximum_frequency_change_MHz",
+        "reduced_frequencies_MHz",
+        "reduced_minus_full_MHz",
+        "refitted",
+        "retained_fraction",
+        "rms_frequency_change_MHz",
+        "schema",
+        "scope",
+        "within_approximation_budget"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/kinetic_hierarchy.py",
+          "line": 94,
+          "scope": "compare_lam_kinetic_models",
+          "literal_fields": [
+            "schema",
+            "retained_fraction",
+            "frequency_tolerance_MHz",
+            "full_frequencies_MHz",
+            "reduced_frequencies_MHz",
+            "reduced_minus_full_MHz",
+            "maximum_frequency_change_MHz",
+            "rms_frequency_change_MHz",
+            "within_approximation_budget",
+            "basis_convergence_certified",
+            "refitted",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.kinetic_reduction.v1",
+      "required_fields": [
+        "averaging",
+        "geometric_scalar",
+        "higher_order_fields",
+        "measure",
+        "retained_fraction",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/kinetic_hierarchy.py",
+          "line": 54,
+          "scope": "reduce_lam_kinetic_dependence",
+          "literal_fields": [
+            "schema",
+            "retained_fraction",
+            "averaging",
+            "measure",
+            "geometric_scalar",
+            "higher_order_fields"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.lam_accuracy.v1",
+      "required_fields": [
+        "converged",
+        "history",
+        "refined",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_accuracy.py",
+          "line": 139,
+          "scope": "qualify_lam_accuracy",
+          "literal_fields": [
+            "schema",
+            "converged",
+            "refined",
+            "history",
+            "reason"
+          ]
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_accuracy.py",
+          "line": 121,
+          "scope": "qualify_lam_accuracy",
+          "literal_fields": [
+            "schema",
+            "converged",
+            "purpose",
+            "refined",
+            "history",
+            "grid_metric",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.lam_basis_qualification.v1",
+      "required_fields": [
+        "converged",
+        "frequency_tolerance_MHz",
+        "history",
+        "intensity_checked",
+        "jacobian_tolerance_MHz",
+        "numerical_budget",
+        "observation_count",
+        "refined",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_qualification.py",
+          "line": 447,
+          "scope": "converge_lam_basis",
+          "literal_fields": [
+            "schema",
+            "converged",
+            "numerical_budget",
+            "refined",
+            "history",
+            "frequency_tolerance_MHz",
+            "jacobian_tolerance_MHz",
+            "observation_count",
+            "intensity_checked",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.lam_effective_manifold.v1",
+      "required_fields": [
+        "active_states",
+        "definition",
+        "derivatives",
+        "h0",
+        "linear",
+        "parameter_paths",
+        "quadratic",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_manifold.py",
+          "line": 47,
+          "scope": "to_dict",
+          "literal_fields": [
+            "schema",
+            "active_states",
+            "h0",
+            "linear",
+            "quadratic",
+            "derivatives",
+            "parameter_paths",
+            "definition",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.lam_fit_resource_plan.v1",
+      "required_fields": [
+        "blas_threads",
+        "cpu_budget",
+        "dataset_workers",
+        "deterministic_schedule",
+        "memory_budget_bytes",
+        "schema",
+        "systems",
+        "workers_per_system"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/resource_planner.py",
+          "line": 197,
+          "scope": "plan_lam_fit_resources",
+          "literal_fields": [
+            "schema",
+            "cpu_budget",
+            "memory_budget_bytes",
+            "dataset_workers",
+            "workers_per_system",
+            "blas_threads",
+            "systems",
+            "deterministic_schedule"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.lam_model_hierarchy.v1",
+      "required_fields": [
+        "fits",
+        "schema",
+        "selection"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_model_hierarchy.py",
+          "line": 31,
+          "scope": "to_dict",
+          "literal_fields": [
+            "schema",
+            "selection",
+            "fits"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.lam_rotational_observables.v1",
+      "required_fields": [
+        "constants_MHz",
+        "definition",
+        "jacobian",
+        "lam_state",
+        "limitations",
+        "parameter_paths",
+        "retained_lam_states",
+        "schema",
+        "tensor_MHz"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_rotational_observables.py",
+          "line": 158,
+          "scope": "lam_rotational_observables",
+          "literal_fields": [
+            "schema",
+            "definition",
+            "lam_state",
+            "constants_MHz",
+            "tensor_MHz",
+            "jacobian",
+            "parameter_paths",
+            "retained_lam_states",
+            "limitations"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.lm_optimizer_state.v1",
+      "required_fields": [
+        "method",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_fit.py",
+          "line": 710,
+          "scope": "fit_lam_assigned_spectrum",
+          "literal_fields": []
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_fit.py",
+          "line": 720,
+          "scope": "record_solver_state",
+          "literal_fields": [
+            "schema",
+            "method"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.model_selection_linearization.v1",
+      "required_fields": [
+        "penalty_count",
+        "schema",
+        "training_count"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/lam_model_hierarchy.py",
+          "line": 75,
+          "scope": "capture",
+          "literal_fields": [
+            "schema",
+            "training_count",
+            "penalty_count"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.native_spin_effective.v1",
+      "required_fields": [
+        "basis",
+        "maximum_coupling_order",
+        "reference_vectors",
+        "requested_basis_indices",
+        "schema",
+        "spin_model",
+        "two_F"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/native_spin_effective.py",
+          "line": 110,
+          "scope": "to_dict",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.native_spin_reduction_qualification.v1",
+      "required_fields": [
+        "chosen_order",
+        "evaluations",
+        "experimental_data_used",
+        "frequency_budget_MHz",
+        "full_reference_diagonalizations",
+        "history",
+        "maximum_evaluations",
+        "qualified",
+        "reduction_qualified",
+        "schema",
+        "scope",
+        "status",
+        "strength_budget",
+        "strength_convention",
+        "target_indices"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/spin_reduction_control.py",
+          "line": 163,
+          "scope": "qualify_native_spin_reduction",
+          "literal_fields": [
+            "schema",
+            "qualified",
+            "reduction_qualified",
+            "status",
+            "chosen_order",
+            "target_indices",
+            "strength_convention",
+            "frequency_budget_MHz",
+            "strength_budget",
+            "evaluations",
+            "maximum_evaluations",
+            "history",
+            "full_reference_diagonalizations",
+            "experimental_data_used",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.nmode_qm_uncertainty.v1",
+      "required_fields": [
+        "contracted_covariance",
+        "contracted_frequency_cross_covariance",
+        "contracted_values",
+        "derivative_stencils",
+        "derivative_step_comparison",
+        "derivative_step_tolerance",
+        "evaluation_count",
+        "frequencies_MHz",
+        "frequency_covariance_MHz2",
+        "jacobian",
+        "joint_covariance",
+        "method",
+        "output_names",
+        "parameter_covariance",
+        "parameter_registry",
+        "predicate_covariance",
+        "predicates",
+        "qm_covariance_calibrated",
+        "qm_covariance_evidence",
+        "qualified",
+        "rejected_stability_probes",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/nmode_uncertainty.py",
+          "line": 171,
+          "scope": "propagate_nmode_qm_uncertainty",
+          "literal_fields": [
+            "schema",
+            "qualified",
+            "qm_covariance_calibrated",
+            "qm_covariance_evidence",
+            "method",
+            "derivative_stencils",
+            "rejected_stability_probes",
+            "parameter_registry",
+            "parameter_covariance",
+            "output_names",
+            "contracted_values",
+            "contracted_covariance",
+            "frequencies_MHz",
+            "frequency_covariance_MHz2",
+            "contracted_frequency_cross_covariance",
+            "joint_covariance",
+            "jacobian",
+            "derivative_step_comparison",
+            "derivative_step_tolerance",
+            "predicates",
+            "predicate_covariance",
+            "evaluation_count",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.nmode_surface.v1",
+      "required_fields": [
+        "contracted_tensor_fields",
+        "kinetic_tensors",
+        "maximum_vscf_iterations",
+        "potential_reference",
+        "sampled_surface",
+        "schema",
+        "selected_blocks",
+        "stability_preflight",
+        "tensor_scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/adaptive_couplings.py",
+          "line": 82,
+          "scope": "build_nmode_lam_surface",
+          "literal_fields": [
+            "schema",
+            "selected_blocks",
+            "maximum_vscf_iterations",
+            "stability_preflight",
+            "sampled_surface",
+            "potential_reference",
+            "kinetic_tensors",
+            "contracted_tensor_fields",
+            "tensor_scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.penalized_profile_sensitivity.v1",
+      "required_fields": [
+        "augmented_rank",
+        "baseline_chi_square",
+        "complete",
+        "data_rank",
+        "interpretation",
+        "parameter_dependence",
+        "profiles",
+        "qm_width_sensitivity",
+        "schema",
+        "selection",
+        "without_qm_rank"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/fit_identifiability.py",
+          "line": 47,
+          "scope": "profile_and_predicate_sensitivity",
+          "literal_fields": [
+            "schema",
+            "baseline_chi_square",
+            "data_rank",
+            "without_qm_rank",
+            "augmented_rank",
+            "parameter_dependence",
+            "selection",
+            "profiles",
+            "qm_width_sensitivity",
+            "complete",
+            "interpretation"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.physical_spin_response.v1",
+      "required_fields": [
+        "lam_states",
+        "minimum_lam_overlap",
+        "parameter_count",
+        "response_states",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/physical_spin_response.py",
+          "line": 173,
+          "scope": "physical_spin_matrices",
+          "literal_fields": [
+            "schema",
+            "minimum_lam_overlap",
+            "lam_states",
+            "response_states",
+            "parameter_count",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.prediction_uncertainty_budget.v1",
+      "required_fields": [
+        "complete",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/prediction_budget.py",
+          "line": 137,
+          "scope": "prediction_uncertainty_budget",
+          "literal_fields": [
+            "schema",
+            "central_predictions_MHz",
+            "parameter_standard_uncertainty_MHz",
+            "identifiable_predictions",
+            "numerical_error_bound_MHz",
+            "numerical_comparisons",
+            "numerical_interpretation",
+            "model_discrepancy",
+            "total_statistical_standard_uncertainty_MHz",
+            "conditional_95_percent_intervals_MHz",
+            "complete"
+          ]
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/prediction_budget.py",
+          "line": 193,
+          "scope": "lam_prediction_budget",
+          "literal_fields": [
+            "schema",
+            "complete",
+            "reason"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.qc_acquisition.v1",
+      "required_fields": [
+        "observation_noise",
+        "parameter_noise_correlation_retained",
+        "posterior_parameter_covariance",
+        "schema",
+        "scope",
+        "selected_ids",
+        "selected_requests",
+        "selection",
+        "weighted_variance_after",
+        "weighted_variance_before"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/qc_acquisition.py",
+          "line": 126,
+          "scope": "select_qc_candidates",
+          "literal_fields": [
+            "schema",
+            "selected_ids",
+            "selection",
+            "selected_requests",
+            "posterior_parameter_covariance",
+            "weighted_variance_before",
+            "weighted_variance_after",
+            "parameter_noise_correlation_retained",
+            "observation_noise",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.qm_covariance_qualification.v1",
+      "required_fields": [
+        "coefficient_names",
+        "coefficient_units",
+        "confidence",
+        "covariance_identity",
+        "independent_validation_groups",
+        "minimum_groups",
+        "reference_kind",
+        "reference_source_sha256",
+        "schema",
+        "scope",
+        "significance"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/qm_covariance_qualification.py",
+          "line": 73,
+          "scope": "qualify_qm_covariance",
+          "literal_fields": [
+            "schema",
+            "coefficient_names",
+            "coefficient_units",
+            "covariance_identity",
+            "independent_validation_groups",
+            "minimum_groups",
+            "reference_kind",
+            "reference_source_sha256",
+            "confidence",
+            "significance",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.qm_parameter_graph.v1",
+      "required_fields": [
+        "augmented_identifiability",
+        "complete",
+        "correlated_qm_displacement",
+        "experimental_identifiability",
+        "large_shift_sigma",
+        "missing_fitted_paths",
+        "parameters",
+        "qm_covariance",
+        "rank_gain_from_qm",
+        "schema",
+        "unmapped_fitted_paths"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/qm_parameter_graph.py",
+          "line": 12,
+          "scope": null,
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.qm_subspace_fit.v1",
+      "required_fields": [
+        "accepted_linearization_retained",
+        "all_physical_parameters_refined",
+        "experimental_absolute_singular_floor",
+        "experimental_rank",
+        "experimental_scaled_directions",
+        "experimental_singular_values",
+        "final_information",
+        "history",
+        "objective_changed",
+        "optimizer_kernel",
+        "physical_bounds_preserved",
+        "physical_transform",
+        "qm_weak_singular_values",
+        "restart_scope",
+        "schema",
+        "trust_metric",
+        "weak_dimension",
+        "weak_scaled_directions"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/qm_subspace_fit.py",
+          "line": 123,
+          "scope": "fit_identifiable_qm_subspaces",
+          "literal_fields": [
+            "schema",
+            "experimental_rank",
+            "weak_dimension",
+            "experimental_absolute_singular_floor",
+            "experimental_scaled_directions",
+            "weak_scaled_directions",
+            "experimental_singular_values",
+            "qm_weak_singular_values",
+            "physical_transform",
+            "final_information",
+            "trust_metric",
+            "optimizer_kernel",
+            "all_physical_parameters_refined",
+            "objective_changed",
+            "physical_bounds_preserved",
+            "accepted_linearization_retained",
+            "history",
+            "restart_scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.resource_plan.v1",
+      "required_fields": [
+        "blocked_blocks",
+        "blocks",
+        "deterministic_schedule",
+        "input_contract_sha256",
+        "memory_budget_bytes",
+        "ready",
+        "requested_workers",
+        "resume_policy",
+        "schema",
+        "selected_workers"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/resource_planner.py",
+          "line": 12,
+          "scope": null,
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.reviewed_assignments.v1",
+      "required_fields": [
+        "observations",
+        "report",
+        "review_sha256",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_review.py",
+          "line": 89,
+          "scope": "reviewed_assignment_report",
+          "literal_fields": [
+            "schema",
+            "report",
+            "observations",
+            "review_sha256"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.spectral_discrepancy_intervals.v1",
+      "required_fields": [
+        "block_calibration",
+        "block_score_intervals_MHz",
+        "calibration_diagnostics",
+        "calibration_indices",
+        "complete",
+        "conditional_intervals_MHz",
+        "conditional_residual_mean_MHz",
+        "conditional_standard_uncertainty_MHz",
+        "confidence",
+        "coverage_guaranteed",
+        "interval_scope",
+        "known_error_conditional_mean_MHz",
+        "lengthscale_rule",
+        "lengthscales",
+        "model_discrepancy_variance_MHz2",
+        "model_error_conditional_mean_MHz",
+        "nearest_calibration_distance",
+        "numerical_envelope_MHz",
+        "physical_predictions_MHz",
+        "physical_predictions_corrected",
+        "schema",
+        "support_reasons",
+        "supported_intervals_MHz",
+        "supported_predictions",
+        "training_indices",
+        "validation",
+        "validation_indices"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/spectral_discrepancy_intervals.py",
+          "line": 183,
+          "scope": "spectral_discrepancy_intervals",
+          "literal_fields": [
+            "schema",
+            "calibration_indices",
+            "training_indices",
+            "validation_indices",
+            "confidence",
+            "physical_predictions_MHz",
+            "physical_predictions_corrected",
+            "conditional_residual_mean_MHz",
+            "model_error_conditional_mean_MHz",
+            "known_error_conditional_mean_MHz",
+            "conditional_standard_uncertainty_MHz",
+            "conditional_intervals_MHz",
+            "supported_intervals_MHz",
+            "supported_predictions",
+            "support_reasons",
+            "nearest_calibration_distance",
+            "model_discrepancy_variance_MHz2",
+            "lengthscales",
+            "lengthscale_rule",
+            "numerical_envelope_MHz",
+            "calibration_diagnostics",
+            "block_calibration",
+            "validation",
+            "block_score_intervals_MHz",
+            "interval_scope",
+            "coverage_guaranteed",
+            "complete"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.spectral_profile_fit.v1",
+      "required_fields": [
+        "fit_request",
+        "profile",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/spectral_profile.py",
+          "line": 154,
+          "scope": "fit_native_spectral_profile",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.spectral_profile_result.v1",
+      "required_fields": [
+        "channels",
+        "configuration_sha256",
+        "fit",
+        "line_frequencies_MHz",
+        "line_strengths",
+        "parameters",
+        "schema",
+        "scope",
+        "success"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/assignment_review.py",
+          "line": 33,
+          "scope": "build_assignment_review",
+          "literal_fields": []
+        },
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/spectral_profile.py",
+          "line": 213,
+          "scope": "fit_native_spectral_profile",
+          "literal_fields": [
+            "schema",
+            "success",
+            "fit",
+            "parameters",
+            "channels",
+            "line_frequencies_MHz",
+            "line_strengths",
+            "configuration_sha256",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.spin_fit_information.v1",
+      "required_fields": [
+        "absolute_observation_uncertainties",
+        "covariance",
+        "experimental_covariance",
+        "identifiable_parameters",
+        "interpretation",
+        "null_space",
+        "parameter_count",
+        "parameter_scales",
+        "qm_covariance",
+        "qm_variance_fraction",
+        "rank",
+        "schema"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/spin_prediction_uncertainty.py",
+          "line": 33,
+          "scope": "spin_fit_information",
+          "literal_fields": [
+            "schema",
+            "rank",
+            "parameter_count",
+            "covariance",
+            "experimental_covariance",
+            "qm_covariance",
+            "null_space",
+            "identifiable_parameters",
+            "qm_variance_fraction",
+            "parameter_scales",
+            "absolute_observation_uncertainties",
+            "interpretation"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.spin_prediction_uncertainty.v1",
+      "required_fields": [
+        "complete",
+        "conditional_95_percent_intervals",
+        "experimental_covariance",
+        "external_qm_covariance",
+        "identifiable_predictions",
+        "interpretation",
+        "numerical_comparisons",
+        "numerical_envelope",
+        "observable_units",
+        "parameter_external_cross_covariance",
+        "predictions",
+        "qm_predicate_covariance",
+        "schema",
+        "standard_uncertainty",
+        "statistical_covariance"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/spin_prediction_uncertainty.py",
+          "line": 89,
+          "scope": "spin_prediction_uncertainty",
+          "literal_fields": [
+            "schema",
+            "predictions",
+            "observable_units",
+            "identifiable_predictions",
+            "experimental_covariance",
+            "qm_predicate_covariance",
+            "external_qm_covariance",
+            "parameter_external_cross_covariance",
+            "statistical_covariance",
+            "standard_uncertainty",
+            "numerical_envelope",
+            "numerical_comparisons",
+            "conditional_95_percent_intervals",
+            "complete",
+            "interpretation"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.structural_nonlinear_uncertainty.v1",
+      "required_fields": [
+        "block_bootstrap",
+        "block_jackknife",
+        "block_jackknife_covariance",
+        "complete",
+        "interpretation",
+        "nonlinear_prediction_intervals",
+        "parameter_names",
+        "parametric_replicates",
+        "parametric_summary",
+        "profiles",
+        "schema",
+        "seed"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/structure_uncertainty.py",
+          "line": 309,
+          "scope": "nonlinear_structure_uncertainty",
+          "literal_fields": [
+            "schema",
+            "complete",
+            "profiles",
+            "parametric_replicates",
+            "parametric_summary",
+            "nonlinear_prediction_intervals",
+            "block_jackknife",
+            "block_jackknife_covariance",
+            "block_bootstrap",
+            "seed",
+            "parameter_names",
+            "interpretation"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.structure_pes_fit_result.v1",
+      "required_fields": [
+        "augmented_rank",
+        "comparisons",
+        "convergence",
+        "covariance",
+        "covariance_kind",
+        "derivative_qualification",
+        "experimental_rank",
+        "message",
+        "optimizer_state",
+        "parameter_selection",
+        "producer_evaluations",
+        "rank",
+        "schema",
+        "scope",
+        "singular_values",
+        "success",
+        "unrestricted_covariance",
+        "variables"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/structure_spectrum.py",
+          "line": 668,
+          "scope": "_fit_structure_pes_spectra",
+          "literal_fields": [
+            "covariance_kind",
+            "unrestricted_covariance",
+            "parameter_selection",
+            "schema",
+            "success",
+            "message",
+            "variables",
+            "covariance",
+            "rank",
+            "experimental_rank",
+            "augmented_rank",
+            "singular_values",
+            "convergence",
+            "comparisons",
+            "derivative_qualification",
+            "producer_evaluations",
+            "optimizer_state",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.structured_discrepancy.v1",
+      "required_fields": [
+        "calibration_indices",
+        "final_validation",
+        "kernel",
+        "lengthscales",
+        "model_error_mean_MHz",
+        "model_error_standard_uncertainty_MHz",
+        "physical_predictions_corrected",
+        "schema",
+        "scope",
+        "variance_MHz2"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/structured_discrepancy.py",
+          "line": 126,
+          "scope": "structured_model_discrepancy",
+          "literal_fields": [
+            "schema",
+            "calibration_indices",
+            "variance_MHz2",
+            "lengthscales",
+            "kernel",
+            "model_error_mean_MHz",
+            "model_error_standard_uncertainty_MHz",
+            "final_validation",
+            "physical_predictions_corrected",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.studio_dashboard.v1",
+      "required_fields": [
+        "attention",
+        "identifiability",
+        "model",
+        "next_stage",
+        "parameters",
+        "project",
+        "promotion",
+        "ready_for_next_stage",
+        "resources",
+        "schema",
+        "stage",
+        "stage_description",
+        "surface"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/studio_contract.py",
+          "line": 10,
+          "scope": null,
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.surface_uncertainty.v1",
+      "required_fields": [
+        "central",
+        "mean",
+        "observable_covariance",
+        "observable_labels",
+        "percentile_2_5",
+        "percentile_50",
+        "percentile_97_5",
+        "sample_count",
+        "schema",
+        "seed",
+        "standard_deviation"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/uncertainty.py",
+          "line": 133,
+          "scope": "propagate_surface_model_uncertainty",
+          "literal_fields": [
+            "schema",
+            "sample_count",
+            "seed",
+            "observable_labels",
+            "central",
+            "mean",
+            "standard_deviation",
+            "percentile_2_5",
+            "percentile_50",
+            "percentile_97_5",
+            "observable_covariance"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.tabulated_vscf_properties.v1",
+      "required_fields": [
+        "fields",
+        "numerical_qualification_passed",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/vscf_tensors.py",
+          "line": 149,
+          "scope": "contract_lam_tabulated_vscf_fields",
+          "literal_fields": [
+            "schema",
+            "numerical_qualification_passed",
+            "fields",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.lock.tensor_effective_hamiltonian.v1",
+      "required_fields": [
+        "basis",
+        "internal_spaces",
+        "reference_vectors",
+        "schema",
+        "spin_scope"
+      ],
+      "owner_package": "matrix-rovib",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-rovib/src/matrix_rovib/tensor_downfold.py",
+          "line": 28,
+          "scope": "to_dict",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.active_polynomial_audit.v1",
+      "required_fields": [
+        "active_modes",
+        "active_space_convergence_certified",
+        "coefficient_reporting_tolerance_cm",
+        "degrees",
+        "omitted_mode_coupling_ranking",
+        "omitted_modes",
+        "physical_field_modified",
+        "ranking_is_rate_error_bound",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_active_audit.py",
+          "line": 119,
+          "scope": "audit_active_polynomial",
+          "literal_fields": [
+            "schema",
+            "active_modes",
+            "omitted_modes",
+            "degrees",
+            "coefficient_reporting_tolerance_cm",
+            "omitted_mode_coupling_ranking",
+            "ranking_is_rate_error_bound",
+            "physical_field_modified",
+            "active_space_convergence_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.continuous_hdc_normal_form.v1",
+      "required_fields": [
+        "conventional_scalar_hdcpt2_equivalence",
+        "effective_diagonal_cm",
+        "fixed_model_space_size",
+        "formulation",
+        "harmonic_degeneracy_partition",
+        "orthogonality_error",
+        "regularization_width_cm",
+        "resonance_selection",
+        "retained_cubic_frobenius_cm",
+        "schema",
+        "workers"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_continuous.py",
+          "line": 67,
+          "scope": "complete_continuous_hdc_normal_form",
+          "literal_fields": [
+            "schema",
+            "formulation",
+            "conventional_scalar_hdcpt2_equivalence",
+            "resonance_selection",
+            "harmonic_degeneracy_partition",
+            "regularization_width_cm",
+            "workers",
+            "orthogonality_error",
+            "retained_cubic_frobenius_cm",
+            "fixed_model_space_size",
+            "effective_diagonal_cm"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.esalc_vibronic_result.v1",
+      "required_fields": [
+        "comparison",
+        "configuration_sha256",
+        "internal_checks",
+        "model",
+        "schema",
+        "status",
+        "time_dependent",
+        "time_independent"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_workflow.py",
+          "line": 76,
+          "scope": "run_esalc_vibronic_workflow",
+          "literal_fields": [
+            "schema",
+            "configuration_sha256",
+            "status",
+            "internal_checks",
+            "model",
+            "time_independent",
+            "time_dependent",
+            "comparison"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.harmonic_basis_count_enclosure.v1",
+      "required_fields": [
+        "bin_width_cm",
+        "count_cap",
+        "frequency_rounding",
+        "lower_bound",
+        "lower_count_saturated",
+        "maximum_energy_cm",
+        "maximum_total_quanta",
+        "schema",
+        "upper_bound",
+        "upper_count_saturated"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_active_audit.py",
+          "line": 211,
+          "scope": "harmonic_basis_count_enclosure",
+          "literal_fields": [
+            "schema",
+            "lower_bound",
+            "upper_bound",
+            "lower_count_saturated",
+            "upper_count_saturated",
+            "count_cap",
+            "maximum_energy_cm",
+            "maximum_total_quanta",
+            "bin_width_cm",
+            "frequency_rounding"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.harmonic_nonradiative_rate.v1",
+      "required_fields": [
+        "channel_weights",
+        "coupling_density_hartree2_per_cm",
+        "diagnostics",
+        "gaussian_sigma_cm",
+        "lorentz_hwhm_cm",
+        "method",
+        "provenance",
+        "rate_s_1",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_rates.py",
+          "line": 93,
+          "scope": "harmonic_nonradiative_rate",
+          "literal_fields": [
+            "schema",
+            "method",
+            "rate_s_1",
+            "coupling_density_hartree2_per_cm",
+            "gaussian_sigma_cm",
+            "lorentz_hwhm_cm",
+            "diagnostics",
+            "channel_weights",
+            "scope",
+            "provenance"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.harmonic_radiative_rate.v1",
+      "required_fields": [
+        "diagnostics",
+        "lines",
+        "provenance",
+        "radiative_lifetime_s",
+        "rate_s_1",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_rates.py",
+          "line": 39,
+          "scope": "harmonic_radiative_emission_rate",
+          "literal_fields": [
+            "schema",
+            "rate_s_1",
+            "radiative_lifetime_s",
+            "lines",
+            "diagnostics",
+            "provenance"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.harmonic_vibronic_correlation.v1",
+      "required_fields": [
+        "components",
+        "correlation",
+        "diagnostics",
+        "origin_cm",
+        "provenance",
+        "schema",
+        "times_fs"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_td.py",
+          "line": 86,
+          "scope": "harmonic_vibronic_correlation",
+          "literal_fields": [
+            "schema",
+            "times_fs",
+            "correlation",
+            "components",
+            "origin_cm",
+            "diagnostics",
+            "provenance"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.harmonic_vibronic_td.v1",
+      "required_fields": [
+        "component_densities_au2_per_cm",
+        "components",
+        "correlation",
+        "correlation_includes_origin",
+        "density_au2_per_cm",
+        "diagnostics",
+        "kind",
+        "operator",
+        "origin_cm",
+        "provenance",
+        "schema",
+        "scope",
+        "times_fs",
+        "wavenumbers_cm"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_td.py",
+          "line": 124,
+          "scope": "harmonic_vibronic_td",
+          "literal_fields": [
+            "schema",
+            "kind",
+            "operator",
+            "wavenumbers_cm",
+            "density_au2_per_cm",
+            "component_densities_au2_per_cm",
+            "times_fs",
+            "correlation",
+            "components",
+            "correlation_includes_origin",
+            "origin_cm",
+            "diagnostics",
+            "provenance",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.harmonic_vibronic_ti.v1",
+      "required_fields": [
+        "diagnostics",
+        "kind",
+        "lines",
+        "operator",
+        "origin_cm",
+        "provenance",
+        "schema",
+        "scope",
+        "temperature_K"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_ti_adaptive.py",
+          "line": 128,
+          "scope": "harmonic_vibronic_ti_adaptive",
+          "literal_fields": [
+            "schema",
+            "kind",
+            "operator",
+            "origin_cm",
+            "temperature_K",
+            "lines",
+            "line_columns",
+            "line_format",
+            "diagnostics",
+            "provenance",
+            "scope"
+          ]
+        },
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_ti.py",
+          "line": 152,
+          "scope": "harmonic_vibronic_ti",
+          "literal_fields": [
+            "schema",
+            "kind",
+            "operator",
+            "origin_cm",
+            "temperature_K",
+            "lines",
+            "diagnostics",
+            "provenance",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_branch_transport.v1",
+      "required_fields": [
+        "eigenvalue_preservation_error_cm",
+        "energy_coefficients_modified",
+        "individual_energy_diagonals_are_eigenvalues",
+        "minimum_squared_principal_overlap",
+        "offdiagonal_energy_norm_cm",
+        "previous_blocks_retained",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_transport.py",
+          "line": 104,
+          "scope": "transport_hdc_branches",
+          "literal_fields": [
+            "schema",
+            "minimum_squared_principal_overlap",
+            "eigenvalue_preservation_error_cm",
+            "offdiagonal_energy_norm_cm",
+            "individual_energy_diagonals_are_eigenvalues",
+            "energy_coefficients_modified",
+            "previous_blocks_retained"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_completion.v1",
+      "required_fields": [
+        "alpha",
+        "beta_cm2",
+        "completion_change_frobenius_cm",
+        "conventional_hdcpt2_equivalence",
+        "degenerate_svd_blocks",
+        "exponential_envelope",
+        "harmonic_energy_blocks",
+        "infinite_basis_convergence_certified",
+        "maximum_harmonic_degeneracy",
+        "mixing_weight",
+        "model",
+        "model_space_complete",
+        "orthogonality_error",
+        "residual_norm_cm",
+        "schema",
+        "workers"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_hamiltonian.py",
+          "line": 221,
+          "scope": "complete_hdc_hamiltonian",
+          "literal_fields": [
+            "schema",
+            "model",
+            "conventional_hdcpt2_equivalence",
+            "exponential_envelope",
+            "harmonic_energy_blocks",
+            "degenerate_svd_blocks",
+            "maximum_harmonic_degeneracy",
+            "completion_change_frobenius_cm",
+            "workers",
+            "alpha",
+            "beta_cm2",
+            "mixing_weight",
+            "residual_norm_cm",
+            "orthogonality_error",
+            "model_space_complete",
+            "infinite_basis_convergence_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_energy_frame_assessment.v1",
+      "required_fields": [
+        "centered_projected_deformation_frobenius_cm",
+        "excitation_corrections_cm",
+        "mechanical_rayleigh_energies_cm",
+        "mechanical_residual_norms_cm",
+        "pair_gap_changes_cm",
+        "pair_gap_ratio_defined",
+        "pair_gap_ratios",
+        "pair_order_preserved",
+        "partial_frame",
+        "prescribed_energy_residual_norms_cm",
+        "prescribed_minus_rayleigh_cm",
+        "residual_identity_rhs_cm",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_wavefunction_audit.py",
+          "line": 39,
+          "scope": "assess_hdc_energy_frame",
+          "literal_fields": [
+            "schema",
+            "mechanical_rayleigh_energies_cm",
+            "mechanical_residual_norms_cm",
+            "prescribed_energy_residual_norms_cm",
+            "residual_identity_rhs_cm",
+            "prescribed_minus_rayleigh_cm",
+            "excitation_corrections_cm",
+            "pair_gap_changes_cm",
+            "pair_gap_ratios",
+            "pair_gap_ratio_defined",
+            "pair_order_preserved",
+            "centered_projected_deformation_frobenius_cm",
+            "partial_frame"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_isospectral_frame.v1",
+      "required_fields": [
+        "auxiliary_eigenvalues_discarded",
+        "auxiliary_reference_scale_cm",
+        "continuity_scope",
+        "energies_prescribed",
+        "energy_preservation_error_cm",
+        "exact_degeneracy_partition_used",
+        "minimum_auxiliary_gap_cm",
+        "orthogonality_error",
+        "quartic_globally_diagonalized",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_polynomial.py",
+          "line": 216,
+          "scope": "hdc_isospectral_frame",
+          "literal_fields": [
+            "schema",
+            "energies_prescribed",
+            "auxiliary_eigenvalues_discarded",
+            "quartic_globally_diagonalized",
+            "exact_degeneracy_partition_used",
+            "auxiliary_reference_scale_cm",
+            "minimum_auxiliary_gap_cm",
+            "orthogonality_error",
+            "continuity_scope",
+            "energy_preservation_error_cm"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_normal_form.v1",
+      "required_fields": [
+        "alpha",
+        "beta_cm2",
+        "completion_change_frobenius_cm",
+        "conventional_hdcpt2_equivalence",
+        "first_generator_frobenius",
+        "formulation",
+        "harmonic_energy_blocks",
+        "infinite_basis_convergence_certified",
+        "maximum_column_norm_error",
+        "maximum_harmonic_degeneracy",
+        "mixing_weight",
+        "model",
+        "orthogonality_error",
+        "quartic_globally_diagonalized",
+        "schema",
+        "second_generator_frobenius",
+        "self_energy_quartic_resummation",
+        "workers"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_hamiltonian.py",
+          "line": 338,
+          "scope": "complete_hdc_normal_form",
+          "literal_fields": [
+            "schema",
+            "model",
+            "formulation",
+            "conventional_hdcpt2_equivalence",
+            "quartic_globally_diagonalized",
+            "alpha",
+            "beta_cm2",
+            "mixing_weight",
+            "harmonic_energy_blocks",
+            "maximum_harmonic_degeneracy",
+            "first_generator_frobenius",
+            "second_generator_frobenius",
+            "orthogonality_error",
+            "maximum_column_norm_error",
+            "completion_change_frobenius_cm",
+            "self_energy_quartic_resummation",
+            "workers",
+            "infinite_basis_convergence_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_property_matrix.v1",
+      "required_fields": [
+        "component_shape",
+        "coordinate_binding_checked",
+        "coordinate_id",
+        "full_monomial_action_before_projection",
+        "maximum_taylor_order",
+        "missing_orders_inferred",
+        "name",
+        "property_evaluation",
+        "schema",
+        "strict_perturbative_intensity_truncation",
+        "supplied_derivatives_only",
+        "units"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_properties.py",
+          "line": 97,
+          "scope": "hdc_property_matrix",
+          "literal_fields": [
+            "schema",
+            "name",
+            "units",
+            "coordinate_id",
+            "coordinate_binding_checked",
+            "maximum_taylor_order",
+            "component_shape",
+            "missing_orders_inferred",
+            "supplied_derivatives_only",
+            "full_monomial_action_before_projection",
+            "property_evaluation",
+            "strict_perturbative_intensity_truncation"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_rotational_convolution.v1",
+      "required_fields": [
+        "density_of_states",
+        "energy_bin_edges_cm",
+        "entropy_j_mol_K",
+        "expected_weighted_state_count",
+        "extra_symmetry_division_applied",
+        "heat_capacity_j_mol_K",
+        "histogram_interpolation",
+        "internal_energy_kj_mol",
+        "log_partition_rotational",
+        "log_partition_rovibrational",
+        "schema",
+        "separable_rotor",
+        "state_count_residual",
+        "temperatures_K"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_statistical.py",
+          "line": 75,
+          "scope": "convolve_hdc_rotational_levels",
+          "literal_fields": [
+            "schema",
+            "energy_bin_edges_cm",
+            "density_of_states",
+            "expected_weighted_state_count",
+            "state_count_residual",
+            "temperatures_K",
+            "log_partition_rovibrational",
+            "log_partition_rotational",
+            "internal_energy_kj_mol",
+            "entropy_j_mol_K",
+            "heat_capacity_j_mol_K",
+            "separable_rotor",
+            "extra_symmetry_division_applied",
+            "histogram_interpolation"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_thermal_convergence.v1",
+      "required_fields": [
+        "canonical",
+        "converged",
+        "entropy_j_mol_K",
+        "excitation_partition",
+        "excitation_partition_standard_error",
+        "heat_capacity_j_mol_K",
+        "internal_energy_kj_mol",
+        "log_partition_vibrational",
+        "physical_domain_is_dissociation_limit",
+        "schema",
+        "temperatures_K",
+        "zero_point_counted_once"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_statistical.py",
+          "line": 108,
+          "scope": "converge_hdc_thermal_domain",
+          "literal_fields": [
+            "schema",
+            "canonical",
+            "converged",
+            "temperatures_K",
+            "excitation_partition",
+            "excitation_partition_standard_error",
+            "log_partition_vibrational",
+            "internal_energy_kj_mol",
+            "entropy_j_mol_K",
+            "heat_capacity_j_mol_K",
+            "zero_point_counted_once",
+            "physical_domain_is_dissociation_limit"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_transition_spectrum.v1",
+      "required_fields": [
+        "amplitudes",
+        "diagnostics",
+        "final_levels",
+        "initial_levels",
+        "populations",
+        "schema",
+        "strengths",
+        "wavenumbers_cm",
+        "weighted_strengths"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_hamiltonian.py",
+          "line": 667,
+          "scope": "hdc_transition_spectrum",
+          "literal_fields": [
+            "schema",
+            "initial_levels",
+            "final_levels",
+            "wavenumbers_cm",
+            "amplitudes",
+            "strengths",
+            "populations",
+            "weighted_strengths",
+            "diagnostics"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.hdc_windowed_wang_landau.v1",
+      "required_fields": [
+        "adaptive_observations_used",
+        "converged",
+        "entropy_j_mol_K",
+        "excitation_partition",
+        "excitation_partition_standard_error",
+        "heat_capacity_j_mol_K",
+        "internal_energy_kj_mol",
+        "log_partition_vibrational",
+        "microcanonical_properties",
+        "sampling",
+        "schema",
+        "temperatures_K",
+        "zero_point_counted_once"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_statistical.py",
+          "line": 131,
+          "scope": "sample_hdc_windowed_wang_landau",
+          "literal_fields": [
+            "schema",
+            "sampling",
+            "converged",
+            "temperatures_K",
+            "excitation_partition",
+            "excitation_partition_standard_error",
+            "log_partition_vibrational",
+            "internal_energy_kj_mol",
+            "entropy_j_mol_K",
+            "heat_capacity_j_mol_K",
+            "microcanonical_properties",
+            "zero_point_counted_once",
+            "adaptive_observations_used"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.local_direct_potential_ground_state.v1",
+      "required_fields": [
+        "basis_size",
+        "coordinate_means",
+        "coordinate_metric",
+        "coordinate_second_moments",
+        "finite_box_energy_cm",
+        "global_bound_state_claimed",
+        "grid_points_per_axis",
+        "grid_residual_norm_cm",
+        "grid_size",
+        "grid_step_dimensionless",
+        "half_width_dimensionless",
+        "hamiltonian",
+        "hdc_completion_used",
+        "ho_projection_retained_norm",
+        "local_state_convergence_certified",
+        "maximum_total_quanta",
+        "method",
+        "outer_box_probability",
+        "outer_ho_shell_probability",
+        "polynomial_reexpansion_used",
+        "potential_identifier",
+        "potential_modified",
+        "quartic_coverage",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_local_states.py",
+          "line": 134,
+          "scope": "solve_local_potential_ground_state",
+          "literal_fields": [
+            "schema",
+            "method",
+            "hamiltonian",
+            "potential_identifier",
+            "polynomial_reexpansion_used",
+            "coordinate_metric",
+            "potential_modified",
+            "hdc_completion_used",
+            "global_bound_state_claimed",
+            "local_state_convergence_certified",
+            "half_width_dimensionless",
+            "grid_points_per_axis",
+            "grid_step_dimensionless",
+            "grid_size",
+            "finite_box_energy_cm",
+            "grid_residual_norm_cm",
+            "outer_box_probability",
+            "coordinate_means",
+            "coordinate_second_moments",
+            "maximum_total_quanta",
+            "basis_size",
+            "ho_projection_retained_norm",
+            "outer_ho_shell_probability",
+            "quartic_coverage"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.mode_motion_diagnostics.v1",
+      "required_fields": [
+        "interpretation",
+        "modes",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_mode_diagnostics.py",
+          "line": 48,
+          "scope": "normal_mode_motion_diagnostics",
+          "literal_fields": [
+            "schema",
+            "modes",
+            "interpretation"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.native_pes_variational_result.v1",
+      "required_fields": [
+        "accepted_local_state_files",
+        "cases",
+        "comparisons",
+        "electronic_state",
+        "execution_host",
+        "field_certificate_sha256",
+        "field_identifier",
+        "full_molecular_rate_qualified",
+        "global_bound_state_claimed",
+        "independent_variations",
+        "local_state_numerical_controls_passed",
+        "memory_limit_bytes",
+        "polynomial_reexpansion_used",
+        "potential_modified",
+        "protocol",
+        "request_sha256",
+        "schema",
+        "status",
+        "tolerances"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/native_pes_variational.py",
+          "line": 18,
+          "scope": null,
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.occupation_transition_lines.v1",
+      "required_fields": [
+        "amplitudes_summed_before_squaring",
+        "coordinate_id",
+        "hdc_generator_derived",
+        "maximum_total_quanta",
+        "physical_domain_certificate_checked",
+        "schema",
+        "state_specific_diagonalization",
+        "statistical_weights_applied",
+        "supplied_operator_only",
+        "units"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/occupation_operators.py",
+          "line": 293,
+          "scope": "occupation_transition_lines",
+          "literal_fields": [
+            "schema",
+            "coordinate_id",
+            "units",
+            "maximum_total_quanta",
+            "state_specific_diagonalization",
+            "amplitudes_summed_before_squaring",
+            "supplied_operator_only",
+            "hdc_generator_derived",
+            "statistical_weights_applied",
+            "physical_domain_certificate_checked"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.quartic_descent_witness.v1",
+      "required_fields": [
+        "best_optimizer_converged",
+        "direction",
+        "leading_coefficient_cm",
+        "negative_quartic_ray_found",
+        "potential_modified",
+        "schema",
+        "search_certifies_confinement",
+        "search_start_count",
+        "seed"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_active_audit.py",
+          "line": 159,
+          "scope": "quartic_descent_witness",
+          "literal_fields": [
+            "schema",
+            "negative_quartic_ray_found",
+            "leading_coefficient_cm",
+            "direction",
+            "seed",
+            "search_start_count",
+            "best_optimizer_converged",
+            "search_certifies_confinement",
+            "potential_modified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.sam_hdc_basis_audit.v1",
+      "required_fields": [
+        "allowed_boundary_weight",
+        "bare_potential_unbounded_below_proved",
+        "energy_changes_cm",
+        "energy_tolerance_cm",
+        "infinite_basis_convergence_certified",
+        "levels",
+        "maximum_boundary_weight",
+        "minimum_subspace_overlap",
+        "passed",
+        "required_subspace_overlap",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_hamiltonian.py",
+          "line": 767,
+          "scope": "audit_sam_hdc_convergence",
+          "literal_fields": [
+            "schema",
+            "levels",
+            "energy_changes_cm",
+            "minimum_subspace_overlap",
+            "maximum_boundary_weight",
+            "energy_tolerance_cm",
+            "required_subspace_overlap",
+            "allowed_boundary_weight",
+            "passed",
+            "bare_potential_unbounded_below_proved",
+            "infinite_basis_convergence_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.sam_hdc_completion.v1",
+      "required_fields": [
+        "amplitude_pruning_used",
+        "automatic_component_rule",
+        "bare_potential_unbounded_below_proved",
+        "basis_size",
+        "boundary_weights",
+        "completion_change_frobenius_component_bounds_cm",
+        "component_diagnostics",
+        "component_modes",
+        "conventional_hdcpt2_equivalence",
+        "field_sha256",
+        "formulation",
+        "global_potential_confinement_certified",
+        "infinite_basis_convergence_certified",
+        "local_unbounded_quartic_explicitly_allowed",
+        "maximum_total_quanta_per_component",
+        "mechanical_scale",
+        "model",
+        "quartic_coverage",
+        "quartic_globally_diagonalized",
+        "quartic_model_approximation",
+        "schema",
+        "second_order_limit",
+        "tensor_product_basis",
+        "unbounded_modal_axes"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_hamiltonian.py",
+          "line": 529,
+          "scope": "solve_sam_hdcpt2",
+          "literal_fields": [
+            "schema",
+            "model",
+            "formulation",
+            "quartic_globally_diagonalized",
+            "conventional_hdcpt2_equivalence",
+            "automatic_component_rule",
+            "field_sha256",
+            "quartic_coverage",
+            "quartic_model_approximation",
+            "second_order_limit",
+            "bare_potential_unbounded_below_proved",
+            "unbounded_modal_axes",
+            "global_potential_confinement_certified",
+            "local_unbounded_quartic_explicitly_allowed",
+            "boundary_weights",
+            "component_modes",
+            "component_diagnostics",
+            "basis_size",
+            "maximum_total_quanta_per_component",
+            "tensor_product_basis",
+            "mechanical_scale",
+            "infinite_basis_convergence_certified",
+            "amplitude_pruning_used",
+            "completion_change_frobenius_component_bounds_cm"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.sam_hdc_quadratic_projection.v1",
+      "required_fields": [
+        "condition_number",
+        "fundamentals_cm",
+        "levels",
+        "maximum_calibration_residual_cm",
+        "occupations",
+        "quadratic_exactness_certified",
+        "residuals_cm",
+        "schema",
+        "scope",
+        "x_matrix_cm",
+        "zero_point_cm"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/hdc_hamiltonian.py",
+          "line": 823,
+          "scope": "sam_quadratic_energy_model",
+          "literal_fields": [
+            "schema",
+            "zero_point_cm",
+            "fundamentals_cm",
+            "x_matrix_cm",
+            "occupations",
+            "levels",
+            "residuals_cm",
+            "maximum_calibration_residual_cm",
+            "condition_number",
+            "quadratic_exactness_certified",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.sparse_banded_variational.v1",
+      "required_fields": [
+        "band_storage_bytes",
+        "basis_permutation",
+        "boundary_probabilities",
+        "conservative_workspace_budget_bytes",
+        "dense_hamiltonian_allocated",
+        "dense_transformation_workspace_possible",
+        "energy_boundary_probabilities",
+        "half_bandwidth",
+        "numerical_arithmetic",
+        "residual_norms_cm",
+        "schema",
+        "selected_energy_window_cm",
+        "selected_lowest_level_count"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_sparse.py",
+          "line": 911,
+          "scope": "solve_sparse_banded_variational",
+          "literal_fields": [
+            "schema",
+            "numerical_arithmetic",
+            "basis_permutation",
+            "half_bandwidth",
+            "band_storage_bytes",
+            "conservative_workspace_budget_bytes",
+            "dense_transformation_workspace_possible",
+            "dense_hamiltonian_allocated",
+            "selected_energy_window_cm",
+            "selected_lowest_level_count",
+            "residual_norms_cm",
+            "boundary_probabilities",
+            "energy_boundary_probabilities"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.sparse_gaussian_density.v1",
+      "required_fields": [
+        "estimated_nonzero_products",
+        "final_eigenvectors_computed",
+        "finite_basis_convergence_certified",
+        "input_norm_squared",
+        "matvec_count",
+        "polynomial_degree",
+        "polynomial_error_bound_includes_roundoff",
+        "schema",
+        "spectral_interval_cm"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_sparse.py",
+          "line": 318,
+          "scope": "sparse_gaussian_spectral_density",
+          "literal_fields": [
+            "schema",
+            "spectral_interval_cm",
+            "input_norm_squared",
+            "polynomial_degree",
+            "matvec_count",
+            "estimated_nonzero_products",
+            "final_eigenvectors_computed",
+            "polynomial_error_bound_includes_roundoff",
+            "finite_basis_convergence_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.sparse_gaussian_density_batch.v1",
+      "required_fields": [
+        "estimated_nonzero_products",
+        "filtered_wavepacket_count",
+        "final_eigenvectors_computed",
+        "finite_basis_convergence_certified",
+        "matvec_count",
+        "polynomial_degree",
+        "polynomial_error_bound_includes_roundoff",
+        "schema",
+        "wavepacket_count"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_sparse.py",
+          "line": 806,
+          "scope": "sparse_gaussian_spectral_density_batch",
+          "literal_fields": [
+            "schema",
+            "wavepacket_count",
+            "filtered_wavepacket_count",
+            "polynomial_degree",
+            "matvec_count",
+            "estimated_nonzero_products",
+            "final_eigenvectors_computed",
+            "polynomial_error_bound_includes_roundoff",
+            "finite_basis_convergence_certified"
+          ]
+        },
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_sparse.py",
+          "line": 781,
+          "scope": "sparse_gaussian_spectral_density_batch",
+          "literal_fields": [
+            "schema",
+            "wavepacket_count",
+            "filtered_wavepacket_count",
+            "polynomial_degree",
+            "matvec_count",
+            "estimated_nonzero_products",
+            "final_eigenvectors_computed",
+            "prepared_eigenvectors_used",
+            "polynomial_error_bound_includes_roundoff",
+            "finite_basis_convergence_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.sparse_quartic_hamiltonian.v1",
+      "required_fields": [
+        "basis_size",
+        "coefficient_pruning_used",
+        "confinement",
+        "dense_real_matrix_bytes",
+        "hamiltonian",
+        "hdc_completion_used",
+        "infinite_basis_convergence_certified",
+        "maximum_harmonic_energy_cm",
+        "maximum_total_quanta",
+        "nonzeros",
+        "quartic_coverage",
+        "schema",
+        "sparse_storage_bytes"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_sparse.py",
+          "line": 147,
+          "scope": "build_sparse_quartic_hamiltonian",
+          "literal_fields": [
+            "schema",
+            "hamiltonian",
+            "confinement",
+            "maximum_total_quanta",
+            "maximum_harmonic_energy_cm",
+            "basis_size",
+            "nonzeros",
+            "sparse_storage_bytes",
+            "dense_real_matrix_bytes",
+            "quartic_coverage",
+            "coefficient_pruning_used",
+            "hdc_completion_used",
+            "infinite_basis_convergence_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.spin_orbit_electronic_states.v1",
+      "required_fields": [
+        "coefficients",
+        "dipole_au",
+        "energies_hartree",
+        "parent_state_weights",
+        "schema",
+        "scope"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/vibronic_rates.py",
+          "line": 190,
+          "scope": "spin_orbit_mixed_electronic_states",
+          "literal_fields": [
+            "schema",
+            "energies_hartree",
+            "coefficients",
+            "parent_state_weights",
+            "dipole_au",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.targeted-polyads.v1",
+      "required_fields": [
+        "controls",
+        "converged",
+        "history",
+        "models",
+        "reason",
+        "resumed",
+        "schema",
+        "scope",
+        "tracked_states"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/targeted_polyads.py",
+          "line": 601,
+          "scope": "refine_targeted_polyads",
+          "literal_fields": [
+            "schema",
+            "converged",
+            "reason",
+            "resumed",
+            "controls",
+            "history",
+            "models",
+            "tracked_states",
+            "scope"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.transition_state_hdc.v1",
+      "required_fields": [
+        "bath_components",
+        "component_diagnostics",
+        "conventional_pair_additive_hdcpt2_equivalence",
+        "eliminated_cubic_self_energy_counted_once",
+        "formulation",
+        "hdc_parameters",
+        "independent_components_completed_separately",
+        "infinite_basis_convergence_certified",
+        "model_basis_size",
+        "orthogonality_error",
+        "quartic_globally_diagonalized",
+        "reactive_action",
+        "reactive_coordinate_is_bound",
+        "retained_resonance_window_cm",
+        "scattering_transmission_certified",
+        "schema",
+        "workers"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/transition_state_hdc.py",
+          "line": 138,
+          "scope": "solve_transition_state_hdc",
+          "literal_fields": [
+            "schema",
+            "formulation",
+            "conventional_pair_additive_hdcpt2_equivalence",
+            "reactive_coordinate_is_bound",
+            "reactive_action",
+            "hdc_parameters",
+            "workers",
+            "bath_components",
+            "component_diagnostics",
+            "independent_components_completed_separately",
+            "retained_resonance_window_cm",
+            "eliminated_cubic_self_energy_counted_once",
+            "quartic_globally_diagonalized",
+            "orthogonality_error",
+            "model_basis_size",
+            "infinite_basis_convergence_certified",
+            "scattering_transmission_certified"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.transition_state_normal_form.v1",
+      "required_fields": [
+        "contractions",
+        "formulation",
+        "global_scattering_claimed",
+        "hbar_convention",
+        "maximum_cubic_generator_coefficient",
+        "maximum_quartic_generator_coefficient",
+        "polynomial_terms",
+        "quartic_coverage",
+        "reaction_mode",
+        "reactive_action_commutes",
+        "reactive_coordinate_is_bound",
+        "resonance_window_cm",
+        "retained_bath_resonances",
+        "schema",
+        "stable_modes"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/transition_state.py",
+          "line": 271,
+          "scope": "solve_transition_state_normal_form",
+          "literal_fields": [
+            "schema",
+            "formulation",
+            "reaction_mode",
+            "stable_modes",
+            "quartic_coverage",
+            "resonance_window_cm",
+            "reactive_action_commutes",
+            "retained_bath_resonances",
+            "reactive_coordinate_is_bound",
+            "global_scattering_claimed",
+            "hbar_convention",
+            "maximum_cubic_generator_coefficient",
+            "maximum_quartic_generator_coefficient",
+            "polynomial_terms",
+            "contractions"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.trinity.transition_state_result.v1",
+      "required_fields": [
+        "configuration_sha256",
+        "result",
+        "schema"
+      ],
+      "owner_package": "matrix-trinity",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-trinity/src/matrix_trinity/transition_state_workflow.py",
+          "line": 87,
+          "scope": "run_transition_state_workflow",
+          "literal_fields": [
+            "schema",
+            "configuration_sha256",
+            "result"
+          ]
+        }
+      ],
+      "validation_scope": "Required structure, explicit scalar types, finite portable values and declared scope invariants; equations remain owned by the scientific producer."
+    },
+    {
+      "identifier": "matrix.architect.native_coupling_pruning_result.v1",
+      "required_fields": [
+        "schema",
+        "reduction_accepted",
+        "reference_jet_preserved",
+        "protocol_id",
+        "protocol_sha256",
+        "physical_field_qualified"
+      ],
+      "owner_package": "matrix-architect",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-architect/src/matrix_architect/native_coupling_pruning.py",
+          "line": 141,
+          "scope": "run_native_coupling_pruning",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Candidate shape and explicit physical-qualification status; independent points and asymptotic certification remain separate."
+    },
+    {
+      "identifier": "matrix.architect.zaff4_local_fit.v1",
+      "required_fields": [
+        "schema",
+        "model_level",
+        "completion",
+        "local_derivatives_passed",
+        "physical_field_qualified"
+      ],
+      "owner_package": "matrix-architect",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-architect/src/matrix_architect/zaff4.py",
+          "line": 78,
+          "scope": "run_zaff4_native_protocol",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Candidate shape and explicit physical-qualification status; independent points and asymptotic certification remain separate."
+    },
+    {
+      "identifier": "matrix.architect.zaff4_nonlocal_fit.v1",
+      "required_fields": [
+        "schema",
+        "model_level",
+        "completion",
+        "local_and_nonlocal_gates_passed",
+        "physical_field_qualified"
+      ],
+      "owner_package": "matrix-architect",
+      "producer_evidence": [
+        {
+          "path": "packages/matrix-architect/src/matrix_architect/native_nonlocal_fit.py",
+          "line": 89,
+          "scope": "run_native_nonlocal_protocol",
+          "literal_fields": []
+        }
+      ],
+      "validation_scope": "Candidate shape and explicit physical-qualification status; independent points and asymptotic certification remain separate."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "matrix.keymaker.ts_exploration_qualified_baseline.v1",
+  "campaign_id": "reaction-atlas-ts-exploration-gfn2-v1",
+  "acceptance_policy": "NO_LOSS_OF_ENDPOINT_MINIMA, ACCEPTED_CLASSIFICATION, EXACT_INDEX_ONE, REQUIRED_IRC, OR FROZEN_MAXIMUM_ITERATIONS",
+  "accepted_cases": [
+    {
+      "case_id": "A01",
+      "classification": "QUALIFIED",
+      "saddles": [
+        {
+          "role": "PRIMARY_CASE_SADDLE",
+          "maximum_iterations": 4,
+          "irc_required": true
+        }
+      ]
+    },
+    {
+      "case_id": "A02",
+      "classification": "QUALIFIED",
+      "saddles": [
+        {
+          "role": "PRIMARY_CASE_SADDLE",
+          "maximum_iterations": 34,
+          "irc_required": true
+        }
+      ]
+    },
+    {
+      "case_id": "A03",
+      "classification": "QUALIFIED_MULTISTEP_PATH",
+      "required_path_decomposition": true,
+      "saddles": [
+        {
+          "role": "PRIMARY_CASE_SADDLE",
+          "maximum_iterations": 28,
+          "irc_required": false
+        },
+        {
+          "role": "PATH_DECOMPOSITION_COMPONENT",
+          "maximum_iterations": 4,
+          "irc_required": true
+        }
+      ]
+    },
+    {
+      "case_id": "A04",
+      "classification": "QUALIFIED_BY_RECIPROCAL_PATH",
+      "required_reciprocal_evidence_case": "A03",
+      "saddles": [
+        {
+          "role": "PRIMARY_CASE_SADDLE",
+          "maximum_iterations": 28,
+          "irc_required": false
+        }
+      ]
+    },
+    {
+      "case_id": "A07",
+      "classification": "QUALIFIED",
+      "saddles": [
+        {
+          "role": "PRIMARY_CASE_SADDLE",
+          "maximum_iterations": 13,
+          "irc_required": true
+        }
+      ]
+    },
+    {
+      "case_id": "A09",
+      "classification": "QUALIFIED",
+      "saddles": [
+        {
+          "role": "PRIMARY_CASE_SADDLE",
+          "maximum_iterations": 16,
+          "irc_required": true
+        }
+      ]
+    },
+    {
+      "case_id": "A11",
+      "classification": "QUALIFIED",
+      "saddles": [
+        {
+          "role": "PRIMARY_CASE_SADDLE",
+          "maximum_iterations": 48,
+          "irc_required": true
+        }
+      ]
+    }
+  ]
+}

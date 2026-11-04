@@ -1,0 +1,39 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "b3lyp-mp2-primitive-hessian-scaling.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "B3LYP-to-MP2 transferable primitive-Hessian correction",
+  "summary": "Fit a compact a-priori correction from analytic B3LYP/6-31+G* Hessians to analytic MP2/def2-TZVP harmonic Hessians on disjoint whole-molecule splits.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["b3lyp_mp2_hessian_scaling"],
+  "dependencies": ["trinity-harmonic-field.v1"],
+  "routes": [],
+  "inputs": [
+    {"name": "b3lyp_hessian_corpus", "schema": "matrix.lcb26.harmonic_record.v1", "required": true},
+    {"name": "mp2_hessian_corpus", "schema": "matrix.lcb26.harmonic_record.v1", "required": true},
+    {"name": "primitive_manifests", "schema": "matrix.smith.xtb_primitive_manifest.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "b3lyp_mp2_scaled_hessian_model", "schema": "matrix.architect.b3lyp_mp2_hessian_corpus_fit.v1", "required": true}
+  ],
+  "gates": [
+    "identical molecule split and atom order at both levels",
+    "analytic harmonic Hessians at separately optimized minima",
+    "complete frozen R/A/L/SOOP/D primitive pool",
+    "whole-molecule train/validation split",
+    "positive congruence scale factors",
+    "geometric-mean off-diagonal scaling",
+    "hydrogen-role term retained only if validation RMS decreases",
+    "experimental fundamentals forbidden as targets"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.b3lyp_mp2_hessian_scaling",
+    "action": "fit_b3lyp_mp2_hessian_corpus"
+  },
+  "coordinate_policy": "Transform B3LYP and MP2 Hessians on the identical complete frozen SMITH primitive pool and compare assigned harmonic modes after proper rigid alignment.",
+  "backend_policy": "The fitted model consumes only the two certified analytic Hessian corpora; it does not launch a quantum backend.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-core"
+version = "0.1.0rc8"
+description = "Core MATRIX infrastructure"
+requires-python = ">=3.11"
+
+[project.scripts]
+matrix-keymaker-plan = "matrix_core.scientific_planning:main"
+matrix-keymaker-science = "matrix_core.scientific_lifecycle:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_core = [
+  "data/*.json",
+  "data/keymaker_protocols/*.json",
+  "schemas/*.json",
+]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+# Core contracts are the shared boundary for every MATRIX package.
+extend-select = ["F"]

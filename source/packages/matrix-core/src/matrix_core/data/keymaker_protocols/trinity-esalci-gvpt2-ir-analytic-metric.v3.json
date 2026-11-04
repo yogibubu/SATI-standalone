@@ -1,0 +1,84 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-esalci-gvpt2-ir-analytic-metric.v3",
+  "manifest_version": "3.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY ESALC-I GVPT2 and IR with analytic Wilson B prime",
+  "summary": "Derive vibrational G prime analytically from Wilson B and B prime; acquire complete G double-prime by single-mode differences of G prime, with semidiagonal F4 and D3 from single-mode electronic points.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [
+    "trinity_esalci_gvpt2_ir_analytic_metric"
+  ],
+  "dependencies": [
+    "sonic-soop-default.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_analytic_metric",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "frozen_esalci_chart",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "cartesian_gradient_hessian_evaluator",
+      "schema": "matrix.qm.cartesian_gradient_hessian_provider.v1",
+      "required": true
+    },
+    {
+      "name": "dipole_value_or_jacobian_provider",
+      "schema": "matrix.qm.dipole_provider.v1",
+      "required": true
+    },
+    {
+      "name": "wilson_b_provider",
+      "schema": "matrix.smith.wilson_b_provider.v1",
+      "required": true
+    },
+    {
+      "name": "analytic_wilson_b_prime_provider",
+      "schema": "matrix.smith.wilson_b_prime_provider.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "esalci_gf",
+      "schema": "matrix.gf.internal_result.v1",
+      "required": true
+    },
+    {
+      "name": "curvilinear_anharmonic_field",
+      "schema": "matrix.trinity.sonic_vpt2_field.v1",
+      "required": true
+    },
+    {
+      "name": "gvpt2_ir_spectrum",
+      "schema": "matrix.trinity.gvpt2_ir_spectrum.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Frozen ESALC-I chart and full vibrational rank",
+    "Cartesian-to-ESALC-I B/J closure and Wilson GF identity",
+    "Analytic Wilson B and Cartesian B prime at reference and plus/minus single-mode points; vibrational G prime derived by the mass-weighted product rule",
+    "Complete vibrational G double-prime from single-mode differences of derived G prime; no pair-mode metric samples",
+    "Complete F3 and semidiagonal F4 from only reference and plus/minus single-mode Cartesian Hessians",
+    "Semidiagonal D3 from single-mode analytic dipole Jacobians or dipole values; no pair-mode electronic samples",
+    "Fermi-only resonance polyads and second-order IR transition moments"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.keymaker_esalci_gvpt2",
+    "action": "run_esalci_gvpt2_analytic_metric_protocol"
+  },
+  "coordinate_policy": "Use one frozen full-rank ESALC-I chart. Obtain vibrational G prime from analytic B prime in the same chart. Displace one dimensionless normal mode at a time for Cartesian Hessians, dipole data, metric values and B/B prime. Differentiate G prime along each such mode to obtain every G_ij,kl; never request pair-mode electronic points.",
+  "backend_policy": "KeyMaker authorizes Cartesian E/G/H and dipole providers; SMITH supplies Wilson B and analytic B prime; TRINITY constructs vibrational G prime, single-mode differences, Fermi-only GVPT2 and IR intensities.",
+  "change_policy": "new_version_and_explicit_approval"
+}

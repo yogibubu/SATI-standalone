@@ -1,0 +1,19 @@
+{
+  "schema": "matrix.cyclic_primitive_partition.v1",
+  "status": "frozen",
+  "oracle": {
+    "cyclic_role": "bond-edge ownership, never atom membership alone",
+    "torsions": "endo and exo domains remain distinct",
+    "valence_angles": "endocyclic angles at tetracoordinate ring centers are not independent valence bends",
+    "soop_centers": [3, 4],
+    "soop_support": "one oriented record per center, moving neighbor, and owning ring face; one record for an exocyclic edge",
+    "face_plane": "ring-local, including noncoplanar fused faces",
+    "validation": "complete primary stretches, classified torsions and out-of-plane rows, complete unique SOOP support"
+  },
+  "smith": {
+    "ring_puckering": "endocyclic ORACLE SOOP pool only, including face-local completion for cages",
+    "external_out_of_plane": "exocyclic ORACLE SOOP pool only",
+    "cyclic_gaussian_u_fallback": false,
+    "validation": "full chart rank and normalized Wilson condition number after combination"
+  }
+}

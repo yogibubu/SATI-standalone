@@ -1,0 +1,28 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "xtb-primitive-hessian-scaling.v3",
+  "manifest_version": "3.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Atom-type-free transferable LINK-XTB primitive-Hessian correction",
+  "summary": "Fit a positive a-priori primitive-Hessian correction from coordinate families and continuous same-state LINK-XTB observables only.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["link_xtb_hessian_scaling_v3"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [
+    {"menu": "prediction_assignment", "action": "architect.fit_xtb_hessian_corpus", "option_equals": {"model_version": "3"}}
+  ],
+  "inputs": [
+    {"name": "reference_hessian_corpus", "schema": "matrix.lcb26.harmonic_record.v1", "required": true},
+    {"name": "xtb_hessian_corpus", "schema": "matrix.link.final_cartesian_hessian.v1", "required": true},
+    {"name": "primitive_manifests", "schema": "matrix.smith.xtb_primitive_manifest.v1", "required": true},
+    {"name": "xtb_observables", "schema": "matrix.gfn2.scaling_observables.v1", "required": true}
+  ],
+  "outputs": [{"name": "transferable_scaled_hessian_model", "schema": "matrix.architect.xtb_hessian_corpus_fit.v2", "required": true}],
+  "gates": ["whole-molecule train/validation split", "vibrational-rank match", "LINK-XTB Mayer/SCC provenance", "no categorical atom-type descriptors", "positive congruence scale factors", "mean assigned-mode overlap >= 0.85", "sequential complexity plateau", "factor-count parsimony"],
+  "implementation": {"owner_api": "matrix_architect.xtb_hessian_corpus", "action": "fit_xtb_hessian_corpus"},
+  "coordinate_policy": "Transform both harmonic Hessians on the same complete frozen R/A/L/SOOP/D primitive pool supplied by SMITH; experimental fundamentals are forbidden as targets. Inspect increasing factor counts once and stop at the first registered validation plateau.",
+  "backend_policy": "The frozen model uses only primitive family, geometric-mean Mayer bond order and mean absolute SCC charge from the same LINK-XTB state. Atom types, element-pair tables and external-QM populations are forbidden. Every off-diagonal factor is the geometric mean of its diagonal factors. Apply the frozen coefficients a priori to a new LINK-XTB Hessian without a reference Hessian, molecule-specific fitting or categorical lookup.",
+  "change_policy": "new_version_and_explicit_approval"
+}

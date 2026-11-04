@@ -1,0 +1,28 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff-gfn2-residual-fit.v2",
+  "manifest_version": "2.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Primitive ZAFF fit to the QM minus resident GFN2 residual",
+  "summary": "Fit a ZAFF correction on frozen SMITH primitives, compile each stretching diagonal to Morse and damp its cross terms, so resident GFN2 plus ZAFF has zero gradient and the best available QM Hessian at the best available geometry.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["zaff_gfn2_residual_primitive_fit"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "architect.fit_validate_zaff", "option_equals": {"model": "gfn2_residual_primitive"}}],
+  "inputs": [
+    {"name": "best_geometry_and_smith", "schema": "matrix.smith.definition.v1", "required": true},
+    {"name": "best_qm_hessian", "schema": "matrix.qm.hessian.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "gfn2_baseline", "schema": "matrix.gfn2.residual_baseline.v1", "required": true},
+    {"name": "residual_fit", "schema": "matrix.architect.zaff_gfn2_residual_fit.v1", "required": true},
+    {"name": "residual_field", "schema": "matrix.zaff.force_field.v1", "required": true}
+  ],
+  "gates": ["frozen SMITH primitive order and atom order match G and F", "resident GFN2 converged at G", "G and F provenance retained separately", "QM target gradient assumed zero", "optional single imaginary QM soft mode is replaced by an explicitly recorded positive curvature", "subtract complete resident GFN2 only", "ZAFF charges exactly zero and ZAFF van der Waals terms absent", "ZAFF correction energy exactly zero at G", "primitive runtime reproduces full Cartesian gradient and Hessian at G", "each Morse stretch force and its cross couplings vanish on dissociation"],
+  "implementation": {"owner_api": "matrix_architect.gfn2_residual", "action": "fit_gfn2_residual_zaff"},
+  "coordinate_policy": "Evaluate frozen SMITH primitives at every geometry. Use per-bond Morse alpha from the ZAFF atom-type and neighboring-synthon interpolation with native GFN2 Mayer orders and zero ZAFF charges; match fitted local E/G/H after Morse compilation. Damp every stretch cross term independently. Align F into the G frame and record geometry mismatch.",
+  "backend_policy": "Use only resident matrix_gfn2.GFN2Calculator for the baseline. Subtract GFN2 once from QM; do not add ZAFF electrostatic or van der Waals terms. Each Morse stretch force and every cross coupling containing it tends to zero upon dissociation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

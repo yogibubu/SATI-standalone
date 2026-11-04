@@ -1,0 +1,48 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-gfn2-zaff-cubic-refit.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "Optimize on the explicitly selected GFN2/ZAFF cubic-refit surface",
+  "summary": "Optimize on the explicitly selected GFN2/ZAFF cubic-refit surface. The contract registers the existing owner API and does not certify the accuracy of a particular molecular calculation.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_gfn2_zaff",
+      "option_equals": {
+        "backend": "gfn2_zaff_composite_cubic_refit"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "owner_inputs",
+      "schema": "matrix.zaff.force_field.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "owner_result",
+      "schema": "matrix.trinity.information_efficient_optimizer.summary.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Require the fitted cubic-refit field and its immutable reference",
+    "Select the exact declared composite backend without fallback",
+    "Accept a minimum only through LINK stationary-point gates"
+  ],
+  "implementation": {
+    "owner_api": "matrix_link.optimizer",
+    "action": "optimize_geometry"
+  },
+  "coordinate_policy": "Preserve the ordered molecular identity, isotope masses, coordinate frame and declared owner representation; no geometry remapping or method substitution is implicit.",
+  "backend_policy": "The scientific owner validates the inputs and numerical controls. Any missing electronic-structure acquisition uses the separately authorized calculation gateway; registration alone launches nothing.",
+  "change_policy": "new_version_and_explicit_approval"
+}

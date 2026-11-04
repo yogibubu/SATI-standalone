@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-apoc"
+version = "0.1.0rc8"
+description = "APOC electronic-state, density, Fock, and population services for MATRIX"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+gaussian = ["matrix-gaussian==0.1.0rc8"]
+pyscf = ["matrix-pyscf[runtime]==0.1.0rc8"]
+gaussian-fchk = [
+  "matrix-pyscf[runtime]==0.1.0rc8",
+  "qc-iodata>=1.0",
+]
+trexio = ["trexio>=2.5"]
+orca = [
+  "matrix-orca==0.1.0rc8",
+  "matrix-pyscf[runtime]==0.1.0rc8",
+  "qc-iodata>=1.0",
+  "trexio>=2.5",
+]
+all = [
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-orca==0.1.0rc8",
+  "matrix-pyscf[runtime]==0.1.0rc8",
+  "qc-iodata>=1.0",
+  "trexio>=2.5",
+]
+
+[project.scripts]
+apoc = "matrix_apoc.cli:main"
+matrix-apoc = "matrix_apoc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

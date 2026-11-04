@@ -1,0 +1,48 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "entrypoint": "KEYMAKER",
+  "aliases": [],
+  "change_policy": "new_version_and_explicit_approval",
+  "protocol_id": "apoc-electronic-analysis.v1",
+  "owner_operation": "apoc",
+  "title": "APOC electronic-state analysis",
+  "summary": "Validate and derive electronic observables from the QM state used by LINK.",
+  "calculation_protocol": "analysis.apoc.v1",
+  "dependencies": [
+    "link-minimum-optimization.v1"
+  ],
+  "routes": [
+    {
+      "menu": "exploitation",
+      "action": "apoc.analyze_electronic_state",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "compatible_qm_source",
+      "schema": "matrix.qm.apoc_source.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "electronic_analysis",
+      "schema": "matrix.apoc.analysis.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "AO dimension and metric",
+    "electron count and spin consistency",
+    "finite population observables"
+  ],
+  "implementation": {
+    "owner_api": "matrix_apoc.service",
+    "action": "analyze_source"
+  },
+  "coordinate_policy": "APOC does not alter LINK optimization history or geometry.",
+  "backend_policy": "Consume only declared, validated QM electronic-state sources that provide the APOC contract. MATRIX-GFN2 SCC charges and native bond orders remain GFN2 observables and are never recalculated or relabeled by APOC."
+}

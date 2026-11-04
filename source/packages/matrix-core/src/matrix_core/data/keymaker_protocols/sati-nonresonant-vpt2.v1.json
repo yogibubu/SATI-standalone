@@ -1,0 +1,45 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "sati-nonresonant-vpt2.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "Nonresonant VPT2 vibronic spectroscopy",
+  "summary": "Nonresonant VPT2 vibronic spectroscopy through its existing scientific owner; registration validates the contract and does not imply molecular or experimental accuracy.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "sati.vpt2",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "configuration",
+      "schema": "matrix.sati.esalc_vpt2_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.sati.esalc_vpt2_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Only the declared nonresonant perturbative domain is accepted",
+    "Initial and final ESALC metrics and coordinate maps are validated"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.vibronic_vpt2_workflow",
+    "action": "run_esalc_vpt2_vibronic_workflow"
+  },
+  "coordinate_policy": "Consume explicit frozen initial/final ESALC states and transport properties through the same native GF basis.",
+  "backend_policy": "Use declared local numerical kernels and resource budgets. This protocol submits no implicit electronic-structure calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

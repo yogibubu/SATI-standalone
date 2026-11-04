@@ -1,0 +1,38 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.l2.molpro.v1",
+  "selector": "l2-molpro",
+  "model": "L2",
+  "backend": "molpro",
+  "frozen": true,
+  "formula": "fc-CCSD(T)/def2-TZVPP + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "def2-TZVPP",
+    "artifact": "def2-TZVPP.molpro",
+    "sha256": "c84a3decbb100740c7944f7812d322e2dca26516a4023e48e31c24851f59535a",
+    "definition": "Unmodified Karlsruhe def2-TZVPP orbital basis for H-Ar"
+  },
+  "high_level": {
+    "label": "fc-CCSD(T)/def2-TZVPP",
+    "method": "CCSD(T)",
+    "basis": "def2-TZVPP",
+    "route": "frozen core",
+    "reference": "HF",
+    "correlation_model": "canonical",
+    "derivative": "analytic"
+  },
+  "core_valence": {
+    "type": "explicit_mp2_difference",
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "all_electron": {"method": "MP2;core", "route": ""},
+    "frozen_core": {"method": "MP2", "route": ""},
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "orca",
+    "route": "B3LYP 6-31G* VeryTightSCF Freq"
+  }
+}

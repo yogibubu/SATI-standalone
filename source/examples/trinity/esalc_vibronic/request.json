@@ -1,0 +1,90 @@
+{
+  "schema": "matrix.trinity.esalc_vibronic_request.v1",
+  "initial": {
+    "force_constants_hartree": [
+      [
+        0.12,
+        0.012
+      ],
+      [
+        0.012,
+        0.19
+      ]
+    ],
+    "metric_inverse_amu": [
+      [
+        0.7,
+        0.02
+      ],
+      [
+        0.02,
+        0.9
+      ]
+    ],
+    "reference_esalc": [
+      0.0,
+      0.0
+    ],
+    "coordinate_identity": "native-frozen-esalc",
+    "label": "S0"
+  },
+  "final": {
+    "force_constants_hartree": [
+      [
+        0.13799999999999998,
+        0.009600000000000001
+      ],
+      [
+        0.009600000000000001,
+        0.171
+      ]
+    ],
+    "metric_inverse_amu": [
+      [
+        0.72,
+        0.018
+      ],
+      [
+        0.018,
+        0.87
+      ]
+    ],
+    "reference_esalc": [
+      0.15,
+      -0.07
+    ],
+    "coordinate_identity": "native-frozen-esalc",
+    "label": "S1"
+  },
+  "electronic_gap_cm": 21000.0,
+  "transition_dipole_au": [
+    1.0,
+    0.1,
+    0.2
+  ],
+  "transition_gradient_esalc_au": [
+    [
+      0.2,
+      0.03
+    ],
+    [
+      0.04,
+      -0.1
+    ],
+    [
+      0.01,
+      0.05
+    ]
+  ],
+  "temperature_K": 300.0,
+  "ti": {
+    "maximum_initial_quanta": 3,
+    "maximum_final_quanta": 10,
+    "maximum_class": 2
+  },
+  "td": {
+    "time_step_fs": 0.5,
+    "time_points": 1025,
+    "gaussian_sigma_cm": 100.0
+  }
+}

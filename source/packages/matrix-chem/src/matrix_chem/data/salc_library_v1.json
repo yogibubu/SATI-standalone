@@ -1,0 +1,11 @@
+{
+  "schema": "matrix.salc_library.v1",
+  "algorithms": [
+    {"algorithm_id":"NONE","operation":"IDENTITY","domain":"ONE_DECLARED_BLOCK","preserves_span":true,"preserves_rank":true,"requires_same_irrep":false,"analytic":true,"implementation":"matrix_smith.symmetrization"},
+    {"algorithm_id":"ANALYTIC_POINT_GROUP_PROJECTOR","operation":"GROUP_PROJECTOR","domain":"ONE_DECLARED_BLOCK","preserves_span":true,"preserves_rank":true,"requires_same_irrep":true,"analytic":true,"implementation":"matrix_smith.symmetrization"},
+    {"algorithm_id":"ANALYTIC_LOCAL_BLOCK","operation":"LOCAL_PROJECTOR","domain":"ONE_DECLARED_DOMAIN","preserves_span":true,"preserves_rank":true,"requires_same_irrep":true,"analytic":true,"implementation":"matrix_smith.symmetrization"},
+    {"algorithm_id":"ANALYTIC_B_ORTHOGONAL","operation":"B_METRIC_ORTHOGONALIZATION","domain":"ONE_DECLARED_BLOCK","preserves_span":true,"preserves_rank":true,"requires_same_irrep":true,"analytic":true,"implementation":"matrix_smith.audits.transition_state"},
+    {"algorithm_id":"ANALYTIC_PROJECTOR_THEN_B_ORTHOGONAL","operation":"POINT_GROUP_PROJECTOR_THEN_B_METRIC_ORTHOGONALIZATION","domain":"ONE_DECLARED_BLOCK","preserves_span":true,"preserves_rank":true,"requires_same_irrep":true,"analytic":true,"implementation":"matrix_smith.audits.transition_state"},
+    {"algorithm_id":"EXACT_RANK_REVEALING_COMPLETION","operation":"RANK_REVEALING_SELECTION","domain":"ONE_DECLARED_COMPLETION_BLOCK","preserves_span":true,"preserves_rank":true,"requires_same_irrep":false,"analytic":true,"implementation":"matrix_smith.symmetrization"}
+  ]
+}

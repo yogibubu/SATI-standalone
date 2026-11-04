@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/mreineck/pocketfft",
+  "commit": "4d865cba24359b05b37da4e75aee24498c3b78e7",
+  "file": "pocketfft_hdronly.h",
+  "sha256": "518a95c552aeaee352aa30122137cd9e135d23c91e2863d9272aaa758744c86d",
+  "license": "BSD-3-Clause; see pocketfft.LICENSE",
+  "role": "Standalone use of the same FFT family already used through SciPy"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "matrix.qm.element_policy.v1",
+  "policy_id": "matrix-qm-element-policy-v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "frozen_core_ranges": [
+    {"atomic_number_min": 1, "atomic_number_max": 2, "frozen_electrons": 0, "core_label": "none"},
+    {"atomic_number_min": 3, "atomic_number_max": 10, "frozen_electrons": 2, "core_label": "[He]"},
+    {"atomic_number_min": 11, "atomic_number_max": 18, "frozen_electrons": 10, "core_label": "[Ne]"},
+    {"atomic_number_min": 19, "atomic_number_max": 36, "frozen_electrons": 18, "core_label": "[Ar]"}
+  ],
+  "ecp_contract": {
+    "karlsruhe_recommended_ecp_mandatory": true,
+    "ecp_atom_additional_frozen_electrons": 0,
+    "any_ecp_disables_complete_molecular_cv": true,
+    "partial_cv_forbidden": true,
+    "all_electron_beyond_atomic_number": 36,
+    "beyond_range_without_ecp": "unsupported"
+  },
+  "core_valence_ranges": [
+    {"atomic_number_min": 1, "atomic_number_max": 2, "basis": "cc-pVTZ", "intrinsic_cv": false, "status": "companion"},
+    {"atomic_number_min": 3, "atomic_number_max": 4, "basis": "cc-pCVTZ", "intrinsic_cv": true, "status": "supported"},
+    {"atomic_number_min": 5, "atomic_number_max": 10, "basis": "cc-pwCVTZ", "intrinsic_cv": true, "status": "supported"},
+    {"atomic_number_min": 11, "atomic_number_max": 12, "basis": "cc-pCVTZ", "intrinsic_cv": true, "status": "supported"},
+    {"atomic_number_min": 13, "atomic_number_max": 18, "basis": "cc-pwCVTZ", "intrinsic_cv": true, "status": "supported"},
+    {"atomic_number_min": 19, "atomic_number_max": 19, "basis": null, "intrinsic_cv": true, "status": "unsupported"},
+    {"atomic_number_min": 20, "atomic_number_max": 20, "basis": "cc-pCVTZ", "intrinsic_cv": true, "status": "supported"},
+    {"atomic_number_min": 21, "atomic_number_max": 30, "basis": "cc-pwCVTZ", "intrinsic_cv": true, "status": "supported"},
+    {"atomic_number_min": 31, "atomic_number_max": 36, "basis": null, "intrinsic_cv": true, "status": "unsupported"}
+  ],
+  "backend_translation_contract": {
+    "central_representation": "lowest_energy_occupied_spatial_orbitals_zero_based",
+    "restricted_open_uses_same_spatial_core_for_alpha_and_beta": true,
+    "backend_default_allowed": false,
+    "adapter_must_verify_applied_orbitals": true
+  },
+  "change_policy": "new_manifest_version_and_explicit_approval"
+}

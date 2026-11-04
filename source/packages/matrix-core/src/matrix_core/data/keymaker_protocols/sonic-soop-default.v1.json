@@ -1,0 +1,21 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "sonic-soop-default.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "smith",
+  "entrypoint": "KEYMAKER",
+  "title": "Canonical SONIC/SOOP coordinate construction",
+  "summary": "Materialize the frozen ORACLE primitive source as a ranked, symmetry-adapted SONIC chart using SOOP as the only out-of-plane primitive.",
+  "calculation_protocol": "coordinates.sonic.v1",
+  "aliases": ["sonic_soop_default"],
+  "dependencies": [],
+  "routes": [{"menu": "perception", "action": "smith.build_sonic", "option_equals": {}}],
+  "inputs": [{"name": "oracle_contract", "schema": "matrix.oracle.contract.v1", "required": true}],
+  "outputs": [{"name": "sonic_definition", "schema": "matrix.smith.definition.v1", "required": true}],
+  "gates": ["SOOP-only out-of-plane identity", "exact vibrational rank", "lossless serialization"],
+  "implementation": {"owner_api": "matrix_smith.definition", "action": "write_gicforge_build_sections"},
+  "coordinate_policy": "Consume the frozen ORACLE source; emit nonredundant symmetry-adapted SONIC coordinates and never legacy U/IMPD primitives.",
+  "backend_policy": "Resident SMITH construction only.",
+  "change_policy": "new_version_and_explicit_approval"
+}

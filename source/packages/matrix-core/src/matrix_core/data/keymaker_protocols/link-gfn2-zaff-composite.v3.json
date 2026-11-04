@@ -1,0 +1,66 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-gfn2-zaff-composite.v3",
+  "manifest_version": "3.0.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "Resident GFN2-XTB plus two-Morse Delta(ZAFF) with energy-derived X-H alpha",
+  "summary": "Compose resident GFN2-XTB with the v4 primitive two-Morse correction, whose GFN2 X-H alpha uses two additional energy points per bond.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": [
+    "gfn2_xtb_plus_two_morse_delta_zaff_energy_xh"
+  ],
+  "dependencies": [
+    "zaff-gfn2-residual-fit.v4"
+  ],
+  "routes": [
+    {
+      "menu": "exploitation",
+      "action": "link.optimize_gfn2_zaff",
+      "option_equals": {
+        "backend": "gfn2_zaff_composite_two_morse_energy_xh"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "smith_geometry",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "primitive_residual_field",
+      "schema": "matrix.zaff.force_field.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "optimized_geometry",
+      "schema": "matrix.link.optimized_geometry.v1",
+      "required": true
+    },
+    {
+      "name": "composite_result",
+      "schema": "matrix.qm.result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "field atom order matches the LINK molecule",
+    "field carries the approved v4 two-Morse residual protocol hash",
+    "QM and GFN2 Morse alpha arrays are present and independently sourced",
+    "ZAFF charges are zero and van der Waals terms are absent",
+    "Delta(ZAFF) energy is zero at its reference",
+    "compose energy and gradient at each geometry",
+    "compose analytic resident GFN2 and primitive ZAFF Hessians when requested"
+  ],
+  "implementation": {
+    "owner_api": "matrix_link.optimizer",
+    "action": "optimize_geometry"
+  },
+  "coordinate_policy": "LINK optimizes in its selected SMITH chart; the two-Morse Delta(ZAFF) evaluates frozen SMITH primitives at each Cartesian geometry.",
+  "backend_policy": "Use resident matrix_gfn2.GFN2Calculator plus the approved v4 primitive Delta(ZAFF) artifact. Sum E, G and optional analytic H in the same Cartesian frame without electrostatic or van der Waals ZAFF terms.",
+  "change_policy": "new_version_and_explicit_approval"
+}

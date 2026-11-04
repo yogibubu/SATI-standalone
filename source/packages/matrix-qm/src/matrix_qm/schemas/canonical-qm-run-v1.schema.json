@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/canonical-qm-run-v1.schema.json",
+  "title": "Resolved canonical MATRIX QM run v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "manifest_id",
+    "resolution_status",
+    "request",
+    "scientific_model",
+    "capability",
+    "element_policy",
+    "basis",
+    "authorities",
+    "governance",
+    "manifest_sha256"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.qm.canonical_run.v1"},
+    "manifest_id": {"type": "string", "minLength": 1},
+    "resolution_status": {"enum": ["production", "validation_only"]},
+    "request": {"type": "object"},
+    "scientific_model": {
+      "type": "object",
+      "required": [
+        "level_or_profile",
+        "kind",
+        "method",
+        "basis",
+        "electronic_state",
+        "spin",
+        "reference",
+        "state_model",
+        "frozen_core"
+      ]
+    },
+    "capability": {
+      "type": "object",
+      "required": ["record", "registry_id", "manifest_version", "sha256"]
+    },
+    "element_policy": {"type": "object"},
+    "basis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "availability", "source", "bse_confirmation_required"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "availability": {"enum": ["native", "available"]},
+        "source": {"type": "string", "minLength": 1},
+        "bse_confirmation_required": {"const": false}
+      }
+    },
+    "authorities": {
+      "type": "object",
+      "required": ["ladder", "capabilities", "element_policy", "optimizer"]
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "silent_substitution",
+        "molecule_specific_patches",
+        "backend_specific_optimizer_patches",
+        "change_policy"
+      ],
+      "properties": {
+        "silent_substitution": {"const": false},
+        "molecule_specific_patches": {"const": false},
+        "backend_specific_optimizer_patches": {"const": false},
+        "change_policy": {"const": "new_manifest_version_and_explicit_approval"}
+      }
+    },
+    "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

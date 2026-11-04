@@ -1,0 +1,35 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "fast-tda-two-photon-qualification.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "gfn2",
+  "entrypoint": "KEYMAKER",
+  "title": "FAST_TDA two-photon external qualification",
+  "summary": "Qualify the resident TDA two-photon tensor on one immutable orbital reference and compare it separately with the SOS and response two-photon observables produced by std2.",
+  "calculation_protocol": "spectroscopy.electronic.v1",
+  "aliases": ["fast_tda_2pa_qualification", "stda_two_photon_comparison"],
+  "dependencies": [],
+  "routes": [{"menu": "prediction_assignment", "action": "fast_tda.qualify_two_photon", "option_equals": {"reference": "std2"}}],
+  "inputs": [
+    {"name": "orbital_reference", "schema": "grimme.wfn.xtb", "required": true},
+    {"name": "external_executable", "schema": "std2.executable", "required": true}
+  ],
+  "outputs": [
+    {"name": "qualification", "schema": "matrix.fast_tda.two_photon_external_qualification.v1", "required": true},
+    {"name": "keymaker_provenance", "schema": "matrix.keymaker.protocol_binding.v1", "required": true}
+  ],
+  "gates": [
+    "identical wfn.xtb orbital reference for all resident and external calculations",
+    "resident TDA roots first pass ordinary std2 TDA energy parity",
+    "resident TDA tensor and isotropic strength use a direct dense-resolvent oracle",
+    "pure-TDA external parity is reconstructed from ordinary std2 roots, tda.exc ground moments and std2 -s2s state-to-state moments",
+    "std2 SOS2PA and 2PA are reported as sTD-DFT comparisons and never relabelled as TDA parity",
+    "tensor comparisons account only for the arbitrary target-state phase",
+    "executable and orbital-reference checksums are frozen in the result"
+  ],
+  "implementation": {"owner_api": "matrix_gfn2.tda_two_photon", "action": "qualify_external_two_photon"},
+  "coordinate_policy": "The orbital reference, atom order, geometry and Cartesian frame are immutable throughout the qualification.",
+  "backend_policy": "FAST_TDA remains resident; std2 is invoked only as the frozen external qualification oracle through this KeyMaker protocol.",
+  "change_policy": "new_version_and_explicit_approval"
+}

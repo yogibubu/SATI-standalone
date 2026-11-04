@@ -1,0 +1,4248 @@
+{
+  "aggregation_contract": {
+    "acceptor_classes": [
+      "O",
+      "N",
+      "C=O",
+      "P",
+      "S"
+    ],
+    "donor_classes": [
+      "OH",
+      "NH",
+      "PH",
+      "SH"
+    ],
+    "method": "unweighted_arithmetic_mean_by_chemical_class",
+    "observation_archive": "ORACLE manuscript validation/hbond_charge_response_averaged_l0.json",
+    "parameter_table_shape": [
+      4,
+      5
+    ],
+    "polarization_vector_contract": "canonical zero-sum local response rescaled to the class-mean displaced charge",
+    "total_observations": 320,
+    "uncertainty": "sample standard deviation, standard error, deterministic 20000-resample bootstrap 95% interval, and leave-one-donor/acceptor-environment-out maximum mean shift"
+  },
+  "calibrations": [
+    {
+      "acceptor_class": "O",
+      "acceptor_molecule": "water",
+      "acceptor_polarization_displaced_charge_e": 0.03134300793059863,
+      "acceptor_synthon": "water_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.028662891771865477,
+              0.03338692121960108
+            ],
+            "bootstrap_95_half_width": 0.0023620147238678016,
+            "bootstrap_95_relative_half_width": 0.07536018014282168,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0018088302086909855,
+              "mean_shift": 0.0018088302086909855,
+              "omitted_environment": "methanol",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.03580844848505747,
+            "mean": 0.03134300793059863,
+            "minimum": 0.015537789291992834,
+            "n": 16,
+            "sample_standard_deviation": 0.005037843340317765,
+            "standard_error": 0.0012594608350794412
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.06389033659633317,
+              -0.0558270825261532
+            ],
+            "bootstrap_95_half_width": 0.004031627035089986,
+            "bootstrap_95_relative_half_width": 0.06692144178167604,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0034586910008521793,
+              "mean_shift": -0.0034586910008521793,
+              "omitted_environment": "methanol",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.035197526188302075,
+            "mean": -0.0602441747779842,
+            "minimum": -0.06892027573147812,
+            "n": 16,
+            "sample_standard_deviation": 0.00866913106741146,
+            "standard_error": 0.002167282766852865
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03011198594135302,
+              0.03367668844255317
+            ],
+            "bootstrap_95_half_width": 0.0017823512506000751,
+            "bootstrap_95_relative_half_width": 0.055707580324193665,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0013156477798373922,
+              "mean_shift": 0.0013156477798373922,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.03632280029629346,
+            "mean": 0.03199477055416109,
+            "minimum": 0.023321099072649704,
+            "n": 16,
+            "sample_standard_deviation": 0.0038160017922400464,
+            "standard_error": 0.0009540004480600116
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.024935977962439283,
+              0.029746189441920128
+            ],
+            "bootstrap_95_half_width": 0.002405105739740423,
+            "bootstrap_95_relative_half_width": 0.0884290276520054,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002415362173588228,
+              "mean_shift": -0.002415362173588228,
+              "omitted_environment": "water",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.03862759463715815,
+            "mean": 0.02719814752690973,
+            "minimum": 0.021086515540442774,
+            "n": 16,
+            "sample_standard_deviation": 0.005131218337965825,
+            "standard_error": 0.0012828045844914563
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.06240832723310827,
+              0.06872672801936305
+            ],
+            "bootstrap_95_half_width": 0.0031592003931273926,
+            "bootstrap_95_relative_half_width": 0.0483376072155555,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.07939715375193514,
+            "mean": 0.06535698755296956,
+            "minimum": 0.058360650715049034,
+            "n": 16,
+            "sample_standard_deviation": 0.006612102521249642,
+            "standard_error": 0.0016530256303124106
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.010599139794231707,
+              0.014026471485771994
+            ],
+            "bootstrap_95_half_width": 0.0017136658457701437,
+            "bootstrap_95_relative_half_width": 0.1405674719263604,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0016738423048355353,
+              "mean_shift": -0.0016738423048355353,
+              "omitted_environment": "water",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.02144077213875981,
+            "mean": 0.012191055457466633,
+            "minimum": 0.008170863387062167,
+            "n": 16,
+            "sample_standard_deviation": 0.0036485370341031655,
+            "standard_error": 0.0009121342585257914
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.0602441747779842,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.03134300793059863
+          ],
+          [
+            4,
+            0.015953810620070494
+          ],
+          [
+            5,
+            0.015389197310528136
+          ]
+        ],
+        "charge_transfer_e": -0.0602441747779842,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.03199477055416109
+          ],
+          [
+            1,
+            -0.03199477055416109
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "water_OH...water_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.06535698755296956,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "OH",
+      "donor_molecule": "water",
+      "donor_polarization_displaced_charge_e": 0.03199477055416109,
+      "donor_synthon": "water_OH",
+      "maximum_charge_change_e": 0.02719814752690973,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.012191055457466633,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "N",
+      "acceptor_molecule": "ammonia",
+      "acceptor_polarization_displaced_charge_e": 0.04217191063596429,
+      "acceptor_synthon": "ammonia_N",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.039695575716621814,
+              0.04452056171561728
+            ],
+            "bootstrap_95_half_width": 0.0024124929994977333,
+            "bootstrap_95_relative_half_width": 0.05720615839113428,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0018926459387495487,
+              "mean_shift": 0.0018926459387495487,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.048902517672852815,
+            "mean": 0.04217191063596429,
+            "minimum": 0.030863644407377606,
+            "n": 16,
+            "sample_standard_deviation": 0.005135050159769242,
+            "standard_error": 0.0012837625399423104
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.06155763550940965,
+              -0.050458539015340434
+            ],
+            "bootstrap_95_half_width": 0.005549548247034609,
+            "bootstrap_95_relative_half_width": 0.09875633186117488,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.004971703361210007,
+              "mean_shift": -0.004971703361210007,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.03215966620612487,
+            "mean": -0.05619435374367486,
+            "minimum": -0.07251285332255727,
+            "n": 16,
+            "sample_standard_deviation": 0.011715191675841325,
+            "standard_error": 0.0029287979189603314
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.026072818228693454,
+              0.031096151778447705
+            ],
+            "bootstrap_95_half_width": 0.002511666774877125,
+            "bootstrap_95_relative_half_width": 0.08764463840533822,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0022657004063040206,
+              "mean_shift": 0.0022657004063040206,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.03466958701397811,
+            "mean": 0.028657392175676383,
+            "minimum": 0.018872716393593572,
+            "n": 16,
+            "sample_standard_deviation": 0.005347255964461302,
+            "standard_error": 0.0013368139911153255
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.02273759916861148,
+              0.0257221366975327
+            ],
+            "bootstrap_95_half_width": 0.0014922687644606109,
+            "bootstrap_95_relative_half_width": 0.0616452372736466,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0007632043528849955,
+              "mean_shift": -0.0007632043528849955,
+              "omitted_environment": "ammonia",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.029327711397357348,
+            "mean": 0.02420736508542173,
+            "minimum": 0.019991995652791972,
+            "n": 16,
+            "sample_standard_deviation": 0.003184472863137347,
+            "standard_error": 0.0007961182157843368
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8876605073598498,
+              1.8963513936736613
+            ],
+            "bootstrap_95_half_width": 0.0043454431569057705,
+            "bootstrap_95_relative_half_width": 0.0022949816401468992,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8963513936736613,
+            "mean": 1.8934544315690576,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 0.011587848418415314,
+            "standard_error": 0.0028969621046038285
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.07824747325684529,
+              0.08827135057379269
+            ],
+            "bootstrap_95_half_width": 0.0050119386584737,
+            "bootstrap_95_relative_half_width": 0.060295030588755835,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.10030865773346073,
+            "mean": 0.083123577673553,
+            "minimum": 0.06837241351455323,
+            "n": 16,
+            "sample_standard_deviation": 0.01057325247315906,
+            "standard_error": 0.002643313118289765
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.010020207125150152,
+              0.012590740953937288
+            ],
+            "bootstrap_95_half_width": 0.001285266914393568,
+            "bootstrap_95_relative_half_width": 0.11479993809490095,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0011539458665474223,
+              "mean_shift": -0.0011539458665474223,
+              "omitted_environment": "ammonia",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.018580715016387785,
+            "mean": 0.011195710866421238,
+            "minimum": 0.008588621074687922,
+            "n": 16,
+            "sample_standard_deviation": 0.0027177016148640537,
+            "standard_error": 0.0006794254037160134
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.273,
+              3.273
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.273,
+            "mean": 3.273,
+            "minimum": 3.273,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.05619435374367486,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.04217191063596429
+          ],
+          [
+            4,
+            0.01405419495452295
+          ],
+          [
+            5,
+            0.014207800477171397
+          ],
+          [
+            6,
+            0.013909915204269941
+          ]
+        ],
+        "charge_transfer_e": -0.05619435374367486,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.028657392175676383
+          ],
+          [
+            1,
+            -0.028657392175676383
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "water_OH...ammonia_N",
+        "reference_distance_angstrom": 1.8934544315690576,
+        "reference_mayer_bond_order": 0.083123577673553,
+        "vdw_radius_sum_angstrom": 3.273
+      },
+      "donor_class": "OH",
+      "donor_molecule": "water",
+      "donor_polarization_displaced_charge_e": 0.028657392175676383,
+      "donor_synthon": "water_OH",
+      "maximum_charge_change_e": 0.02420736508542173,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.011195710866421238,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "C=O",
+      "acceptor_molecule": "formaldehyde",
+      "acceptor_polarization_displaced_charge_e": 0.034620423650028924,
+      "acceptor_synthon": "formaldehyde_carbonyl_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03279549291616077,
+              0.03669649698492355
+            ],
+            "bootstrap_95_half_width": 0.0019505020343813899,
+            "bootstrap_95_relative_half_width": 0.056339635069132386,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002195676055847598,
+              "mean_shift": -0.002195676055847598,
+              "omitted_environment": "formamide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.04304041640147741,
+            "mean": 0.034620423650028924,
+            "minimum": 0.030122191973810664,
+            "n": 16,
+            "sample_standard_deviation": 0.004184386870591033,
+            "standard_error": 0.0010460967176477583
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.07415459190660045,
+              -0.06889684481792008
+            ],
+            "bootstrap_95_half_width": 0.002628873544340188,
+            "bootstrap_95_relative_half_width": 0.03676407161460242,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0018776954049739003,
+              "mean_shift": -0.0018776954049739003,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.06121186887420249,
+            "mean": -0.07150659404373531,
+            "minimum": -0.08081738340227915,
+            "n": 16,
+            "sample_standard_deviation": 0.005534936872462962,
+            "standard_error": 0.0013837342181157405
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03437903306861834,
+              0.037423773569372654
+            ],
+            "bootstrap_95_half_width": 0.001522370250377155,
+            "bootstrap_95_relative_half_width": 0.04236204183360443,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.001529161506130347,
+              "mean_shift": 0.001529161506130347,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.03999160428125971,
+            "mean": 0.035937131084401795,
+            "minimum": 0.02976411349160399,
+            "n": 16,
+            "sample_standard_deviation": 0.0032169074646648467,
+            "standard_error": 0.0008042268661662117
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.026450678487465233,
+              0.02854591310151703
+            ],
+            "bootstrap_95_half_width": 0.0010476173070258984,
+            "bootstrap_95_relative_half_width": 0.03814980210282693,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0009589374305201091,
+              "mean_shift": -0.0009589374305201091,
+              "omitted_environment": "formamide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.03142916540828272,
+            "mean": 0.027460622317311292,
+            "minimum": 0.024676259561964675,
+            "n": 16,
+            "sample_standard_deviation": 0.0022013041467712643,
+            "standard_error": 0.0005503260366928161
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.054267081040727014,
+              0.057208583565980596
+            ],
+            "bootstrap_95_half_width": 0.0014707512626267912,
+            "bootstrap_95_relative_half_width": 0.026426329767008597,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.06192613813373115,
+            "mean": 0.055654768391746934,
+            "minimum": 0.05209890520257683,
+            "n": 16,
+            "sample_standard_deviation": 0.0031190145994594003,
+            "standard_error": 0.0007797536498648501
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.012231631170029272,
+              0.014759243858022695
+            ],
+            "bootstrap_95_half_width": 0.0012638063439967115,
+            "bootstrap_95_relative_half_width": 0.09395964927325777,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0011049378085568502,
+              "mean_shift": -0.0011049378085568502,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.019084761828755115,
+            "mean": 0.013450522152559891,
+            "minimum": 0.009586719049195882,
+            "n": 16,
+            "sample_standard_deviation": 0.002679882255479665,
+            "standard_error": 0.0006699705638699162
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.07150659404373531,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            0.034620423650028924
+          ],
+          [
+            4,
+            -0.034620423650028924
+          ]
+        ],
+        "charge_transfer_e": -0.07150659404373531,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.035937131084401795
+          ],
+          [
+            1,
+            -0.035937131084401795
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "water_OH...formaldehyde_carbonyl_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.055654768391746934,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "OH",
+      "donor_molecule": "water",
+      "donor_polarization_displaced_charge_e": 0.035937131084401795,
+      "donor_synthon": "water_OH",
+      "maximum_charge_change_e": 0.027460622317311292,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.013450522152559891,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "P",
+      "acceptor_molecule": "phosphine",
+      "acceptor_polarization_displaced_charge_e": 0.03785040089102541,
+      "acceptor_synthon": "phosphine_P",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03635847910617437,
+              0.0392813806327105
+            ],
+            "bootstrap_95_half_width": 0.0014614507632680664,
+            "bootstrap_95_relative_half_width": 0.038611236046764995,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.001419690511618922,
+              "mean_shift": 0.001419690511618922,
+              "omitted_environment": "phosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.041499435622902106,
+            "mean": 0.03785040089102541,
+            "minimum": 0.03259199390382349,
+            "n": 16,
+            "sample_standard_deviation": 0.0030875863693959533,
+            "standard_error": 0.0007718965923489883
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.07819060814163797,
+              -0.0678821014420753
+            ],
+            "bootstrap_95_half_width": 0.00515425334978134,
+            "bootstrap_95_relative_half_width": 0.07054538332812145,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.004473107238058563,
+              "mean_shift": -0.004473107238058563,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.05248933341236661,
+            "mean": -0.07306294340776096,
+            "minimum": -0.09016396658722312,
+            "n": 16,
+            "sample_standard_deviation": 0.010742527238889962,
+            "standard_error": 0.0026856318097224904
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.05337087600050417,
+              0.05825277355731522
+            ],
+            "bootstrap_95_half_width": 0.002440948778405526,
+            "bootstrap_95_relative_half_width": 0.04369854657263152,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0022810307224710308,
+              "mean_shift": 0.0022810307224710308,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.06354775501142547,
+            "mean": 0.05585880927065653,
+            "minimum": 0.045011433583436095,
+            "n": 16,
+            "sample_standard_deviation": 0.0052022940663861116,
+            "standard_error": 0.0013005735165965279
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.04438359153983094,
+              0.04808842658490955
+            ],
+            "bootstrap_95_half_width": 0.0018524175225393055,
+            "bootstrap_95_relative_half_width": 0.04007448672710071,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0013758266387890877,
+              "mean_shift": -0.0013758266387890877,
+              "omitted_environment": "methanol",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.053164790267851036,
+            "mean": 0.046224360530277044,
+            "minimum": 0.039520882044099426,
+            "n": 16,
+            "sample_standard_deviation": 0.0039528684776355145,
+            "standard_error": 0.0009882171194088786
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0374334481678673,
+              2.0374334481678673
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0374334481678673,
+            "mean": 2.0374334481678673,
+            "minimum": 2.0374334481678673,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.0993188501271327,
+              0.11077154007246022
+            ],
+            "bootstrap_95_half_width": 0.005726344972663763,
+            "bootstrap_95_relative_half_width": 0.054545292177897046,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.1251679171407731,
+            "mean": 0.10498330367334992,
+            "minimum": 0.08828562856643762,
+            "n": 16,
+            "sample_standard_deviation": 0.01217282715502244,
+            "standard_error": 0.00304320678875561
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.014800865386086364,
+              0.0175309059165851
+            ],
+            "bootstrap_95_half_width": 0.0013650202652493674,
+            "bootstrap_95_relative_half_width": 0.08468562504906157,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0011753125634740118,
+              "mean_shift": -0.0011753125634740118,
+              "omitted_environment": "phosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.02265723413525378,
+            "mean": 0.016118677337016284,
+            "minimum": 0.01173930351516242,
+            "n": 16,
+            "sample_standard_deviation": 0.0028854101533610198,
+            "standard_error": 0.0007213525383402549
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.5165,
+              3.5165
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.5165,
+            "mean": 3.5165,
+            "minimum": 3.5165,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.07306294340776096,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.03785040089102541
+          ],
+          [
+            4,
+            0.012141546668034882
+          ],
+          [
+            5,
+            0.012854427111508525
+          ],
+          [
+            6,
+            0.012854427111482006
+          ]
+        ],
+        "charge_transfer_e": -0.07306294340776096,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.05585880927065653
+          ],
+          [
+            1,
+            -0.05585880927065653
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "water_OH...phosphine_P",
+        "reference_distance_angstrom": 2.0374334481678673,
+        "reference_mayer_bond_order": 0.10498330367334992,
+        "vdw_radius_sum_angstrom": 3.5165
+      },
+      "donor_class": "OH",
+      "donor_molecule": "water",
+      "donor_polarization_displaced_charge_e": 0.05585880927065653,
+      "donor_synthon": "water_OH",
+      "maximum_charge_change_e": 0.046224360530277044,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.016118677337016284,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "S",
+      "acceptor_molecule": "hydrogen_sulfide",
+      "acceptor_polarization_displaced_charge_e": 0.03031846902795572,
+      "acceptor_synthon": "hydrogen_sulfide_S",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.028475711521874246,
+              0.03187374961040339
+            ],
+            "bootstrap_95_half_width": 0.0016990190442645707,
+            "bootstrap_95_relative_half_width": 0.05603907778779852,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0019599668186574652,
+              "mean_shift": 0.0019599668186574652,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.03347183481494252,
+            "mean": 0.03031846902795572,
+            "minimum": 0.02358972968752035,
+            "n": 16,
+            "sample_standard_deviation": 0.0035577079749823195,
+            "standard_error": 0.0008894269937455799
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.08233109348294719,
+              -0.07351305689934481
+            ],
+            "bootstrap_95_half_width": 0.004409018291801188,
+            "bootstrap_95_relative_half_width": 0.056583730972509384,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003433555825786777,
+              "mean_shift": -0.003433555825786777,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.06223737508053845,
+            "mean": -0.07792024696892581,
+            "minimum": -0.09492501381807741,
+            "n": 16,
+            "sample_standard_deviation": 0.009462543765484228,
+            "standard_error": 0.002365635941371057
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.05536556015452411,
+              0.059817103276217566
+            ],
+            "bootstrap_95_half_width": 0.002225771560846728,
+            "bootstrap_95_relative_half_width": 0.03866429168086856,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0018738937816797085,
+              "mean_shift": 0.0018738937816797085,
+              "omitted_environment": "water",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.06677210576386135,
+            "mean": 0.05756659346608592,
+            "minimum": 0.04958082497025093,
+            "n": 16,
+            "sample_standard_deviation": 0.004644056397761027,
+            "standard_error": 0.0011610140994402567
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.049798916877804356,
+              0.051749723334211545
+            ],
+            "bootstrap_95_half_width": 0.0009754032282035946,
+            "bootstrap_95_relative_half_width": 0.019221443071144952,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0006829143709768323,
+              "mean_shift": 0.0006829143709768323,
+              "omitted_environment": "isopropanol",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.05500760239535765,
+            "mean": 0.05074557745707765,
+            "minimum": 0.04766270675414919,
+            "n": 16,
+            "sample_standard_deviation": 0.0020401952601754956,
+            "standard_error": 0.0005100488150438739
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0049874725963046,
+              2.0049874725963046
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0049874725963046,
+            "mean": 2.0049874725963046,
+            "minimum": 2.0049874725963046,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.07202185395476449,
+              0.08000988897719001
+            ],
+            "bootstrap_95_half_width": 0.003994017511212762,
+            "bootstrap_95_relative_half_width": 0.05261539578549288,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.09198054229974498,
+            "mean": 0.0759096734251687,
+            "minimum": 0.06694573347409531,
+            "n": 16,
+            "sample_standard_deviation": 0.008407342868520476,
+            "standard_error": 0.002101835717130119
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.017200874103026398,
+              0.02011235262829541
+            ],
+            "bootstrap_95_half_width": 0.0014557392626345055,
+            "bootstrap_95_relative_half_width": 0.07847763925336722,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0011723632010806236,
+              "mean_shift": -0.0011723632010806236,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.026465798288453385,
+            "mean": 0.018549733102121116,
+            "minimum": 0.014474967500262186,
+            "n": 16,
+            "sample_standard_deviation": 0.0030592065652688006,
+            "standard_error": 0.0007648016413172001
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.4605,
+              3.4605
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.4605,
+            "mean": 3.4605,
+            "minimum": 3.4605,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.07792024696892581,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.03031846902795572
+          ],
+          [
+            4,
+            0.014533689237326517
+          ],
+          [
+            5,
+            0.015784779790629203
+          ]
+        ],
+        "charge_transfer_e": -0.07792024696892581,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.05756659346608591
+          ],
+          [
+            1,
+            -0.05756659346608591
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "water_OH...hydrogen_sulfide_S",
+        "reference_distance_angstrom": 2.0049874725963046,
+        "reference_mayer_bond_order": 0.0759096734251687,
+        "vdw_radius_sum_angstrom": 3.4605
+      },
+      "donor_class": "OH",
+      "donor_molecule": "water",
+      "donor_polarization_displaced_charge_e": 0.05756659346608592,
+      "donor_synthon": "water_OH",
+      "maximum_charge_change_e": 0.05074557745707765,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.018549733102121116,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "O",
+      "acceptor_molecule": "water",
+      "acceptor_polarization_displaced_charge_e": 0.023411262321982148,
+      "acceptor_synthon": "water_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.02084649213361791,
+              0.02613153132470867
+            ],
+            "bootstrap_95_half_width": 0.00264251959554538,
+            "bootstrap_95_relative_half_width": 0.11287386212678373,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0026916874360911544,
+              "mean_shift": -0.0026916874360911544,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.03397344653221723,
+            "mean": 0.023411262321982148,
+            "minimum": 0.016549956783577013,
+            "n": 16,
+            "sample_standard_deviation": 0.005629926824272129,
+            "standard_error": 0.0014074817060680323
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.0548057333359632,
+              -0.04825889758785572
+            ],
+            "bootstrap_95_half_width": 0.00327341787405374,
+            "bootstrap_95_relative_half_width": 0.063619304378103,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003147859559589579,
+              "mean_shift": 0.003147859559589579,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.03956159347159399,
+            "mean": -0.05145321700783027,
+            "minimum": -0.06274051034784894,
+            "n": 16,
+            "sample_standard_deviation": 0.006837038236434753,
+            "standard_error": 0.0017092595591086882
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.020825841036043537,
+              0.030539517753148678
+            ],
+            "bootstrap_95_half_width": 0.00485683835855257,
+            "bootstrap_95_relative_half_width": 0.19118402874567147,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.005353597423860712,
+              "mean_shift": -0.005353597423860712,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.043650596764046506,
+            "mean": 0.025403996298318052,
+            "minimum": 0.015218838286918057,
+            "n": 16,
+            "sample_standard_deviation": 0.010220777128133905,
+            "standard_error": 0.002555194282033476
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.0230705487110007,
+              0.028122847581115596
+            ],
+            "bootstrap_95_half_width": 0.0025261494350574485,
+            "bootstrap_95_relative_half_width": 0.09930885021565371,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.00255205979502637,
+              "mean_shift": -0.00255205979502637,
+              "omitted_environment": "water",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.0370391260298355,
+            "mean": 0.02543730422386121,
+            "minimum": 0.019265053458232484,
+            "n": 16,
+            "sample_standard_deviation": 0.005310807529481294,
+            "standard_error": 0.0013277018823703234
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.06515392915419199,
+              0.07313226997341062
+            ],
+            "bootstrap_95_half_width": 0.003989170409609312,
+            "bootstrap_95_relative_half_width": 0.057921760060684044,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.09050928877166488,
+            "mean": 0.06887170564965392,
+            "minimum": 0.058567760907208874,
+            "n": 16,
+            "sample_standard_deviation": 0.008477031158342129,
+            "standard_error": 0.002119257789585532
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.009200546467142382,
+              0.012023025057435134
+            ],
+            "bootstrap_95_half_width": 0.001411239295146376,
+            "bootstrap_95_relative_half_width": 0.13419297587123513,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0014141137116821124,
+              "mean_shift": -0.0014141137116821124,
+              "omitted_environment": "water",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.016915830221122887,
+            "mean": 0.010516491537534204,
+            "minimum": 0.007086866181118444,
+            "n": 16,
+            "sample_standard_deviation": 0.002942471451300922,
+            "standard_error": 0.0007356178628252305
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.05145321700783027,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            -0.023411262321982148
+          ],
+          [
+            5,
+            0.010668955033492926
+          ],
+          [
+            6,
+            0.012742307288489222
+          ]
+        ],
+        "charge_transfer_e": -0.05145321700783027,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.025403996298318052
+          ],
+          [
+            1,
+            -0.025403996298318052
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "ammonia_NH...water_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.06887170564965392,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "NH",
+      "donor_molecule": "ammonia",
+      "donor_polarization_displaced_charge_e": 0.025403996298318052,
+      "donor_synthon": "ammonia_NH",
+      "maximum_charge_change_e": 0.02543730422386121,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.010516491537534204,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "N",
+      "acceptor_molecule": "ammonia",
+      "acceptor_polarization_displaced_charge_e": 0.03521724490331917,
+      "acceptor_synthon": "ammonia_N",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03219575741921228,
+              0.038488193025441916
+            ],
+            "bootstrap_95_half_width": 0.0031462178031148175,
+            "bootstrap_95_relative_half_width": 0.08933742011199437,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003207479206024891,
+              "mean_shift": -0.003207479206024891,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.04998540576278973,
+            "mean": 0.03521724490331917,
+            "minimum": 0.024046685808355957,
+            "n": 16,
+            "sample_standard_deviation": 0.00670120442237674,
+            "standard_error": 0.001675301105594185
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.05298326215296422,
+              -0.04166149342216048
+            ],
+            "bootstrap_95_half_width": 0.00566088436540187,
+            "bootstrap_95_relative_half_width": 0.11892848418286454,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.004444175095214588,
+              "mean_shift": 0.004444175095214588,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.02248564281959864,
+            "mean": -0.0475990626156278,
+            "minimum": -0.06211306691578261,
+            "n": 16,
+            "sample_standard_deviation": 0.011967004860879628,
+            "standard_error": 0.002991751215219907
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.013645374528482536,
+              0.02536112205903853
+            ],
+            "bootstrap_95_half_width": 0.005857873765277998,
+            "bootstrap_95_relative_half_width": 0.30362842421059816,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.006014315492880807,
+              "mean_shift": -0.006014315492880807,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.04174002032157148,
+            "mean": 0.019292903095314118,
+            "minimum": 0.002511557763376443,
+            "n": 16,
+            "sample_standard_deviation": 0.012358390661227953,
+            "standard_error": 0.0030895976653069882
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.02243200839294687,
+              0.02635558448662433
+            ],
+            "bootstrap_95_half_width": 0.00196178804683873,
+            "bootstrap_95_relative_half_width": 0.0806132416081966,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.00135724746313624,
+              "mean_shift": -0.00135724746313624,
+              "omitted_environment": "ammonia",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.03172931561414516,
+            "mean": 0.024335803990783306,
+            "minimum": 0.019146741619042396,
+            "n": 16,
+            "sample_standard_deviation": 0.004137456244574309,
+            "standard_error": 0.0010343640611435773
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8876605073598498,
+              1.8963513936736613
+            ],
+            "bootstrap_95_half_width": 0.0043454431569057705,
+            "bootstrap_95_relative_half_width": 0.0022949816401468992,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8963513936736613,
+            "mean": 1.8934544315690576,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 0.011587848418415314,
+            "standard_error": 0.0028969621046038285
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.07698308086895951,
+              0.09100110815292628
+            ],
+            "bootstrap_95_half_width": 0.0070090136419833846,
+            "bootstrap_95_relative_half_width": 0.08345372255859529,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.11244888002587089,
+            "mean": 0.0839868303904856,
+            "minimum": 0.05563268489251706,
+            "n": 16,
+            "sample_standard_deviation": 0.014747221454136969,
+            "standard_error": 0.0036868053635342422
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.008977314114324553,
+              0.011091039953310173
+            ],
+            "bootstrap_95_half_width": 0.0010568629194928096,
+            "bootstrap_95_relative_half_width": 0.10578554675700916,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.000871626330320268,
+              "mean_shift": -0.000871626330320268,
+              "omitted_environment": "ammonia",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.014308856731546303,
+            "mean": 0.009990617356456436,
+            "minimum": 0.007198254984786416,
+            "n": 16,
+            "sample_standard_deviation": 0.0022176049839421823,
+            "standard_error": 0.0005544012459855456
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.273,
+              3.273
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.273,
+            "mean": 3.273,
+            "minimum": 3.273,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.0475990626156278,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            -0.03521724490331917
+          ],
+          [
+            5,
+            0.008582337216807066
+          ],
+          [
+            6,
+            0.012447990168683526
+          ],
+          [
+            7,
+            0.014186917517828575
+          ]
+        ],
+        "charge_transfer_e": -0.0475990626156278,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.019292903095314118
+          ],
+          [
+            1,
+            -0.019292903095314118
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "ammonia_NH...ammonia_N",
+        "reference_distance_angstrom": 1.8934544315690576,
+        "reference_mayer_bond_order": 0.0839868303904856,
+        "vdw_radius_sum_angstrom": 3.273
+      },
+      "donor_class": "NH",
+      "donor_molecule": "ammonia",
+      "donor_polarization_displaced_charge_e": 0.019292903095314118,
+      "donor_synthon": "ammonia_NH",
+      "maximum_charge_change_e": 0.024335803990783306,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.009990617356456436,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "C=O",
+      "acceptor_molecule": "formaldehyde",
+      "acceptor_polarization_displaced_charge_e": 0.028952531349606344,
+      "acceptor_synthon": "formaldehyde_carbonyl_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.02597929795273354,
+              0.03233730187746838
+            ],
+            "bootstrap_95_half_width": 0.003179001962367421,
+            "bootstrap_95_relative_half_width": 0.10980048424714492,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003194790321664795,
+              "mean_shift": -0.003194790321664795,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.045814195459176095,
+            "mean": 0.028952531349606344,
+            "minimum": 0.022888827495154328,
+            "n": 16,
+            "sample_standard_deviation": 0.006719158891800619,
+            "standard_error": 0.0016797897229501547
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.0679325935794861,
+              -0.061936699065541403
+            ],
+            "bootstrap_95_half_width": 0.002997947256972347,
+            "bootstrap_95_relative_half_width": 0.046198966034514996,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002425730417111964,
+              "mean_shift": 0.002425730417111964,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.05372977791658273,
+            "mean": -0.06489208556599724,
+            "minimum": -0.07719475732623826,
+            "n": 16,
+            "sample_standard_deviation": 0.006301874476255938,
+            "standard_error": 0.0015754686190639845
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.025968130767339722,
+              0.039425124027046884
+            ],
+            "bootstrap_95_half_width": 0.006728496629853581,
+            "bootstrap_95_relative_half_width": 0.2091411439255472,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.007751905747671681,
+              "mean_shift": -0.007751905747671681,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.05975333315788019,
+            "mean": 0.032172037044269394,
+            "minimum": 0.019085940315337613,
+            "n": 16,
+            "sample_standard_deviation": 0.014249031938408173,
+            "standard_error": 0.0035622579846020432
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.025822055579406925,
+              0.02940774847374504
+            ],
+            "bootstrap_95_half_width": 0.0017928464471690577,
+            "bootstrap_95_relative_half_width": 0.06473866826674164,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0016341778933878226,
+              "mean_shift": 0.0016341778933878226,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.03330947387932659,
+            "mean": 0.0276935948046077,
+            "minimum": 0.019492601350740935,
+            "n": 16,
+            "sample_standard_deviation": 0.003754731168307838,
+            "standard_error": 0.0009386827920769595
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.056801594228571735,
+              0.06200896657006651
+            ],
+            "bootstrap_95_half_width": 0.002603686170747386,
+            "bootstrap_95_relative_half_width": 0.043933099665252696,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.07288575395305723,
+            "mean": 0.05926479557750572,
+            "minimum": 0.05373213708341552,
+            "n": 16,
+            "sample_standard_deviation": 0.005502763266646934,
+            "standard_error": 0.0013756908166617334
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.011670701490004159,
+              0.013438159080365488
+            ],
+            "bootstrap_95_half_width": 0.0008837287951806647,
+            "bootstrap_95_relative_half_width": 0.07047080133451525,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0005883353306249083,
+              "mean_shift": 0.0005883353306249083,
+              "omitted_environment": "ethylamine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.015593084389759272,
+            "mean": 0.012540353996908947,
+            "minimum": 0.009541424764724618,
+            "n": 16,
+            "sample_standard_deviation": 0.0018598803811697298,
+            "standard_error": 0.00046497009529243246
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.06489208556599724,
+      "contact": {
+        "acceptor": 5,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            0.028952531349606344
+          ],
+          [
+            5,
+            -0.028952531349606344
+          ]
+        ],
+        "charge_transfer_e": -0.06489208556599724,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.032172037044269394
+          ],
+          [
+            1,
+            -0.032172037044269394
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "ammonia_NH...formaldehyde_carbonyl_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.05926479557750572,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "NH",
+      "donor_molecule": "ammonia",
+      "donor_polarization_displaced_charge_e": 0.032172037044269394,
+      "donor_synthon": "ammonia_NH",
+      "maximum_charge_change_e": 0.0276935948046077,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.012540353996908947,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "P",
+      "acceptor_molecule": "phosphine",
+      "acceptor_polarization_displaced_charge_e": 0.024489529711132378,
+      "acceptor_synthon": "phosphine_P",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.02075495611879413,
+              0.02867148356420115
+            ],
+            "bootstrap_95_half_width": 0.00395826372270351,
+            "bootstrap_95_relative_half_width": 0.161630858958642,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.004369056397943334,
+              "mean_shift": -0.004369056397943334,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.039830442513165906,
+            "mean": 0.024489529711132378,
+            "minimum": 0.014790158042080961,
+            "n": 16,
+            "sample_standard_deviation": 0.008441770161247867,
+            "standard_error": 0.0021104425403119667
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.05835193064097955,
+              -0.045149573336017365
+            ],
+            "bootstrap_95_half_width": 0.006601178652481093,
+            "bootstrap_95_relative_half_width": 0.12786851279285838,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.006153006514211648,
+              "mean_shift": 0.006153006514211648,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.02735350543297127,
+            "mean": -0.05162473941629965,
+            "minimum": -0.07857622093721969,
+            "n": 16,
+            "sample_standard_deviation": 0.013869249381931376,
+            "standard_error": 0.003467312345482844
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03354658322616359,
+              0.04528134431315728
+            ],
+            "bootstrap_95_half_width": 0.005867380543496843,
+            "bootstrap_95_relative_half_width": 0.14983391469785814,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.006433195358004774,
+              "mean_shift": -0.006433195358004774,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.06480697122149592,
+            "mean": 0.03915922877226084,
+            "minimum": 0.02253382412745361,
+            "n": 16,
+            "sample_standard_deviation": 0.012500380879514224,
+            "standard_error": 0.003125095219878556
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.029614278599903614,
+              0.03582683319571395
+            ],
+            "bootstrap_95_half_width": 0.003106277297905167,
+            "bootstrap_95_relative_half_width": 0.09526140195752189,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003143826675586034,
+              "mean_shift": -0.003143826675586034,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.044626347436403646,
+            "mean": 0.032607931796870784,
+            "minimum": 0.0219448677316737,
+            "n": 16,
+            "sample_standard_deviation": 0.0066192048724415115,
+            "standard_error": 0.0016548012181103779
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0374334481678673,
+              2.0374334481678673
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0374334481678673,
+            "mean": 2.0374334481678673,
+            "minimum": 2.0374334481678673,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.09047309121861181,
+              0.10593603185385242
+            ],
+            "bootstrap_95_half_width": 0.007731470317620302,
+            "bootstrap_95_relative_half_width": 0.07887320430658581,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.13152054121694423,
+            "mean": 0.09802404232960438,
+            "minimum": 0.07309317930172327,
+            "n": 16,
+            "sample_standard_deviation": 0.016415335953873882,
+            "standard_error": 0.004103833988468471
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.01036613414590073,
+              0.01325686657955367
+            ],
+            "bootstrap_95_half_width": 0.00144536621682647,
+            "bootstrap_95_relative_half_width": 0.12290682921679556,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0012024601891620027,
+              "mean_shift": -0.0012024601891620027,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.0193473004569571,
+            "mean": 0.011759852776585637,
+            "minimum": 0.006915576209873238,
+            "n": 16,
+            "sample_standard_deviation": 0.0030417386590382033,
+            "standard_error": 0.0007604346647595508
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.5165,
+              3.5165
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.5165,
+            "mean": 3.5165,
+            "minimum": 3.5165,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.05162473941629965,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            -0.024489529711132378
+          ],
+          [
+            5,
+            0.0020163841923077053
+          ],
+          [
+            6,
+            0.011237825659270902
+          ],
+          [
+            7,
+            0.011235319859553772
+          ]
+        ],
+        "charge_transfer_e": -0.05162473941629965,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.03915922877226084
+          ],
+          [
+            1,
+            -0.03915922877226084
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "ammonia_NH...phosphine_P",
+        "reference_distance_angstrom": 2.0374334481678673,
+        "reference_mayer_bond_order": 0.09802404232960438,
+        "vdw_radius_sum_angstrom": 3.5165
+      },
+      "donor_class": "NH",
+      "donor_molecule": "ammonia",
+      "donor_polarization_displaced_charge_e": 0.03915922877226084,
+      "donor_synthon": "ammonia_NH",
+      "maximum_charge_change_e": 0.032607931796870784,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.011759852776585637,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "S",
+      "acceptor_molecule": "hydrogen_sulfide",
+      "acceptor_polarization_displaced_charge_e": 0.019423923120208374,
+      "acceptor_synthon": "hydrogen_sulfide_S",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.016113870863824157,
+              0.023169205866250167
+            ],
+            "bootstrap_95_half_width": 0.003527667501213005,
+            "bootstrap_95_relative_half_width": 0.18161457288424243,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003765307725694781,
+              "mean_shift": -0.003765307725694781,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.03430767368737907,
+            "mean": 0.019423923120208374,
+            "minimum": 0.010135488573816076,
+            "n": 16,
+            "sample_standard_deviation": 0.007428864608634439,
+            "standard_error": 0.0018572161521586098
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.06594575543103923,
+              -0.055221919517793254
+            ],
+            "bootstrap_95_half_width": 0.0053619179566229865,
+            "bootstrap_95_relative_half_width": 0.08870195284919645,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.005358790798061355,
+              "mean_shift": 0.005358790798061355,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": -0.04438532272802209,
+            "mean": -0.060448702473764764,
+            "minimum": -0.08230968065847227,
+            "n": 16,
+            "sample_standard_deviation": 0.01134125206678246,
+            "standard_error": 0.002835313016695615
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03840242382965737,
+              0.04924467837812523
+            ],
+            "bootstrap_95_half_width": 0.005421127274233932,
+            "bootstrap_95_relative_half_width": 0.1246708688136286,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.006145617292666994,
+              "mean_shift": -0.006145617292666994,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.06614224130871482,
+            "mean": 0.04348351243415184,
+            "minimum": 0.03156569272216447,
+            "n": 16,
+            "sample_standard_deviation": 0.011588582548746593,
+            "standard_error": 0.0028971456371866483
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03694191808568363,
+              0.04230721613386155
+            ],
+            "bootstrap_95_half_width": 0.0026826490240889588,
+            "bootstrap_95_relative_half_width": 0.06753964723945587,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0026449944465872788,
+              "mean_shift": 0.0026449944465872788,
+              "omitted_environment": "ammonia",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.04584946612955515,
+            "mean": 0.03971961853128819,
+            "minimum": 0.031007776916844698,
+            "n": 16,
+            "sample_standard_deviation": 0.005649380913654452,
+            "standard_error": 0.001412345228413613
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0049874725963046,
+              2.0049874725963046
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0049874725963046,
+            "mean": 2.0049874725963046,
+            "minimum": 2.0049874725963046,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.06312021675858466,
+              0.07498241388197185
+            ],
+            "bootstrap_95_half_width": 0.005931098561693597,
+            "bootstrap_95_relative_half_width": 0.08614327691611603,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.0970241516195698,
+            "mean": 0.06885155492133342,
+            "minimum": 0.05113379556334963,
+            "n": 16,
+            "sample_standard_deviation": 0.012558132476231096,
+            "standard_error": 0.003139533119057774
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.013879916408831147,
+              0.016403862612154076
+            ],
+            "bootstrap_95_half_width": 0.0012619731016614644,
+            "bootstrap_95_relative_half_width": 0.0839205419063276,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0009932903790214002,
+              "mean_shift": -0.0009932903790214002,
+              "omitted_environment": "formamide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.022410855494306773,
+            "mean": 0.015037713925514009,
+            "minimum": 0.012066749687795694,
+            "n": 16,
+            "sample_standard_deviation": 0.0026683911276564566,
+            "standard_error": 0.0006670977819141141
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.4605,
+              3.4605
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.4605,
+            "mean": 3.4605,
+            "minimum": 3.4605,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.060448702473764764,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            -0.019423923120208374
+          ],
+          [
+            5,
+            0.004531638128509231
+          ],
+          [
+            6,
+            0.014892284991699143
+          ]
+        ],
+        "charge_transfer_e": -0.060448702473764764,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.04348351243415184
+          ],
+          [
+            1,
+            -0.04348351243415184
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "ammonia_NH...hydrogen_sulfide_S",
+        "reference_distance_angstrom": 2.0049874725963046,
+        "reference_mayer_bond_order": 0.06885155492133342,
+        "vdw_radius_sum_angstrom": 3.4605
+      },
+      "donor_class": "NH",
+      "donor_molecule": "ammonia",
+      "donor_polarization_displaced_charge_e": 0.04348351243415184,
+      "donor_synthon": "ammonia_NH",
+      "maximum_charge_change_e": 0.03971961853128819,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.015037713925514009,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "O",
+      "acceptor_molecule": "water",
+      "acceptor_polarization_displaced_charge_e": 0.009415539751961069,
+      "acceptor_synthon": "water_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.007881214742589389,
+              0.010910889556406806
+            ],
+            "bootstrap_95_half_width": 0.0015148374069087088,
+            "bootstrap_95_relative_half_width": 0.1608869429490963,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0012547229389513574,
+              "mean_shift": 0.0012547229389513574,
+              "omitted_environment": "methanol",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.013920286545301249,
+            "mean": 0.009415539751961069,
+            "minimum": 0.004241908076416922,
+            "n": 16,
+            "sample_standard_deviation": 0.0032223048125004723,
+            "standard_error": 0.0008055762031251181
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.032756829580358145,
+              -0.026970662486567668
+            ],
+            "bootstrap_95_half_width": 0.0028930835468952386,
+            "bootstrap_95_relative_half_width": 0.09638056330512254,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.00314949405202105,
+              "mean_shift": -0.00314949405202105,
+              "omitted_environment": "methanol",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.01882903899363958,
+            "mean": -0.030017292363568017,
+            "minimum": -0.036467247031561276,
+            "n": 16,
+            "sample_standard_deviation": 0.006094807873385078,
+            "standard_error": 0.0015237019683462694
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.010023875854024825,
+              0.014307574865089847
+            ],
+            "bootstrap_95_half_width": 0.002141849505532511,
+            "bootstrap_95_relative_half_width": 0.17569329608729267,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002077110058847507,
+              "mean_shift": 0.002077110058847507,
+              "omitted_environment": "methylphosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.019222999460869125,
+            "mean": 0.012190843664679953,
+            "minimum": 0.0044082127234424395,
+            "n": 16,
+            "sample_standard_deviation": 0.004527399972815686,
+            "standard_error": 0.0011318499932039215
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.031704352153190375,
+              0.038082990167734296
+            ],
+            "bootstrap_95_half_width": 0.0031893190072719603,
+            "bootstrap_95_relative_half_width": 0.09089487563830231,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002473150348991787,
+              "mean_shift": 0.002473150348991787,
+              "omitted_environment": "methylphosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.04543803558199161,
+            "mean": 0.035087995718957876,
+            "minimum": 0.0178103947081249,
+            "n": 16,
+            "sample_standard_deviation": 0.006646972096651264,
+            "standard_error": 0.001661743024162816
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.03318654811145302,
+              0.0393147711884817
+            ],
+            "bootstrap_95_half_width": 0.003064111538514342,
+            "bootstrap_95_relative_half_width": 0.0846741784401752,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.047890055826714795,
+            "mean": 0.03618708318119941,
+            "minimum": 0.027164445362217734,
+            "n": 16,
+            "sample_standard_deviation": 0.00646476662290355,
+            "standard_error": 0.0016161916557258875
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.010965782797463283,
+              0.013452395904137418
+            ],
+            "bootstrap_95_half_width": 0.0012433065533370676,
+            "bootstrap_95_relative_half_width": 0.10224143668855779,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.001062267549904336,
+              "mean_shift": -0.001062267549904336,
+              "omitted_environment": "water",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.017657519384051943,
+            "mean": 0.012160495720774732,
+            "minimum": 0.008672490257844107,
+            "n": 16,
+            "sample_standard_deviation": 0.0026272635842771196,
+            "standard_error": 0.0006568158960692799
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.030017292363568017,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            -0.009415539751961069
+          ],
+          [
+            5,
+            0.008072934780866105
+          ],
+          [
+            6,
+            0.001342604971094963
+          ]
+        ],
+        "charge_transfer_e": -0.030017292363568017,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            -0.012190843664679953
+          ],
+          [
+            1,
+            0.012190843664679953
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "phosphine_PH...water_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.03618708318119941,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "PH",
+      "donor_molecule": "phosphine",
+      "donor_polarization_displaced_charge_e": 0.012190843664679953,
+      "donor_synthon": "phosphine_PH",
+      "maximum_charge_change_e": 0.035087995718957876,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.012160495720774732,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "N",
+      "acceptor_molecule": "ammonia",
+      "acceptor_polarization_displaced_charge_e": 0.016889349675944288,
+      "acceptor_synthon": "ammonia_N",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.015851291384195266,
+              0.017932270036821196
+            ],
+            "bootstrap_95_half_width": 0.0010404893263129648,
+            "bootstrap_95_relative_half_width": 0.06160623980655376,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0008904613381854713,
+              "mean_shift": -0.0008904613381854713,
+              "omitted_environment": "ethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.021443120415197178,
+            "mean": 0.016889349675944288,
+            "minimum": 0.012882156740454152,
+            "n": 16,
+            "sample_standard_deviation": 0.0022026883737188184,
+            "standard_error": 0.0005506720934297046
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.027067609074391253,
+              -0.015346835207872889
+            ],
+            "bootstrap_95_half_width": 0.005860386933259182,
+            "bootstrap_95_relative_half_width": 0.27123370283464693,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.006343430221388478,
+              "mean_shift": -0.006343430221388478,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.004344568664869167,
+            "mean": -0.021606411268262887,
+            "minimum": -0.03571009530441624,
+            "n": 16,
+            "sample_standard_deviation": 0.012356730216824464,
+            "standard_error": 0.003089182554206116
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.01845672910710878,
+              0.026947436020646687
+            ],
+            "bootstrap_95_half_width": 0.004245353456768955,
+            "bootstrap_95_relative_half_width": 0.18918301065531312,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0046037058398678,
+              "mean_shift": -0.0046037058398678,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.04034375653908165,
+            "mean": 0.022440458274046005,
+            "minimum": 0.01226670934826439,
+            "n": 16,
+            "sample_standard_deviation": 0.009049355035013293,
+            "standard_error": 0.002262338758753323
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.037396051481091236,
+              0.0425213877325617
+            ],
+            "bootstrap_95_half_width": 0.002562668125735232,
+            "bootstrap_95_relative_half_width": 0.06419199605305403,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002051125886644821,
+              "mean_shift": -0.002051125886644821,
+              "omitted_environment": "phosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.051334473027006056,
+            "mean": 0.039921926148194745,
+            "minimum": 0.029027646945772645,
+            "n": 16,
+            "sample_standard_deviation": 0.005398553734786487,
+            "standard_error": 0.0013496384336966218
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8876605073598498,
+              1.8963513936736613
+            ],
+            "bootstrap_95_half_width": 0.0043454431569057705,
+            "bootstrap_95_relative_half_width": 0.0022949816401468992,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8963513936736613,
+            "mean": 1.8934544315690576,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 0.011587848418415314,
+            "standard_error": 0.0028969621046038285
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.04619601580007681,
+              0.055874035873735024
+            ],
+            "bootstrap_95_half_width": 0.004839010036829107,
+            "bootstrap_95_relative_half_width": 0.09485095135484203,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.06942105124696207,
+            "mean": 0.05101699000072371,
+            "minimum": 0.03476697145530649,
+            "n": 16,
+            "sample_standard_deviation": 0.010277911663163178,
+            "standard_error": 0.0025694779157907945
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.01203419650928792,
+              0.014655096504966634
+            ],
+            "bootstrap_95_half_width": 0.0013104499978393571,
+            "bootstrap_95_relative_half_width": 0.09911457570243858,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.001116839373127192,
+              "mean_shift": -0.001116839373127192,
+              "omitted_environment": "phosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.021242188272780602,
+            "mean": 0.013221566944639761,
+            "minimum": 0.010144846993509132,
+            "n": 16,
+            "sample_standard_deviation": 0.0027571766688324617,
+            "standard_error": 0.0006892941672081154
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.273,
+              3.273
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.273,
+            "mean": 3.273,
+            "minimum": 3.273,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.021606411268262887,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            -0.016889349675944288
+          ],
+          [
+            5,
+            0.004240439446758266
+          ],
+          [
+            6,
+            0.006324574053562105
+          ],
+          [
+            7,
+            0.006324336175623917
+          ]
+        ],
+        "charge_transfer_e": -0.021606411268262887,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            -0.022440458274046005
+          ],
+          [
+            1,
+            0.022440458274046005
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "phosphine_PH...ammonia_N",
+        "reference_distance_angstrom": 1.8934544315690576,
+        "reference_mayer_bond_order": 0.05101699000072371,
+        "vdw_radius_sum_angstrom": 3.273
+      },
+      "donor_class": "PH",
+      "donor_molecule": "phosphine",
+      "donor_polarization_displaced_charge_e": 0.022440458274046005,
+      "donor_synthon": "phosphine_PH",
+      "maximum_charge_change_e": 0.039921926148194745,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.013221566944639761,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "C=O",
+      "acceptor_molecule": "formaldehyde",
+      "acceptor_polarization_displaced_charge_e": 0.021302201162360347,
+      "acceptor_synthon": "formaldehyde_carbonyl_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.01993799497314507,
+              0.022858196445396568
+            ],
+            "bootstrap_95_half_width": 0.0014601007361257495,
+            "bootstrap_95_relative_half_width": 0.06854224711320706,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0016515674243988386,
+              "mean_shift": -0.0016515674243988386,
+              "omitted_environment": "formamide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.027085751995718527,
+            "mean": 0.021302201162360347,
+            "minimum": 0.017788225996813407,
+            "n": 16,
+            "sample_standard_deviation": 0.003103499854866746,
+            "standard_error": 0.0007758749637166865
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.05441738668968152,
+              -0.04994566946476737
+            ],
+            "bootstrap_95_half_width": 0.002235858612457075,
+            "bootstrap_95_relative_half_width": 0.04286618621200693,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0020679699842943294,
+              "mean_shift": -0.0020679699842943294,
+              "omitted_environment": "formaldehyde",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.04479861906313161,
+            "mean": -0.052159028129981036,
+            "minimum": -0.06001416774661357,
+            "n": 16,
+            "sample_standard_deviation": 0.004751734873582793,
+            "standard_error": 0.0011879337183956984
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.004636963950041412,
+              0.008497127220421624
+            ],
+            "bootstrap_95_half_width": 0.001930081635190106,
+            "bootstrap_95_relative_half_width": 0.2963874011874537,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002021052052053134,
+              "mean_shift": -0.002021052052053134,
+              "omitted_environment": "phosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.013250882502432157,
+            "mean": 0.0065120232083326745,
+            "minimum": 0.00044494968527964557,
+            "n": 16,
+            "sample_standard_deviation": 0.00409285590533185,
+            "standard_error": 0.0010232139763329624
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.03958394182833486,
+              0.04654543112664776
+            ],
+            "bootstrap_95_half_width": 0.0034807446491564482,
+            "bootstrap_95_relative_half_width": 0.08121835283319541,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0036172329603340395,
+              "mean_shift": -0.0036172329603340395,
+              "omitted_environment": "phosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.05910936373634218,
+            "mean": 0.042856626953579446,
+            "minimum": 0.034046962777058584,
+            "n": 16,
+            "sample_standard_deviation": 0.007365286598607884,
+            "standard_error": 0.001841321649651971
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.028886357471102575,
+              0.03270901438894134
+            ],
+            "bootstrap_95_half_width": 0.001911328458919382,
+            "bootstrap_95_relative_half_width": 0.062100245726214906,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.038063854048392694,
+            "mean": 0.030778114266181343,
+            "minimum": 0.02409532228942811,
+            "n": 16,
+            "sample_standard_deviation": 0.004068942327133294,
+            "standard_error": 0.0010172355817833236
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.014343309391974179,
+              0.01719773998709893
+            ],
+            "bootstrap_95_half_width": 0.0014272152975623757,
+            "bootstrap_95_relative_half_width": 0.09106371937690456,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0014970746432044733,
+              "mean_shift": -0.0014970746432044733,
+              "omitted_environment": "phosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.022643172936377853,
+            "mean": 0.015672710354112152,
+            "minimum": 0.012439605679812784,
+            "n": 16,
+            "sample_standard_deviation": 0.003025004406745057,
+            "standard_error": 0.0007562511016862642
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.052159028129981036,
+      "contact": {
+        "acceptor": 5,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            0.021302201162360347
+          ],
+          [
+            5,
+            -0.021302201162360347
+          ]
+        ],
+        "charge_transfer_e": -0.052159028129981036,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            -0.006512023208332674
+          ],
+          [
+            1,
+            0.006512023208332674
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "phosphine_PH...formaldehyde_carbonyl_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.030778114266181343,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "PH",
+      "donor_molecule": "phosphine",
+      "donor_polarization_displaced_charge_e": 0.0065120232083326745,
+      "donor_synthon": "phosphine_PH",
+      "maximum_charge_change_e": 0.042856626953579446,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.015672710354112152,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "P",
+      "acceptor_molecule": "phosphine",
+      "acceptor_polarization_displaced_charge_e": 0.009111026491576881,
+      "acceptor_synthon": "phosphine_P",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.007983422425894355,
+              0.010186051702422818
+            ],
+            "bootstrap_95_half_width": 0.0011013146382642313,
+            "bootstrap_95_relative_half_width": 0.12087711953009836,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.001063829872142947,
+              "mean_shift": 0.001063829872142947,
+              "omitted_environment": "dimethylphosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.012883789815072232,
+            "mean": 0.009111026491576881,
+            "minimum": 0.004905064000802237,
+            "n": 16,
+            "sample_standard_deviation": 0.002322254646738779,
+            "standard_error": 0.0005805636616846948
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.01486722961039638,
+              -0.007957654063081115
+            ],
+            "bootstrap_95_half_width": 0.0034547877736576327,
+            "bootstrap_95_relative_half_width": 0.30310165322797233,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002209146276092524,
+              "mean_shift": 0.002209146276092524,
+              "omitted_environment": "ethylphosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.00017974281104833623,
+            "mean": -0.011398115902255332,
+            "minimum": -0.025622789712529445,
+            "n": 16,
+            "sample_standard_deviation": 0.0072793504109734146,
+            "standard_error": 0.0018198376027433536
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.003928914407061799,
+              0.007563569982592256
+            ],
+            "bootstrap_95_half_width": 0.0018173277877652286,
+            "bootstrap_95_relative_half_width": 0.3196095713067382,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0013025674560300663,
+              "mean_shift": -0.0013025674560300663,
+              "omitted_environment": "dimethylphosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.012703940497858196,
+            "mean": 0.005686086872602099,
+            "minimum": 0.0007686150479656664,
+            "n": 16,
+            "sample_standard_deviation": 0.003802737474973395,
+            "standard_error": 0.0009506843687433487
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.012961118401221846,
+              0.016597628795681864
+            ],
+            "bootstrap_95_half_width": 0.0018182551972300088,
+            "bootstrap_95_relative_half_width": 0.12386807190806357,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.00105103745550803,
+              "mean_shift": 0.00105103745550803,
+              "omitted_environment": "methylphosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.0236067913374452,
+            "mean": 0.014678965848273965,
+            "minimum": 0.00969639770576225,
+            "n": 16,
+            "sample_standard_deviation": 0.0038541623781402643,
+            "standard_error": 0.0009635405945350661
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0374334481678673,
+              2.0374334481678673
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0374334481678673,
+            "mean": 2.0374334481678673,
+            "minimum": 2.0374334481678673,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.09406620268875861,
+              0.10138394398863673
+            ],
+            "bootstrap_95_half_width": 0.0036588706499390625,
+            "bootstrap_95_relative_half_width": 0.03737417813598381,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.10792365415303322,
+            "mean": 0.09789835743347909,
+            "minimum": 0.0823156413427928,
+            "n": 16,
+            "sample_standard_deviation": 0.007741328407775441,
+            "standard_error": 0.0019353321019438601
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.004973204759018055,
+              0.006004320075355123
+            ],
+            "bootstrap_95_half_width": 0.0005155576581685338,
+            "bootstrap_95_relative_half_width": 0.09405053231177316,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0003692000223512954,
+              "mean_shift": -0.0003692000223512954,
+              "omitted_environment": "phosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.007429697411189406,
+            "mean": 0.005481709092931915,
+            "minimum": 0.003766443142470923,
+            "n": 16,
+            "sample_standard_deviation": 0.0010866515185228034,
+            "standard_error": 0.00027166287963070084
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.5165,
+              3.5165
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.5165,
+            "mean": 3.5165,
+            "minimum": 3.5165,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.011398115902255332,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            -0.0022747088163481742
+          ],
+          [
+            5,
+            -0.006836317675228706
+          ],
+          [
+            6,
+            0.004555513245794143
+          ],
+          [
+            7,
+            0.004555513245782738
+          ]
+        ],
+        "charge_transfer_e": -0.011398115902255332,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            -0.005686086872602099
+          ],
+          [
+            1,
+            0.005686086872602099
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "phosphine_PH...phosphine_P",
+        "reference_distance_angstrom": 2.0374334481678673,
+        "reference_mayer_bond_order": 0.09789835743347909,
+        "vdw_radius_sum_angstrom": 3.5165
+      },
+      "donor_class": "PH",
+      "donor_molecule": "phosphine",
+      "donor_polarization_displaced_charge_e": 0.005686086872602099,
+      "donor_synthon": "phosphine_PH",
+      "maximum_charge_change_e": 0.014678965848273965,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.005481709092931915,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "S",
+      "acceptor_molecule": "hydrogen_sulfide",
+      "acceptor_polarization_displaced_charge_e": 0.005915169611556424,
+      "acceptor_synthon": "hydrogen_sulfide_S",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.00494241706051305,
+              0.006913331406927564
+            ],
+            "bootstrap_95_half_width": 0.000985457173207257,
+            "bootstrap_95_relative_half_width": 0.16659829521743155,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0006483393220047991,
+              "mean_shift": -0.0006483393220047991,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.01061879406605215,
+            "mean": 0.005915169611556424,
+            "minimum": 0.0025740584078853637,
+            "n": 16,
+            "sample_standard_deviation": 0.0020745218985443897,
+            "standard_error": 0.0005186304746360974
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.02635755695161195,
+              -0.02023060008659532
+            ],
+            "bootstrap_95_half_width": 0.0030634784325083153,
+            "bootstrap_95_relative_half_width": 0.13116475589577983,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002710028254925518,
+              "mean_shift": -0.002710028254925518,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.011453740100521526,
+            "mean": -0.023355957258384845,
+            "minimum": -0.03344606307074971,
+            "n": 16,
+            "sample_standard_deviation": 0.006495079479776506,
+            "standard_error": 0.0016237698699441265
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.001986076250048635,
+              0.004644705572210615
+            ],
+            "bootstrap_95_half_width": 0.00132931466108099,
+            "bootstrap_95_relative_half_width": 0.4129169418548579,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0013371800328647202,
+              "mean_shift": -0.0013371800328647202,
+              "omitted_environment": "methylphosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.00932978610466631,
+            "mean": 0.003219327003415253,
+            "minimum": 0.00030401725431326854,
+            "n": 16,
+            "sample_standard_deviation": 0.002817145337723501,
+            "standard_error": 0.0007042863344308753
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.021812222136690828,
+              0.025619147808363794
+            ],
+            "bootstrap_95_half_width": 0.0019034628358364832,
+            "bootstrap_95_relative_half_width": 0.08011191091151039,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0018757039389264395,
+              "mean_shift": 0.0018757039389264395,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.02970501997957481,
+            "mean": 0.02376004784031429,
+            "minimum": 0.015914734402088182,
+            "n": 16,
+            "sample_standard_deviation": 0.004060633801160964,
+            "standard_error": 0.001015158450290241
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0049874725963046,
+              2.0049874725963046
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0049874725963046,
+            "mean": 2.0049874725963046,
+            "minimum": 2.0049874725963046,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.045107612361965095,
+              0.05153641563291589
+            ],
+            "bootstrap_95_half_width": 0.0032144016354753967,
+            "bootstrap_95_relative_half_width": 0.0663996340185644,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.058192134088152936,
+            "mean": 0.048409930009202996,
+            "minimum": 0.035126901028722006,
+            "n": 16,
+            "sample_standard_deviation": 0.0067883771766372985,
+            "standard_error": 0.0016970942941593246
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.007629292119745179,
+              0.008263688576589262
+            ],
+            "bootstrap_95_half_width": 0.00031719822842204157,
+            "bootstrap_95_relative_half_width": 0.03999090282299988,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0001945498172307731,
+              "mean_shift": 0.0001945498172307731,
+              "omitted_environment": "dimethylphosphine",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.009589643822600837,
+            "mean": 0.007931759626082061,
+            "minimum": 0.007007631023586917,
+            "n": 16,
+            "sample_standard_deviation": 0.000673634228411525,
+            "standard_error": 0.00016840855710288126
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.4605,
+              3.4605
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.4605,
+            "mean": 3.4605,
+            "minimum": 3.4605,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.023355957258384845,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            4,
+            0.002859806213909738
+          ],
+          [
+            5,
+            -0.005915169611556424
+          ],
+          [
+            6,
+            0.003055363397646686
+          ]
+        ],
+        "charge_transfer_e": -0.023355957258384845,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.003219327003415253
+          ],
+          [
+            1,
+            -0.003219327003415253
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "phosphine_PH...hydrogen_sulfide_S",
+        "reference_distance_angstrom": 2.0049874725963046,
+        "reference_mayer_bond_order": 0.048409930009202996,
+        "vdw_radius_sum_angstrom": 3.4605
+      },
+      "donor_class": "PH",
+      "donor_molecule": "phosphine",
+      "donor_polarization_displaced_charge_e": 0.003219327003415253,
+      "donor_synthon": "phosphine_PH",
+      "maximum_charge_change_e": 0.02376004784031429,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.007931759626082061,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "O",
+      "acceptor_molecule": "water",
+      "acceptor_polarization_displaced_charge_e": 0.018515772348228963,
+      "acceptor_synthon": "water_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.016917311644564507,
+              0.02008689537979191
+            ],
+            "bootstrap_95_half_width": 0.0015847918676137017,
+            "bootstrap_95_relative_half_width": 0.08559145348129577,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0013344656067931296,
+              "mean_shift": 0.0013344656067931296,
+              "omitted_environment": "methanol",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.022712483885596678,
+            "mean": 0.018515772348228963,
+            "minimum": 0.011954083345045127,
+            "n": 16,
+            "sample_standard_deviation": 0.00338899867712433,
+            "standard_error": 0.0008472496692810825
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.04438375727979577,
+              -0.03997583126526164
+            ],
+            "bootstrap_95_half_width": 0.002203963007267065,
+            "bootstrap_95_relative_half_width": 0.05207810024463571,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002396926941730569,
+              "mean_shift": -0.002396926941730569,
+              "omitted_environment": "methanol",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.032922422246119604,
+            "mean": -0.04232034188870174,
+            "minimum": -0.04803823173473372,
+            "n": 16,
+            "sample_standard_deviation": 0.004659654395167427,
+            "standard_error": 0.0011649135987918567
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.0017352273526125915,
+              0.0034729807161349075
+            ],
+            "bootstrap_95_half_width": 0.000868876681761158,
+            "bootstrap_95_relative_half_width": 0.33984053788873436,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0005359256687540795,
+              "mean_shift": -0.0005359256687540795,
+              "omitted_environment": "ethanethiol",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.006185086844813226,
+            "mean": 0.0025567187692176765,
+            "minimum": 0.0006908805473538615,
+            "n": 16,
+            "sample_standard_deviation": 0.0018400987474317854,
+            "standard_error": 0.00046002468685794635
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.032047013811930744,
+              0.03817640328390978
+            ],
+            "bootstrap_95_half_width": 0.003064694735989519,
+            "bootstrap_95_relative_half_width": 0.08724872397590182,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0023765157456264174,
+              "mean_shift": -0.0023765157456264174,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.04449617772915854,
+            "mean": 0.03512595481437632,
+            "minimum": 0.022499063291788746,
+            "n": 16,
+            "sample_standard_deviation": 0.0064418270754305765,
+            "standard_error": 0.0016104567688576441
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.04197387900726765,
+              0.04658142533760337
+            ],
+            "bootstrap_95_half_width": 0.0023037731651678606,
+            "bootstrap_95_relative_half_width": 0.05204954528900639,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.05245643910068256,
+            "mean": 0.044261158332433125,
+            "minimum": 0.03630033802389243,
+            "n": 16,
+            "sample_standard_deviation": 0.004842700306456255,
+            "standard_error": 0.0012106750766140636
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.010135983837658655,
+              0.013537494282558517
+            ],
+            "bootstrap_95_half_width": 0.0017007552224499308,
+            "bootstrap_95_relative_half_width": 0.1451005107404678,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0014218390265626386,
+              "mean_shift": -0.0014218390265626386,
+              "omitted_environment": "water",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.02166499616103333,
+            "mean": 0.011721221474485127,
+            "minimum": 0.007527510779814818,
+            "n": 16,
+            "sample_standard_deviation": 0.0036177741533567234,
+            "standard_error": 0.0009044435383391809
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.04232034188870174,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.018515772348228963
+          ],
+          [
+            4,
+            0.012150276544042146
+          ],
+          [
+            5,
+            0.006365495804186816
+          ]
+        ],
+        "charge_transfer_e": -0.04232034188870174,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            -0.0025567187692176765
+          ],
+          [
+            1,
+            0.0025567187692176765
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "hydrogen_sulfide_SH...water_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.044261158332433125,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "SH",
+      "donor_molecule": "hydrogen_sulfide",
+      "donor_polarization_displaced_charge_e": 0.0025567187692176765,
+      "donor_synthon": "hydrogen_sulfide_SH",
+      "maximum_charge_change_e": 0.03512595481437632,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.011721221474485127,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "N",
+      "acceptor_molecule": "ammonia",
+      "acceptor_polarization_displaced_charge_e": 0.023866925268928006,
+      "acceptor_synthon": "ammonia_N",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.021948134720016135,
+              0.025683314121609676
+            ],
+            "bootstrap_95_half_width": 0.0018675897007967707,
+            "bootstrap_95_relative_half_width": 0.07825011725444826,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.001722275924478496,
+              "mean_shift": 0.001722275924478496,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.02960256535995169,
+            "mean": 0.023866925268928006,
+            "minimum": 0.016341286590586958,
+            "n": 16,
+            "sample_standard_deviation": 0.003952737080224337,
+            "standard_error": 0.0009881842700560843
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.03639657393059393,
+              -0.02050885162364399
+            ],
+            "bootstrap_95_half_width": 0.00794386115347497,
+            "bootstrap_95_relative_half_width": 0.2730351355374695,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.008432442253927818,
+              "mean_shift": -0.008432442253927818,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.008938593216981858,
+            "mean": -0.02909464797575405,
+            "minimum": -0.04788523121015496,
+            "n": 16,
+            "sample_standard_deviation": 0.01678932763338078,
+            "standard_error": 0.004197331908345195
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.003545519479489279,
+              0.010703226717397577
+            ],
+            "bootstrap_95_half_width": 0.003578853618954149,
+            "bootstrap_95_relative_half_width": 0.5244769500926149,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003630791031265826,
+              "mean_shift": -0.003630791031265826,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.02409751836725984,
+            "mean": 0.0068236623522200095,
+            "minimum": 0.0002215903551050294,
+            "n": 16,
+            "sample_standard_deviation": 0.007593617209154017,
+            "standard_error": 0.0018984043022885041
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.028520956342407824,
+              0.0358223835167863
+            ],
+            "bootstrap_95_half_width": 0.003650713587189238,
+            "bootstrap_95_relative_half_width": 0.11331483792317587,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.003291244502360971,
+              "mean_shift": 0.003291244502360971,
+              "omitted_environment": "dimethylamine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.046924028935040496,
+            "mean": 0.03221743642844298,
+            "minimum": 0.01870442953341353,
+            "n": 16,
+            "sample_standard_deviation": 0.007655131454431637,
+            "standard_error": 0.0019137828636079093
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8876605073598498,
+              1.8963513936736613
+            ],
+            "bootstrap_95_half_width": 0.0043454431569057705,
+            "bootstrap_95_relative_half_width": 0.0022949816401468992,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8963513936736613,
+            "mean": 1.8934544315690576,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 0.011587848418415314,
+            "standard_error": 0.0028969621046038285
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.061452519818197014,
+              0.07061357738913704
+            ],
+            "bootstrap_95_half_width": 0.004580528785470012,
+            "bootstrap_95_relative_half_width": 0.06937513399758621,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.08470730269067059,
+            "mean": 0.06602551262285683,
+            "minimum": 0.049945612521243646,
+            "n": 16,
+            "sample_standard_deviation": 0.009587759576110024,
+            "standard_error": 0.002396939894027506
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.009334609269828716,
+              0.012109567445421729
+            ],
+            "bootstrap_95_half_width": 0.0013874790877965067,
+            "bootstrap_95_relative_half_width": 0.13146572796158584,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0010904705225494166,
+              "mean_shift": -0.0010904705225494166,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.01964544409888248,
+            "mean": 0.010553922374369133,
+            "minimum": 0.007737043164077305,
+            "n": 16,
+            "sample_standard_deviation": 0.002980203785976162,
+            "standard_error": 0.0007450509464940405
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.273,
+              3.273
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.273,
+            "mean": 3.273,
+            "minimum": 3.273,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.02909464797575405,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.023866925268928006
+          ],
+          [
+            4,
+            0.010008126098478069
+          ],
+          [
+            5,
+            0.006855259985198073
+          ],
+          [
+            6,
+            0.007003539185251864
+          ]
+        ],
+        "charge_transfer_e": -0.02909464797575405,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            -0.0068236623522200095
+          ],
+          [
+            1,
+            0.0068236623522200095
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "hydrogen_sulfide_SH...ammonia_N",
+        "reference_distance_angstrom": 1.8934544315690576,
+        "reference_mayer_bond_order": 0.06602551262285683,
+        "vdw_radius_sum_angstrom": 3.273
+      },
+      "donor_class": "SH",
+      "donor_molecule": "hydrogen_sulfide",
+      "donor_polarization_displaced_charge_e": 0.0068236623522200095,
+      "donor_synthon": "hydrogen_sulfide_SH",
+      "maximum_charge_change_e": 0.03221743642844298,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.010553922374369133,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "C=O",
+      "acceptor_molecule": "formaldehyde",
+      "acceptor_polarization_displaced_charge_e": 0.02913227961809387,
+      "acceptor_synthon": "formaldehyde_carbonyl_O",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.027481773159006424,
+              0.031069153367497396
+            ],
+            "bootstrap_95_half_width": 0.001793690104245486,
+            "bootstrap_95_relative_half_width": 0.061570537141605514,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0020979481310608138,
+              "mean_shift": -0.0020979481310608138,
+              "omitted_environment": "formamide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.03668297150020797,
+            "mean": 0.02913227961809387,
+            "minimum": 0.026040465560764003,
+            "n": 16,
+            "sample_standard_deviation": 0.003809232151121387,
+            "standard_error": 0.0009523080377803468
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.06270786174063842,
+              -0.057792472940260804
+            ],
+            "bootstrap_95_half_width": 0.0024576944001888056,
+            "bootstrap_95_relative_half_width": 0.040795081083931733,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0021154867624550155,
+              "mean_shift": -0.0021154867624550155,
+              "omitted_environment": "formaldehyde",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.05233515562776095,
+            "mean": -0.06024487106992995,
+            "minimum": -0.07007603431960123,
+            "n": 16,
+            "sample_standard_deviation": 0.005130859274353297,
+            "standard_error": 0.0012827148185883242
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.0030765369960893555,
+              0.005516210342320977
+            ],
+            "bootstrap_95_half_width": 0.0012198366731158107,
+            "bootstrap_95_relative_half_width": 0.2803979267353396,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0013526889130208277,
+              "mean_shift": 0.0013526889130208277,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.007684361253766349,
+            "mean": 0.004350376935087623,
+            "minimum": 5.875949457721796e-05,
+            "n": 16,
+            "sample_standard_deviation": 0.0025796250358520053,
+            "standard_error": 0.0006449062589630013
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.04092518716687976,
+              0.047183776182167105
+            ],
+            "bootstrap_95_half_width": 0.0031292945076436714,
+            "bootstrap_95_relative_half_width": 0.07137978150193211,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0032882635959488316,
+              "mean_shift": -0.0032882635959488316,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.059151484403350496,
+            "mean": 0.04384006845914718,
+            "minimum": 0.036371434134952224,
+            "n": 16,
+            "sample_standard_deviation": 0.006664824370441498,
+            "standard_error": 0.0016662060926103746
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              1.8500000000000003,
+              1.8500000000000003
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 1.8500000000000003,
+            "mean": 1.8500000000000003,
+            "minimum": 1.85,
+            "n": 16,
+            "sample_standard_deviation": 5.551115123125783e-17,
+            "standard_error": 1.3877787807814457e-17
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.03596622790114654,
+              0.03953890245976464
+            ],
+            "bootstrap_95_half_width": 0.001786337279309047,
+            "bootstrap_95_relative_half_width": 0.04736138374577464,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.04509833879372273,
+            "mean": 0.037717168250355766,
+            "minimum": 0.03260717314181343,
+            "n": 16,
+            "sample_standard_deviation": 0.0037427978000557404,
+            "standard_error": 0.0009356994500139351
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.013652329409137371,
+              0.016803723039218718
+            ],
+            "bootstrap_95_half_width": 0.0015756968150406735,
+            "bootstrap_95_relative_half_width": 0.10412073659939138,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0016208965834707042,
+              "mean_shift": -0.0016208965834707042,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.022487855263723065,
+            "mean": 0.015133362157273521,
+            "minimum": 0.011176006224344793,
+            "n": 16,
+            "sample_standard_deviation": 0.0033553175104412366,
+            "standard_error": 0.0008388293776103092
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.193,
+              3.193
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.193,
+            "mean": 3.193,
+            "minimum": 3.193,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.06024487106992995,
+      "contact": {
+        "acceptor": 4,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            0.02913227961809387
+          ],
+          [
+            4,
+            -0.02913227961809387
+          ]
+        ],
+        "charge_transfer_e": -0.06024487106992995,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.004350376935087623
+          ],
+          [
+            1,
+            -0.004350376935087623
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "hydrogen_sulfide_SH...formaldehyde_carbonyl_O",
+        "reference_distance_angstrom": 1.8500000000000003,
+        "reference_mayer_bond_order": 0.037717168250355766,
+        "vdw_radius_sum_angstrom": 3.193
+      },
+      "donor_class": "SH",
+      "donor_molecule": "hydrogen_sulfide",
+      "donor_polarization_displaced_charge_e": 0.004350376935087623,
+      "donor_synthon": "hydrogen_sulfide_SH",
+      "maximum_charge_change_e": 0.04384006845914718,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.015133362157273521,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "P",
+      "acceptor_molecule": "phosphine",
+      "acceptor_polarization_displaced_charge_e": 0.020254262339970946,
+      "acceptor_synthon": "phosphine_P",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.018831672695126814,
+              0.021665959864167444
+            ],
+            "bootstrap_95_half_width": 0.001417143584520315,
+            "bootstrap_95_relative_half_width": 0.06996767202544034,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0012809354379507976,
+              "mean_shift": -0.0012809354379507976,
+              "omitted_environment": "ethylphosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.02557227711775089,
+            "mean": 0.020254262339970946,
+            "minimum": 0.01492733952663941,
+            "n": 16,
+            "sample_standard_deviation": 0.002968969934966757,
+            "standard_error": 0.0007422424837416892
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.04376482609364928,
+              -0.03532791319941109
+            ],
+            "bootstrap_95_half_width": 0.004218456447119098,
+            "bootstrap_95_relative_half_width": 0.10682115578889184,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002973233095984844,
+              "mean_shift": 0.002973233095984844,
+              "omitted_environment": "ethylphosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.0259796729234594,
+            "mean": -0.039490833215247496,
+            "minimum": -0.054816893715969164,
+            "n": 16,
+            "sample_standard_deviation": 0.008979542007356007,
+            "standard_error": 0.0022448855018390016
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.01628130327843656,
+              0.020185062657091284
+            ],
+            "bootstrap_95_half_width": 0.0019518796893273627,
+            "bootstrap_95_relative_half_width": 0.10700569790211602,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0014257739190063345,
+              "mean_shift": 0.0014257739190063345,
+              "omitted_environment": "dimethylphosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.024744811359866538,
+            "mean": 0.018240894901810314,
+            "minimum": 0.009555547627552813,
+            "n": 16,
+            "sample_standard_deviation": 0.004151538973546547,
+            "standard_error": 0.0010378847433866367
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.018010931694783783,
+              0.02294699154150245
+            ],
+            "bootstrap_95_half_width": 0.0024680299233593335,
+            "bootstrap_95_relative_half_width": 0.120664821993959,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0019796665984995535,
+              "mean_shift": 0.0019796665984995535,
+              "omitted_environment": "methanethiol",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.028974626300839718,
+            "mean": 0.020453599338860283,
+            "minimum": 0.012916220489458119,
+            "n": 16,
+            "sample_standard_deviation": 0.005210371686400076,
+            "standard_error": 0.001302592921600019
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0374334481678673,
+              2.0374334481678673
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0374334481678673,
+            "mean": 2.0374334481678673,
+            "minimum": 2.0374334481678673,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.10337878940865879,
+              0.11453186155090157
+            ],
+            "bootstrap_95_half_width": 0.0055765360711213935,
+            "bootstrap_95_relative_half_width": 0.05106668758018204,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.12422895867891402,
+            "mean": 0.10920105327696124,
+            "minimum": 0.08608505870774621,
+            "n": 16,
+            "sample_standard_deviation": 0.011794950086480398,
+            "standard_error": 0.0029487375216200994
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.0070812027135762415,
+              0.0086564948331131
+            ],
+            "bootstrap_95_half_width": 0.0007876460597684293,
+            "bootstrap_95_relative_half_width": 0.10042392238389235,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0006233205079471862,
+              "mean_shift": 0.0006233205079471862,
+              "omitted_environment": "dimethylphosphine",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.01164211405667004,
+            "mean": 0.007843211468652663,
+            "minimum": 0.00499905398133415,
+            "n": 16,
+            "sample_standard_deviation": 0.0016750293653704264,
+            "standard_error": 0.0004187573413426066
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.5165,
+              3.5165
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.5165,
+            "mean": 3.5165,
+            "minimum": 3.5165,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.039490833215247496,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.020254262339970946
+          ],
+          [
+            4,
+            0.004724171835533153
+          ],
+          [
+            5,
+            0.0077650452522255
+          ],
+          [
+            6,
+            0.007765045252212292
+          ]
+        ],
+        "charge_transfer_e": -0.039490833215247496,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.018240894901810314
+          ],
+          [
+            1,
+            -0.018240894901810314
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "hydrogen_sulfide_SH...phosphine_P",
+        "reference_distance_angstrom": 2.0374334481678673,
+        "reference_mayer_bond_order": 0.10920105327696124,
+        "vdw_radius_sum_angstrom": 3.5165
+      },
+      "donor_class": "SH",
+      "donor_molecule": "hydrogen_sulfide",
+      "donor_polarization_displaced_charge_e": 0.018240894901810314,
+      "donor_synthon": "hydrogen_sulfide_SH",
+      "maximum_charge_change_e": 0.020453599338860283,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.007843211468652663,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    },
+    {
+      "acceptor_class": "S",
+      "acceptor_molecule": "hydrogen_sulfide",
+      "acceptor_polarization_displaced_charge_e": 0.015077975188491,
+      "acceptor_synthon": "hydrogen_sulfide_S",
+      "aggregation": {
+        "method": "unweighted_arithmetic_mean_by_chemical_class",
+        "statistics": {
+          "acceptor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.013332749218197555,
+              0.01676415960700708
+            ],
+            "bootstrap_95_half_width": 0.0017157051944047628,
+            "bootstrap_95_relative_half_width": 0.11378883258239864,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0013714457125959586,
+              "mean_shift": 0.0013714457125959586,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": 0.020650588920492825,
+            "mean": 0.015077975188491,
+            "minimum": 0.009321606191990711,
+            "n": 16,
+            "sample_standard_deviation": 0.0036363932574053543,
+            "standard_error": 0.0009090983143513386
+          },
+          "charge_transfer_e": {
+            "bootstrap_95_confidence_interval": [
+              -0.05169290375162894,
+              -0.044267626558873424
+            ],
+            "bootstrap_95_half_width": 0.003712638596377757,
+            "bootstrap_95_relative_half_width": 0.07745272290716837,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0024867372173301566,
+              "mean_shift": -0.0024867372173301566,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "acceptor_molecule"
+            },
+            "maximum": -0.03497657360654027,
+            "mean": -0.04793425533699534,
+            "minimum": -0.061587530266439705,
+            "n": 16,
+            "sample_standard_deviation": 0.00789413049194374,
+            "standard_error": 0.001973532622985935
+          },
+          "donor_polarization_displaced_charge_e": {
+            "bootstrap_95_confidence_interval": [
+              0.02159871915088866,
+              0.024649761794818467
+            ],
+            "bootstrap_95_half_width": 0.0015255213219649028,
+            "bootstrap_95_relative_half_width": 0.06594467453094562,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0012664868319205644,
+              "mean_shift": 0.0012664868319205644,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.02786130515466162,
+            "mean": 0.023133351295092478,
+            "minimum": 0.018346755517366267,
+            "n": 16,
+            "sample_standard_deviation": 0.003267014845627644,
+            "standard_error": 0.000816753711406911
+          },
+          "maximum_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.027869989022880733,
+              0.03323970929223663
+            ],
+            "bootstrap_95_half_width": 0.0026848601346779483,
+            "bootstrap_95_relative_half_width": 0.08782561722752281,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.002305042693328433,
+              "mean_shift": -0.002305042693328433,
+              "omitted_environment": "isopropanethiol",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.03866748715135809,
+            "mean": 0.030570353154734973,
+            "minimum": 0.023006139463062902,
+            "n": 16,
+            "sample_standard_deviation": 0.005596066742634505,
+            "standard_error": 0.0013990166856586263
+          },
+          "reference_distance_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              2.0049874725963046,
+              2.0049874725963046
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 2.0049874725963046,
+            "mean": 2.0049874725963046,
+            "minimum": 2.0049874725963046,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          },
+          "reference_mayer_bond_order": {
+            "bootstrap_95_confidence_interval": [
+              0.05969797516259254,
+              0.06670621820894576
+            ],
+            "bootstrap_95_half_width": 0.003504121523176612,
+            "bootstrap_95_relative_half_width": 0.055563562000179756,
+            "bootstrap_resamples": 20000,
+            "maximum": 0.07934234173385266,
+            "mean": 0.0630650987272068,
+            "minimum": 0.05206483397327467,
+            "n": 16,
+            "sample_standard_deviation": 0.007439733598310324,
+            "standard_error": 0.001859933399577581
+          },
+          "rms_charge_change_e": {
+            "bootstrap_95_confidence_interval": [
+              0.010225790699406974,
+              0.011747192470053324
+            ],
+            "bootstrap_95_half_width": 0.0007607008853231755,
+            "bootstrap_95_relative_half_width": 0.06966069360210544,
+            "bootstrap_resamples": 20000,
+            "leave_one_environment_out": {
+              "maximum_absolute_mean_shift": 0.0006793060342712223,
+              "mean_shift": -0.0006793060342712223,
+              "omitted_environment": "hydrogen_sulfide",
+              "omitted_role": "donor_molecule"
+            },
+            "maximum": 0.015358173780898658,
+            "mean": 0.010920087727926152,
+            "minimum": 0.009167114730693243,
+            "n": 16,
+            "sample_standard_deviation": 0.0016071844977564517,
+            "standard_error": 0.00040179612443911293
+          },
+          "vdw_radius_sum_angstrom": {
+            "bootstrap_95_confidence_interval": [
+              3.4605,
+              3.4605
+            ],
+            "bootstrap_95_half_width": 0.0,
+            "bootstrap_95_relative_half_width": 0.0,
+            "bootstrap_resamples": 20000,
+            "maximum": 3.4605,
+            "mean": 3.4605,
+            "minimum": 3.4605,
+            "n": 16,
+            "sample_standard_deviation": 0.0,
+            "standard_error": 0.0
+          }
+        }
+      },
+      "boundary_contract": "ISOLATED_GAS_PHASE_CLUSTER",
+      "charge_transfer_e": -0.04793425533699534,
+      "contact": {
+        "acceptor": 3,
+        "acceptor_polarization_response_e": [
+          [
+            3,
+            -0.015077975188491
+          ],
+          [
+            4,
+            0.00607370124384284
+          ],
+          [
+            5,
+            0.009004273944648158
+          ]
+        ],
+        "charge_transfer_e": -0.04793425533699534,
+        "donor": 0,
+        "donor_polarization_response_e": [
+          [
+            0,
+            0.023133351295092478
+          ],
+          [
+            1,
+            -0.023133351295092478
+          ]
+        ],
+        "hydrogen": 1,
+        "label": "hydrogen_sulfide_SH...hydrogen_sulfide_S",
+        "reference_distance_angstrom": 2.0049874725963046,
+        "reference_mayer_bond_order": 0.0630650987272068,
+        "vdw_radius_sum_angstrom": 3.4605
+      },
+      "donor_class": "SH",
+      "donor_molecule": "hydrogen_sulfide",
+      "donor_polarization_displaced_charge_e": 0.023133351295092478,
+      "donor_synthon": "hydrogen_sulfide_SH",
+      "maximum_charge_change_e": 0.030570353154734973,
+      "observation_count": 16,
+      "polarization_locality": "LOCAL_XH_CO_NCO",
+      "reference_source": "L0:PBE0/def2-TZVP isolated fixed-geometry monomers",
+      "reference_strength": 1.0,
+      "rms_charge_change_e": 0.010920087727926152,
+      "schema": "matrix.zaff.hbond_charge_response.v1",
+      "target_source": "class mean of rigid fixed-geometry L0 dimers",
+      "teacher_model": "PAIRED_CM5"
+    }
+  ],
+  "intramolecular_geometry_contract": "rigid monomers; no geometry optimization; chemically audited dimers",
+  "matrix_revision": "aae1d4d0240f75fb0d0fe04790e7b40dc9931cd5",
+  "population_level": "L0:PBE0/def2-TZVP",
+  "schema": "matrix.oracle.hbond_training.v2"
+}

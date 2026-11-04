@@ -1,0 +1,28 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "xtb-primitive-hessian-scaling.v4",
+  "manifest_version": "4.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Elemental-role transferable LINK-XTB primitive-Hessian correction",
+  "summary": "Extend the atom-type-free v3 correction by a registered comparison of three hydrogen roles and retain only a cross-molecule improvement.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["link_xtb_hessian_scaling_v4"],
+  "dependencies": ["xtb-primitive-hessian-scaling.v3"],
+  "routes": [
+    {"menu": "prediction_assignment", "action": "architect.fit_xtb_hessian_corpus", "option_equals": {"model_version": "4"}}
+  ],
+  "inputs": [
+    {"name": "reference_hessian_corpus", "schema": "matrix.lcb26.harmonic_record.v1", "required": true},
+    {"name": "xtb_hessian_corpus", "schema": "matrix.link.final_cartesian_hessian.v1", "required": true},
+    {"name": "primitive_manifests", "schema": "matrix.smith.xtb_primitive_manifest.v1", "required": true},
+    {"name": "xtb_observables", "schema": "matrix.gfn2.scaling_observables.v1", "required": true}
+  ],
+  "outputs": [{"name": "transferable_scaled_hessian_model", "schema": "matrix.architect.xtb_hessian_corpus_fit.v3", "required": true}],
+  "gates": ["whole-molecule train/validation split", "vibrational-rank match", "LINK-XTB Mayer/SCC provenance", "no categorical atom-type descriptors", "registered X-H/H-X-H/SOOP-H comparison", "external saccharin confirmation", "positive congruence scale factors", "factor-count parsimony"],
+  "implementation": {"owner_api": "matrix_architect.xtb_hessian_corpus", "action": "fit_xtb_hessian_corpus"},
+  "coordinate_policy": "Transform both harmonic Hessians on the same complete frozen R/A/L/SOOP/D primitive pool supplied by SMITH; experimental fundamentals are forbidden as targets.",
+  "backend_policy": "Retain the v3 family/Mayer/SCC model and compare exactly three elemental hydrogen roles. Select at most one by whole-molecule validation RMS and use external saccharin only as confirmation. Atom types, element-pair tables and external-QM populations are forbidden.",
+  "change_policy": "new_version_and_explicit_approval"
+}

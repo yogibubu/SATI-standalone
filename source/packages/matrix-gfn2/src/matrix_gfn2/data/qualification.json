@@ -1,0 +1,33 @@
+{
+  "schema": "matrix.gfn2.qualification.v1",
+  "production_ready": true,
+  "gates": {
+    "published_parameters_complete": true,
+    "gfn2_fitted_tables_h_to_rn": true,
+    "sto_ng_contractions_complete": true,
+    "d4_reference_data_complete": true,
+    "analytic_gradient_complete": true,
+    "analytic_pulay_cn_scc": true,
+    "multipole_integral_derivatives_complete": true,
+    "analytic_multipole_coordinate_response": true,
+    "point_charge_embedding": true,
+    "xtb_native_scc_charges": true,
+    "parallel_hessian": true,
+    "float64_gpu_diagonalization": true,
+    "sparse_solver_certified": true,
+    "hybrid_sp2_iscf": true,
+    "mixed_precision_sp2": true,
+    "newton_schulz_orthogonalizer": true,
+    "asynchronous_batch_evaluation": true,
+    "implicit_scf_differentiation": true,
+    "reference_corpus_parity": true,
+    "optimizer_trajectory_parity": true,
+    "optimization_monotonic_trajectories": true,
+    "vibrational_parity": true,
+    "charged_state_coverage": true,
+    "open_shell_coverage": true,
+    "transition_metal_coverage": true,
+    "embedding_action_reaction": true
+  },
+  "reason": "The autonomous calculator passes all 18 standalone xTB oracle cases and hard-point-charge embedding parity. MATRIX-GFN2 exposes its variational SCC atomic charges for solvent, embedding and xTB-level observables; CM5 is intentionally reserved for higher-level QM backends. Its ISCF selects diagonalization, dense or domain-sparse SP2 with scientific fallbacks; mixed-precision products, Newton-Schulz orthogonalization, asynchronous batches, and implicit fixed-point adjoints are qualified. Optimization, Hessian, and frequency workflows pass their frozen xTB references."
+}

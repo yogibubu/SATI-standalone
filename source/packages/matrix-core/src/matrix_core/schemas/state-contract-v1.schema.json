@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/state-contract-v1.schema.json",
+  "title": "nano-MATRIX cross-owner state contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "project_id", "workflow", "workflow_schema", "status", "revision", "created_utc", "updated_utc", "owners", "checkpoints", "artifacts"],
+  "properties": {
+    "schema": {"const": "matrix.state_contract.v1"},
+    "project_id": {"type": "string", "minLength": 1},
+    "workflow": {"const": "state/matrix-workflow.json"},
+    "workflow_schema": {"type": "string", "minLength": 1},
+    "status": {"enum": ["pending", "blocked", "ready", "running", "completed", "failed", "cancelled"]},
+    "revision": {"type": "integer", "minimum": 1},
+    "created_utc": {"type": "string", "format": "date-time"},
+    "updated_utc": {"type": "string", "format": "date-time"},
+    "owners": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/owner"}
+    },
+    "checkpoints": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/checkpoint"}
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/artifact"}
+    }
+  },
+  "$defs": {
+    "ownerName": {"enum": ["KEYMAKER", "ORACLE", "SMITH", "LINK", "ARCHITECT"]},
+    "status": {"enum": ["inactive", "pending", "blocked", "ready", "running", "completed", "failed", "cancelled"]},
+    "strings": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "status", "checkpoints"],
+      "properties": {
+        "owner": {"$ref": "#/$defs/ownerName"},
+        "status": {"$ref": "#/$defs/status"},
+        "checkpoints": {"$ref": "#/$defs/strings"}
+      }
+    },
+    "checkpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "owner", "stage", "status", "depends_on", "required_artifacts", "produced_artifacts", "run_id", "attempts", "last_error"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "owner": {"$ref": "#/$defs/ownerName"},
+        "stage": {"type": "string", "minLength": 1},
+        "status": {"enum": ["pending", "blocked", "ready", "running", "completed", "failed", "cancelled"]},
+        "depends_on": {"$ref": "#/$defs/strings"},
+        "required_artifacts": {"$ref": "#/$defs/strings"},
+        "produced_artifacts": {"allOf": [{"$ref": "#/$defs/strings"}, {"minItems": 1}]},
+        "run_id": {"type": "string"},
+        "attempts": {"type": "integer", "minimum": 0},
+        "last_error": {"type": "string"}
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "schema", "owner", "producer_checkpoint", "required", "path", "status", "sha256"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "schema": {"type": "string", "minLength": 1},
+        "owner": {"$ref": "#/$defs/ownerName"},
+        "producer_checkpoint": {"type": "string", "minLength": 1},
+        "required": {"type": "boolean"},
+        "path": {"type": "string"},
+        "status": {"enum": ["expected", "present", "verified"]},
+        "sha256": {"type": "string"}
+      }
+    }
+  }
+}

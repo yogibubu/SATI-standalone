@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.keymaker.scientific_plan_request.v1",
+  "title": "KEYMAKER scientific planning request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "objective"],
+  "properties": {
+    "schema": {"const": "matrix.keymaker.scientific_plan_request.v1"},
+    "objective": {"type": "string", "pattern": "\\S"},
+    "protocol_id": {"type": "string", "pattern": "\\S"},
+    "maximum_serial_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "available_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "schema", "reference"],
+        "properties": {
+          "name": {"type": "string", "pattern": "\\S"},
+          "schema": {"type": "string", "pattern": "\\S"},
+          "reference": {"type": "string", "pattern": "\\S"},
+          "protocol_id": {"type": "string", "pattern": "\\S"}
+        }
+      }
+    },
+    "cost_estimates": {
+      "type": "object",
+      "propertyNames": {"pattern": "\\S"},
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["work_units", "unit", "seconds_per_unit", "calibration_reference"],
+        "properties": {
+          "work_units": {"type": "integer", "minimum": 1},
+          "unit": {"type": "string", "pattern": "\\S"},
+          "seconds_per_unit": {"type": "number", "exclusiveMinimum": 0},
+          "calibration_reference": {"type": "string", "pattern": "\\S"}
+        }
+      }
+    },
+    "acceptance_targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["protocol_id", "gate", "metric", "operator", "threshold", "unit"],
+        "properties": {
+          "protocol_id": {"type": "string", "pattern": "\\S"},
+          "gate": {"type": "string", "pattern": "\\S"},
+          "metric": {"type": "string", "pattern": "\\S"},
+          "operator": {"enum": ["<=", ">=", "=="]},
+          "threshold": {"type": "number"},
+          "unit": {"type": "string", "pattern": "\\S"}
+        }
+      }
+    }
+  }
+}

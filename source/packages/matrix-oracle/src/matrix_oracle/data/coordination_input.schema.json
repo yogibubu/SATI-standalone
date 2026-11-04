@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/oracle-coordination-input-v1.json",
+  "title": "ORACLE coordinate-free transition-metal input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "system_id",
+    "molecular_charge",
+    "multiplicity_hypotheses",
+    "components",
+    "metal_centers",
+    "coordination_interactions",
+    "assembly"
+  ],
+  "properties": {
+    "schema": {
+      "const": "matrix.oracle.coordination-input.v1"
+    },
+    "system_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "molecular_charge": {
+      "type": "integer"
+    },
+    "multiplicity_hypotheses": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/component"
+      }
+    },
+    "metal_centers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/metalCenter"
+      }
+    },
+    "coordination_interactions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/interaction"
+      }
+    },
+    "assembly": {
+      "$ref": "#/$defs/assembly"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "representation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "value"],
+      "properties": {
+        "format": {
+          "enum": ["smiles", "cxsmiles", "inchi", "template", "fragment"]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "component_id",
+        "kind",
+        "formal_charge",
+        "representation"
+      ],
+      "properties": {
+        "component_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": ["metal", "ligand", "counterion", "solvent"]
+        },
+        "formal_charge": {
+          "type": "integer"
+        },
+        "representation": {
+          "$ref": "#/$defs/representation"
+        },
+        "atom_labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metalCenter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "center_id",
+        "component_id",
+        "atom_index",
+        "oxidation_state_hypotheses",
+        "coordination_geometry_hypotheses"
+      ],
+      "properties": {
+        "center_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "component_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "atom_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "oxidation_state_hypotheses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer"
+          }
+        },
+        "coordination_geometry_hypotheses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "unspecified",
+              "linear",
+              "trigonal-planar",
+              "tetrahedral",
+              "square-planar",
+              "trigonal-bipyramidal",
+              "square-pyramidal",
+              "octahedral",
+              "pentagonal-bipyramidal",
+              "square-antiprismatic"
+            ]
+          }
+        }
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["interaction_id", "center_ids", "mode"],
+      "properties": {
+        "interaction_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "center_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "ligand_component_id": {
+          "type": ["string", "null"]
+        },
+        "donor_atoms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "mode": {
+          "enum": ["sigma", "pi", "kappa", "eta", "mu", "metal-metal"]
+        },
+        "denticity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "hapticity": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "distance_hint_angstrom": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "bond_order_hint": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "assembly": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enumerate_coordination_stereoisomers",
+        "maximum_candidates",
+        "candidate_ranking"
+      ],
+      "properties": {
+        "enumerate_coordination_stereoisomers": {
+          "type": "boolean"
+        },
+        "maximum_candidates": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "candidate_ranking": {
+          "enum": [
+            "steric-then-l0",
+            "symmetry-then-l0",
+            "l0-only"
+          ]
+        },
+        "preserve_declared_topology": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

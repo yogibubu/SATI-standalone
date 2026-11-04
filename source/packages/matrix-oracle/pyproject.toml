@@ -1,0 +1,96 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-oracle"
+version = "0.1.0rc8"
+description = "ORACLE topology, symmetry and continuous molecular perception"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-fragments==0.1.0rc8",
+  "matrix-gfn2==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-switch==0.1.0rc8",
+  "numpy>=1.24",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+smiles = ["matrix-link==0.1.0rc8"]
+formats = [
+  "matrix-apoc[all]==0.1.0rc8",
+  "matrix-link==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-molpro==0.1.0rc8",
+  "matrix-mrcc==0.1.0rc8",
+  "matrix-orca==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+]
+qt = [
+  "matrix-apoc[all]==0.1.0rc8",
+  "PySide6>=6.7",
+  "matrix-architect==0.1.0rc8",
+  "matrix-gui[qt]==0.1.0rc8",
+  "matrix-kinetics==0.1.0rc8",
+  "matrix-dvr==0.1.0rc8",
+  "matrix-fragments==0.1.0rc8",
+  "matrix-gf==0.1.0rc8",
+  "matrix-morpheus==0.1.0rc8",
+  "matrix-sentinel==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-rovib==0.1.0rc8",
+  "matrix-thermo==0.1.0rc8",
+  "matrix-trinity==0.1.0rc8",
+  "matrix-vpt2-vci==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+]
+all = [
+  "matrix-apoc[all]==0.1.0rc8",
+  "matrix-architect==0.1.0rc8",
+  "matrix-link==0.1.0rc8",
+  "matrix-switch==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-molpro==0.1.0rc8",
+  "matrix-mrcc==0.1.0rc8",
+  "matrix-orca==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+  "PySide6>=6.7",
+  "matrix-gui[qt]==0.1.0rc8",
+  "matrix-kinetics==0.1.0rc8",
+  "matrix-dvr==0.1.0rc8",
+  "matrix-fragments==0.1.0rc8",
+  "matrix-gf==0.1.0rc8",
+  "matrix-morpheus==0.1.0rc8",
+  "matrix-sentinel==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-rovib==0.1.0rc8",
+  "matrix-thermo==0.1.0rc8",
+  "matrix-trinity==0.1.0rc8",
+  "matrix-vpt2-vci==0.1.0rc8",
+]
+
+[project.scripts]
+oracle = "matrix_oracle.cli:main"
+oracle-perception = "matrix_oracle.cli:main"
+matrix-oracle = "matrix_oracle.cli:main"
+oracle-gui = "matrix_oracle.gui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_oracle = ["data/examples/*", "data/robustness/*", "data/*.toml", "data/*.json"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+# ORACLE's eager/lazy facade is explicit; keep all Pyflakes invariants active.
+extend-select = ["F"]

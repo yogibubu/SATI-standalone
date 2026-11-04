@@ -1,0 +1,45 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff4-robust-regularization-plan.v1",
+  "manifest_version": "1.0.0",
+  "status": "draft",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Reproducible qualification plan for a local native ZAFF4 field",
+  "summary": "Bind frozen inputs and a finite candidate policy to a reproducible plan. This planning operation starts no jobs and grants no physical or spectral qualification.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["zaff4_robust_regularization_plan"],
+  "dependencies": [],
+  "routes": [],
+  "inputs": [
+    {"name": "request", "schema": "matrix.architect.native_regularization_plan_request.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "plan", "schema": "matrix.architect.native_regularization_plan.v1", "required": true}
+  ],
+  "gates": [
+    "Development draft; not activated in the default KEYMAKER catalog and not a qualified production protocol",
+    "Freeze electronic state, atom order, masses, internal gauge, harmonic parent, CM5/nonbonded parent and source derivative provenance",
+    "Missing internal parameters start at zero; missing modal observations never become zero observations",
+    "No independent four-distinct internal quartics; retain induced four-distinct modal entries and the full coordinate transformation",
+    "Negative fourth derivatives are permitted; completion preserves the chosen fitted jet through order four",
+    "Local fit tolerances and observed residuals must be supplied separately; derivative residuals are not frequency errors",
+    "Fit first, complete asymptotics, screen coupled minima, transform and solve spectra, then assess significance and prune with complete requalification",
+    "No external electronic points, no QM keyword changes; angular boundary and dihedral periodicity conditions remain separately identified",
+    "Finite family/radius catalogs, thresholds, seeds, resource limits and exact code/input hashes are frozen before candidate execution",
+    "Every plateau member must independently pass minima checks; stronger damping is not assumed to preserve that property",
+    "Grid, box, basis, all-mode/active-space and occupied-domain controls must pass before a spectral plateau is accepted",
+    "Only qualified corresponding levels enter plateau comparisons; boundary-localized states of an unstable local potential are not reference spectra",
+    "Reserved independent starts confirm the final candidate and neighbours; finite searches never prove global absence of minima",
+    "No candidate or no spectral plateau yields an explicit unqualified result, never automatic tolerance relaxation",
+    "Planning qualification, local low-level qualification, high-energy domain qualification and rate qualification are separate statuses",
+    "Validate the same policy on S0 and T1 and on a second molecule before marking the general protocol approved"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.native_regularization_plan",
+    "action": "build_native_regularization_plan"
+  },
+  "coordinate_policy": "Exact source and target frames are hashed. Frozen internal initial closure is distinct from missing modal observations. Native periodic functions and defining bond switches are retained.",
+  "backend_policy": "Plan only; later numerical work requires the explicitly declared remote host and 128 GiB per process. Current owner building blocks perform fits, protected completion and finite spectral controls separately.",
+  "change_policy": "new_version_and_explicit_approval"
+}

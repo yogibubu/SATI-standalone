@@ -1,0 +1,46 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "keymaker-exploration-session.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "keymaker",
+  "entrypoint": "KEYMAKER",
+  "title": "Configure the restartable SENTINEL/MIFUNE session and its CYPHER analysis",
+  "summary": "Configure the restartable SENTINEL/MIFUNE session and its CYPHER analysis. The contract registers the existing owner API and does not certify the accuracy of a particular molecular calculation.",
+  "calculation_protocol": "sampling.conformer.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "exploration",
+      "action": "sentinel_mifune.sample_then_cypher_cluster",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "owner_inputs",
+      "schema": "matrix.keymaker.simulation_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "owner_result",
+      "schema": "matrix.keymaker.simulation_report.v2",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Confirm molecular identities before constructing the simulation request",
+    "Sampling and propagation are delegated to SENTINEL or MIFUNE; CYPHER owns reduction",
+    "Persist the session and report the scientific engines and boundary acknowledgement"
+  ],
+  "implementation": {
+    "owner_api": "matrix_gui.owner_engines.simulation_workflow",
+    "action": "KeymakerSimulationWorkflow"
+  },
+  "coordinate_policy": "Preserve the ordered molecular identity, isotope masses, coordinate frame and declared owner representation; no geometry remapping or method substitution is implicit.",
+  "backend_policy": "The scientific owner validates the inputs and numerical controls. Any missing electronic-structure acquisition uses the separately authorized calculation gateway; registration alone launches nothing.",
+  "change_policy": "new_version_and_explicit_approval"
+}

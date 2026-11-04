@@ -1,0 +1,75 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff-gfn2-residual-fit.v4",
+  "manifest_version": "4.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Primitive two-Morse residual with energy-derived X-H GFN2 alpha",
+  "summary": "Build the QM Morse from the ZAFF library alpha; derive each GFN2 X-H alpha from two SMITH primitive-tangent GFN2 energies and keep the existing non-X-H alpha stencil; fit Delta(ZAFF) as the difference of the separate Morse terms.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": [
+    "zaff_gfn2_residual_two_morse_energy_xh"
+  ],
+  "dependencies": [
+    "sonic-soop-default.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "gfn2_residual_two_morse_energy_xh"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "best_geometry_and_smith",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "best_qm_hessian",
+      "schema": "matrix.qm.hessian.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "gfn2_baseline",
+      "schema": "matrix.gfn2.residual_baseline.v1",
+      "required": true
+    },
+    {
+      "name": "residual_fit",
+      "schema": "matrix.architect.zaff_gfn2_residual_fit.v1",
+      "required": true
+    },
+    {
+      "name": "residual_field",
+      "schema": "matrix.zaff.force_field.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "frozen SMITH primitive order and atom order match G and F",
+    "resident GFN2 converged at G",
+    "G and F provenance retained separately",
+    "QM target gradient assumed zero",
+    "optional single imaginary QM soft mode is replaced by an explicitly recorded positive curvature",
+    "subtract complete resident GFN2 only",
+    "ZAFF charges exactly zero and ZAFF van der Waals terms absent",
+    "ZAFF correction energy exactly zero at G",
+    "primitive runtime reproduces full Cartesian gradient and Hessian at G",
+    "each Morse stretch force and its cross couplings vanish on dissociation",
+    "GFN2 X-H Morse alpha uses exactly two converged primitive-tangent energy points at +/-0.04 Angstrom; other stretch alpha estimates retain the v3 gradient stencil at 0.04 and 0.02 Angstrom"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.gfn2_residual",
+    "action": "fit_gfn2_residual_zaff"
+  },
+  "coordinate_policy": "Evaluate frozen SMITH primitives at every geometry. Project complete QM and resident GFN2 harmonic fields separately. Build each QM stretching Morse from the ZAFF library alpha. For each X-H stretch, displace along the frozen SMITH primitive tangent at +0.04 and -0.04 Angstrom steps, subtract the complete known primitive quadratic energy at each point, and infer the diagonal GFN2 cubic from two resident energies. Keep the v3 derivative stencil for non-X-H stretches. Derive independent GFN2 Morse alpha from its cubic, subtract the two Morse energies, and damp stretch cross terms upon dissociation.",
+  "backend_policy": "Use resident matrix_gfn2.GFN2Calculator for the baseline analytic Hessian and two additional X-H energies per bond. Additional X-H Hessians and displaced gradients are not inputs to the alpha formula. Retain v3 gradient stencils for other stretches. ZAFF charges are zero, van der Waals terms absent, and correction energy zero at the reference.",
+  "change_policy": "new_version_and_explicit_approval"
+}

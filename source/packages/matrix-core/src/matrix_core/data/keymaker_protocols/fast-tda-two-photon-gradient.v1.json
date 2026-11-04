@@ -1,0 +1,34 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "fast-tda-two-photon-gradient.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "gfn2",
+  "entrypoint": "KEYMAKER",
+  "title": "FAST_TDA analytic two-photon gradient",
+  "summary": "Evaluate a complete Cartesian derivative of the TDA two-photon tensor and isotropic strength with AO dipole, Pulay, orbital, SCC and selected-root response.",
+  "calculation_protocol": "spectroscopy.electronic.v1",
+  "aliases": ["fast_tda_2pa_gradient", "tda_two_photon_gradient"],
+  "dependencies": ["fast-tda-two-photon-qualification.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "fast_tda.two_photon_gradient", "option_equals": {"backend": "matrix-gfn2"}}],
+  "inputs": [
+    {"name": "geometry", "schema": "matrix.geometry.v1", "required": true},
+    {"name": "target_state", "schema": "matrix.root_index.zero_based.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "two_photon_gradient", "schema": "matrix.fast_tda.two_photon_gradient.v1", "required": true},
+    {"name": "keymaker_provenance", "schema": "matrix.keymaker.protocol_binding.v1", "required": true}
+  ],
+  "gates": [
+    "the selected configuration space is frozen at the reference geometry",
+    "AO dipole and Pulay derivatives are analytic",
+    "orbital and SCC relaxation use the resident coupled response",
+    "target-root and three shifted response derivatives satisfy their residual gates",
+    "the Cartesian strength gradient passes translation invariance",
+    "a reconverged central difference is retained as a qualification oracle only"
+  ],
+  "implementation": {"owner_api": "matrix_gfn2.tda_two_photon", "action": "molecular_tda_two_photon_gradient"},
+  "coordinate_policy": "The atom order and Cartesian frame are immutable; a later property transformation may project the completed Cartesian gradient to SYCART or SONIC.",
+  "backend_policy": "FAST_TDA and MATRIX-GFN2 are resident and no external executable participates in production evaluation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

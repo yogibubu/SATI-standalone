@@ -1,0 +1,13 @@
+{
+  "schema": "matrix.gfn2.parameter-provenance.v1",
+  "method": "GFN2-xTB",
+  "coverage": {"atomic_numbers": [1, 86], "elements": 86, "shells": 237},
+  "source": {
+    "citation": "Bannwarth, Ehlert, Grimme, JCTC 2019, 15, 1652-1671",
+    "doi": "10.1021/acs.jctc.8b01176",
+    "supporting_information_tables": ["S49", "S50"],
+    "supporting_information_pages": [87, 96]
+  },
+  "transcription_cross_check": "legacy external parameter export used only as a migration oracle; no runtime or source dependency",
+  "sha256": "a835b0d47a3bdb78e5d2f1cc45737fd69e2301d0053b1cc7b5f799d6447df522"
+}

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-gaussian"
+version = "0.1.0rc8"
+description = "Gaussian adapters for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-rovib==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+spectroscopy = [
+  "matrix-gf==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "matrix-vpt2-vci==0.1.0rc8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_gaussian = ["data/*.json"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+extend-select = ["F"]

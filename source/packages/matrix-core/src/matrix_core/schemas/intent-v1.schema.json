@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/intent-v1.schema.json",
+  "title": "Keymaker intent compilation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema", "compiler_id", "request", "status", "selected_recipe",
+    "candidates", "missing_fields", "clarification_questions",
+    "execution_authorized"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.keymaker.intent.v1"},
+    "compiler_id": {"type": "string", "minLength": 1},
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["objective", "desired_result", "starting_point", "validation"],
+      "properties": {
+        "objective": {"type": "string"},
+        "desired_result": {"type": "string"},
+        "starting_point": {"type": "string"},
+        "validation": {"type": "string"}
+      }
+    },
+    "status": {"enum": ["ready", "needs_clarification", "unsupported"]},
+    "selected_recipe": {"type": "string"},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["recipe_key", "title", "score", "confidence", "matched_terms"],
+        "properties": {
+          "recipe_key": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "score": {"type": "integer", "minimum": 0},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "matched_terms": {
+            "type": "array", "items": {"type": "string"}, "uniqueItems": true
+          }
+        }
+      }
+    },
+    "missing_fields": {
+      "type": "array", "items": {"type": "string"}, "uniqueItems": true
+    },
+    "clarification_questions": {
+      "type": "array", "items": {"type": "string"}, "uniqueItems": true
+    },
+    "requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "backend", "method", "basis", "derivative", "derivative_policy",
+        "require_ecp", "execution", "remote_machine"
+      ],
+      "properties": {
+        "backend": {"type": "string", "minLength": 1},
+        "method": {"type": "string"},
+        "basis": {"type": "string"},
+        "derivative": {"enum": ["", "energy", "gradient", "hessian"]},
+        "derivative_policy": {"enum": ["analytic", "prefer-analytic", "allow-numerical"]},
+        "require_ecp": {"type": "boolean"},
+        "execution": {"enum": ["auto", "local", "remote"]},
+        "remote_machine": {"type": "string"}
+      }
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "severity", "field", "message"],
+        "properties": {
+          "code": {"type": "string", "minLength": 1},
+          "severity": {"enum": ["info", "warning", "error"]},
+          "field": {"type": "string", "minLength": 1},
+          "message": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "source_text": {"type": "string"},
+    "proposal_origin": {"type": "string", "minLength": 1},
+    "execution_authorized": {"const": false}
+  }
+}

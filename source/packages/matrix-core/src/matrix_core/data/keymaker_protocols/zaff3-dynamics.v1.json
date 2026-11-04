@@ -1,0 +1,38 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff3-dynamics.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "ZAFF3 spectroscopic field with periodic dynamics continuation",
+  "summary": "Extend a certified ZAFF3 field by sparse periodic LAM-SAM response terms that remain exactly dormant over its spectroscopic stencil and retain the ZAFF dissociation switches.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["zaff3_dynamics"],
+  "dependencies": ["zaff-sparse-coupling-fit.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "architect.fit_validate_zaff", "option_equals": {"model": "zaff3_dynamics"}}],
+  "inputs": [
+    {"name": "certified_zaff3_field", "schema": "matrix.zaff.force_field.v1", "required": true},
+    {"name": "lam_scan_points", "schema": "matrix.architect.zaff3_lam_scan.v1", "required": true},
+    {"name": "independent_holdout_points", "schema": "matrix.architect.zaff3_holdout.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "dynamics_field", "schema": "matrix.zaff.force_field.v1", "required": true},
+    {"name": "dynamics_certificate", "schema": "matrix.architect.zaff3_dynamics_certificate.v1", "required": true}
+  ],
+  "gates": [
+    "ORACLE supplies the immutable flexible-torsion representatives and SMITH supplies the frozen primitive identities",
+    "periodic continuation is C2 and exactly zero over every geometry in the parent spectroscopic stencil",
+    "every added term retains all defining-bond dissociation switches and is independently asymptotically correct",
+    "fit targets only the residual energy and analytic gradient after the complete preceding ZAFF level",
+    "independent off-grid LAM holdout maximum energy error is at most 0.5 cm-1",
+    "independent off-grid LAM holdout maximum Cartesian-gradient error is at most 5e-4 Eh/angstrom",
+    "analytic added Hessian is exactly zero on the complete parent spectroscopic stencil",
+    "parent anharmonic-frequency certificate remains unchanged",
+    "LINK minimum optimization converges and MIFUNE NVE energy drift passes the stored dynamics gate"
+  ],
+  "implementation": {"owner_api": "matrix_architect.native_refinement", "action": "fit_native_point_observations"},
+  "coordinate_policy": "Fit local inverse-distance, cosine and Fourier products in the frozen redundant ZAFF primitives. Activate finite-amplitude LAM-SAM response with a versioned periodic C2 outer window beyond the largest parent spectroscopic displacement.",
+  "backend_policy": "Acquire independent B3LYP-D3BJ energy and analytic-gradient holdouts through LINK on ORACLE; ARCHITECT owns the residual fit, LINK owns optimization and MIFUNE owns dynamics.",
+  "change_policy": "new_version_and_explicit_approval"
+}

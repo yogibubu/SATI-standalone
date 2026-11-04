@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-fragments"
+version = "0.1.0rc8"
+description = "Topology-backed fragment workflows for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-switch==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+oracle = ["matrix-oracle==0.1.0rc8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+extend-select = ["F"]

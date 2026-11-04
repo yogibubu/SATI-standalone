@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/cdown/faddeeva",
+  "commit": "2de26f61dbbc3e9e45afeefbdf4ea7a0676706a5",
+  "source_note": "Mirror of original MIT Faddeeva package; no upstream signature",
+  "author": "Steven G. Johnson, Massachusetts Institute of Technology",
+  "license": "MIT; copyright and license included in both source files",
+  "sha256": {
+    "Faddeeva.cc": "46dc0d4e7d81ddcce5a95953b97d31696ffb424228e751aac10dfd9aeb3430a0",
+    "Faddeeva.hh": "c21f02ba67af33f56eb89eba23286f0c01af3c9a3142b7664fa5303874e6316a"
+  }
+}

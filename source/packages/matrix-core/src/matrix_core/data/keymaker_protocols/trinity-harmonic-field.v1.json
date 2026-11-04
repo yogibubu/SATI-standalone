@@ -1,0 +1,24 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-harmonic-field.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY harmonic field transformation",
+  "summary": "Transform a validated Cartesian Hessian into the frozen SMITH primitive representation with explicit rank and invariance checks.",
+  "calculation_protocol": "qm.hessian.v1",
+  "aliases": ["trinity_harmonic_field"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "trinity.build_harmonic_field", "option_equals": {}}],
+  "inputs": [
+    {"name": "cartesian_hessian", "schema": "matrix.qm.hessian.v1", "required": true},
+    {"name": "sonic_definition", "schema": "matrix.smith.definition.v1", "required": true}
+  ],
+  "outputs": [{"name": "harmonic_field", "schema": "matrix.trinity.harmonic_field.v1", "required": true}],
+  "gates": ["symmetric Cartesian Hessian", "exact vibrational rank", "translation-rotation invariance", "representation round trip"],
+  "implementation": {"owner_api": "matrix_trinity.harmonic_field", "action": "transform_cartesian_hessian"},
+  "coordinate_policy": "Transform through the frozen SMITH B and B-prime contract without redefining primitives.",
+  "backend_policy": "TRINITY representation service over a validated QM Hessian artifact.",
+  "change_policy": "new_version_and_explicit_approval"
+}

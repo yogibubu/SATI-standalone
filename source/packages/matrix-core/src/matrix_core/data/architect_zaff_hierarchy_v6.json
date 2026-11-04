@@ -1,0 +1,115 @@
+{
+  "schema": "matrix.keymaker.architect_zaff_hierarchy.v6",
+  "protocol_id": "architect-zaff-hierarchy.v6",
+  "status": "approved_reference",
+  "change_policy": "new_version_and_explicit_user_approval",
+  "owner_operation": "architect",
+  "population": {
+    "owner": "ORACLE",
+    "preferred_qm": {
+      "method": "PBE0/def2-SVP",
+      "charges": "complete_atom_mapped_CM5",
+      "bond_orders": "complete_atom_mapped_Mayer",
+      "large_systems": "validated_overlapping_fragments_with_charge_and_order_reconciliation"
+    },
+    "empirical_fallback": {
+      "qm_calculations_required": false,
+      "charges": "ORACLE_electronegativity_estimate",
+      "bond_orders": "ORACLE_Pauling_estimate"
+    },
+    "pairing": "each_vector_must_be_complete;_partial_atomwise_mixing_forbidden",
+    "geometry": "declared_ZAFF_reference_geometry"
+  },
+  "nonbonded": {
+    "electrostatics": "all_atom_pairs_Gaussian_charge_penetration",
+    "vdw": "ExpPE_only_without_D3_or_D4",
+    "channels": "separate_switchable_covalent_and_ExpPE_components",
+    "pair_rule": "no_discrete_1_2_1_3_or_1_4_classes",
+    "new_bond_formation_ExpPE_to_covalent_blending": "deferred_not_active",
+    "rule": "same_separate_nonbonded_field_at_every_zoom_level_and_subtracted_once"
+  },
+  "stationary_qm_reference": {
+    "energy": "E_QM(x)-[E_QM(x_ref)-E_QM(x_QM_min)]-g_QM(x_ref).(x-x_ref)",
+    "gradient": "g_QM(x)-g_QM(x_ref)",
+    "analytic_hessian": "H_QM(x)_unchanged",
+    "reference_geometry": "ZAFF_stationary_minimum",
+    "minimum_energy_policy": "record_same_level_QM_minimum_or_declare_arbitrary_energy_zero"
+  },
+  "levels": [
+    {
+      "id": "ZAFF0",
+      "rule": "transferable_library_field_organized_by_ORACLE_from_complete_QM_CM5_Mayer_or_the_complete_electronegativity_Pauling_fallback",
+      "exploration": "rigid_bonds_and_angles_active_acyclic_torsions_and_rigid_bodies",
+      "bonded_parameters": "MM3_atom_type_stretches_translated_once_to_permanent_generalized_inverse_power_form;_GAFF_valence_parameters;_GFN_FF_analogous_torsions",
+      "nonbonded_parameters": "GAFF_refitted_ZAFF_ExpPE_and_all_pair_Gaussian_electrostatics",
+      "typing": "continuous_ORACLE_synthon_interpolation_between_discrete_donor_atom_types",
+      "qm_requirement": "none_for_empirical_fallback",
+      "stretching_form": "De_times_one_minus_r0_over_r_to_the_p_squared_with_p_equal_Morse_alpha_times_r0_preserving_library_r0_De_and_k2"
+    },
+    {
+      "id": "ZAFF1",
+      "rule": "reference_geometry_plus_total_or_partial_QM_Hessian;_Pareto_fit_of_the_smallest_diagonal_field_with_all_geminal_XH_stretch_couplings_in_the_same_permanent_ZAFF_forms",
+      "hessian_claim": "best_Pareto_diagonal_plus_geminal_XH_realization_of_the_available_Hessian_information",
+      "reference_inputs": "geometry_and_total_or_declared_partial_Hessian_information",
+      "selection": "Pareto_accuracy_locality_sparsity_symmetry",
+      "partial_hessian_policy": "fit_only_observed_Hessian_information;_retain_ZAFF0_priors_for_unobserved_directions",
+      "stretching_form": "update_r0_and_p_from_available_QM_stationarity_and_k2_while_retaining_library_De_and_the_same_inverse_distance_base"
+    },
+    {
+      "id": "ZAFF2",
+      "rule": "retain_native_ZAFF_forms_and_use_the_complete_QM_Hessian_to_build_the_complete_harmonic_field",
+      "hessian_claim": "complete_QM_harmonic_field_with_nonbonded_restored_before_certified_pruning",
+      "stretching_form": "same_generalized_inverse_power_base_with_complete_QM_harmonic_jet_fixed_library_De_and_all_harmonic_couplings",
+      "couplings": "all_harmonic_couplings_in_asymptotically_correct_ZAFF_form",
+      "selection": "prune_only_couplings_certified_irrelevant_to_the_harmonic_spectrum_and_mode_subspaces"
+    },
+    {
+      "id": "ZAFF3",
+      "rule": "complete_anharmonic_field_in_the_same_native_asymptotically_correct_ZAFF_forms_used_from_ZAFF0",
+      "native_functions": "the_permanent_generalized_inverse_power_stretch_base_plus_asymptotically_vanishing_inverse_distance_corrections_cosine_Fourier_and_ZAFF_switches",
+      "reference_jet": "zero_energy_gradient_and_hessian_correction",
+      "selection": "the_complete_acquired_anharmonic_field_is_fitted_first;_any_later_reduction_is_a_separate_certified_compression_and_does_not_define_ZAFF3",
+      "content": "all_diagonal_and_off_diagonal_anharmonic_terms_supported_by_the_acquired_derivative_order_plus_complete_LAM_valleys"
+    }
+  ],
+  "providers": [
+    "ORACLE",
+    "SMITH",
+    "LINK",
+    "ARCHITECT",
+    "ZAFF",
+    "TRINITY"
+  ],
+  "invariants": [
+    "mapped_topology_and_population_provenance",
+    "ZAFF0_QM_and_empirical_population_routes_share_identical_physical_functional_forms",
+    "one_permanent_inverse_distance_stretch_family_from_ZAFF0_through_ZAFF3",
+    "ZAFF1_requires_a_reference_geometry_and_total_or_declared_partial_Hessian_information",
+    "one_frozen_all_pair_ExpPE_nonbonded_field_without_D3_or_D4",
+    "bond_dissociation_active;_new_bond_formation_blending_deferred",
+    "total_ZAFF_gradient_zero_at_reference",
+    "total_Cartesian_hessian_matches_QM_at_ZAFF2_and_ZAFF3",
+    "all_declared_LAM_scans_and_independent_holdout_required_for_ZAFF3",
+    "independent_asymptotic_certification_at_every_ZAFF_zoom_level",
+    "previous_ZAFF_field_subtracted_at_every_additional_QM_point"
+  ],
+  "asymptotic_contract": {
+    "all_levels": "each_ZAFF0_ZAFF1_ZAFF2_ZAFF3_is_independently_asymptotically_correct",
+    "bond_stretch": "finite_dissociation_limit_with_zero_force_and_curvature",
+    "angular_and_out_of_plane": "bounded_native_shape_multiplied_by_switches_for_every_defining_bond",
+    "torsion": "periodic_Fourier_shape_multiplied_by_switches_for_all_three_defining_bonds",
+    "geminal_XH": "coupling_and_all_derivatives_vanish_when_either_XH_bond_dissociates",
+    "higher_couplings": "bounded_native_coordinates_and_defining_bond_switches_with_reference_quadratic_jet_preserved",
+    "nonbonded": "Gaussian_electrostatics_and_ExpPE_as_separate_all_pair_channels;_D3_and_D4_forbidden",
+    "forbidden": "bare_Cartesian_quadratic_tail_wrapped_dihedral_displacement_and_cancellation_only_in_next_zoom_level",
+    "gate": "test_separated_bonds_fragments_and_full_torsional_cycle_for_E_gradient_and_Hessian_before_promotion"
+  },
+  "radial_form_contract": {
+    "all_levels": "one_permanent_inverse_distance_stretch_family_from_ZAFF0_onward",
+    "ZAFF0_initialization": "translate_the_synthon_interpolated_MM3_Morse_prior_once_to_De_times_one_minus_r0_over_r_to_the_p_squared_preserving_r0_De_and_k2",
+    "asymptote": "De_is_fixed_from_the_ZAFF_library_from_ZAFF0_onward",
+    "refinement": "higher_levels_add_inverse_distance_correction_terms_and_couplings_without_replacing_the_base_function",
+    "stability": "the_generalized_inverse_power_base_is_nonnegative_monotone_and_short_range_repulsive",
+    "legacy": "serialized_Morse_fields_remain_readable_but_are_not_emitted_by_the_v6_compiler"
+  }
+}

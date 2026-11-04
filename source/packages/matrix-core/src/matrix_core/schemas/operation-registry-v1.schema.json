@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schemas/operation-registry-v1.schema.json",
+  "title": "MATRIX operation ownership registry v1",
+  "type": "object",
+  "required": ["schema", "operation_count", "operations", "owner_index"],
+  "properties": {
+    "schema": {"const": "matrix.operation-registry.v1"},
+    "operation_count": {"type": "integer", "minimum": 1},
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "owner_package", "owner_api", "layer", "responsibility"],
+        "properties": {
+          "key": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "owner_package": {"type": "string", "pattern": "^matrix-[a-z0-9-]+$"},
+          "owner_api": {"type": "string", "pattern": "^matrix_[A-Za-z0-9_.]+$"},
+          "layer": {"type": "string", "minLength": 1},
+          "responsibility": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "owner_index": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "pattern": "^matrix-[a-z0-9-]+$"}
+    }
+  },
+  "additionalProperties": false
+}

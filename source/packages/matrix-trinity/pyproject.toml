@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-trinity"
+version = "0.1.0rc8"
+description = "TRINITY molecular vibrational and anharmonic-field services"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-chem==0.1.0rc8",
+  "matrix-core==0.1.0rc8",
+  "matrix-gf==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "matrix-oracle==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "numba>=0.62,<0.63",
+  "numpy>=1.24",
+  "scipy>=1.11",
+  "threadpoolctl>=3.1",
+]
+
+[project.optional-dependencies]
+isotope = [
+  "matrix-core==0.1.0rc8",
+  "matrix-link[gfn2-zaff-composite]==0.1.0rc8",
+  "matrix-morpheus==0.1.0rc8",
+  "matrix-rovib==0.1.0rc8",
+]
+lock = ["matrix-rovib==0.1.0rc8"]
+isotopes = [
+  "matrix-link==0.1.0rc8",
+  "matrix-morpheus==0.1.0rc8",
+  "matrix-rovib==0.1.0rc8",
+]
+gpu = ["matrix-sentinel[gpu]==0.1.0rc8"]
+sampling = ["matrix-sentinel==0.1.0rc8"]
+et = ["matrix-et==0.1.0rc8"]
+spectroscopy = [
+  "matrix-gaussian==0.1.0rc8",
+]
+smith-metric = ["matrix-zaff==0.1.0rc8"]
+anharmonic = [
+  "matrix-dvr==0.1.0rc8",
+  "matrix-vpt2-vci==0.1.0rc8",
+]
+zaff-anharmonic = [
+  "matrix-dvr==0.1.0rc8",
+  "matrix-gf==0.1.0rc8",
+  "matrix-vpt2-vci[zaff]==0.1.0rc8",
+]
+fragments = ["matrix-fragments==0.1.0rc8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_trinity = ["native/*.cpp", "native/*.hpp", "native/vendor/*.h", "native/vendor/*.hh", "native/vendor/*.cc", "native/vendor/*.LICENSE", "native/vendor/*.json"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+extend-select = ["F"]

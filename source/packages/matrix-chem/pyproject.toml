@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0", "numpy==2.3.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-chem"
+version = "0.1.0rc8"
+description = "ORACLE topology, symmetry and synthon perception primitives for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "networkx>=3.2",
+  "numpy>=1.24",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+smiles = ["matrix-link==0.1.0rc8", "matrix-switch==0.1.0rc8"]
+formats = [
+  "matrix-link==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-molpro==0.1.0rc8",
+  "matrix-mrcc==0.1.0rc8",
+  "matrix-orca==0.1.0rc8",
+  "matrix-xtb==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+  "matrix-et==0.1.0rc8",
+]
+integration = [
+  "matrix-qm==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_chem = ["data/*.json", "*.hpp"]
+
+[tool.setuptools.exclude-package-data]
+matrix_chem = ["*.cpp"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+# Keep the ORACLE perception kernel free of stale imports and local state.
+extend-select = ["F"]

@@ -1,0 +1,45 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "sati-optical.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "Native optical vibronic spectroscopy",
+  "summary": "Native optical vibronic spectroscopy through its existing scientific owner; registration validates the contract and does not imply molecular or experimental accuracy.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "sati.optical",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "configuration",
+      "schema": "matrix.sati.optical_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.sati.optical_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Every property tensor and derivative uses the same native normal basis",
+    "The declared optical response and property shapes are validated"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.vibronic_optical_workflow",
+    "action": "run_esalc_optical_workflow"
+  },
+  "coordinate_policy": "Consume explicit frozen initial/final ESALC states and transport properties through the same native GF basis.",
+  "backend_policy": "Use declared local numerical kernels and resource budgets. This protocol submits no implicit electronic-structure calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

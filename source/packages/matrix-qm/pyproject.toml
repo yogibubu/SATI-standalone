@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-qm"
+version = "0.1.0rc8"
+description = "Shared QM data sections for MATRIX enriched XYZ containers"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+adapters = [
+  "matrix-cfour==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-molpro==0.1.0rc8",
+  "matrix-mrcc==0.1.0rc8",
+  "matrix-orca==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+  "matrix-vpt2-vci==0.1.0rc8",
+  "matrix-xtb==0.1.0rc8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_qm = [
+  "basis_sets/*.gbs",
+  "basis_sets/*.json",
+  "data/*.json",
+  "schemas/*.json",
+]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+# Keep shared QM schemas and fitting contracts statically auditable.
+extend-select = ["F"]

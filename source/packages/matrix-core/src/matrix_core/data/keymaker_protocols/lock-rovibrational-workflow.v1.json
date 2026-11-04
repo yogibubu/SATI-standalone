@@ -1,0 +1,47 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "lock-rovibrational-workflow.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "rovib",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY surface to LOCK rotational spectrum",
+  "summary": "TRINITY surface to LOCK rotational spectrum through its existing scientific owner; registration validates the contract and does not imply molecular or experimental accuracy.",
+  "calculation_protocol": "spectroscopy.rotational.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "lock.solve_rovibrational",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "surface",
+      "schema": "matrix.lock.lam_rotation_surface.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "workflow_manifest",
+      "schema": "matrix.lock.workflow.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Versioned TRINITY surface and selected basis are validated",
+    "Declared angular-momentum, memory, worker and eigensolver budgets are enforced",
+    "When supplied the immutable upstream chain ends with ORACLE, SMITH, GF, TRINITY",
+    "A spectrum requires an explicit dipole and records temperature and line units"
+  ],
+  "implementation": {
+    "owner_api": "matrix_rovib.lock_workflow",
+    "action": "run_lock_workflow"
+  },
+  "coordinate_policy": "Consume the versioned TRINITY LAM surface and its metric, tensor and symmetry metadata.",
+  "backend_policy": "Use declared local numerical kernels and resource budgets. This protocol submits no implicit electronic-structure calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

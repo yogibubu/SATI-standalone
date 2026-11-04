@@ -1,0 +1,72 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.junchs.gdv.v1",
+  "selector": "junchs-gdv",
+  "model": "jun-ChS",
+  "backend": "gdv",
+  "frozen": true,
+  "formula": "fc-CCSD(T)/jun-cc-pVTZ + (64/37)[fc-MP2/jun-cc-pVQZ - fc-MP2/jun-cc-pVTZ] + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "jun-cc-pVTZ",
+    "artifact": "",
+    "source": "GDV native basis library",
+    "definition": "Standard jun-cc-pV(T+d)Z orbital basis, including the additional tight d function on Na-Ar"
+  },
+  "high_level": {
+    "label": "fc-CCSD(T)/jun-cc-pVTZ",
+    "method": "CCSD(T)",
+    "basis": "jun-cc-pVTZ",
+    "route": "# CCSD(T)/jun-cc-pVTZ",
+    "reference": "RHF",
+    "correlation_model": "canonical",
+    "triples": "(T)",
+    "core_treatment": "frozen_core",
+    "derivative": "one_sided_totally_symmetric_sonic_numerical",
+    "numerical_gradient_step_bohr": 0.001
+  },
+  "cbs_correction": {
+    "formula": "E_MP2_CBS(3,4) - E_fc-MP2/jun-cc-pVTZ = (64/37)[E_fc-MP2/jun-cc-pVQZ - E_fc-MP2/jun-cc-pVTZ]",
+    "exponent": 3,
+    "lower_cardinal": 3,
+    "upper_cardinal": 4,
+    "lower": {
+      "label": "fc-MP2/jun-cc-pVTZ",
+      "method": "MP2",
+      "basis": "jun-cc-pVTZ",
+      "route": "# MP2/jun-cc-pVTZ",
+      "coefficient": -1.7297297297297298,
+      "derivative": "analytic"
+    },
+    "upper": {
+      "label": "fc-MP2/jun-cc-pVQZ",
+      "method": "MP2",
+      "basis": "jun-cc-pVQZ",
+      "route": "# MP2/jun-cc-pVQZ",
+      "coefficient": 1.7297297297297298,
+      "derivative": "analytic"
+    }
+  },
+  "core_valence": {
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "artifact": "cc-pwCVTZ.g94",
+    "sha256": "8e86f52ed8c6f30a6a13ab7569fe1376fdf9f8b508d44ad381fc899600fb6cc6",
+    "source": "eT 2.5.1 Gaussian94 basis library",
+    "definition": "cc-pwCVTZ for heavy atoms and cc-pVTZ for H/He",
+    "all_electron": {
+      "method": "MP2",
+      "route": "# MP2=FULL/Gen"
+    },
+    "frozen_core": {
+      "method": "MP2",
+      "route": "# MP2/Gen"
+    },
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "gdv",
+    "route": "# B3LYP/6-31G* Freq"
+  }
+}

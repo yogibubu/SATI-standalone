@@ -1,0 +1,36 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-esalci-gvpt2-ir.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY ESALC-I normal-mode GVPT2 and IR",
+  "summary": "Acquire a Cartesian Hessian, certify frozen ESALC-I Wilson GF, displace its normal modes, acquire Cartesian Hessians, dipole derivatives and full rovibrational G matrices, transform complete finite-difference fields and solve curvilinear GVPT2 with polyad IR intensities.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": ["trinity_esalci_gvpt2_ir"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "trinity.esalci_gvpt2_ir", "option_equals": {}}],
+  "inputs": [
+    {"name": "frozen_esalci_chart", "schema": "matrix.smith.definition.v1", "required": true},
+    {"name": "cartesian_gradient_hessian_evaluator", "schema": "matrix.qm.cartesian_gradient_hessian_provider.v1", "required": true},
+    {"name": "dipole_value_or_jacobian_provider", "schema": "matrix.qm.dipole_provider.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "esalci_gf", "schema": "matrix.gf.internal_result.v1", "required": true},
+    {"name": "curvilinear_anharmonic_field", "schema": "matrix.trinity.sonic_vpt2_field.v1", "required": true},
+    {"name": "gvpt2_ir_spectrum", "schema": "matrix.trinity.gvpt2_ir_spectrum.v1", "required": true}
+  ],
+  "gates": [
+    "frozen ESALC-I chart and full vibrational rank",
+    "Cartesian-to-ESALC-I B/J closure",
+    "Wilson GF agreement with displacement-mode frequencies",
+    "complete symmetric F3/F4 and G'/G'' finite-difference stencils",
+    "complete first-to-third dipole derivatives from analytic Cartesian Jacobians or finite dipole-value differences in the same modes",
+    "GVPT2 resonance polyads and second-order IR transition moments"
+  ],
+  "implementation": {"owner_api": "matrix_trinity.keymaker_esalci_gvpt2", "action": "run_esalci_gvpt2_protocol"},
+  "coordinate_policy": "Use one frozen full-rank ESALC-I/SONIC chart and its body-fixed nonlinear realization. Obtain normal modes by Wilson GF from the reference Cartesian Hessian, then displace along those modes in ESALC-I coordinates. Transform Hessian, metric and dipole stencils in that unchanged basis.",
+  "backend_policy": "KeyMaker authorizes Cartesian E/G/H and dipole-value or dipole-Jacobian providers at one electronic level; TRINITY owns finite differences, field transformation, GVPT2 and IR intensities.",
+  "change_policy": "new_version_and_explicit_approval"
+}

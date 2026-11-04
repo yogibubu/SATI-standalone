@@ -1,0 +1,21 @@
+{
+  "schema": "matrix.link.active_variables.v1",
+  "projection_rcond": 1e-08,
+  "projection_tolerance": 1e-06,
+  "variables": [
+    {
+      "name": "oh_stretch",
+      "kind": "sonic",
+      "coordinate": "Stre0001",
+      "bounds": [0.9, 1.04],
+      "units": "angstrom"
+    },
+    {
+      "name": "hoh_bend",
+      "kind": "sonic",
+      "coordinate": "Bend0001",
+      "bounds": [1.7, 1.95],
+      "units": "radian"
+    }
+  ]
+}

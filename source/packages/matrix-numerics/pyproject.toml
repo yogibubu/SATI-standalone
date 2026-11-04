@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-numerics"
+version = "0.1.0rc8"
+description = "Shared numerical kernels and compute-backend selection for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "threadpoolctl>=3",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

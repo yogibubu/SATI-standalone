@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/qm-capability-registry-v2.schema.json",
+  "title": "MATRIX exact QM capability registry v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "registry_id",
+    "manifest_version",
+    "status",
+    "selection_policy",
+    "allowed_backends",
+    "records",
+    "change_policy"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.qm.capability_registry.v2"},
+    "registry_id": {"const": "matrix-qm-capabilities-v2"},
+    "manifest_version": {"const": "2.1.3"},
+    "status": {"const": "approved"},
+    "selection_policy": {"const": "exact_full_key_fail_closed"},
+    "allowed_backends": {
+      "const": ["xtb", "pyscf", "pyfock", "et", "orca", "psi4"]
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/capability"}
+    },
+    "change_policy": {"const": "new_manifest_version_and_explicit_approval"}
+  },
+  "$defs": {
+    "derivatives": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["energy", "gradient", "hessian"],
+      "properties": {
+        "energy": {"enum": ["analytic", "composed_analytic", "unavailable"]},
+        "gradient": {
+          "enum": ["analytic", "composed_analytic", "link_numerical_energy", "unavailable"]
+        },
+        "hessian": {
+          "enum": ["analytic", "modal_finite_difference_analytic_gradient", "unavailable"]
+        }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "backend",
+        "method",
+        "basis",
+        "electronic_state",
+        "spin",
+        "reference",
+        "state_model",
+        "charge_domain",
+        "multiplicity_domain",
+        "frozen_core_policy",
+        "ecp_policy",
+        "derivatives",
+        "state_vectors",
+        "accelerators",
+        "platforms",
+        "license_model",
+        "certification",
+        "production_enabled",
+        "note"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "backend": {"enum": ["xtb", "pyscf", "et", "orca", "psi4"]},
+        "method": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "electronic_state": {"enum": ["ground", "excited"]},
+        "spin": {"enum": ["closed_shell", "open_shell", "any"]},
+        "reference": {"type": "string", "minLength": 1},
+        "state_model": {"type": "string", "minLength": 1},
+        "charge_domain": {"type": "string", "minLength": 1},
+        "multiplicity_domain": {"type": "string", "minLength": 1},
+        "frozen_core_policy": {"type": "string", "minLength": 1},
+        "ecp_policy": {"type": "string", "minLength": 1},
+        "derivatives": {"$ref": "#/$defs/derivatives"},
+        "state_vectors": {"type": "string", "minLength": 1},
+        "accelerators": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "platforms": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["macos-arm64", "macos-x86_64", "linux-x86_64"]
+          }
+        },
+        "license_model": {"enum": ["open-source", "free-academic"]},
+        "certification": {"enum": ["certified", "documented_candidate"]},
+        "production_enabled": {"type": "boolean"},
+        "note": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

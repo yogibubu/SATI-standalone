@@ -1,0 +1,36 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-sf-tda-optimization.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "LINK resident spin-flip TDA optimization",
+  "summary": "Optimize a resident MATRIX-GFN2 spin-flip TDA state with analytic frozen-orbital and matrix-free Z-vector gradients and strict APOC character following.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": ["sf_tda_optimization", "matrix_gfn2_excited_optimization"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "exploitation", "action": "link.optimize_sf_tda", "option_equals": {"backend": "matrix-gfn2"}}],
+  "inputs": [
+    {"name": "initial_geometry", "schema": "oracle.xyz", "required": true},
+    {"name": "coordinate_definition", "schema": "matrix.smith.definition.v1", "required": true},
+    {"name": "electronic_state", "schema": "matrix.keymaker.sf_tda_state.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "optimized_geometry", "schema": "oracle.xyz", "required": true},
+    {"name": "state_manifold", "schema": "matrix.apoc.state_manifold.v1", "required": true},
+    {"name": "optimization_trace", "schema": "matrix.link.optimizer_trace.v1", "required": true}
+  ],
+  "gates": [
+    "restricted open-shell MATRIX-GFN2 reference",
+    "analytic frozen-orbital plus matrix-free Z-vector gradient",
+    "APOC transition-density assignment at every accepted geometry",
+    "root expansion on ambiguous or discontinuous assignments",
+    "gradient recomputation when electronic character changes root index",
+    "SYCART or SONIC symmetry-adapted nonredundant coordinates"
+  ],
+  "implementation": {"owner_api": "matrix_link.sf_tda_workflow", "action": "optimize_sf_tda"},
+  "coordinate_policy": "LINK consumes a certified symmetry-adapted nonredundant SYCART or SONIC chart; electronic-state identity never changes the coordinate contract.",
+  "backend_policy": "Only resident MATRIX-GFN2 SF-TDA supplies energies and analytic gradients; APOC owns state identity and LINK owns steps, rejection and root-gradient consistency.",
+  "change_policy": "new_version_and_explicit_approval"
+}

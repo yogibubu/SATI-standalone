@@ -1,0 +1,27 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "xtb-primitive-hessian-scaling.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "xTB primitive-Hessian Pareto scaling",
+  "summary": "Select the smallest chemically shared set of positive primitive-Hessian scale factors against a higher-level reference.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["xtb_hessian_scaling"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "architect.fit_xtb_hessian_scales", "option_equals": {"model_version": "1"}}],
+  "inputs": [
+    {"name": "reference_hessian", "schema": "matrix.qm.hessian.v1", "required": true},
+    {"name": "xtb_hessian", "schema": "matrix.link.final_cartesian_hessian.v1", "required": true},
+    {"name": "primitive_manifest", "schema": "matrix.smith.definition.v1", "required": true},
+    {"name": "oracle_topology", "schema": "matrix.oracle.topology_snapshot.v1", "required": true},
+    {"name": "xtb_observables", "schema": "matrix.gfn2.scaling_observables.v1", "required": true}
+  ],
+  "outputs": [{"name": "scaled_hessian", "schema": "matrix.architect.xtb_primitive_hessian_scaling.v1", "required": true}],
+  "gates": ["vibrational-rank match", "LINK-XTB Mayer/SCC provenance", "positive congruence scale factors", "frequency and assigned-mode Pareto audit", "factor-count parsimony"],
+  "implementation": {"owner_api": "matrix_architect.xtb_hessian_scaling", "action": "fit_xtb_hessian_scales"},
+  "coordinate_policy": "Transform both Hessians on the same complete frozen R/A/SOOP primitive pool supplied by SMITH.",
+  "backend_policy": "TRINITY owns representation changes; ARCHITECT fits shared factors; atom-type modulation uses Mayer bond orders and, only if Pareto-selected, SCC charges from the same LINK-XTB state; external-QM populations are forbidden; every off-diagonal factor is the geometric mean of its diagonal factors.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-esalci-gvpt2-ir-single-mode.v2",
+  "manifest_version": "2.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY ESALC-I single-mode GVPT2 and IR",
+  "summary": "Acquire complete cubic and semidiagonal quartic, metric and dipole fields with only reference and single-normal-mode displacements; solve Fermi-only curvilinear GVPT2 and IR.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [
+    "trinity_esalci_gvpt2_ir_single_mode"
+  ],
+  "dependencies": [
+    "sonic-soop-default.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_single_mode",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "frozen_esalci_chart",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "cartesian_gradient_hessian_evaluator",
+      "schema": "matrix.qm.cartesian_gradient_hessian_provider.v1",
+      "required": true
+    },
+    {
+      "name": "dipole_value_or_jacobian_provider",
+      "schema": "matrix.qm.dipole_provider.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "esalci_gf",
+      "schema": "matrix.gf.internal_result.v1",
+      "required": true
+    },
+    {
+      "name": "curvilinear_anharmonic_field",
+      "schema": "matrix.trinity.sonic_vpt2_field.v1",
+      "required": true
+    },
+    {
+      "name": "gvpt2_ir_spectrum",
+      "schema": "matrix.trinity.gvpt2_ir_spectrum.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "frozen ESALC-I chart and full vibrational rank",
+    "Cartesian-to-ESALC-I B/J closure and Wilson GF identity",
+    "single-mode plus/minus displacements only for complete F3, semidiagonal F4, G prime and single-mode G double-prime",
+    "analytic dipole Jacobians yield D_i,j and D_i,jj; dipole values yield only diagonal derivatives from plus/minus one and two steps",
+    "Fermi-only resonance polyads and second-order IR transition moments"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.keymaker_esalci_gvpt2",
+    "action": "run_esalci_gvpt2_single_mode_protocol"
+  },
+  "coordinate_policy": "Use a frozen full-rank ESALC-I chart. Displace plus/minus along one dimensionless normal mode at a time. Set derivative components requiring simultaneous modal displacements to zero.",
+  "backend_policy": "KeyMaker authorizes Cartesian E/G/H and dipole-value or dipole-Jacobian providers; TRINITY owns single-mode differences, transformation, Fermi-only GVPT2 and IR intensities.",
+  "change_policy": "new_version_and_explicit_approval"
+}

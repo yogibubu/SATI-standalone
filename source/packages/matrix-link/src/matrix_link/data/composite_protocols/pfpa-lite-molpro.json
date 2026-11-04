@@ -1,0 +1,27 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.pfpa_lite.molpro.v1",
+  "selector": "pfpa-lite-molpro",
+  "model": "PFPA_lite",
+  "backend": "molpro",
+  "frozen": true,
+  "formula": "[PNO-LCCSD(T)-PNO-LMP2]/cc-pV(D+d)Z + CBS_n^-3{MP2/cc-pV(T+d)Z,MP2/cc-pV(Q+d)Z} + empirical CV field",
+  "orbital_basis": {"name": "cc-pV(D+d)Z", "artifact": "cc-pV(D+d)Z.molpro", "sha256": "a90166a537c954fa870cff7c0a3d0799e57d1b55f50fcd426247bf6f0b869eb6", "definition": "cc-pVDZ on H-Ne and cc-pV(D+d)Z on Na-Ar"},
+  "high_level": {
+    "label": "[PNO-LCCSD(T)-PNO-LMP2]/DZ",
+    "method": "DELTA-PNO-LCCSD(T)-MP2",
+    "basis": "cc-pV(D+d)Z",
+    "route": "frozen core; PNO-LMP2 is a by-product",
+    "reference": "RHF",
+    "correlation_model": "PNO",
+    "triples": "(T)",
+    "derivative": "one_sided_totally_symmetric_sonic_numerical",
+    "numerical_gradient_step_bohr": 0.001
+  },
+  "mp2_cbs_terms": [
+    {"role": "cbs_mp2_lower", "label": "fc-MP2/TZ", "method": "MP2", "basis": "cc-pV(T+d)Z", "artifact": "cc-pV(T+d)Z.molpro", "sha256": "f08cfa06ce5eff3176a2ba309071412418df9219370ab814394e45d03f4e3323", "coefficient": -0.7297297297297297, "derivative": "analytic"},
+    {"role": "cbs_mp2_upper", "label": "fc-MP2/QZ", "method": "MP2", "basis": "cc-pV(Q+d)Z", "artifact": "cc-pV(Q+d)Z.molpro", "sha256": "e507c73c3f6116d1f0c310d0cba25952112421fbb2a05f2001dd1933f33086b6", "coefficient": 1.7297297297297298, "derivative": "analytic"}
+  ],
+  "core_valence": {"type": "oracle_cv_exponential_field", "model": "CV radial exponential", "derivative": "analytic"},
+  "initialization": {"geometry": "B3LYP/6-31G*", "hessian": "B3LYP/6-31G*", "backend": "g16", "route": "# B3LYP/6-31G* Freq"}
+}

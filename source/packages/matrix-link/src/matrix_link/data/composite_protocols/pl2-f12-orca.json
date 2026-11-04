@@ -1,0 +1,58 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.pl2_f12.orca.v2",
+  "selector": "pl2-f12-orca",
+  "model": "PL2-F12",
+  "backend": "orca",
+  "frozen": true,
+  "formula": "DLPNO-CCSD(T)-F12/may-cc-pVTZ + [F12-RI-MP2/may-cc-pVTZ - DLPNO-MP2-F12/may-cc-pVTZ] + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "may-cc-pVTZ",
+    "artifact": "may-cc-pVTZ.orca",
+    "sha256": "d236f57067f86f9cab1f6fde5c956a3921b7a3b81ee1e08b3f9bdcd88a34ee12",
+    "definition": "H/He use cc-pVTZ; Li-Ne use aug-cc-pVTZ; Na-Ar use aug-cc-pV(T+d)Z. The outermost diffuse d and f primitives are removed while the third-period tight d function is retained"
+  },
+  "high_level": {
+    "label": "DLPNO-CCSD(T)-F12/2F12",
+    "method": "DLPNO-CCSD(T)-F12",
+    "basis": "may-cc-pVTZ",
+    "route": "RHF TightPNO VeryTightSCF aug-cc-pVDZ/C cc-pVDZ-F12-CABS",
+    "correlation_model": "DLPNO",
+    "triples": "(T)",
+    "f12_ansatz": "ORCA DLPNO-CCSD(T)-F12",
+    "derivative": "one_sided_totally_symmetric_sonic_numerical",
+    "numerical_gradient_step_bohr": 0.003
+  },
+  "local_mp2_f12_correction": {
+    "formula": "E_F12-RI-MP2/may-cc-pVTZ - E_DLPNO-MP2-F12/may-cc-pVTZ",
+    "conventional": {
+      "label": "F12-RI-MP2/may-cc-pVTZ",
+      "method": "F12-RI-MP2",
+      "basis": "may-cc-pVTZ",
+      "route": "RHF VeryTightSCF aug-cc-pVDZ/C cc-pVDZ-F12-CABS",
+      "derivative": "one_sided_totally_symmetric_sonic_numerical",
+      "numerical_gradient_step_bohr": 0.003
+    },
+    "local": {
+      "label": "DLPNO-MP2-F12/may-cc-pVTZ",
+      "method": "DLPNO-MP2-F12/D",
+      "basis": "may-cc-pVTZ",
+      "route": "RHF TightPNO VeryTightSCF aug-cc-pVDZ/C cc-pVDZ-F12-CABS",
+      "derivative": "one_sided_totally_symmetric_sonic_numerical",
+      "numerical_gradient_step_bohr": 0.003
+    }
+  },
+  "core_valence": {
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "all_electron": {"method": "MP2", "route": "RHF NoFrozenCore VeryTightSCF"},
+    "frozen_core": {"method": "MP2", "route": "RHF FrozenCore VeryTightSCF"},
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "orca",
+    "route": "B3LYP 6-31G* VeryTightSCF Freq"
+  }
+}

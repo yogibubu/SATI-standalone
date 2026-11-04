@@ -1,0 +1,67 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-std2-optimization.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "LINK std2 root-followed optimization",
+  "summary": "Use backend ground-state energy and analytic gradient plus an APOC-followed std2 excitation correction; acquire Hessians by central differences of complete gradients.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": [
+    "std2_optimization"
+  ],
+  "dependencies": [
+    "link-std2-spectrum.v1"
+  ],
+  "routes": [
+    {
+      "menu": "exploitation",
+      "action": "link.std2_optimization",
+      "option_equals": {
+        "backend": "std2"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "initial_geometry",
+      "schema": "oracle.xyz",
+      "required": true
+    },
+    {
+      "name": "reference",
+      "schema": "matrix.link.std2.ground_request.v1",
+      "required": true
+    },
+    {
+      "name": "request",
+      "schema": "matrix.link.std2.geometry_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.link.optimizer.summary.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "converged backend S0 energy, analytic Cartesian gradient and same-point Molden export",
+    "restricted closed-shell or unrestricted alpha/beta integer occupations; no implicit ROHF or spin-flip conversion",
+    "APOC spin-resolved transition-density matching; strict overlap and ambiguity gates",
+    "accepted geometries alone advance the APOC reference; derivative branches use a frozen central state",
+    "gradient = backend S0 gradient + central finite difference of only the std2 excitation eigenvalue",
+    "Hessian = central finite differences of the complete gradient, using the existing LINK Cartesian Hessian routine",
+    "upstream real4 eigenvalues and both derivative steps recorded; no numerical accuracy certification inferred",
+    "frozen atom ordering and Cartesian frame; SONIC or SYCART optimizer variables"
+  ],
+  "implementation": {
+    "owner_api": "matrix_link.std2_workflow",
+    "action": "run_std2_geometry"
+  },
+  "coordinate_policy": "The existing LINK optimizer uses SONIC or SYCART. Excitation gradients use central Cartesian displacements in the frozen frame; complete Cartesian gradients feed the existing central Hessian stencil and symmetry projection.",
+  "backend_policy": "The ground-state backend owns S0 energy/gradient and orbitals. External std2 supplies excitation eigenpairs. APOC owns spin-resolved root identity. LINK composes energies/gradients and uses its existing optimizer and gradient-difference Hessian. No new ground-state gradient or TDA kernel implementation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "matrix.keymaker.scientific_regression_reference.v1",
+  "scope": "Controlled analytic numerical regression, not molecular accuracy qualification",
+  "cases": {
+    "link_sycart_hessian": {"value": 0.5, "absolute_tolerance": 1e-12, "unit": "hartree/bohr^2"},
+    "sati_harmonic_ground": {"value": 500.0, "absolute_tolerance": 1e-7, "unit": "cm-1"},
+    "lock_free_rotor_ground": {"value": 0.0, "absolute_tolerance": 1e-7, "unit": "MHz"},
+    "lock_rigid_j1_first": {"value": 1200.0, "absolute_tolerance": 1e-7, "unit": "MHz"}
+  }
+}

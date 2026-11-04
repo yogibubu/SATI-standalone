@@ -1,0 +1,63 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.pl2_f12.molpro.v2",
+  "selector": "pl2-f12-molpro",
+  "model": "PL2-F12",
+  "backend": "molpro",
+  "frozen": true,
+  "formula": "PNO-LCCSD(T*)-F12b/may-cc-pVTZ + [MP2-F12/may-cc-pVTZ - PNO-LMP2-F12/may-cc-pVTZ] + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "may-cc-pVTZ",
+    "artifact": "may-cc-pVTZ.molpro",
+    "sha256": "fe757c6bce9416a22528d9d8ad9b76ca23e5e3ffce7c97f3eb0a696d824ee240",
+    "definition": "H/He use cc-pVTZ; Li-Ne use aug-cc-pVTZ; Na-Ar use aug-cc-pV(T+d)Z. The outermost diffuse d and f primitives are removed while the third-period tight d function is retained"
+  },
+  "high_level": {
+    "label": "PNO-LCCSD(T*)-F12b",
+    "method": "PNO-LCCSD(T)-F12,SCALE_TRIP=1",
+    "basis": "may-cc-pVTZ",
+    "route": "",
+    "correlation_model": "PNO",
+    "triples": "T*",
+    "f12_ansatz": "F12b",
+    "derivative": "one_sided_totally_symmetric_sonic_numerical",
+    "numerical_gradient_step_bohr": 0.003
+  },
+  "local_mp2_f12_correction": {
+    "formula": "E_MP2-F12/may-cc-pVTZ - E_PNO-LMP2-F12/may-cc-pVTZ",
+    "conventional": {
+      "label": "MP2-F12/may-cc-pVTZ",
+      "method": "MP2-F12",
+      "basis": "may-cc-pVTZ",
+      "route": "",
+      "derivative": "one_sided_totally_symmetric_sonic_numerical",
+      "numerical_gradient_step_bohr": 0.003
+    },
+    "local": {
+      "label": "PNO-LMP2-F12/may-cc-pVTZ",
+      "method": "PNO-LMP2-F12",
+      "basis": "may-cc-pVTZ",
+      "route": "",
+      "derivative": "one_sided_totally_symmetric_sonic_numerical",
+      "numerical_gradient_step_bohr": 0.003
+    }
+  },
+  "core_valence": {
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "all_electron": {"method": "MP2;core", "route": ""},
+    "frozen_core": {"method": "MP2", "route": ""},
+    "derivative": "analytic"
+  },
+  "auxiliary_basis": {
+    "df": "aug-cc-pVTZ/MP2FIT",
+    "jk": "aug-cc-pVTZ/JKFIT",
+    "pno_ri": "aug-cc-pVTZ in JKFIT context"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "orca",
+    "route": "B3LYP 6-31G* VeryTightSCF Freq"
+  }
+}

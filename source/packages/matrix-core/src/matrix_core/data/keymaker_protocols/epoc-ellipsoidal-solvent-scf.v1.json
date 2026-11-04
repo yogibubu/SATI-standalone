@@ -1,0 +1,61 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "protocol_id": "epoc-ellipsoidal-solvent-scf.v1",
+  "entrypoint": "KEYMAKER",
+  "owner_operation": "epoc",
+  "title": "EPOC ellipsoidal state-specific solvent response",
+  "summary": "Converge electronic density and fast/slow continuum response with an explicit backend, level and Gaussian basis. Installed JSON adapter: PySCF RHF/RKS equilibrium ground states. Excited owners supply certified state continuity through the method-independent iteration API.",
+  "calculation_protocol": "solvation.state_specific_scf.v1",
+  "aliases": [
+    "epoc_solvent_scf",
+    "ellipsoidal_solvent_scf"
+  ],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "epoc.solvent_scf",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "solvent_scf_request",
+      "schema": "matrix.epoc.solvent_scf_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "solvent_scf_result",
+      "schema": "matrix.epoc.solvent_scf_result.v1",
+      "required": true
+    },
+    {
+      "name": "frozen_reference",
+      "schema": "matrix.epoc.reaction_field.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "explicit backend, method, basis, solvent dielectrics and fixed Cartesian cavity",
+    "no mandatory FCI; PySCF RHF/RKS adapter with explicit XC functional for RKS; unsupported combinations rejected",
+    "Gaussian AO moments through spectral degree 2 in the exact translated/rotated modal frame",
+    "converged inner electronic solver; maximum AO density residual <1e-9 and energy change <1e-11 hartree",
+    "independent final fixed-point density residual <1e-9; independent vacuum expectation error <1e-10 hartree",
+    "electronic density outside cavity <1e-5 electrons on an independent level-4 quadrature grid",
+    "initial slow field frozen during vertical transitions; excited-owner continuity certificate and overlap >=0.9",
+    "remove Tr(D V_reaction) before adding polarization free energy and slow preparation cost",
+    "explicit authorization; one process, one thread, 1 GB envelope, 512 MB PySCF setting, <=80 AOs, <=240 outer iterations",
+    "fixed molecular geometry and cavity; no general excited-state backend qualification inferred from small FCI reference"
+  ],
+  "implementation": {
+    "owner_api": "matrix_epoc.solvent_scf_protocol",
+    "action": "run_ellipsoidal_scf_protocol"
+  },
+  "coordinate_policy": "Fixed Cartesian molecule/cavity; exact translated/rotated analytic Gaussian modal moments through degree 2. No geometry optimization or cavity relaxation.",
+  "backend_policy": "Backend, level and basis are explicit inputs. JSON adapter executes PySCF RHF or RKS closed-shell equilibrium ground states. Other methods and excited states require an electronic owner returning converged total state density, vacuum Hamiltonian expectation and excited-state continuity. FCI/STO-3G is an optional reference test, never a default requirement.",
+  "change_policy": "new_version_and_explicit_approval"
+}

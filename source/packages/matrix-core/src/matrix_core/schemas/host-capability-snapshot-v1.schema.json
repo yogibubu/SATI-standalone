@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.host-capability-snapshot.v1",
+  "title": "MATRIX execution host capability snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name", "kind", "host", "observed_at_utc", "reachable",
+    "operating_system", "architecture", "python_version", "python_abi",
+    "matrix_commit", "dirty_files", "packages", "package_errors", "capabilities", "programs",
+    "native_backends", "limits", "package_registry_schema", "package_count",
+    "error", "schema"
+  ],
+  "properties": {
+    "name": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["local", "remote"]},
+    "host": {"type": "string"},
+    "observed_at_utc": {"type": "string", "format": "date-time"},
+    "reachable": {"type": "boolean"},
+    "operating_system": {"type": "string"},
+    "architecture": {"type": "string"},
+    "python_version": {"type": "string"},
+    "python_abi": {"type": "string"},
+    "matrix_commit": {"type": "string"},
+    "dirty_files": {"type": "integer", "minimum": 0},
+    "packages": {"$ref": "#/$defs/stringArray"},
+    "package_errors": {"$ref": "#/$defs/stringArray"},
+    "capabilities": {"$ref": "#/$defs/stringArray"},
+    "programs": {"$ref": "#/$defs/stringArray"},
+    "native_backends": {"$ref": "#/$defs/stringArray"},
+    "limits": {"$ref": "#/$defs/limits"},
+    "package_registry_schema": {"const": "matrix.package-capability-registry.v1"},
+    "package_count": {"type": "integer", "minimum": 0},
+    "error": {"type": "string"},
+    "schema": {"const": "matrix.host-capability-snapshot.v1"}
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "processors", "memory_gb", "gpu_count", "neural_engine_count",
+        "max_concurrent_jobs"
+      ],
+      "properties": {
+        "processors": {"type": "integer", "minimum": 1},
+        "memory_gb": {"type": "number", "exclusiveMinimum": 0},
+        "gpu_count": {"type": "integer", "minimum": 0},
+        "neural_engine_count": {"type": "integer", "minimum": 0},
+        "max_concurrent_jobs": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "dvr-sparse-analytic-fit.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "dvr",
+  "entrypoint": "KEYMAKER",
+  "title": "DVR from a finite QM sample set and validated analytic fit",
+  "summary": "Mandatory finite sample budget; fit an appropriate analytic function to qualified electronic points; generate every additional DVR node from that function. Never launch QM for dense-grid refinement.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [
+    "dvr_analytic_fit"
+  ],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "exploitation",
+      "action": "dvr.fit_analytic_surface",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "analytic_surface_request",
+      "schema": "matrix.dvr.analytic_surface_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "analytic_surface_result",
+      "schema": "matrix.dvr.analytic_surface_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Freeze an explicit finite QM sample budget before acquisition",
+    "Use qualified electronic points with consistent state identity and coordinates",
+    "Fit and validate an appropriate analytic function with in-budget held-out samples",
+    "Generate all intermediate and dense DVR nodes exclusively by evaluating the fit",
+    "DVR grid/basis/domain convergence must not trigger QM midpoint or grid jobs",
+    "Fail a deficient fit without launching additional electronic calculations"
+  ],
+  "implementation": {
+    "owner_api": "matrix_dvr.analytic_surface",
+    "action": "run_analytic_surface_request"
+  },
+  "coordinate_policy": "Retain coordinate identity, sampled domain, units, state and boundary conditions; no unqualified extrapolation.",
+  "backend_policy": "This owner accepts existing sparse samples only and has no electronic backend callback. New electronic acquisition requires a separate explicitly authorized finite sample plan.",
+  "change_policy": "new_version_and_explicit_approval"
+}

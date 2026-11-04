@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-orca"
+version = "0.1.0rc8"
+description = "ORCA launch helpers for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-chem==0.1.0rc8",
+  "matrix-core==0.1.0rc8",
+  "matrix-engines==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.local/schemas/provenance-event-v1.schema.json",
+  "title": "Keymaker provenance event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema", "sequence", "event_id", "event_type", "timestamp_utc",
+    "project_id", "actor", "subject_id", "payload", "previous_hash", "event_hash"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.keymaker.provenance.event.v1"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "event_id": {"type": "string", "pattern": "^evt-[0-9]{8}$"},
+    "event_type": {"type": "string", "pattern": "^[a-z]+\\.[a-z]+$"},
+    "timestamp_utc": {"type": "string", "format": "date-time"},
+    "project_id": {"type": "string", "minLength": 1},
+    "actor": {"type": "string", "minLength": 1},
+    "subject_id": {"type": "string"},
+    "payload": {"type": "object"},
+    "previous_hash": {"type": "string", "pattern": "^$|^[0-9a-f]{64}$"},
+    "event_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

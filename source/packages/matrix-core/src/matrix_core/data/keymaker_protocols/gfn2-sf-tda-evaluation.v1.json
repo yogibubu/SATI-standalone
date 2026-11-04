@@ -1,0 +1,53 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "gfn2",
+  "entrypoint": "KEYMAKER",
+  "dependencies": [],
+  "change_policy": "new_version_and_explicit_approval",
+  "coordinate_policy": "Use the supplied immutable Cartesian atom order and geometry; ORACLE retains topology ownership.",
+  "backend_policy": "In-process matrix_gfn2.GFN2Calculator only; no external xTB or TBLite executable.",
+  "protocol_id": "gfn2-sf-tda-evaluation.v1",
+  "title": "Resident SF-TDA roots and gradients",
+  "summary": "Evaluate spin-flip TDA roots with the resident MATRIX-GFN2 electronic reference and frozen scientific contract.",
+  "calculation_protocol": "spectroscopy.electronic.v1",
+  "aliases": [
+    "sf_tda",
+    "resident_sf_tda"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "sf_tda.evaluate",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "geometry",
+      "schema": "matrix.geometry.seed.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.gfn2.sf_tda_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "restricted open-shell reference",
+    "frozen SF-TDA scientific contract hash",
+    "converged roots",
+    "finite complete analytic gradients",
+    "exact input and protocol hashes"
+  ],
+  "implementation": {
+    "owner_api": "matrix_gfn2.keymaker_handoff",
+    "action": "evaluate_sf_tda"
+  }
+}

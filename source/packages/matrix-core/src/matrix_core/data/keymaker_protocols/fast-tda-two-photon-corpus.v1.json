@@ -1,0 +1,33 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "fast-tda-two-photon-corpus.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "gfn2",
+  "entrypoint": "KEYMAKER",
+  "title": "FAST_TDA molecular two-photon corpus",
+  "summary": "Generate closed-shell orbital references with resident GFN2 and qualify pure-TDA two-photon tensors against std2 state-to-state moments before comparing with RPA response.",
+  "calculation_protocol": "spectroscopy.electronic.v1",
+  "aliases": ["fast_tda_2pa_corpus", "tda_two_photon_molecular_validation"],
+  "dependencies": ["fast-tda-two-photon-qualification.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "fast_tda.qualify_two_photon_corpus", "option_equals": {"reference": "std2"}}],
+  "inputs": [
+    {"name": "molecular_corpus", "schema": "matrix.closed_shell_geometry_corpus.v1", "required": true},
+    {"name": "external_executable", "schema": "std2.executable", "required": true}
+  ],
+  "outputs": [
+    {"name": "qualification", "schema": "matrix.fast_tda.two_photon_corpus.v1", "required": true},
+    {"name": "keymaker_provenance", "schema": "matrix.keymaker.protocol_binding.v1", "required": true}
+  ],
+  "gates": [
+    "every wfn.xtb is generated once and then held immutable for resident and external calculations",
+    "pure-TDA tensor parity uses identically truncated intermediate-state sums",
+    "the omitted high-state tail is reported separately from implementation parity",
+    "RPA results are labelled as a model comparison and tracked by electronic character",
+    "external calculations are frozen to one OpenMP thread"
+  ],
+  "implementation": {"owner_api": "matrix_gfn2.tda_two_photon", "action": "qualify_external_two_photon_corpus"},
+  "coordinate_policy": "Each atom order, geometry and Cartesian frame is immutable after corpus construction.",
+  "backend_policy": "Resident GFN2 generates the orbital reference; FAST_TDA is the production response and std2 is an external qualification oracle only.",
+  "change_policy": "new_version_and_explicit_approval"
+}

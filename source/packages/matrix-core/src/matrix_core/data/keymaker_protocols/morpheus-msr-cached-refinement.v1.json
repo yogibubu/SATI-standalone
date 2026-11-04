@@ -1,0 +1,33 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "morpheus-msr-cached-refinement.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "morpheus",
+  "entrypoint": "KEYMAKER",
+  "title": "MORPHEUS refinement from explicit MSR corrections",
+  "summary": "Fit an MSR structure using its declared isotope-specific vibrational corrections after the frozen TRINITY harmonic and LINK stages.",
+  "calculation_protocol": "refinement.semiexperimental.v1",
+  "aliases": ["morpheus_msr_cached_refinement"],
+  "dependencies": ["trinity-harmonic-field.v1", "link-minimum-optimization.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "morpheus.fit_msr_cached_corrections", "option_equals": {}}],
+  "inputs": [
+    {"name": "msr_input", "schema": "matrix.morpheus.msr_input.v1", "required": true},
+    {"name": "harmonic_field", "schema": "matrix.trinity.harmonic_field.v1", "required": true},
+    {"name": "optimized_geometry", "schema": "matrix.link.optimized_geometry.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "refined_structure", "schema": "matrix.morpheus.refined_structure.v1", "required": true},
+    {"name": "fit_diagnostics", "schema": "matrix.morpheus.reliability.v1", "required": true}
+  ],
+  "gates": [
+    "complete explicit isotope corrections",
+    "same atom order and starting geometry as frozen source",
+    "full-rank fit and explicit method-specific geometry status",
+    "diagnostic delivery is not automatic scientific certification"
+  ],
+  "implementation": {"owner_api": "matrix_morpheus", "action": "fit_semiexperimental_geometry"},
+  "coordinate_policy": "Preserve the MSR constraints and frozen starting geometry without automatic parameter classes.",
+  "backend_policy": "MORPHEUS consumes isotope corrections declared in the MSR; TRINITY harmonic evidence is retained, while no anharmonic field is claimed.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-esalci-gvpt2-ir-gdv-frame.v6",
+  "manifest_version": "6.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY ESALC-I GVPT2 and IR with GDV fixed-frame stencil",
+  "summary": "Use a common reference Eckart frame and the GDV 0.01 angstrom sqrt(amu) single-mode displacement for Hessian and property-derivative acquisition.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [
+    "trinity_esalci_gvpt2_ir_gdv_frame"
+  ],
+  "dependencies": [
+    "trinity-esalci-gvpt2-ir-smith-metric-eckart.v5"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.esalci_gvpt2_ir_gdv_frame",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "frozen_esalci_chart",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "cartesian_gradient_hessian_evaluator",
+      "schema": "matrix.qm.cartesian_gradient_hessian_provider.v1",
+      "required": true
+    },
+    {
+      "name": "dipole_value_or_jacobian_provider",
+      "schema": "matrix.qm.dipole_provider.v1",
+      "required": true
+    },
+    {
+      "name": "frozen_smith_definition",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "fixed_cartesian_frame_declaration",
+      "schema": "matrix.qm.fixed_cartesian_frame.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "esalci_gf",
+      "schema": "matrix.gf.internal_result.v1",
+      "required": true
+    },
+    {
+      "name": "curvilinear_anharmonic_field",
+      "schema": "matrix.trinity.sonic_vpt2_field.v1",
+      "required": true
+    },
+    {
+      "name": "gvpt2_ir_spectrum",
+      "schema": "matrix.trinity.gvpt2_ir_spectrum.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Frozen SMITH definition and ESALC-I chart have the same full-rank Wilson row space",
+    "Sparse B prime has no numerical fallback primitives at any stencil point",
+    "Fixed SMITH-to-ESALC-I row transform and Cartesian angstrom-to-bohr derivative conversion",
+    "Complete vibrational G double-prime from single-mode differences of analytic Wilson G prime",
+    "Only reference and plus/minus single-mode Cartesian Hessians and dipole samples",
+    "Fermi-only resonance polyads and second-order IR transition moments",
+    "Automatic mass-weighted Eckart alignment at every displaced ESALC-I geometry",
+    "Harmonic ESALC-I/ESALC-C frequencies and IR intensities from the same Cartesian Hessian and dipole Jacobian agree within numerical tolerance",
+    "Provider transports every returned Cartesian derivative into the reference frame and certifies coherent integration grids across the stencil",
+    "Every mode uses 0.01 angstrom sqrt(amu); the dimensionless displacement follows its harmonic frequency",
+    "Electronic-point cache identity separates symmetry-following tensor transport from legacy points",
+    "Equivalent Hessian displacement directions are averaged for cubic constants; energy and gradient estimators remain diagnostics"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.keymaker_esalci_gvpt2",
+    "action": "run_esalci_gvpt2_gdv_frame_protocol"
+  },
+  "coordinate_policy": "Orient the reference geometry once in its Eckart frame. Keep that Cartesian frame for all single-mode displacements; use the 0.01 angstrom sqrt(amu) mass-weighted step for every mode.",
+  "backend_policy": "KeyMaker requires a fixed_cartesian_frame declaration backed by coherent electronic integration grids; rotating separately computed Gaussian Hessians into one Cartesian frame is insufficient for a small-step fourth derivative.",
+  "change_policy": "new_version_and_explicit_approval"
+}

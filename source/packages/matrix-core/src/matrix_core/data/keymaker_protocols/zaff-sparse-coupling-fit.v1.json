@@ -1,0 +1,24 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff-sparse-coupling-fit.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "ZAFF forward sparse-coupling fit",
+  "summary": "Extend the approved diagonal field by one symmetry-linked coupling at a time with explicit accuracy and complexity gates.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["zaff_sparse_coupling_fit"],
+  "dependencies": ["zaff-diagonal-harmonic-fit.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "architect.fit_validate_zaff", "option_equals": {"model": "sparse"}}],
+  "inputs": [
+    {"name": "diagonal_fit", "schema": "matrix.architect.zaff_diagonal_harmonic_fit.v1", "required": true},
+    {"name": "reference_hessian", "schema": "matrix.qm.hessian.v1", "required": true}
+  ],
+  "outputs": [{"name": "sparse_fit", "schema": "matrix.architect.zaff_sparse_coupling_fit.v1", "required": true}],
+  "gates": ["one new coupling per iteration", "full retained-parameter refit", "frequency-overlap-complexity audit", "no anharmonic promotion"],
+  "implementation": {"owner_api": "matrix_architect.sparse_coupling", "action": "fit_sparse_zaff_couplings"},
+  "coordinate_policy": "Retain the exact parent SONIC/SOOP primitive identity and symmetry classes.",
+  "backend_policy": "Resident ARCHITECT refinement of an approved diagonal field.",
+  "change_policy": "new_version_and_explicit_approval"
+}

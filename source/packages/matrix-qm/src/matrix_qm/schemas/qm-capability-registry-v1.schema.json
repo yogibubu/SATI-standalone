@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/qm-capability-registry-v1.schema.json",
+  "title": "Keymaker verified QM capability registry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "backends"],
+  "properties": {
+    "schema": {"const": "matrix.keymaker.qm_capability_registry.v1"},
+    "backends": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key", "label", "method_families", "analytic_gradient_families",
+          "bse_format", "efficiency_rank", "note", "energy_methods",
+          "analytic_gradient_methods", "analytic_hessian_families",
+          "analytic_hessian_methods", "numerical_gradients", "numerical_hessians",
+          "basis_contract", "ecp_contract", "license_model", "platforms",
+          "accelerators", "suggestible"
+        ],
+        "properties": {
+          "key": {"type": "string", "minLength": 1},
+          "label": {"type": "string", "minLength": 1},
+          "method_families": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "analytic_gradient_families": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "bse_format": {"type": ["string", "null"]},
+          "efficiency_rank": {"type": "integer", "minimum": 0},
+          "note": {"type": "string"},
+          "energy_methods": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "analytic_gradient_methods": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "analytic_hessian_families": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "analytic_hessian_methods": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "numerical_gradients": {"type": "boolean"},
+          "numerical_hessians": {"type": "boolean"},
+          "basis_contract": {"type": "string", "minLength": 1},
+          "ecp_contract": {"type": "string", "minLength": 1},
+          "license_model": {"type": "string", "minLength": 1},
+          "platforms": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "accelerators": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "suggestible": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

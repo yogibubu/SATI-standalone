@@ -1,0 +1,25 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-sycart-hessian.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "LINK symmetry-adapted SYCART Hessian",
+  "summary": "Evaluate independent gradient displacements in frozen symmetry-adapted, translation-rotation-free SYCART and transform the result to Cartesian and SONIC representations.",
+  "calculation_protocol": "qm.hessian.v1",
+  "aliases": ["sycart_hessian", "parallel_sycart_hessian"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "link.parallel_sycart_hessian", "option_equals": {"backend": "matrix-gfn2"}}],
+  "inputs": [
+    {"name": "stationary_geometry", "schema": "oracle.xyz", "required": true},
+    {"name": "sycart_definition", "schema": "oracle.xyz.sycart.v1", "required": true},
+    {"name": "sonic_definition", "schema": "matrix.smith.definition.v1", "required": true}
+  ],
+  "outputs": [{"name": "hessian_bundle", "schema": "matrix.link.sycart_hessian.v2", "required": true}],
+  "gates": ["frozen molecular point group", "translation-rotation-free SYCART", "one point for sign-symmetric coordinates", "worker-independent Hessian", "SYCART-Cartesian-SONIC congruence"],
+  "implementation": {"owner_api": "matrix_link.sonic_hessian", "action": "parallel_sycart_hessian"},
+  "coordinate_policy": "Displace only the immutable symmetry-adapted SYCART basis, then transform through Cartesian to the certified SONIC chart.",
+  "backend_policy": "The declared backend supplies gradients only; LINK owns displacement, assembly and representation changes.",
+  "change_policy": "new_version_and_explicit_approval"
+}

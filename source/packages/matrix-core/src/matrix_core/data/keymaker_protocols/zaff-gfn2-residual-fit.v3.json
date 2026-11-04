@@ -1,0 +1,75 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff-gfn2-residual-fit.v3",
+  "manifest_version": "3.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Primitive QM Morse minus GFN2-derived Morse residual",
+  "summary": "Build the QM ZAFF Morse from its full projected field and library alpha, build a separate resident GFN2 Morse with alpha from its primitive third derivative, then fit their difference and the remaining primitive couplings.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": [
+    "zaff_gfn2_residual_two_morse"
+  ],
+  "dependencies": [
+    "sonic-soop-default.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.fit_validate_zaff",
+      "option_equals": {
+        "model": "gfn2_residual_two_morse"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "best_geometry_and_smith",
+      "schema": "matrix.smith.definition.v1",
+      "required": true
+    },
+    {
+      "name": "best_qm_hessian",
+      "schema": "matrix.qm.hessian.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "gfn2_baseline",
+      "schema": "matrix.gfn2.residual_baseline.v1",
+      "required": true
+    },
+    {
+      "name": "residual_fit",
+      "schema": "matrix.architect.zaff_gfn2_residual_fit.v1",
+      "required": true
+    },
+    {
+      "name": "residual_field",
+      "schema": "matrix.zaff.force_field.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "frozen SMITH primitive order and atom order match G and F",
+    "resident GFN2 converged at G",
+    "G and F provenance retained separately",
+    "QM target gradient assumed zero",
+    "optional single imaginary QM soft mode is replaced by an explicitly recorded positive curvature",
+    "subtract complete resident GFN2 only",
+    "ZAFF charges exactly zero and ZAFF van der Waals terms absent",
+    "ZAFF correction energy exactly zero at G",
+    "primitive runtime reproduces full Cartesian gradient and Hessian at G",
+    "each Morse stretch force and its cross couplings vanish on dissociation",
+    "GFN2 Morse alpha comes from a converged primitive third-derivative stencil and differs independently from the ZAFF library alpha"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.gfn2_residual",
+    "action": "fit_gfn2_residual_zaff"
+  },
+  "coordinate_policy": "Evaluate frozen SMITH primitives at every geometry. Project complete QM and resident GFN2 harmonic fields separately. Build QM stretch Morse with the ZAFF library alpha and GFN2 stretch Morse with its own alpha extracted from directional GFN2 force stencils plus the SMITH geometric chain rule. The primitive model assigns the resulting local diagonal cubic to each stretch; mixed cubic terms are not fitted. Fit Delta(ZAFF) as the difference of the two Morse terms, and damp stretch cross terms on dissociation.",
+  "backend_policy": "Use resident matrix_gfn2.GFN2Calculator for the baseline, its analytic reference Hessian, and its gradient stencils for the bond third derivatives. Subtract only the separate GFN2 Morse from the QM ZAFF Morse for each stretch. Keep ZAFF charges zero, ZAFF van der Waals absent, and correction energy zero at the reference.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,157 @@
+{
+  "schema": "matrix.oracle.coordination-input.examples.v1",
+  "examples": [
+    {
+      "schema": "matrix.oracle.coordination-input.v1",
+      "system_id": "ferrocene-coordinate-free",
+      "molecular_charge": 0,
+      "multiplicity_hypotheses": [1],
+      "components": [
+        {
+          "component_id": "fe",
+          "kind": "metal",
+          "formal_charge": 2,
+          "representation": {"format": "template", "value": "[Fe]"}
+        },
+        {
+          "component_id": "cp_a",
+          "kind": "ligand",
+          "formal_charge": -1,
+          "representation": {"format": "smiles", "value": "[CH-]1C=CC=C1"}
+        },
+        {
+          "component_id": "cp_b",
+          "kind": "ligand",
+          "formal_charge": -1,
+          "representation": {"format": "smiles", "value": "[CH-]1C=CC=C1"}
+        }
+      ],
+      "metal_centers": [
+        {
+          "center_id": "Fe1",
+          "component_id": "fe",
+          "atom_index": 1,
+          "oxidation_state_hypotheses": [2],
+          "coordination_geometry_hypotheses": ["unspecified"]
+        }
+      ],
+      "coordination_interactions": [
+        {
+          "interaction_id": "Fe1-cp_a",
+          "center_ids": ["Fe1"],
+          "ligand_component_id": "cp_a",
+          "donor_atoms": [1, 2, 3, 4, 5],
+          "mode": "eta",
+          "denticity": 1,
+          "hapticity": 5
+        },
+        {
+          "interaction_id": "Fe1-cp_b",
+          "center_ids": ["Fe1"],
+          "ligand_component_id": "cp_b",
+          "donor_atoms": [1, 2, 3, 4, 5],
+          "mode": "eta",
+          "denticity": 1,
+          "hapticity": 5
+        }
+      ],
+      "assembly": {
+        "enumerate_coordination_stereoisomers": true,
+        "maximum_candidates": 8,
+        "candidate_ranking": "symmetry-then-l0",
+        "preserve_declared_topology": true
+      }
+    },
+    {
+      "schema": "matrix.oracle.coordination-input.v1",
+      "system_id": "cisplatin-coordinate-free",
+      "molecular_charge": 0,
+      "multiplicity_hypotheses": [1],
+      "components": [
+        {
+          "component_id": "pt",
+          "kind": "metal",
+          "formal_charge": 2,
+          "representation": {"format": "template", "value": "[Pt]"}
+        },
+        {
+          "component_id": "cl_a",
+          "kind": "ligand",
+          "formal_charge": -1,
+          "representation": {"format": "smiles", "value": "[Cl-]"}
+        },
+        {
+          "component_id": "cl_b",
+          "kind": "ligand",
+          "formal_charge": -1,
+          "representation": {"format": "smiles", "value": "[Cl-]"}
+        },
+        {
+          "component_id": "nh3_a",
+          "kind": "ligand",
+          "formal_charge": 0,
+          "representation": {"format": "smiles", "value": "N"}
+        },
+        {
+          "component_id": "nh3_b",
+          "kind": "ligand",
+          "formal_charge": 0,
+          "representation": {"format": "smiles", "value": "N"}
+        }
+      ],
+      "metal_centers": [
+        {
+          "center_id": "Pt1",
+          "component_id": "pt",
+          "atom_index": 1,
+          "oxidation_state_hypotheses": [2],
+          "coordination_geometry_hypotheses": ["square-planar"]
+        }
+      ],
+      "coordination_interactions": [
+        {
+          "interaction_id": "Pt1-cl_a",
+          "center_ids": ["Pt1"],
+          "ligand_component_id": "cl_a",
+          "donor_atoms": [1],
+          "mode": "sigma",
+          "denticity": 1,
+          "hapticity": 1
+        },
+        {
+          "interaction_id": "Pt1-cl_b",
+          "center_ids": ["Pt1"],
+          "ligand_component_id": "cl_b",
+          "donor_atoms": [1],
+          "mode": "sigma",
+          "denticity": 1,
+          "hapticity": 1
+        },
+        {
+          "interaction_id": "Pt1-nh3_a",
+          "center_ids": ["Pt1"],
+          "ligand_component_id": "nh3_a",
+          "donor_atoms": [1],
+          "mode": "kappa",
+          "denticity": 1,
+          "hapticity": 1
+        },
+        {
+          "interaction_id": "Pt1-nh3_b",
+          "center_ids": ["Pt1"],
+          "ligand_component_id": "nh3_b",
+          "donor_atoms": [1],
+          "mode": "kappa",
+          "denticity": 1,
+          "hapticity": 1
+        }
+      ],
+      "assembly": {
+        "enumerate_coordination_stereoisomers": true,
+        "maximum_candidates": 4,
+        "candidate_ranking": "steric-then-l0",
+        "preserve_declared_topology": true
+      }
+    }
+  ]
+}

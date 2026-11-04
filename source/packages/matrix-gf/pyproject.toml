@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-gf"
+version = "0.1.0rc8"
+description = "TRINITY harmonic GF and curvature analysis for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+multilevel = ["matrix-trinity==0.1.0rc8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+extend-select = ["F"]

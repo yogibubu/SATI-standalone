@@ -1,0 +1,38 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "lcb26-b3lyp-harmonic.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "keymaker",
+  "entrypoint": "KEYMAKER",
+  "title": "LCB26 B3LYP/6-31+G* analytic harmonic comparison",
+  "summary": "Optimize the frozen LINK-XTB corpus with GDV-detected symmetry and compute analytic B3LYP/6-31+G* Cartesian Hessians for an independent scaling comparison.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": ["lcb26_b3lyp_harmonic", "b3lyp_631plusgstar_harmonic_comparison"],
+  "dependencies": ["trinity-harmonic-field.v1"],
+  "routes": [],
+  "inputs": [
+    {"name": "link_xtb_minimum", "schema": "matrix.geometry.xyzin.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "analytic_cartesian_hessian", "schema": "matrix.qm.hessian.v1", "required": true},
+    {"name": "lcb26_harmonic_record", "schema": "matrix.lcb26.harmonic_record.v1", "required": true}
+  ],
+  "gates": [
+    "exact frozen corpus atom order",
+    "native GDV B3LYP/6-31+G* Opt+Freq",
+    "GDV detects and follows molecular symmetry; NoSymm and forced point groups are forbidden",
+    "two threads and 8 GB per authorized job",
+    "at most four concurrent jobs on MAC-STUDIO",
+    "normal termination and one analytic Cartesian Hessian",
+    "Hessian-derived and printed harmonic frequencies agree within importer tolerance",
+    "optimized geometry and Hessian are rigidly aligned to the immutable LCB26 frame"
+  ],
+  "implementation": {
+    "owner_api": "matrix_gui.keymaker_exploitation",
+    "action": "run_exploitation"
+  },
+  "coordinate_policy": "Preserve atom order and let GDV construct symmetry-adapted native optimization coordinates; rotate the final geometry and Hessian to the parent LCB26 frame without atom remapping.",
+  "backend_policy": "KeyMaker alone authorizes and routes native GDV B3LYP/6-31+G* Opt+Freq. NoSymm, forced point groups, and direct backend launch are forbidden.",
+  "change_policy": "new_version_and_explicit_approval"
+}

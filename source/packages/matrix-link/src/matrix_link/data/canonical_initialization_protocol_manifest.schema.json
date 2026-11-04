@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/canonical-initialization-protocol-v2.schema.json",
+  "title": "MATRIX canonical initialization protocol v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "protocol_id",
+    "manifest_version",
+    "status",
+    "replaces_legacy_protocol",
+    "canonical_ladder",
+    "optimizer_contract",
+    "owners",
+    "governance",
+    "geometry_routes",
+    "seed_routes",
+    "symmetry_stability_contract",
+    "seed_hessian_contract",
+    "audit_outcomes",
+    "stage_contract"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.link.canonical_initialization_protocol.v2"},
+    "protocol_id": {"const": "matrix-canonical-initialization-v2"},
+    "manifest_version": {"const": "2.8.0"},
+    "status": {"const": "approved_validation"},
+    "replaces_legacy_protocol": {"const": false},
+    "canonical_ladder": {
+      "const": {
+        "protocol_id": "matrix-canonical-qm-ladder-v1",
+        "manifest_version": "1.0.11"
+      }
+    },
+    "optimizer_contract": {"type": "object"},
+    "owners": {"type": "object"},
+    "governance": {"type": "object"},
+    "geometry_routes": {
+      "type": "object",
+      "required": ["credible_xyz", "noncredible_or_generated", "invalid"]
+    },
+    "seed_routes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ground", "excited_closed_shell", "excited_open_shell"],
+      "properties": {
+        "ground": {"type": "object", "minProperties": 9},
+        "excited_closed_shell": {"type": "object", "minProperties": 4},
+        "excited_open_shell": {"type": "object", "minProperties": 1}
+      }
+    },
+    "symmetry_stability_contract": {"type": "object"},
+    "seed_hessian_contract": {"type": "object"},
+    "audit_outcomes": {"type": "object"},
+    "stage_contract": {"type": "object"}
+  }
+}

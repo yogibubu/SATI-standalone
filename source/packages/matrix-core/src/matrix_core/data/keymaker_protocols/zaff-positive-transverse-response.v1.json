@@ -1,0 +1,57 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff-positive-transverse-response.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Five-Hessian positive native transverse response",
+  "summary": "Fit positive common-chart SAM kernels with a TS-whitened matrix exponential in bounded inverse-fourth bond progress; preserve the distinct scalar and molecular qualification gates.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": [
+    "zaff_positive_transverse_response"
+  ],
+  "dependencies": [
+    "zaff-sparse-coupling-fit.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.positive_transverse_response",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "request",
+      "schema": "matrix.architect.positive_transverse_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "kernel_fit_result",
+      "schema": "matrix.architect.positive_transverse_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Five fixed off-TS Hessian centers plus the TS kernel; no source acquisition",
+    "Frozen nonredundant SMITH native coordinate definition and common TS oscillator scaling",
+    "Disjoint exhaustive SAM and independent LAM sectors; no curvature clipping",
+    "Largest declared ridge meeting a 10 cm^-1 physical kernel-element tolerance; no rate tuning",
+    "Positive matrix-exponential response; no claim of identified purely transverse cubic or quartic derivatives",
+    "Kernel acceptance does not qualify the scalar potential or molecular rates",
+    "Protect source E/G/H and TS four-jet in the downstream scalar model",
+    "Require all original kinetic nodes, invariant derivatives and rate step convergence below one percent",
+    "Retain shared regularized Wang-Landau, analytic-fit DVR and rotational convolution",
+    "Execute only on the declared verified remote host"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.positive_transverse_protocol",
+    "action": "run_positive_transverse_protocol"
+  },
+  "coordinate_policy": "Common TS-scaled native SAM coordinates; LAM excluded from the kernel and retained in independent DVR sectors.",
+  "backend_policy": "Resident kernel fit only; no electronic jobs, source acquisition or choice of electronic level.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "vpt2-vci-gfn2-zaff-hdcpt2.v2",
+  "manifest_version": "2.0.0",
+  "status": "approved",
+  "owner_operation": "vpt2_vci",
+  "entrypoint": "KEYMAKER",
+  "title": "GFN2-XTB + energy-derived X-H Delta(ZAFF) HDCPT2 fundamentals",
+  "summary": "Build composite harmonic F2 from the frozen v4 two-Morse primitive field, acquire raw resident GFN2-XTB F3/F4, and compute HDCPT2 fundamentals and effective x without a variational stage.",
+  "calculation_protocol": "spectroscopy.hdcpt2_gfn2_zaff.v1",
+  "aliases": [
+    "gfn2_zaff_energy_xh_hdcpt2"
+  ],
+  "dependencies": [
+    "zaff-gfn2-residual-fit.v4"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "vpt2_vci.solve_hdcpt2_gfn2_zaff",
+      "option_equals": {
+        "model": "gfn2_zaff_harmonic_residual_energy_xh"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "primitive_delta_zaff_field",
+      "schema": "matrix.zaff.force_field.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "normal_mode_qff",
+      "schema": "matrix.vpt2_vci.normal_mode_qff.v1",
+      "required": true
+    },
+    {
+      "name": "hdcpt2_result",
+      "schema": "matrix.vpt2_vci.hdcpt2.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "v4 two-Morse field has the approved fit hash, zero ZAFF reference energy, zero charges and no nonbonded terms",
+    "zero ZAFF reference energy, charges and nonbonded terms",
+    "identical atom order and geometry for composite F2 and GFN2 F3/F4",
+    "converged GFN2 SCC and analytic-Hessian CPSCF",
+    "positive active harmonic frequencies or explicit harmonic-mode treatment",
+    "finite and symmetric effective x matrix",
+    "immutable input and protocol provenance",
+    "GFN2 electronic temperature is fixed at 0 K, matching the v4 fitted baseline"
+  ],
+  "implementation": {
+    "owner_api": "matrix_vpt2_vci",
+    "action": "run_gfn2_zaff_hdcpt2"
+  },
+  "coordinate_policy": "Freeze the reference geometry and mass-weighted composite F2 modes; acquire raw GFN2 F3/F4 in that basis.",
+  "backend_policy": "Use the resident GFN2Calculator analytic Hessian at 0 K, the electronic temperature used by the v4 fitted composite baseline. Acquire raw GFN2 F3/F4 on the composite F2 normal modes.",
+  "change_policy": "new_version_and_explicit_approval"
+}

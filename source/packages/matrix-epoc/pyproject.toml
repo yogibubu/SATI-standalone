@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0", "numpy==2.3.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-epoc"
+version = "0.1.0rc8"
+description = "Ellipsoidal reaction-field and confinement runtime"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "autograd>=1.8,<2",
+  "matrix-core==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "numba>=0.62,<0.63",
+  "numpy>=1.24,<2.4",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+solvent-scf = ["matrix-apoc==0.1.0rc8", "matrix-pyscf[runtime]==0.1.0rc8", "threadpoolctl>=3.1"]
+fmm = ["fmm3dpy>=2.1.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+extend-select = ["F"]

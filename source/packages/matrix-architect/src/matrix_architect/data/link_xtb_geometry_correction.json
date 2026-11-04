@@ -1,0 +1,33 @@
+{
+  "schema": "matrix.architect.link-xtb-geometry-correction.v2",
+  "reference": "LCB26 PCS2/PPCS2",
+  "molecules": 26,
+  "bonds": 217,
+  "functional_form": "delta_r=BO*(alpha_environment+beta_dq*abs(q_i-q_j)+beta_sum*(q_i+q_j)+beta_product*q_i*q_j)",
+  "distance_descriptor_used": false,
+  "c_h_policy": "identity",
+  "hybridization_environment": {
+    "C:sp2|C:sp2": 0.0034234028271709063,
+    "C:sp2|C:sp3": 0.0038368522890825404,
+    "C:sp2|N:sp2": 0.00729560040512135,
+    "C:sp2|N:sp3": 0.010610768989346035,
+    "C:sp2|O:sp2": 0.004106061263865707,
+    "C:sp2|O:sp3": 0.010780800904152718,
+    "C:sp2|S:sp2": -0.007806551940648881,
+    "C:sp3|C:sp3": -0.00009123144572468484,
+    "C:sp3|O:sp3": 0.0002498960260515501,
+    "C:sp3|S:sp2": -0.05148112946266718,
+    "C:sp3|S:sp3": -0.019484718857568445,
+    "C:sp|C:sp": 0.0005086941551614764,
+    "C:sp|C:sp2": 0.02335035621684177,
+    "C:sp|N:sp": 0.0037293088069804193,
+    "H:sp3|N:sp2": -0.001709334009189627,
+    "H:sp3|N:sp3": -0.0030233525188848305,
+    "H:sp3|O:sp3": -0.004017252206293169,
+    "N:sp3|S:sp2": -0.025484973597901257,
+    "O:sp2|S:sp2": 0.011693539753888657
+  },
+  "charge_difference": -0.0058663126153863,
+  "charge_sum": -0.018313691901570544,
+  "charge_product": -0.012626699444343022
+}

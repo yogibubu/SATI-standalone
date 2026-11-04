@@ -1,0 +1,52 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.fast.molpro.v1",
+  "selector": "fast-molpro",
+  "model": "FAST",
+  "backend": "molpro",
+  "frozen": true,
+  "formula": "[fc-MP2/def2-SVP + density-based BSIE(PBEC)/def2-SVP] + [fc-CCSD(T)/def2-SVP - fc-MP2/def2-SVP] + ORACLE CV exponential field",
+  "orbital_basis": {
+    "name": "def2-SVP",
+    "artifact": "def2-SVP.molpro",
+    "sha256": "3b1f23296c496138301f142b55f02951fd51c7e8d04a37ab8187833fb0832d0b",
+    "definition": "Unmodified Karlsruhe def2-SVP orbital basis for H-Ar"
+  },
+  "high_level": {
+    "label": "fc-CCSD(T)/def2-SVP",
+    "method": "CCSD(T)",
+    "basis": "def2-SVP",
+    "route": "frozen core",
+    "reference": "HF",
+    "correlation_model": "canonical",
+    "derivative": "analytic"
+  },
+  "density_based_correction": {
+    "label": "density-based BSIE(PBEC)/def2-SVP",
+    "method": "DF-BASCORR(PBEC)",
+    "basis": "def2-SVP",
+    "functional": "PBEC",
+    "fitting_basis": "def2-SVP/MP2FIT",
+    "derivative": "one_sided_totally_symmetric_sonic_numerical",
+    "numerical_gradient_step_bohr": 0.001
+  },
+  "focal_point": {
+    "source_model": "Warden-Smith-Burns-Bozkaya-Sherrill CCSD(T)/[TQZ;delta:DZ]",
+    "source_doi": "10.1063/5.0004863",
+    "source_mp2_baseline": "MP2/CBS[T,Q]Z",
+    "modified_mp2_baseline": "fc-MP2/def2-SVP + density-based BSIE(PBEC)/def2-SVP",
+    "post_mp2_correction": "fc-CCSD(T)/def2-SVP - fc-MP2/def2-SVP",
+    "algebraic_reduction": "The equal-basis fc-MP2 terms cancel exactly, leaving fc-CCSD(T)/def2-SVP + density-based BSIE(PBEC)/def2-SVP"
+  },
+  "core_valence": {
+    "type": "oracle_cv_exponential_field",
+    "model": "ORACLE CV_radial exponential",
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "orca",
+    "route": "B3LYP 6-31G* VeryTightSCF Freq"
+  }
+}

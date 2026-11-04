@@ -1,0 +1,408 @@
+{
+  "schema": "matrix.keymaker.protocol_catalog.v1",
+  "catalog_id": "nano-matrix-keymaker-protocols-v2",
+  "manifest_version": "2.0.0",
+  "library_sha256": "b017460456a0df9fa41956bad4ad9ccfef3ae2b5846ee8c0abbba4593f35ba48",
+  "calculation_atlas": {
+    "atlas_id": "nano-matrix-calculation-protocols-v18",
+    "resource": "calculation_protocol_atlas_v18.json",
+    "sha256": "818bc34dd064678bcb1daf1ae8ea92375d8b4fcbda4022446c305cb84b51eb20"
+  },
+  "protocols": [
+    {
+      "protocol_id": "apoc-electronic-analysis.v1",
+      "resource": "apoc-electronic-analysis.v1.json",
+      "sha256": "ab14ad0dcca9efadb7a6a94042742aa5dbfda1b79040d9c84b3658c745a1d4fd"
+    },
+    {
+      "protocol_id": "b3lyp-mp2-primitive-hessian-scaling.v1",
+      "resource": "b3lyp-mp2-primitive-hessian-scaling.v1.json",
+      "sha256": "1a44331b028c0afe5debc6e3cc55b8d67f8a11a9623075690317fc1edc370936"
+    },
+    {
+      "protocol_id": "beyond-pmm-tight-binding.v1",
+      "resource": "beyond-pmm-tight-binding.v1.json",
+      "sha256": "485534879e8c2cc8cf4d2aa193784bc39abfa3a48c0eda64aa1f8893adef2e98"
+    },
+    {
+      "protocol_id": "dvr-tunneling.v1",
+      "resource": "dvr-tunneling.v1.json",
+      "sha256": "47fc55fbf38c91d17569c48bd926b95264e6196c5724b9aeedd32df0508fcd7d"
+    },
+    {
+      "protocol_id": "et-uv-vis.v1",
+      "resource": "et-uv-vis.v1.json",
+      "sha256": "d2e957d1748c970f24316e1910c5db3cc68f9c64c65a82475c93de2a768f8eea"
+    },
+    {
+      "protocol_id": "fast-tda-two-photon-corpus.v1",
+      "resource": "fast-tda-two-photon-corpus.v1.json",
+      "sha256": "4059513eef577f9ce9fd23cb528826cc214484ad01c8de4707400d3061f4821e"
+    },
+    {
+      "protocol_id": "fast-tda-two-photon-gradient.v1",
+      "resource": "fast-tda-two-photon-gradient.v1.json",
+      "sha256": "d4a0fdc65f960abfdbbd8a2cb3787dd049751f3be531647aa7806610f51f2ef9"
+    },
+    {
+      "protocol_id": "fast-tda-two-photon-qualification.v1",
+      "resource": "fast-tda-two-photon-qualification.v1.json",
+      "sha256": "b886f3061f79a79b314a7eca2a73abb863447926609b75b9d5ff9e5a18b2b6c7"
+    },
+    {
+      "protocol_id": "gfn2-fast-xtb-evaluation.v1",
+      "resource": "gfn2-fast-xtb-evaluation.v1.json",
+      "sha256": "345489b4010767373082d8fad44b36e5d506e11b06f6bcdbaefa8f53b8b8431a"
+    },
+    {
+      "protocol_id": "gfn2-sf-tda-evaluation.v1",
+      "resource": "gfn2-sf-tda-evaluation.v1.json",
+      "sha256": "6ef6faa58cb8a3a666deb3cc4986bf1ef8c77782880a78e0660663e8f2452c53"
+    },
+    {
+      "protocol_id": "keymaker-exploration-session.v1",
+      "resource": "keymaker-exploration-session.v1.json",
+      "sha256": "f63ad29ce241ec58d16fe02a7f56d9884b5d5df831fe9209014dac746c342ae9"
+    },
+    {
+      "protocol_id": "keymaker-transition-state-exploitation.v1",
+      "resource": "keymaker-transition-state-exploitation.v1.json",
+      "sha256": "ca6a257e088850d214d6b3e4294b3c6da715fe8fd8980458c8dc5763e83c8f63"
+    },
+    {
+      "protocol_id": "kinetics-link-handoff.v1",
+      "resource": "kinetics-link-handoff.v1.json",
+      "sha256": "a4da616a57b76995ee0ced4d6bbee8222158f2b738ec0dcb52f7176d432069a9"
+    },
+    {
+      "protocol_id": "lcb26-b3lyp-harmonic.v1",
+      "resource": "lcb26-b3lyp-harmonic.v1.json",
+      "sha256": "bebf8c1d04a8aed97fa52a3a700dcc3ade372db9c824ea960f919e6c067781fb"
+    },
+    {
+      "protocol_id": "lcb26-link-xtb-harmonic.v1",
+      "resource": "lcb26-link-xtb-harmonic.v1.json",
+      "sha256": "32510f34c3efb69adc10106b2aec08de971e20bcad0024cb244ad032f72feab4"
+    },
+    {
+      "protocol_id": "lcb26-mp2-harmonic.v1",
+      "resource": "lcb26-mp2-harmonic.v1.json",
+      "sha256": "a5e713c6ae237709b8cf44cde6206da635cb9b4102cf6c87d75d86547bf89712"
+    },
+    {
+      "protocol_id": "lcb26-mp2-harmonic.v2",
+      "resource": "lcb26-mp2-harmonic.v2.json",
+      "sha256": "1b6e676b0de95d8d1d1271de24d16157e5b8243af67181e411643dc147661f0d"
+    },
+    {
+      "protocol_id": "link-fast-tda-two-photon.v1",
+      "resource": "link-fast-tda-two-photon.v1.json",
+      "sha256": "e7c5b238b63a3beea290e92bfd6c519cd091b9777ba78faee67e72a2f7d4e442"
+    },
+    {
+      "protocol_id": "link-gfn2-zaff-composite.v1",
+      "resource": "link-gfn2-zaff-composite.v1.json",
+      "sha256": "3a35d81406f2612e315cc8a9d1f8f387f9682fd7e142e970db7973ce0b1b012a"
+    },
+    {
+      "protocol_id": "link-gfn2-zaff-composite.v2",
+      "resource": "link-gfn2-zaff-composite.v2.json",
+      "sha256": "1fd3eb9b12f36855b9ce302578f4a7b408db9ecb8da870aabc0604b28cef8b1e"
+    },
+    {
+      "protocol_id": "link-gfn2-zaff-composite.v3",
+      "resource": "link-gfn2-zaff-composite.v3.json",
+      "sha256": "2ab4e80ced6585a51284ea63143b3bca7e1b3ae24d68bf3b77a0ffd067b7ab93"
+    },
+    {
+      "protocol_id": "link-gfn2-zaff-cubic-refit.v1",
+      "resource": "link-gfn2-zaff-cubic-refit.v1.json",
+      "sha256": "9cfc4c53e854cda81692a4ba040a9a0a3677fc3a3ad31952ef0dffb34ab4bcaf"
+    },
+    {
+      "protocol_id": "link-minimum-optimization.v1",
+      "resource": "link-minimum-optimization.v1.json",
+      "sha256": "007cfa84c42a8edf34cbf9a41f901507d558806dd5507d853bfa92017e58f9ca"
+    },
+    {
+      "protocol_id": "link-sf-tda-meci.v1",
+      "resource": "link-sf-tda-meci.v1.json",
+      "sha256": "7cf6030c1c68c843a613cde187b945c17231e5daa77d2a7cda8f86ac42afe420"
+    },
+    {
+      "protocol_id": "link-sf-tda-optimization.v1",
+      "resource": "link-sf-tda-optimization.v1.json",
+      "sha256": "f24e81be9761181f11f0c56ae954768dcaa65f8d5e5f2cb3ac783ee6aa844262"
+    },
+    {
+      "protocol_id": "link-std2-hessian.v1",
+      "resource": "link-std2-hessian.v1.json",
+      "sha256": "43d52b3716ac068f6283d0448a1e066240820b43c50df53d99e3005831f2a00b"
+    },
+    {
+      "protocol_id": "link-std2-optimization.v1",
+      "resource": "link-std2-optimization.v1.json",
+      "sha256": "628f3d09373bfd8dc693311ce1763af8c3b39168cdc2ca2066169b40825f5ec4"
+    },
+    {
+      "protocol_id": "link-std2-spectrum.v1",
+      "resource": "link-std2-spectrum.v1.json",
+      "sha256": "f8a5fcae89acedbad41048af53ec27b6fd8d5b1743f09ed6d473ce3761600b60"
+    },
+    {
+      "protocol_id": "link-sycart-hessian.v1",
+      "resource": "link-sycart-hessian.v1.json",
+      "sha256": "a3b6d79c3a647d1b0b81341a0c9dd021f6cb2e05988b58cac54e48e11b545ede"
+    },
+    {
+      "protocol_id": "lock-ground-state-rotational.v1",
+      "resource": "lock-ground-state-rotational.v1.json",
+      "sha256": "2f05257e2ce2d26bb727e996850c2fad8d089f75c16ac47211ff4ff24a2721db"
+    },
+    {
+      "protocol_id": "lock-rigid-rotor-spectrum.v1",
+      "resource": "lock-rigid-rotor-spectrum.v1.json",
+      "sha256": "4db54994d26c01a09fd6f0a932d6a8c2993b0f606eab2476a252494f2347ddaf"
+    },
+    {
+      "protocol_id": "lock-rovibrational-workflow.v1",
+      "resource": "lock-rovibrational-workflow.v1.json",
+      "sha256": "19af9751cc9a81a1ddea29e89d15b915db4c4697b30de2028cbe4dd521060ec8"
+    },
+    {
+      "protocol_id": "mifune-connectivity-events.v1",
+      "resource": "mifune-connectivity-events.v1.json",
+      "sha256": "e62aa94a163a45f2cd51431814e8c1ab50bbd4fe0dec3c2e0815216342f3f959"
+    },
+    {
+      "protocol_id": "morpheus-msr-cached-refinement.v1",
+      "resource": "morpheus-msr-cached-refinement.v1.json",
+      "sha256": "6dc69eb872e11baa3d871c91162c2df961c3bd563030a17f57f06c782d52f9c4"
+    },
+    {
+      "protocol_id": "morpheus-semiexperimental-refinement.v1",
+      "resource": "morpheus-semiexperimental-refinement.v1.json",
+      "sha256": "b3bd4e4c980915bc50f59106de069a2ca55c219b0519aa57517e5eabf7fd8a1c"
+    },
+    {
+      "protocol_id": "oracle-perception.v1",
+      "resource": "oracle-perception.v1.json",
+      "sha256": "c324fc43a3f16535a498b13b32578d259dd9d61a9e37eb08939ad54c43644383"
+    },
+    {
+      "protocol_id": "sati-harmonic-vibronic.v1",
+      "resource": "sati-harmonic-vibronic.v1.json",
+      "sha256": "d4c23d8203fa64b22001ead9a61cc8dbf7094de7d4eb3bbfc3fd84a9802c8709"
+    },
+    {
+      "protocol_id": "sati-hdcpt2.v1",
+      "resource": "sati-hdcpt2.v1.json",
+      "sha256": "00d3ee28952fc6c5a8880d18a4d4ca7e86df2ff3161b0fa81bcb6f8ce16a4d76"
+    },
+    {
+      "protocol_id": "sati-nonresonant-vpt2.v1",
+      "resource": "sati-nonresonant-vpt2.v1.json",
+      "sha256": "9690e1c5a564db589c6c278942ecbf2f7d35fe3255f33af87b16c1c657687a39"
+    },
+    {
+      "protocol_id": "sati-optical.v1",
+      "resource": "sati-optical.v1.json",
+      "sha256": "4457fb78ea5fd59f8f589fe29518332d94b4a18e2925a3928e2b11deffd2abfe"
+    },
+    {
+      "protocol_id": "sati-resonance-raman.v1",
+      "resource": "sati-resonance-raman.v1.json",
+      "sha256": "629815349870403e179c1a3cc2e97fb937f0bff776b2490ed243ad77f598240c"
+    },
+    {
+      "protocol_id": "solution-md-fixed-solute-ellipsoid.v1",
+      "resource": "solution-md-fixed-solute-ellipsoid.v1.json",
+      "sha256": "20cd202052842dd822945e637f25cd004d7ce198047fd86beae2c980456bc6e9"
+    },
+    {
+      "protocol_id": "sonic-soop-default.v1",
+      "resource": "sonic-soop-default.v1.json",
+      "sha256": "c01c11ee12f0e00c68aa0164ae042359a558ca88c7351461598249f5f3a03b8f"
+    },
+    {
+      "protocol_id": "switch-source-normalization.v1",
+      "resource": "switch-source-normalization.v1.json",
+      "sha256": "4ea936b90993ce62bb927ebe300543c721fa898e9bf5e809e2b9a7df494bf5ff"
+    },
+    {
+      "protocol_id": "thermo-conformer-ensemble.v1",
+      "resource": "thermo-conformer-ensemble.v1.json",
+      "sha256": "908ecafc615a7dc9b038671076ba38334cd1b5c560869c94cf452431dafb283f"
+    },
+    {
+      "protocol_id": "trinity-chart-evidence-validation.v1",
+      "resource": "trinity-chart-evidence-validation.v1.json",
+      "sha256": "e8e3df4a596533320f9991ce1430dade566b0422b668350415fc4e0741bf85b5"
+    },
+    {
+      "protocol_id": "trinity-esalci-gvpt2-ir-analytic-metric.v3",
+      "resource": "trinity-esalci-gvpt2-ir-analytic-metric.v3.json",
+      "sha256": "f2b9186077dbcd5828bf08e06b60d414f15d0fada7b1bf080d17c6bb7d187218"
+    },
+    {
+      "protocol_id": "trinity-esalci-gvpt2-ir-gdv-frame.v6",
+      "resource": "trinity-esalci-gvpt2-ir-gdv-frame.v6.json",
+      "sha256": "28dbde9781a37ab25661b0cdc802bc8b5b625de16402037e0b0f2fe3de98e0fd"
+    },
+    {
+      "protocol_id": "trinity-esalci-gvpt2-ir-single-mode.v2",
+      "resource": "trinity-esalci-gvpt2-ir-single-mode.v2.json",
+      "sha256": "222f23deced4bf0d1603b89f4136d14767de35f37c7f68899bed6c283d75b649"
+    },
+    {
+      "protocol_id": "trinity-esalci-gvpt2-ir-smith-metric-eckart.v5",
+      "resource": "trinity-esalci-gvpt2-ir-smith-metric-eckart.v5.json",
+      "sha256": "f1f813c279e6ebf97015f8f250e18501108a55a1858ae5bcced52a113a21186b"
+    },
+    {
+      "protocol_id": "trinity-esalci-gvpt2-ir-smith-metric.v4",
+      "resource": "trinity-esalci-gvpt2-ir-smith-metric.v4.json",
+      "sha256": "6343bc4ddc2d368d8aca87bf6d90060934ad8ddb942b1247b65ec5befb588e2e"
+    },
+    {
+      "protocol_id": "trinity-esalci-gvpt2-ir.v1",
+      "resource": "trinity-esalci-gvpt2-ir.v1.json",
+      "sha256": "88e8ec9d623b5b3d961a9c1076890ae6ee0eb9c68c6018d20736ddeb993a5ea6"
+    },
+    {
+      "protocol_id": "trinity-harmonic-field.v1",
+      "resource": "trinity-harmonic-field.v1.json",
+      "sha256": "793acb38e0a1d604d9b9f1e6bd62ba1de02631dd42b7e0e70bc9f8ea709b6358"
+    },
+    {
+      "protocol_id": "trinity-hdcpt2.v1",
+      "resource": "trinity-hdcpt2.v1.json",
+      "sha256": "571c9e07193dcf3810b1dd381a15068717550805a673636af4455c1dd902645d"
+    },
+    {
+      "protocol_id": "trinity-isotope-deltabvib-acquisition.v1",
+      "resource": "trinity-isotope-deltabvib-acquisition.v1.json",
+      "sha256": "ba0b3bb962d72e9b2538456ca0eb2a553b0a7dedb7574efd458a977113628621"
+    },
+    {
+      "protocol_id": "trinity-matched-vibrational-spectrum.v1",
+      "resource": "trinity-matched-vibrational-spectrum.v1.json",
+      "sha256": "d751d8f4095a53d3f28c7d036f5d4fa45d6b6b7c54e154833729acba5ab34909"
+    },
+    {
+      "protocol_id": "trinity-native-pes-variational.v1",
+      "resource": "trinity-native-pes-variational.v1.json",
+      "sha256": "b02898f743d6790710f28aca780880cc358592196e7471e8c74d12f5fc51d9a1"
+    },
+    {
+      "protocol_id": "trinity-normal-mode-derivatives.v1",
+      "resource": "trinity-normal-mode-derivatives.v1.json",
+      "sha256": "8017f31e36344728e6ce3f8c26e07c29130bf0d10bed1f7db70c83b62834c842"
+    },
+    {
+      "protocol_id": "trinity-selective-anharmonic-field.v1",
+      "resource": "trinity-selective-anharmonic-field.v1.json",
+      "sha256": "51807c2b081b5c63846fdfd5875391ad8da29c5ee212c6cced6b8b6bb0af64d5"
+    },
+    {
+      "protocol_id": "trinity-variational-spectroscopy.v1",
+      "resource": "trinity-variational-spectroscopy.v1.json",
+      "sha256": "f127dd868d4364586b173ed8cb831e7821b88590a84fe475cf2770ba32b0d161"
+    },
+    {
+      "protocol_id": "vpt2-vci-gfn2-zaff-hdcpt2.v1",
+      "resource": "vpt2-vci-gfn2-zaff-hdcpt2.v1.json",
+      "sha256": "c7d34cf0435987d5f67193da82fb7cf1855e6f03c505ed2763700ba1e420eaba"
+    },
+    {
+      "protocol_id": "vpt2-vci-gfn2-zaff-hdcpt2.v2",
+      "resource": "vpt2-vci-gfn2-zaff-hdcpt2.v2.json",
+      "sha256": "2019452ba28bd445cc11b2d55995fc61a9e0dd9fafd33a0d67866f683f85fdf2"
+    },
+    {
+      "protocol_id": "xtb-primitive-hessian-scaling.v1",
+      "resource": "xtb-primitive-hessian-scaling.v1.json",
+      "sha256": "e69fc5cfc60e49ebc92103567cde5312a3ae0299a8b38d8c733aec33222c50dd"
+    },
+    {
+      "protocol_id": "xtb-primitive-hessian-scaling.v2",
+      "resource": "xtb-primitive-hessian-scaling.v2.json",
+      "sha256": "c2ec5dc431b1f718e006be66ad9edbfe8a097af69e4fb58f24ac3467843dd04c"
+    },
+    {
+      "protocol_id": "xtb-primitive-hessian-scaling.v3",
+      "resource": "xtb-primitive-hessian-scaling.v3.json",
+      "sha256": "bb54e4eacfa26f50ed07d15bec728a332e4aec488a91c08de1651eb9bf96f7f6"
+    },
+    {
+      "protocol_id": "xtb-primitive-hessian-scaling.v4",
+      "resource": "xtb-primitive-hessian-scaling.v4.json",
+      "sha256": "617691989ef618885087e6baf63d8c89ee96e990af5a684261e7d87d36f46156"
+    },
+    {
+      "protocol_id": "zaff-diagonal-harmonic-fit.v1",
+      "resource": "zaff-diagonal-harmonic-fit.v1.json",
+      "sha256": "31f3d755675cb083f3300c553f84346f080162c1bb872005b659a2a20cd222a4"
+    },
+    {
+      "protocol_id": "zaff-geminal-coupled-harmonic-fit.v1",
+      "resource": "zaff-geminal-coupled-harmonic-fit.v1.json",
+      "sha256": "54b62c30989624e1ab9bbc60083ea9d6ff85aed323b05c96407d7781fcdaca7d"
+    },
+    {
+      "protocol_id": "zaff-gfn2-morse-cubic-refit.v1",
+      "resource": "zaff-gfn2-morse-cubic-refit.v1.json",
+      "sha256": "6a19810402807dd0bcaaee86084157f46b63b5da9116ccdf4482ccbbd9f6a630"
+    },
+    {
+      "protocol_id": "zaff-gfn2-residual-fit.v1",
+      "resource": "zaff-gfn2-residual-fit.v1.json",
+      "sha256": "02cdfa33f69b3d3c41580ffb11968af87baf4b2e2eaf2e01003a889e88363ede"
+    },
+    {
+      "protocol_id": "zaff-gfn2-residual-fit.v2",
+      "resource": "zaff-gfn2-residual-fit.v2.json",
+      "sha256": "0ab993ed93b15419a74f440148c24f95e9f740b06158ec3c685993ca36792ed8"
+    },
+    {
+      "protocol_id": "zaff-gfn2-residual-fit.v3",
+      "resource": "zaff-gfn2-residual-fit.v3.json",
+      "sha256": "0b024d987e17bbdbd5d22d350d64bfa55a278aa7abc32f3c603adf77146d5a97"
+    },
+    {
+      "protocol_id": "zaff-gfn2-residual-fit.v4",
+      "resource": "zaff-gfn2-residual-fit.v4.json",
+      "sha256": "a9aed23cadbc6ec1ee3227cb8ef5b1d8b35cb7302cdbef5faa90ddfda11097f7"
+    },
+    {
+      "protocol_id": "zaff-sparse-coupling-fit.v1",
+      "resource": "zaff-sparse-coupling-fit.v1.json",
+      "sha256": "40129916d975e7214b45b137646cfdb475891220c16162cadf56aab50c6874e2"
+    },
+    {
+      "protocol_id": "zaff-stretch-coupled-harmonic-fit.v1",
+      "resource": "zaff-stretch-coupled-harmonic-fit.v1.json",
+      "sha256": "8723dd03eb9aa23a0386dc4674871c4389f61370c5ec14b58707475de5a6c033"
+    },
+    {
+      "protocol_id": "zaff3-dynamics.v1",
+      "resource": "zaff3-dynamics.v1.json",
+      "sha256": "a54e5fde727f5b96731a2b26d49dc860388922c8096a7f3f956935595f101e49"
+    },
+    {
+      "protocol_id": "zaff4-native-coupling-fit.v1",
+      "resource": "zaff4-native-coupling-fit.v1.json",
+      "sha256": "74fa553f0bed31d3e092a6aa02c7565319471f5c68872db9620a55411c464bd6"
+    },
+    {
+      "protocol_id": "zaff4-native-coupling-fit.v2",
+      "resource": "zaff4-native-coupling-fit.v2.json",
+      "sha256": "ba80f9d9d488a9b2c2e58e43a929ffdf22eb9d1d556cef948904ecc09616e0ed"
+    },
+    {
+      "protocol_id": "zaff4-native-coupling-prune.v1",
+      "resource": "zaff4-native-coupling-prune.v1.json",
+      "sha256": "35ce3ac0f0a285d39d7131637745bb8174cbf92165dfff40915449625d281c77"
+    }
+  ]
+}

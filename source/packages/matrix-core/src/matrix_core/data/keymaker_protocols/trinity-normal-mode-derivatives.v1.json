@@ -1,0 +1,21 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-normal-mode-derivatives.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY normal-mode derivative stencil",
+  "summary": "Schedule symmetry-reduced displaced gradients and energies and assemble semidiagonal cubic and diagonal quartic derivatives.",
+  "calculation_protocol": "surface.selective_anharmonic.v1",
+  "aliases": ["trinity_mode_derivatives"],
+  "dependencies": ["trinity-harmonic-field.v1"],
+  "routes": [{"menu": "prediction_assignment", "action": "trinity.normal_mode_derivatives", "option_equals": {}}],
+  "inputs": [{"name": "harmonic_field", "schema": "matrix.trinity.harmonic_field.v1", "required": true}],
+  "outputs": [{"name": "mode_derivatives", "schema": "matrix.trinity.mode_derivatives.v1", "required": true}],
+  "gates": ["SYCART translation-rotation removal", "symmetry-equivalent displacement reduction", "central-difference closure", "worker-independent assembly"],
+  "implementation": {"owner_api": "matrix_trinity.anharmonic_sampling", "action": "semidiagonal_cubic_from_modal_gradient_stencil"},
+  "coordinate_policy": "Displacements originate in symmetry-adapted TR-free SYCART and transform through the certified Cartesian and SONIC maps.",
+  "backend_policy": "KEYMAKER authorizes independent backend evaluations; TRINITY assembles derivatives.",
+  "change_policy": "new_version_and_explicit_approval"
+}

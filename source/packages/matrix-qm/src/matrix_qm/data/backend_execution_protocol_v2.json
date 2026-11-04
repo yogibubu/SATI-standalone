@@ -1,0 +1,103 @@
+{
+  "schema": "matrix.qm.backend_execution_protocol.v2",
+  "protocol_id": "matrix-qm-backend-execution-v2",
+  "manifest_version": "2.0.0",
+  "status": "approved",
+  "change_policy": "new_manifest_version_and_explicit_approval",
+  "resource_contract": {
+    "authorization_required": true,
+    "implicit_defaults_allowed": false,
+    "process_count_per_job": "number of backend processes used by one QM point",
+    "threads_per_process": "OpenMP/BLAS threads used by each process",
+    "threads_per_job": "process_count_per_job multiplied by threads_per_process",
+    "concurrent_jobs": "number of independent QM points evaluated simultaneously",
+    "memory_per_job_gb": "maximum total memory reserved for one QM point, not per process or thread",
+    "maximum_memory_gb": "memory_per_job_gb multiplied by concurrent_jobs",
+    "resource_change": "requires a new launch plan and explicit authorization"
+  },
+  "backend_contracts": {
+    "gaussian": {
+      "aliases": ["gdv", "gdv32", "g16"],
+      "process_model": "shared_memory_backend_process",
+      "resource_parallelism": "threads",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "owner_generated_Gaussian_or_GDV_input_only"
+    },
+    "orca": {
+      "aliases": [],
+      "process_model": "backend_declared_process_pool",
+      "resource_parallelism": "processes",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "canonical_ORCA_manifest_only"
+    },
+    "molpro": {
+      "aliases": [],
+      "process_model": "backend_declared_process_pool",
+      "resource_parallelism": "processes",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "owner_generated_Molpro_input_only"
+    },
+    "mrcc": {
+      "aliases": [],
+      "process_model": "backend_declared_process_pool",
+      "resource_parallelism": "processes",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "owner_generated_MRCC_input_only"
+    },
+    "cfour": {
+      "aliases": [],
+      "process_model": "backend_declared_process_pool",
+      "resource_parallelism": "processes",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "owner_generated_CFOUR_input_only"
+    },
+    "xtb": {
+      "aliases": [],
+      "process_model": "shared_memory_backend_process",
+      "resource_parallelism": "threads",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "canonical_xTB_manifest_only"
+    },
+    "pyscf": {
+      "aliases": [],
+      "process_model": "single_python_process_per_QM_point",
+      "resource_parallelism": "threads",
+      "resource_owner": "MATRIX_launch_authorization",
+      "symmetry": true,
+      "non_abelian_symmetry": "requires an explicitly authorized Abelian subgroup for SCF gradients",
+      "density_fitting": "required_for_supported_HF_DFT_SCF_requests",
+      "tight_scf": false,
+      "nosymm": false,
+      "method_basis_reference": "canonical_QM_request_only",
+      "scientific_options": "no_implicit_method_basis_reference_or_accelerator_substitution"
+    },
+    "et": {
+      "aliases": [],
+      "process_model": "backend_declared_process_pool",
+      "resource_parallelism": "processes",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "canonical_eT_manifest_only"
+    },
+    "psi4": {
+      "aliases": [],
+      "process_model": "shared_memory_backend_process",
+      "resource_parallelism": "threads",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "canonical_Psi4_manifest_only"
+    },
+    "zaff": {
+      "aliases": [],
+      "process_model": "resident_MATRIX_field",
+      "resource_parallelism": "threads",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "validated_ARCHITECT_ZAFF_contract_only"
+    },
+    "external": {
+      "aliases": [],
+      "process_model": "explicit_user_supplied_evaluator",
+      "resource_parallelism": "threads",
+      "resource_owner": "MATRIX_launch_authorization",
+      "scientific_options": "explicit_owner_request_without_implicit_defaults"
+    }
+  }
+}

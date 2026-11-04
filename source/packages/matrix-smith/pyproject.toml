@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-smith"
+version = "0.1.0rc8"
+description = "SMITH/SONIC coordinate construction for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-fragments==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-engines==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "matrix-oracle==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "numpy>=1.24",
+  "scipy>=1.10",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_smith = [
+  "parameters/*.toml",
+  "parameters/fortran/*.inc",
+  "schemas/*.json",
+  "coordinate_kernel/*.json",
+]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+# Keep the extracted SMITH/SONIC module graph free of stale imports and locals.
+extend-select = ["F"]

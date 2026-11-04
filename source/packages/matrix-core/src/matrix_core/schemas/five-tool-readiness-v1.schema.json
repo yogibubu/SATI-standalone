@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.keymaker.five-tool-readiness.v1",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema", "access", "tool", "version", "role", "requires", "produces", "contract_sha256"],
+  "properties": {
+    "schema": {"const": "matrix.keymaker.five-tool-readiness.v1"},
+    "access": {"const": "KEYMAKER_ONLY"},
+    "tool": {"enum": ["SWITCH", "ORACLE", "SMITH", "LINK", "APOC"]},
+    "version": {"const": 1},
+    "role": {"type": "string", "minLength": 1},
+    "requires": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "optional": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "produces": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "contract_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

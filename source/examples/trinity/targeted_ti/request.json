@@ -1,0 +1,88 @@
+{
+  "model": {
+    "initial_frequencies_cm": [
+      240.0,
+      810.0
+    ],
+    "final_frequencies_cm": [
+      270.0,
+      760.0
+    ],
+    "mode_map": [
+      [
+        0.9736663950053749,
+        -0.2279775235351884
+      ],
+      [
+        0.2279775235351884,
+        0.9736663950053749
+      ]
+    ],
+    "final_shift_dimensionless": [
+      0.8,
+      -0.5
+    ],
+    "electronic_gap_cm": 30000.0,
+    "electric_dipole_au": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "electric_gradient": [
+      [
+        0.01,
+        0.02
+      ],
+      [
+        0.02,
+        -0.01
+      ],
+      [
+        0.01,
+        0.01
+      ]
+    ],
+    "magnetic_dipole_over_c_au": {
+      "real": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "imag": [
+        0.001,
+        0.002,
+        0.003
+      ]
+    }
+  },
+  "spectrum": {
+    "temperature_K": 298.15,
+    "gaussian_sigma_cm": 75.0,
+    "time_step_fs": 0.25,
+    "time_points": 4097
+  },
+  "selection": {
+    "selection": "targeted",
+    "selection_windows_cm": [
+      [
+        29890.0,
+        30490.0
+      ],
+      [
+        31090.0,
+        32390.0
+      ]
+    ],
+    "target_fraction": 0.99,
+    "selection_profile_peak_tolerance": 0.02,
+    "selection_profile_L1_tolerance": 0.01,
+    "maximum_states": 100000,
+    "maximum_transitions": 100000,
+    "maximum_integrals": 300000,
+    "maximum_initial_quanta": 8,
+    "maximum_final_quanta": 16,
+    "selection_maximum_per_mode_quanta": 16,
+    "selection_batch_size": 4,
+    "selection_assignment_limit": 10
+  }
+}

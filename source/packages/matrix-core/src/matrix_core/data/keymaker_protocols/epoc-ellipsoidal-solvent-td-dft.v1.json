@@ -1,0 +1,71 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "protocol_id": "epoc-ellipsoidal-solvent-td-dft.v1",
+  "entrypoint": "KEYMAKER",
+  "owner_operation": "epoc",
+  "title": "EPOC nonequilibrium TDA-DFT and full TD-DFT absorption",
+  "summary": "Two explicit singlet response models on an equilibrated RKS solvent reference: TDA-DFT or coupled X/Y TD-DFT. Only optical polarization responds to the transition; the ground-state slow field remains frozen. Locally qualified on HF/6-31G with B3LYP and PBE against independently assembled A/B matrices and vacuum limits.",
+  "calculation_protocol": "solvation.linear_response_dft.v1",
+  "aliases": [
+    "epoc_solvent_tda_dft",
+    "epoc_solvent_td_dft"
+  ],
+  "dependencies": [
+    "epoc-ellipsoidal-solvent-scf.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "epoc.solvent_td",
+      "option_equals": {
+        "response_model": "TDA-DFT"
+      }
+    },
+    {
+      "menu": "prediction_assignment",
+      "action": "epoc.solvent_td",
+      "option_equals": {
+        "response_model": "TD-DFT"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "solvent_td_request",
+      "schema": "matrix.epoc.solvent_td_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "solvent_td_result",
+      "schema": "matrix.epoc.solvent_td_result.v1",
+      "required": true
+    },
+    {
+      "name": "transition_response",
+      "schema": "matrix.epoc.solvent_td_response_npz.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "explicit TDA-DFT or full TD-DFT selection; no automatic TDA substitution",
+    "explicit RKS functional, Gaussian basis, static and optical dielectric constants",
+    "equilibrated ground-state SCF/solvent reference and independent polarization work check",
+    "frozen ground-state slow polarization; optical derivative in the LR electronic kernel only",
+    "converged positive singlet response roots with X/Y metric normalization and finite oscillator strengths",
+    "AO transition densities are not excited-state diagonal densities; no state-specific excited relaxation claim",
+    "single-geometry root labels; APOC state/subspace matching required for continuation",
+    "explicit launch authorization; one process, one thread, <=80 AOs, <=6 roots, 1 GB envelope",
+    "local HF/6-31G qualification of TDA/full TD with B3LYP/PBE, independent A/B assembly and vacuum limits; no global spectral accuracy claim"
+  ],
+  "implementation": {
+    "owner_api": "matrix_epoc.solvent_td_protocol",
+    "action": "run_ellipsoidal_td_protocol"
+  },
+  "coordinate_policy": "Fixed Cartesian geometry and triaxial cavity; spectral degree two; analytic translated/rotated Gaussian AO moments.",
+  "backend_policy": "Native EPOC optical response applied to PySCF RKS TDA or the full coupled X/Y TDDFT solver. Functional and basis are user inputs. Ground-state slow polarization remains frozen. This is LR nonequilibrium absorption, not state-specific relaxed excited-state solvation. Local numerical qualification covers HF/6-31G with B3LYP/PBE and vacuum controls; other systems retain explicit convergence, normalization and containment gates.",
+  "change_policy": "new_version_and_explicit_approval"
+}

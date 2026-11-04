@@ -1,0 +1,399 @@
+{
+  "schema": "matrix.qm.canonical_ladder.v1",
+  "protocol_id": "matrix-canonical-qm-ladder-v1",
+  "manifest_version": "1.0.11",
+  "status": "approved",
+  "production_ready": false,
+  "scope": "single-reference valence-state preparation, optimization, Hessians, and composite energies",
+  "owners": {
+    "scientific_resolution": "MATRIX_QM",
+    "geometry_quality_and_symmetry": "ORACLE",
+    "coordinate_definition": "SMITH",
+    "optimization_and_hessians": "LINK",
+    "electronic_state_identity": "APOC",
+    "structural_preparation": "ARCHITECT",
+    "human_orchestration": "KEYMAKER"
+  },
+  "governance": {
+    "legacy_manifests_unchanged": true,
+    "silent_substitution": false,
+    "molecule_specific_patches": false,
+    "backend_specific_optimizer_patches": false,
+    "method_specific_optimizer_patches": false,
+    "external_qm_source_modified": false,
+    "change_policy": "new_manifest_version_and_explicit_approval"
+  },
+  "legacy_namespaces": [
+    "LCB26",
+    "ORACLE_calibrated_levels",
+    "GDV_geometry_levels",
+    "KEYMAKER_legacy_L0_L1",
+    "legacy_double_hybrids"
+  ],
+  "optimizer_contract": {
+    "protocol_id": "link-sonic-optimizer-v2",
+    "manifest_version": "2.15.9",
+    "settings_duplicated": false
+  },
+  "applicability": {
+    "electronic_structure": "single_reference",
+    "excited_states": "valence",
+    "supported_initial_domain": [
+      "ordinary_neutral",
+      "conventional_ion",
+      "valence_excited_state"
+    ],
+    "separate_profile_required": [
+      "Rydberg_state",
+      "dipole_bound_state",
+      "very_diffuse_anion",
+      "strong_multireference_character"
+    ],
+    "outside_domain_policy": "fail_closed_without_method_or_basis_substitution",
+    "l2_open_shell_derivative_policy": {
+      "status": "validation_only_energy_only",
+      "domain": "high_spin_single_reference_ground_state",
+      "reference": "semicanonical_ROHF",
+      "gradient": "LINK_one_sided_numerical_energy",
+      "formal_stability_analysis": "unavailable_in_ORCA",
+      "unrestricted_substitution": false,
+      "activation_policy": "exact_energy_and_reference_continuity_certification"
+    }
+  },
+  "preparation": {
+    "structural_layer": {
+      "role": "noncredible_geometry_only",
+      "primary": "GFN-FF",
+      "fallback": "UFF",
+      "future_replacement": "ZAFF",
+      "owner": "ARCHITECT"
+    },
+    "ordered_levels": [
+      "Lindh_1995_ANC_plus_Swart_2006_special",
+      "Almloef",
+      "PRE0",
+      "L0",
+      "L1",
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "all_initial_geometries_symmetrized": true,
+    "credible_geometry_preoptimization": false,
+    "l0_without_xtb_seed": [
+      "Lindh_1995_ANC_plus_Swart_2006_special",
+      "Almloef",
+      "UFF"
+    ],
+    "target_level_hessian_requires_explicit_label": true
+  },
+  "levels": [
+    {
+      "id": "PRE0",
+      "role": "preparation_only",
+      "basis": "native",
+      "frozen_core": "not_applicable",
+      "variants": [
+        {
+          "electronic_state": "ground",
+          "spin": "any",
+          "method": "GFN2-xTB",
+          "reference": "GFN2-xTB",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "any",
+          "method": null,
+          "reference": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "id": "L0",
+      "role": "first_ab_initio",
+      "basis": "STO-3G",
+      "frozen_core": "not_applicable",
+      "variants": [
+        {
+          "electronic_state": "ground",
+          "spin": "closed_shell",
+          "method": "HF",
+          "reference": "RHF",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "ground",
+          "spin": "open_shell",
+          "method": "HF",
+          "reference": "ROHF",
+          "status": "defined",
+          "domain": "high_spin_single_determinant"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "closed_shell",
+          "method": "CIS",
+          "reference": "RHF",
+          "state_model": "TDA-HF",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "open_shell",
+          "method": "SF-TDA",
+          "reference": "ROHF",
+          "state_model": "SF-TDA",
+          "status": "defined",
+          "domain": "high_spin_single_determinant"
+        }
+      ]
+    },
+    {
+      "id": "L1",
+      "role": "hybrid_dft",
+      "basis": "def2-SVP",
+      "frozen_core": "not_applicable",
+      "dispersion_contract": "pbe0-d3bj-atm-v1",
+      "variants": [
+        {
+          "electronic_state": "ground",
+          "spin": "closed_shell",
+          "method": "PBE0-D3(BJ)-ATM",
+          "reference": "RKS",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "ground",
+          "spin": "open_shell",
+          "method": "PBE0-D3(BJ)-ATM",
+          "reference": "ROKS",
+          "status": "defined",
+          "domain": "high_spin_single_determinant"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "closed_shell",
+          "method": "TDA-PBE0-D3(BJ)-ATM",
+          "reference": "RKS",
+          "state_model": "TDA",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "open_shell",
+          "method": null,
+          "reference": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "id": "L2",
+      "role": "second_order_correlation",
+      "basis": "def2-TZVP",
+      "frozen_core": "mandatory",
+      "variants": [
+        {
+          "electronic_state": "ground",
+          "spin": "closed_shell",
+          "method": "MP2",
+          "reference": "RHF",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "ground",
+          "spin": "open_shell",
+          "method": "MP2",
+          "reference": "semicanonical_ROHF",
+          "status": "defined",
+          "domain": "high_spin_single_determinant"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "any",
+          "method": null,
+          "reference": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "id": "L3",
+      "role": "coupled_cluster",
+      "basis": "def2-TZVP",
+      "frozen_core": "mandatory",
+      "variants": [
+        {
+          "electronic_state": "ground",
+          "spin": "closed_shell",
+          "method": "CCSD",
+          "reference": "RHF",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "ground",
+          "spin": "open_shell",
+          "method": "CCSD",
+          "reference": "semicanonical_ROHF",
+          "status": "defined",
+          "domain": "high_spin_single_determinant"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "closed_shell",
+          "method": "EOM-CCSD",
+          "reference": "RHF",
+          "state_model": "EE-EOM-CCSD",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "open_shell",
+          "method": null,
+          "reference": null,
+          "status": "unsupported"
+        }
+      ]
+    },
+    {
+      "id": "L4",
+      "role": "highest_canonical_valence",
+      "basis": "def2-TZVPP",
+      "frozen_core": "mandatory",
+      "variants": [
+        {
+          "electronic_state": "ground",
+          "spin": "closed_shell",
+          "method": "CCSD(T)",
+          "reference": "RHF",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "ground",
+          "spin": "open_shell",
+          "method": "CCSD(T)",
+          "reference": "stable_UHF_from_L3_ROHF",
+          "status": "defined",
+          "domain": "high_spin_single_determinant"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "closed_shell",
+          "method": "CC3",
+          "reference": "RHF",
+          "state_model": "CC3",
+          "status": "defined"
+        },
+        {
+          "electronic_state": "excited",
+          "spin": "open_shell",
+          "method": null,
+          "reference": null,
+          "status": "unsupported"
+        }
+      ]
+    }
+  ],
+  "dispersion_contracts": {
+    "pbe0-d3bj-atm-v1": {
+      "model": "D3(BJ)-ATM",
+      "s6": 1.0,
+      "s8": 1.2177,
+      "a1": 0.4145,
+      "a2": 4.8593,
+      "s9": 1.0,
+      "alp": 14.0,
+      "native_default_allowed": false
+    }
+  },
+  "corrections": {
+    "element_policy_id": "matrix-qm-element-policy-v1",
+    "cbs": {
+      "scope": "L4_energy_only",
+      "ground_state": "MP2_def2_TZVPP_QZVPP_inverse_cubic_with_QZ_HF",
+      "closed_shell_excited_state": "EOM_CCSD_excitation_def2_TZVPP_QZVPP_inverse_cubic",
+      "exponent": 3.0,
+      "exponent_status": "provisional_pending_sensitivity_test"
+    },
+    "core_valence": {
+      "scope": "L4_energy_only",
+      "ground_state": "MP2_all_electron_minus_frozen_core",
+      "closed_shell_excited_state": "EOM_CCSD_all_electron_minus_frozen_core_excitation",
+      "open_shell_ground_state": "unsupported_pending_certified_semicanonical_ROHF_MP2_backend",
+      "any_ecp_policy": "unsupported_for_complete_system",
+      "partial_correction": false
+    },
+    "bsse": {
+      "scope": "ground_state_interaction_energy_only",
+      "reported_branch": "half_counterpoise",
+      "retained_branches": [
+        "raw",
+        "full_counterpoise",
+        "half_counterpoise"
+      ],
+      "cardinalities": [
+        "TZ",
+        "QZ"
+      ],
+      "componentwise_assembly": true,
+      "mixed_branch_components": false,
+      "excited_state": "unsupported"
+    }
+  },
+  "profiles": [
+    {
+      "id": "DL2",
+      "canonical_replacement": false,
+      "scope": "closed_shell_ground_state",
+      "method": "revDSD-PBEP86-D4",
+      "basis": "def2-TZVP",
+      "reference": "RKS",
+      "frozen_core": "mandatory",
+      "derivative": "analytic_gradient_pending_certification",
+      "defining_backend": "orca",
+      "required_explicit_settings": [
+        "d4_parameter_version",
+        "integration_grids",
+        "auxiliary_bases",
+        "ri_cosx_settings",
+        "relaxed_mp2_response"
+      ]
+    },
+    {
+      "id": "FL4",
+      "canonical_replacement": false,
+      "scope": "closed_shell_ground_state",
+      "method": "FNO-CCSD(T)",
+      "basis": "def2-TZVPP",
+      "reference": "RHF",
+      "frozen_core": "mandatory",
+      "derivative": "energy_only_pending_complete_response_gradient",
+      "candidate_backend": "pyscf",
+      "occupation_threshold": 1e-6,
+      "threshold_status": "provisional",
+      "energy_formula": "FNO_CCSD(T)+MP2_full-MP2_FNO",
+      "initial_hessian_level": "L3"
+    },
+    {
+      "id": "PL4",
+      "canonical_replacement": false,
+      "scope": "closed_shell_ground_state",
+      "method": "DLPNO-CCSD(T1)",
+      "basis": "def2-TZVPP",
+      "reference": "RHF",
+      "frozen_core": "mandatory",
+      "derivative": "energy_only_LINK_numerical_gradient",
+      "defining_backend": "orca",
+      "threshold_profile": "TightPNO",
+      "threshold_status": "provisional_full_values_required",
+      "initial_hessian_level": "L3"
+    }
+  ],
+  "validation_state": {
+    "production_enabled": false,
+    "certification_required_per_full_capability_key": true,
+    "uncertified_combination": "unsupported"
+  }
+}

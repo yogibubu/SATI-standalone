@@ -1,0 +1,10 @@
+# Select these directories for the local installation.
+[paths]
+data_dir = "/path/to/oracle-data"
+cache_dir = "/path/to/oracle-cache"
+work_dir = "/path/to/oracle-work"
+
+[symmetry]
+distance_angstrom = 0.001
+inertia_relative = 0.001
+max_rotation_order = 6

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/environment-v1.schema.json",
+  "title": "MATRIX environment v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "matrix_root", "projects_root", "programs", "local_limits", "remote_machines", "created_utc", "updated_utc"],
+  "properties": {
+    "schema": {"const": "matrix.environment.v1"},
+    "matrix_root": {"type": "string", "minLength": 1},
+    "projects_root": {"type": "string", "minLength": 1},
+    "created_utc": {"type": "string", "format": "date-time"},
+    "updated_utc": {"type": "string", "format": "date-time"},
+    "programs": {"type": "array", "items": {"$ref": "#/$defs/program"}},
+    "local_limits": {"$ref": "#/$defs/limits"},
+    "remote_machines": {"type": "array", "items": {"$ref": "#/$defs/machine"}}
+  },
+  "$defs": {
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["processors", "memory_gb", "gpu_count", "max_concurrent_jobs"],
+      "properties": {
+        "processors": {"type": "integer", "minimum": 1},
+        "memory_gb": {"type": "number", "exclusiveMinimum": 0},
+        "gpu_count": {"type": "integer", "minimum": 0},
+        "neural_engine_count": {"type": "integer", "minimum": 0},
+        "max_concurrent_jobs": {"type": "integer", "minimum": 1}
+      }
+    },
+    "program": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "label", "category", "executable", "enabled"],
+      "properties": {
+        "key": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1},
+        "category": {"enum": ["qm", "viewer"]},
+        "executable": {"type": "string"},
+        "enabled": {"type": "boolean"}
+      }
+    },
+    "machine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "host", "remote_root", "enabled", "limits", "engines", "requires_vpn", "notes"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "host": {"type": "string", "minLength": 1},
+        "remote_root": {"type": "string", "minLength": 1},
+        "qm_root": {"type": "string", "minLength": 1},
+        "enabled": {"type": "boolean"},
+        "limits": {"$ref": "#/$defs/limits"},
+        "engines": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "requires_vpn": {"type": "boolean"},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

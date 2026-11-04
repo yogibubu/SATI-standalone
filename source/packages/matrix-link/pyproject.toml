@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0", "numpy==2.3.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-link"
+version = "0.1.0rc8"
+description = "MATRIX geometry realization, PES evaluation, and min/TS optimization"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "matrix-epoc==0.1.0rc8",
+  "matrix-apoc==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-gf==0.1.0rc8",
+  "matrix-gfn2==0.1.0rc8",
+  "matrix-fragments==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "matrix-oracle==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "matrix-switch==0.1.0rc8",
+  "matrix-zaff==0.1.0rc8",
+  "numpy>=1.24",
+  "scipy>=1.11",
+  "threadpoolctl>=3.1",
+]
+
+[project.scripts]
+matrix-link-pose-service = "matrix_link.pose_service:main"
+
+[project.optional-dependencies]
+gfn2-zaff-composite = []
+rdkit-fallback = ["matrix-switch[rdkit-fallback]==0.1.0rc8"]
+backends = [
+  "matrix-cfour==0.1.0rc8",
+  "matrix-engines==0.1.0rc8",
+  "matrix-et==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-molpro==0.1.0rc8",
+  "matrix-mrcc==0.1.0rc8",
+  "matrix-orca==0.1.0rc8",
+  "matrix-turbomole==0.1.0rc8",
+]
+validation = ["matrix-xtb[validation]==0.1.0rc8"]
+ml = [
+  "openmm>=8.5",
+  "openmmml>=1.6",
+  "aimnet>=0.2",
+]
+fock = ["pyfock==0.1.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_link = ["data/*.json", "data/basis/*", "data/composite_protocols/*.json"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+# Protect LINK's optimizer and back-transformation module boundaries.
+extend-select = ["F"]

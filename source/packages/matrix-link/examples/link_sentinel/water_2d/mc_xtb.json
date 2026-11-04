@@ -1,0 +1,31 @@
+{
+  "strategy": "monte-carlo",
+  "proposal": "blocked",
+  "bounds": [
+    [0.9, 1.04],
+    [1.7, 1.95]
+  ],
+  "temperatures_kelvin": [300.0, 900.0],
+  "replicas_per_temperature": 1,
+  "swap_interval": 1,
+  "steps": 5,
+  "proposal_blocks": [
+    {
+      "name": "oh-stretch",
+      "variables": ["oh_stretch"],
+      "kind": "distance",
+      "scale": 0.015
+    },
+    {
+      "name": "hoh-bend",
+      "variables": ["hoh_bend"],
+      "kind": "angle",
+      "scale": 0.04
+    }
+  ],
+  "initialization": "jitter",
+  "initial_scale": 0.05,
+  "warmup_steps": 2,
+  "adaptation_rate": 0.1,
+  "seed": 61453
+}

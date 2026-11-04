@@ -1,0 +1,75 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-std2-spectrum.v1",
+  "manifest_version": "1.1.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "LINK external std2 vertical spectrum",
+  "summary": "Delegate sTDA, sTD-DFT, XsTDA or XsTD-DFT spectra to std2 using a converged external ground-state Molden wavefunction.",
+  "calculation_protocol": "spectroscopy.electronic.v1",
+  "aliases": [
+    "std2_spectrum"
+  ],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "link.std2_spectrum",
+      "option_equals": {
+        "backend": "std2"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "molden",
+      "schema": "matrix.external.molden_wavefunction.v1",
+      "required": true
+    },
+    {
+      "name": "settings",
+      "schema": "matrix.link.std2.settings.v1",
+      "required": true
+    },
+    {
+      "name": "resources",
+      "schema": "matrix.calculation.resources.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "spectrum",
+      "schema": "matrix.link.std2.spectrum.v1",
+      "required": true
+    },
+    {
+      "name": "state_vectors",
+      "schema": "std2.turbomole.eigenpairs",
+      "required": true
+    },
+    {
+      "name": "keymaker_provenance",
+      "schema": "matrix.keymaker.protocol_binding.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "converged ground-state orbitals supplied by the reference backend at the requested fixed geometry",
+    "explicit Molden producer style and compatible AO ordering and normalization",
+    "explicit global exchange fraction or supported native RSH preset; no inferred functional mapping",
+    "fresh work directory and unchanged input SHA-256",
+    "exact authorized launch plan with one process and explicit OpenMP threads",
+    "std2 completion marker and finite spectral rows; zero exit status alone is insufficient",
+    "excitation energies in eV with 0.0001 eV print precision; no total-energy or gradient capability inferred",
+    "native complete state vectors exported for APOC; overlap, phase, ambiguity and root continuity are owned exclusively by APOC"
+  ],
+  "implementation": {
+    "owner_api": "matrix_link.std2",
+    "action": "evaluate_std2_spectrum"
+  },
+  "coordinate_policy": "Fixed reference geometry and atom ordering from Molden. Across geometries, APOC owns cross-AO overlaps, phase, ambiguity and root continuity; energy ordering never establishes state identity.",
+  "backend_policy": "External std2 owns the excited-state kernel and response. The original ab-initio ground-state backend owns its energy and gradient. APOC owns root following through the std2 state adapter (restricted and unrestricted spin-conserving states); LINK does not duplicate overlap or matching logic. This protocol produces vertical spectra and native state vectors. FAST_TDA remains the resident XTB-sTDA implementation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

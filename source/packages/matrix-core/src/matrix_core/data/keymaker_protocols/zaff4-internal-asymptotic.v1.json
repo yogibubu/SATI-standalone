@@ -1,0 +1,64 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff4-internal-asymptotic.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Internal quartic ZAFF fit, protected asymptotics and spurious-minimum regularization",
+  "summary": "Zero-close the internal bonded field, fit native ZAFF forms, preserve its fourth-order jet during asymptotic completion and minima regularization, and only then transform to normal modes.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": [
+    "zaff4_internal_asymptotic"
+  ],
+  "dependencies": [
+    "zaff-sparse-coupling-fit.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.native_zaff4_internal",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "request",
+      "schema": "matrix.architect.zaff4_internal_request.v1",
+      "required": true
+    },
+    {
+      "name": "internal_derivatives",
+      "schema": "matrix.architect.internal_bonded_derivatives.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "workflow_result",
+      "schema": "matrix.architect.internal_quartic_workflow.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Missing internal cubic/quartic derivatives are zero by an explicit initial model closure, not new measured zeros",
+    "No independent four-distinct internal quartic parameters",
+    "Internal derivative inputs and complete baseline jets are bound to the exact parent and primitive gauge",
+    "Fit the internal bonded quartic using ZAFF native functions before any final normal-mode transformation",
+    "External conditions may constrain only angular boundaries or dihedral periodicity; no joint nonlocal E/G/H calibration",
+    "Every completion and regularization term has an algebraically vanishing reference jet through fourth order",
+    "Regularize candidate spurious minima only after a field-only search with explicit physical basins, domain, starts and strength policy",
+    "Failed searches, boundary hits and residual saddles never pass the minima gate",
+    "Normal transformation retains induced four-distinct entries and geometric chain-rule terms",
+    "Frozen nonbonded field remains separate and unchanged",
+    "No electronic points are acquired and no QM keywords are introduced",
+    "Numerical execution requires the explicitly declared remote host and 128 GiB"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.native_local_completion",
+    "action": "run_internal_quartic_protocol"
+  },
+  "coordinate_policy": "Frozen internal primitive gauge; missing entries closed before fitting; completed field transformed afterwards. Bonded modal output is labelled separately from frozen nonbonded.",
+  "backend_policy": "Resident native field only. Finite multistart minima checks do not prove global absence of all other basins.",
+  "change_policy": "new_version_and_explicit_approval"
+}

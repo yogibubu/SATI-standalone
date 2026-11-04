@@ -1,0 +1,43 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-sf-tda-meci.v1",
+  "manifest_version": "1.1.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "LINK FAST_TDA minimum-energy conical intersection",
+  "summary": "Locate a minimum-energy conical intersection from resident FAST_TDA energies, analytic gradients and interstate derivatives with APOC-certified state-subspace continuity.",
+  "calculation_protocol": "optimization.conical_intersection.v1",
+  "aliases": ["sf_tda_meci", "fast_tda_conical_intersection"],
+  "dependencies": ["sonic-soop-default.v1"],
+  "routes": [{"menu": "exploitation", "action": "link.optimize_sf_tda_meci", "option_equals": {"backend": "matrix-gfn2"}}],
+  "inputs": [
+    {"name": "initial_geometry", "schema": "oracle.xyz", "required": true},
+    {"name": "coordinate_definition", "schema": "matrix.smith.definition.v1", "required": true},
+    {"name": "electronic_state_pair", "schema": "matrix.keymaker.sf_tda_state_pair.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "meci_geometry", "schema": "oracle.xyz", "required": true},
+    {"name": "apoc_subspace_certificate", "schema": "matrix.apoc.state_subspace_match.v1", "required": true},
+    {"name": "state_tracking_checkpoint", "schema": "matrix.link.sf_tda_tracking_checkpoint.v1", "required": true},
+    {"name": "optimizer_restart_checkpoint", "schema": "matrix.link.sf_tda_meci_restart.v1", "required": true},
+    {"name": "keymaker_provenance", "schema": "matrix.keymaker.protocol_binding.v1", "required": true},
+    {"name": "branching_plane", "schema": "matrix.link.meci_branching_plane.v1", "required": true},
+    {"name": "optimization_trace", "schema": "matrix.link.meci_result.v1", "required": true}
+  ],
+  "gates": [
+    "restricted open-shell MATRIX-GFN2 reference",
+    "analytic FAST_TDA gradients and regular interstate numerator",
+    "APOC principal-overlap certification of the two-state subspace",
+    "atomic electronic and optimizer checkpoints after every accepted geometry",
+    "restart bound to the exact KEYMAKER manifest hash and coordinate chart",
+    "fail closed on discontinuous or ambiguous candidate subspaces",
+    "rank-two gradient-difference/interstate branching plane",
+    "simultaneously converged energy gap and projected seam gradient",
+    "SYCART or SONIC symmetry-adapted nonredundant coordinates"
+  ],
+  "implementation": {"owner_api": "matrix_link.sf_tda_workflow", "action": "optimize_sf_tda_meci"},
+  "coordinate_policy": "LINK realizes only certified nonredundant SYCART or SONIC coordinates; APOC state identity cannot alter the coordinate chart.",
+  "backend_policy": "FAST_TDA supplies electronic quantities, APOC exclusively owns state-pair continuity, and LINK exclusively owns MECI steps and convergence.",
+  "change_policy": "new_version_and_explicit_approval"
+}

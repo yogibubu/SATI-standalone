@@ -1,0 +1,88 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.cheap_lite.molpro.v1",
+  "selector": "cheap-lite-molpro",
+  "model": "cheap_lite",
+  "backend": "molpro",
+  "frozen": true,
+  "formula": "fc-CCSD(T)/cc-pV(T+d)Z + (64/37)[fc-MP2/cc-pV(Q+d)Z - fc-MP2/cc-pV(T+d)Z] + ORACLE CV exponential field",
+  "orbital_basis": {
+    "name": "cc-pV(T+d)Z",
+    "artifact": "cc-pV(T+d)Z.molpro",
+    "sha256": "f08cfa06ce5eff3176a2ba309071412418df9219370ab814394e45d03f4e3323",
+    "source": "Basis Set Exchange v0.12; cc-pVXZ on H-Ne and cc-pV(X+d)Z on Na-Ar",
+    "definition": "cheap triple-zeta coupled-cluster baseline contract"
+  },
+  "high_level": {
+    "label": "fc-CCSD(T)/TZ",
+    "method": "CCSD(T)",
+    "basis": "cc-pV(T+d)Z",
+    "route": "frozen core",
+    "reference": "RHF",
+    "correlation_model": "canonical",
+    "triples": "(T)",
+    "core_treatment": "frozen_core",
+    "derivative": "analytic"
+  },
+  "focal_point": {
+    "notation": "CCSD(T)/[TQZ;delta:TZ]",
+    "energy_extrapolation": "two-point total-MP2-energy n^-3; HF and MP2 correlation are extrapolated together",
+    "scf_source": "coextrapolated_with_total_mp2_energy",
+    "exponent": 3,
+    "lower_cardinal": 3,
+    "upper_cardinal": 4,
+    "terms": [
+      {
+        "role": "high_level",
+        "label": "fc-CCSD(T)/TZ",
+        "method": "CCSD(T)",
+        "basis": "cc-pV(T+d)Z",
+        "artifact": "cc-pV(T+d)Z.molpro",
+        "sha256": "f08cfa06ce5eff3176a2ba309071412418df9219370ab814394e45d03f4e3323",
+        "route": "frozen core",
+        "coefficient": 1.0,
+        "derivative": "analytic"
+      },
+      {
+        "role": "cbs_mp2_lower",
+        "label": "fc-MP2/TZ",
+        "method": "MP2",
+        "basis": "cc-pV(T+d)Z",
+        "artifact": "cc-pV(T+d)Z.molpro",
+        "sha256": "f08cfa06ce5eff3176a2ba309071412418df9219370ab814394e45d03f4e3323",
+        "route": "frozen core",
+        "coefficient": -1.7297297297297298,
+        "derivative": "analytic"
+      },
+      {
+        "role": "cbs_mp2_upper",
+        "label": "fc-MP2/QZ",
+        "method": "MP2",
+        "basis": "cc-pV(Q+d)Z",
+        "artifact": "cc-pV(Q+d)Z.molpro",
+        "sha256": "e507c73c3f6116d1f0c310d0cba25952112421fbb2a05f2001dd1933f33086b6",
+        "route": "frozen core",
+        "coefficient": 1.7297297297297298,
+        "derivative": "analytic"
+      }
+    ]
+  },
+  "core_valence": {
+    "type": "oracle_cv_exponential_field",
+    "model": "ORACLE CV_radial exponential",
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "g16",
+    "route": "# B3LYP/6-31G* Freq"
+  },
+  "provenance": {
+    "source": "Barone cheap composite construction with a triple-zeta coupled-cluster baseline",
+    "doi": "10.1063/5.0004863",
+    "literature_model": "CCSD(T)/[TQZ;delta:TZ] with total-MP2-energy extrapolation",
+    "contrast_model": "Warden-Sherrill CCSD(T)/[TQZ;delta:DZ]",
+    "lite_extension": "The explicit MP2/cc-pwCVTZ all-electron minus frozen-core term is replaced by the empirical CV field"
+  }
+}

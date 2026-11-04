@@ -1,0 +1,63 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff4-native-coupling-fit.v1",
+  "manifest_version": "1.0.1",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "ZAFF4 native cubic and quartic support including four primitive coordinates",
+  "summary": "Construct an explicitly local ZAFF4 candidate by rank-completing native mixed products on observed derivatives, preserving reference E/G/H and all dissociation switches.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": [
+    "zaff4_native_fit"
+  ],
+  "dependencies": [
+    "zaff-sparse-coupling-fit.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.native_zaff4",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "request",
+      "schema": "matrix.architect.zaff4_native_request.v1",
+      "required": true
+    },
+    {
+      "name": "parent_native_field",
+      "schema": "matrix.architect.native_pic_field.v1",
+      "required": true
+    },
+    {
+      "name": "measured_derivatives",
+      "schema": "matrix.architect.sparse_modal_derivative_observations.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "local_fit_result",
+      "schema": "matrix.architect.zaff4_local_fit.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Actual sparse derivative observations only; unavailable four-distinct modal derivatives are not zero data",
+    "Native products include four distinct primitives; the fourth-order response uses a full-rank internal view",
+    "Reference energy, gradient, complete harmonic field and nonbonded contributions remain fixed",
+    "Every radial/angular/torsional mixed term retains all defining bond switches",
+    "A passing local fit produces a ZAFF4 candidate; physical promotion additionally requires parent ZAFF3 qualification, rank evidence, independent QM E/G/H, LAM/domain and asymptotic gates",
+    "Explicit remote host with 128 GiB per numerical process; new QM points use GDV with 128 GB each"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.zaff4",
+    "action": "run_zaff4_native_protocol"
+  },
+  "coordinate_policy": "Frozen source derivative gauge and atom order; native primitive products evaluated directly. Four-primitive support does not imply complete measured four-distinct modal force constants.",
+  "backend_policy": "Resident ARCHITECT native E/G/H and rank-revealing fits under architect-zaff-hierarchy.v5. Missing independent electronic points belong to LINK/GDV. Reference consolidation: architect-zaff-hierarchy.v7 preserves the canonical parent forms; native PIC candidates require independent qualification.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.fpa_haq5_hat_cv.molpro.v1",
+  "selector": "fpa-haq5-hat-cv-molpro",
+  "model": "FPA-haQ5/haT+CV",
+  "backend": "molpro",
+  "frozen": true,
+  "formula": "fc-MP2/CBS[heavy-aug-cc-pV(Q+d)Z,heavy-aug-cc-pV(5+d)Z] + fc-CCSD(T)/heavy-aug-cc-pV(T+d)Z - fc-MP2/heavy-aug-cc-pV(T+d)Z + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "heavy-aug-cc-pV(T+d)Z",
+    "artifact": "heavy-aug-cc-pV(T+d)Z.molpro",
+    "sha256": "eeb4a82eff0708b0ff6a5f6bbc2ae383730ec52e25bea45057ce69dbb5cd0ed6",
+    "source": "Basis Set Exchange v0.12; no diffuse functions on H/He",
+    "definition": "Warden-Sherrill heavy-augmented Q5/haT focal-point orbital-basis contract"
+  },
+  "high_level": {
+    "label": "fc-CCSD(T)/heavy-aug-cc-pV(T+d)Z",
+    "method": "CCSD(T)",
+    "basis": "heavy-aug-cc-pV(T+d)Z",
+    "route": "frozen core",
+    "reference": "RHF",
+    "correlation_model": "canonical",
+    "triples": "(T)",
+    "core_treatment": "frozen_core",
+    "derivative": "analytic"
+  },
+  "focal_point": {
+    "notation": "CCSD(T)/[haQ5Z;delta:haTZ]",
+    "correlation_extrapolation": "two-point Helgaker n^-3",
+    "scf_source": "upper_cardinal_basis",
+    "exponent": 3,
+    "lower_cardinal": 4,
+    "upper_cardinal": 5,
+    "terms": [
+      {"role": "high_level", "label": "fc-CCSD(T)/haTZ", "method": "CCSD(T)", "basis": "heavy-aug-cc-pV(T+d)Z", "artifact": "heavy-aug-cc-pV(T+d)Z.molpro", "sha256": "eeb4a82eff0708b0ff6a5f6bbc2ae383730ec52e25bea45057ce69dbb5cd0ed6", "route": "frozen core", "coefficient": 1.0, "derivative": "analytic"},
+      {"role": "delta_mp2", "label": "fc-MP2/haTZ", "method": "MP2", "basis": "heavy-aug-cc-pV(T+d)Z", "artifact": "heavy-aug-cc-pV(T+d)Z.molpro", "sha256": "eeb4a82eff0708b0ff6a5f6bbc2ae383730ec52e25bea45057ce69dbb5cd0ed6", "route": "frozen core", "coefficient": -1.0, "derivative": "analytic"},
+      {"role": "cbs_mp2_lower", "label": "fc-MP2/haQZ", "method": "MP2", "basis": "heavy-aug-cc-pV(Q+d)Z", "artifact": "heavy-aug-cc-pV(Q+d)Z.molpro", "sha256": "6e6d7deb402f2670909d3b75e070b2d2a45cb4651e386b02574ada00681313bf", "route": "frozen core", "coefficient": -1.0491803278688525, "derivative": "analytic"},
+      {"role": "cbs_hf_lower", "label": "HF/haQZ", "method": "HF", "basis": "heavy-aug-cc-pV(Q+d)Z", "artifact": "heavy-aug-cc-pV(Q+d)Z.molpro", "sha256": "6e6d7deb402f2670909d3b75e070b2d2a45cb4651e386b02574ada00681313bf", "route": "RHF", "coefficient": 1.0491803278688525, "derivative": "analytic"},
+      {"role": "cbs_mp2_upper", "label": "fc-MP2/ha5Z", "method": "MP2", "basis": "heavy-aug-cc-pV(5+d)Z", "artifact": "heavy-aug-cc-pV(5+d)Z.molpro", "sha256": "a1df3e7e53516e4f905acc8bc56d04010e3766bb9ccd7051756924123cb38f59", "route": "frozen core", "coefficient": 2.0491803278688523, "derivative": "analytic"},
+      {"role": "cbs_hf_upper", "label": "HF/ha5Z", "method": "HF", "basis": "heavy-aug-cc-pV(5+d)Z", "artifact": "heavy-aug-cc-pV(5+d)Z.molpro", "sha256": "a1df3e7e53516e4f905acc8bc56d04010e3766bb9ccd7051756924123cb38f59", "route": "RHF", "coefficient": -1.0491803278688525, "derivative": "analytic"}
+    ]
+  },
+  "core_valence": {
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "artifact": "",
+    "source": "MOLPRO 2025.3 native basis library",
+    "definition": "cc-pwCVTZ for heavy atoms and cc-pVTZ for H/He",
+    "all_electron": {"method": "MP2;core", "route": "all electron"},
+    "frozen_core": {"method": "MP2", "route": "frozen core"},
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "gdv",
+    "route": "# B3LYP/6-31G* Freq"
+  },
+  "provenance": {
+    "source": "Warden et al., J. Chem. Phys. 152, 124109 (2020)",
+    "doi": "10.1063/5.0004863",
+    "extension": "Universal MP2/cc-pwCVTZ all-electron minus frozen-core correction added by LINK"
+  }
+}

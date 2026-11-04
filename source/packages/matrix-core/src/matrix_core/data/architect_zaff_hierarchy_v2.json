@@ -1,0 +1,77 @@
+{
+  "schema": "matrix.keymaker.architect_zaff_hierarchy.v2",
+  "protocol_id": "architect-zaff-hierarchy.v2",
+  "status": "approved_reference",
+  "change_policy": "new_version_and_explicit_user_approval",
+  "owner_operation": "architect",
+  "population": {
+    "method": "PBE0/def2-SVP",
+    "charges": "complete_atom_mapped_CM5",
+    "bond_orders": "complete_atom_mapped_Mayer",
+    "geometry": "declared_ZAFF_reference_geometry"
+  },
+  "nonbonded": {
+    "electrostatics": "all_atom_pairs_Gaussian_charge_penetration",
+    "vdw": "noncovalent_ExpPE_with_declared_topological_exclusions",
+    "rule": "same_nonbonded_field_at_every_zoom_level_and_subtracted_once"
+  },
+  "stationary_qm_reference": {
+    "energy": "E_QM(x)-[E_QM(x_ref)-E_QM(x_QM_min)]-g_QM(x_ref).(x-x_ref)",
+    "gradient": "g_QM(x)-g_QM(x_ref)",
+    "analytic_hessian": "H_QM(x)_unchanged",
+    "reference_geometry": "ZAFF_stationary_minimum",
+    "minimum_energy_policy": "record_same_level_QM_minimum_or_declare_arbitrary_energy_zero"
+  },
+  "levels": [
+    {
+      "id": "ZAFF0",
+      "rule": "library_field_from_CM5_Mayer_and_synthons_with_complete_nonbonded",
+      "exploration": "rigid_bonds_and_angles_active_acyclic_torsions_and_rigid_bodies"
+    },
+    {
+      "id": "ZAFF1",
+      "rule": "corrected_QM_primitive_diagonal_field_with_library_De_Morse_stretches_and_dissociating_geminal_XH_couplings",
+      "hessian_claim": "diagonal_and_geminal_only"
+    },
+    {
+      "id": "ZAFF2",
+      "rule": "add_only_asymptotically_correct_native_couplings_to_reconstruct_complete_QM_Cartesian_hessian",
+      "hessian_claim": "complete_with_nonbonded_restored"
+    },
+    {
+      "id": "ZAFF3",
+      "rule": "fit_QM_minus_complete_asymptotically_correct_ZAFF2_on_additional_primitive_displacements_and_LAM_scans",
+      "native_functions": "inverse_distance_cosine_Fourier_and_ZAFF_switches",
+      "reference_jet": "zero_energy_gradient_and_hessian_correction",
+      "selection": "automatic_rank_checked_smallest_support_passing_independent_energy_gradient_and_available_hessian_gates"
+    }
+  ],
+  "providers": [
+    "ORACLE",
+    "SMITH",
+    "LINK",
+    "ARCHITECT",
+    "ZAFF",
+    "TRINITY"
+  ],
+  "invariants": [
+    "mapped_topology_and_population_provenance",
+    "one_frozen_nonbonded_field",
+    "total_ZAFF_gradient_zero_at_reference",
+    "total_Cartesian_hessian_matches_QM_at_ZAFF2_and_ZAFF3",
+    "all_LAM_scans_and_independent_holdout_required_for_ZAFF3",
+    "independent_asymptotic_certification_at_every_ZAFF_zoom_level",
+    "previous_ZAFF_field_subtracted_at_every_additional_QM_point"
+  ],
+  "asymptotic_contract": {
+    "all_levels": "each_ZAFF0_ZAFF1_ZAFF2_ZAFF3_is_independently_asymptotically_correct",
+    "bond_stretch": "finite_dissociation_limit_with_zero_force_and_curvature",
+    "angular_and_out_of_plane": "bounded_native_shape_multiplied_by_switches_for_every_defining_bond",
+    "torsion": "periodic_Fourier_shape_multiplied_by_switches_for_all_three_defining_bonds",
+    "geminal_XH": "coupling_and_all_derivatives_vanish_when_either_XH_bond_dissociates",
+    "higher_couplings": "bounded_native_coordinates_and_defining_bond_switches_with_reference_quadratic_jet_preserved",
+    "nonbonded": "retain_physical_separated_fragment_electrostatics_and_vdW_limits",
+    "forbidden": "bare_Cartesian_quadratic_tail_wrapped_dihedral_displacement_and_cancellation_only_in_next_zoom_level",
+    "gate": "test_separated_bonds_fragments_and_full_torsional_cycle_for_E_gradient_and_Hessian_before_promotion"
+  }
+}

@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0", "numpy>=1.24"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-gfn2"
+version = "0.1.0rc8"
+description = "Independent MATRIX implementation of the GFN2-xTB energy model"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-numerics==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+gpu = ["torch>=2.1", "threadpoolctl>=3.1"]
+oracle-linked = ["matrix-oracle==0.1.0rc8"]
+fmm = ["fmm3dpy>=2.1.0"]
+ml = ["torch>=2.1"]
+solvation = ["torch>=2.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_gfn2 = ["data/*.json", "data/*.toml", "data/*.md"]
+
+[tool.ruff]
+extend = "../../pyproject.toml"

@@ -1,0 +1,79 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff4-native-coupling-fit.v4",
+  "manifest_version": "4.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "Required discrepancy-controlled regularization for native ZAFF4 fitting",
+  "summary": "Default native fit with a frozen harmonic parent, reusable observable matrices and mandatory calibration-only regularization; independent E/G/H remain an acceptance gate.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": [
+    "zaff4_native_regularized_fit"
+  ],
+  "dependencies": [
+    "zaff4-native-coupling-fit.v3"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "architect.native_zaff4_nonlocal_regularized",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "request",
+      "schema": "matrix.architect.zaff4_nonlocal_request.v3",
+      "required": true
+    },
+    {
+      "name": "parent_native_field",
+      "schema": "matrix.architect.native_pic_field.v1",
+      "required": true
+    },
+    {
+      "name": "measured_derivatives",
+      "schema": "matrix.architect.sparse_modal_derivative_observations.v1",
+      "required": true
+    },
+    {
+      "name": "nonlocal_observations",
+      "schema": "matrix.architect.nonlocal_egh_observations.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "joint_fit_result",
+      "schema": "matrix.architect.zaff4_nonlocal_fit.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Actual sparse derivative observations only; unavailable four-distinct modal derivatives are not zero data",
+    "Native products include four distinct primitives; the fourth-order response uses a full-rank internal view",
+    "Reference energy, gradient, complete harmonic field and nonbonded contributions remain fixed",
+    "Every radial/angular/torsional mixed term retains all defining bond switches",
+    "A passing local fit produces a ZAFF4 candidate; physical promotion additionally requires parent ZAFF3 qualification, rank evidence, independent QM E/G/H, LAM/domain and asymptotic gates",
+    "Explicit remote host with 128 GiB per numerical process; new QM points use GDV with 128 GB each",
+    "Nonlocal E/G/H are actual calibration targets with explicit provenance and target definition, not evaluations of a truncated polynomial",
+    "Separate independent points remain excluded from the fit",
+    "Rank reduction and whole-term significance cuts require refitting and complete reference E/G/H preservation; no raw coefficient threshold",
+    "Complete harmonic parent frozen throughout calibration; reference-only coupling pruning is prohibited",
+    "Added high-order native powers have zero cubic and quartic reference jets; no new derivative observations",
+    "Retain complete minimum-norm solution in equilibrated observable coordinates; no basic-pivot refit",
+    "Pruning deferred until nonlocal independent qualification; expensive design cached for recovery",
+    "Required ridge regularization: select the strongest tested strength passing every ORIGINAL calibration tolerance; no unregularized fallback",
+    "Independent targets never select regularization strength; independent E/G/H must pass before a calibrated candidate is admitted",
+    "If no strength passes, retain a rejected diagnostic and report the missing calibration qualification",
+    "Unmeasured force constants never become zero observations through the regularization penalty"
+  ],
+  "implementation": {
+    "owner_api": "matrix_architect.native_nonlocal_fit",
+    "action": "run_native_nonlocal_protocol"
+  },
+  "coordinate_policy": "Frozen source derivative gauge and atom order; native primitive products evaluated directly. Four-primitive support does not imply complete measured four-distinct modal force constants.",
+  "backend_policy": "Resident ARCHITECT native E/G/H and rank-revealing fits under architect-zaff-hierarchy.v5. Missing independent electronic points belong to LINK/GDV. Reference consolidation: architect-zaff-hierarchy.v7 preserves the canonical parent forms; native PIC candidates require independent qualification.",
+  "change_policy": "new_version_and_explicit_approval"
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.package-capability-registry.v2",
+  "title": "MATRIX package capability registry v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "package_count", "capability_count", "packages", "capability_index"],
+  "properties": {
+    "schema": {"const": "matrix.package-capability-registry.v2"},
+    "package_count": {"type": "integer", "minimum": 1},
+    "capability_count": {"type": "integer", "minimum": 1},
+    "packages": {"type": "array", "items": {"$ref": "#/$defs/package"}},
+    "capability_index": {"type": "object"}
+  },
+  "$defs": {
+    "package": {
+      "type": "object",
+      "required": ["package", "import_name", "layer", "role", "keymaker_mode", "capabilities", "capability_requirements"],
+      "properties": {
+        "package": {"type": "string"},
+        "import_name": {"type": "string"},
+        "layer": {"type": "string"},
+        "role": {"type": "string"},
+        "keymaker_mode": {"enum": ["direct", "orchestrator", "provider", "support"]},
+        "capabilities": {"type": "array", "items": {"type": "string"}},
+        "capability_requirements": {"type": "object"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

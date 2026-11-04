@@ -1,0 +1,13 @@
+{
+  "archive": "SATI-standalone-0.1.0rc8-thermal-e801a16f-linux-x86_64-py311.tar.gz",
+  "sha256": "c51c5da106b951ce9b96d1d5b7990e14d7b53414239fddb1f8ef59b498d708a5",
+  "bytes": 172906780,
+  "scientific_revision": "e801a16f1e7b065ccdc7975d669ebcbce18e23b3",
+  "third_party_wheels_unchanged": true,
+  "third_party_wheel_count": 24,
+  "qualification_file": "qualification.json",
+  "tests_passed": 188,
+  "extension_checks_passed": 17,
+  "target_platform": "Linux x86_64 / CPython 3.11",
+  "prebuilt_native_system_library": "OpenBLAS /home/enzo/.local/share/mamba/envs/et-2.5/lib; rebuild on another host as documented"
+}

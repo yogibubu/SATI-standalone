@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-architect"
+version = "0.1.0rc8"
+description = "Construction, fitting, validation, and serialization of native GFN-FF and ZAFF force fields"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "autograd>=1.8,<2",
+  "matrix-apoc==0.1.0rc8",
+  "matrix-core==0.1.0rc8",
+  "matrix-chem==0.1.0rc8",
+  "matrix-epoc==0.1.0rc8",
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-gf==0.1.0rc8",
+  "matrix-link==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "matrix-oracle==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-smith==0.1.0rc8",
+  "matrix-zaff==0.1.0rc8",
+  "numba>=0.62,<0.63",
+  "numpy>=1.24,<2.4",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+gfn2-residual = ["matrix-gfn2==0.1.0rc8", "matrix-rovib==0.1.0rc8"]
+rovibrational-refit = ["matrix-trinity==0.1.0rc8", "matrix-rovib==0.1.0rc8"]
+fmm = ["fmm3dpy>=2.1.0"]
+mifune = ["matrix-mifune==0.1.0rc8"]
+
+[project.scripts]
+architect = "matrix_architect.cli:main"
+matrix-architect = "matrix_architect.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_architect = [
+  "data/*.csv",
+  "data/*.json",
+  "data/*.tsv",
+  "data/*.LICENSE",
+  "data/amberclassic/gaff2.dat",
+  "data/amberclassic/LICENSE",
+]
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint]
+# Keep ARCHITECT construction and ZAFF compatibility boundaries auditable.
+extend-select = ["F"]

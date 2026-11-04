@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-switch"
+version = "0.1.0rc8"
+description = "Internal MATRIX SMILES interpretation, name resolution, and Cartesian seeding"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-chem==0.1.0rc8",
+  "matrix-core==0.1.0rc8",
+  "matrix-numerics==0.1.0rc8",
+  "numpy>=1.24",
+  "Pillow>=10",
+  "scipy>=1.10",
+]
+
+[project.scripts]
+matrix-switch = "matrix_switch.cli:main"
+
+[project.optional-dependencies]
+rdkit-fallback = ["rdkit==2026.3.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+matrix_switch = ["data/*.json"]

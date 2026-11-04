@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MATRIX SMITH artifact index",
+  "type": "object",
+  "required": ["schema", "artifact_type"],
+  "properties": {
+    "schema": {"const": "matrix.smith.artifact_index.v1"},
+    "artifact_type": {"enum": ["gic", "sycart", "sonic", "salc", "bmatrix", "onic_typed_blocks"]},
+    "provenance": {"type": "object"}
+  }
+}

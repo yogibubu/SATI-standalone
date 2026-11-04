@@ -1,0 +1,59 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "kinetics-molecular-qualification.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "kinetics",
+  "entrypoint": "KEYMAKER",
+  "title": "Shared SCTST–SCT molecular qualification and reduction gates",
+  "summary": "Separate same-level SAM selection and sparse scalar reconstruction from absolute molecular comparisons. Approved evidence-validation procedure; no claim of universal molecular transferability.",
+  "calculation_protocol": "kinetics.tunneling.v1",
+  "aliases": [
+    "kinetics_molecular_qualification"
+  ],
+  "dependencies": [
+    "kinetics-esalc-tunneling.v1",
+    "dvr-sparse-analytic-fit.v1",
+    "zaff-positive-transverse-response.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "kinetics.molecular_qualification",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "qualification_request",
+      "schema": "matrix.kinetics.molecular_qualification_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "qualification_result",
+      "schema": "matrix.kinetics.molecular_qualification_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Freeze the channel symmetry, isotope masses, native coordinates, sources and scientific identities before comparing rates",
+    "Use geometric local rotors, conditional SAMs and positive induced DVR inertia; retain degenerate groups",
+    "Select SAMs with omitted periodic energy at most 10 cm^-1 and inertia at most one percent; confirm same-level rates within two percent",
+    "Use regularized HDCPT2 occupations, qualified Wang-Landau checkpoints, explicit DVR and positive rotational convolution",
+    "Compare five-Hessian scalar rates with the same complete calculation on the original PES, with a fixed thirty-percent criterion at every declared temperature",
+    "Numerical controls must cover every temperature and change rates by less than one percent",
+    "A spectrum or partition comparison does not substitute for a complete molecular rate comparison",
+    "Experimental or independent dynamics comparisons are separate from same-level component qualification",
+    "No sign repair, reference-rate tuning, silent temperature removal or automatic acquisition of new source points",
+    "A failed or missing scalar qualification does not promote a general reconstructed-potential protocol"
+  ],
+  "implementation": {
+    "owner_api": "matrix_kinetics.molecular_qualification",
+    "action": "run_molecular_qualification"
+  },
+  "coordinate_policy": "Automatic nonredundant internal coordinates with the lowest channel symmetry; geometric LAM separation, SAM relaxation and consistent kinetic metric.",
+  "backend_policy": "Existing electronic backends and approved finite acquisitions remain upstream; this operation validates completed same-level rate evidence and launches no calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

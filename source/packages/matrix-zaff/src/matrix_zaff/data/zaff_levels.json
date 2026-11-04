@@ -1,0 +1,176 @@
+{
+  "schema": "matrix.zaff.level_manifest.v1",
+  "version": "4.0.0",
+  "radial_form_contract": {
+    "all_levels": "one permanent inverse-distance stretch family from ZAFF0 onward",
+    "ZAFF0": "translate the synthon-interpolated MM3 Morse prior once to De[1-(r0/r)^p]^2 with p=alpha*r0, preserving r0, De and k2",
+    "ZAFF1_to_ZAFF3": "update r0 and p and add asymptotically vanishing inverse-distance corrections and couplings without replacing the base function",
+    "legacy": "old serialized Morse fields remain readable but are not emitted by the v6 compiler"
+  },
+  "electronic_reference": {
+    "owner": "ORACLE",
+    "preferred": {
+      "backend": "any validated QM code through APOC",
+      "method": "PBE0",
+      "basis": "def2-SVP",
+      "observables": [
+        "intrinsic_CM5",
+        "Mayer_bond_orders",
+        "atomic_synthons"
+      ]
+    },
+    "empirical_fallback": {
+      "qm_calculations_required": false,
+      "charges": "ORACLE electronegativity estimate",
+      "bond_orders": "ORACLE Pauling estimate",
+      "atomic_synthons": "constructed from the same complete empirical state"
+    },
+    "selection": "ORACLE records one complete provenance route; partial atomwise mixing is forbidden"
+  },
+  "synthon_typing": {
+    "descriptor_fields": [
+      "charge",
+      "coordination",
+      "electron_domains",
+      "effective_radius",
+      "polarizability",
+      "covalency",
+      "delocalization",
+      "strain",
+      "sigma_index",
+      "pi_index",
+      "pi_pi_index"
+    ],
+    "component_thresholds": [
+      0.05,
+      0.2,
+      0.2,
+      0.05,
+      0.15,
+      0.05,
+      0.05,
+      0.05,
+      0.15,
+      0.1,
+      0.1
+    ],
+    "intrinsic_only": true,
+    "noncovalent_retyping": false
+  },
+  "radial_contract": {
+    "form": "undamped Exp-PE modified-Morse polynomial",
+    "reference_path": "analytic",
+    "large_system_path": "squared-distance lookup tables",
+    "fitted_families": [
+      "Lennard-Jones m-n",
+      "exponential-r^-6"
+    ],
+    "selection_rule": "same Hamiltonian and declared error tolerance on analytic and lookup paths"
+  },
+  "levels": [
+    {
+      "id": "ZAFF0",
+      "aliases": [
+        "Z0",
+        "FAST",
+        "ZFAST",
+        "ZAFF-fast",
+        "zaff-fast"
+      ],
+      "extends": null,
+      "geometry": "rigid bonds and angles; acyclic torsions and intermolecular rigid-body coordinates remain active",
+      "active_terms": [
+        "primitive bonded stretches and bends",
+        "intrinsic CM5 Gaussian electrostatics",
+        "isotropic synthon-pair Exp-PE",
+        "directional H-bond Exp-PE",
+        "directional X-bond Exp-PE",
+        "synthon-typed GFN-FF-derived Fourier torsions",
+        "validated primitive ring terms",
+        "optional declared reaction field and confinement"
+      ],
+      "parameter_owner": "resident ZAFF libraries compiled by ARCHITECT",
+      "required_qm_derivatives": [],
+      "population_routes": [
+        "complete CM5 charges and Mayer bond orders for the full system",
+        "validated overlapping-fragment CM5/Mayer assembly",
+        "no-QM ORACLE electronegativity/Pauling fallback"
+      ],
+      "parameter_sources": {
+        "stretches": "MM3 atom-type Morse library with synthon interpolation, translated once to the permanent generalized inverse-power form",
+        "angles_and_other_valence": "resident GAFF/GAFF2 atom-type library with synthon interpolation",
+        "torsions": "GFN-FF-analogous synthon rules in periodic ZAFF form",
+        "van_der_Waals": "GAFF/GAFF2 refitted to ZAFF Exp-PE",
+        "electrostatics": "all-pair Gaussian charges from the selected ORACLE population route"
+      }
+    },
+    {
+      "id": "ZAFF1",
+      "aliases": [
+        "Z1",
+        "Z1-diagonal",
+        "zaff1"
+      ],
+      "extends": "ZAFF0",
+      "geometry": "reference geometry plus total or declared partial Hessian information",
+      "active_terms": [
+        "all ZAFF0 transferable and nonbonded terms",
+        "Pareto-selected diagonal primitive field constrained by the available Hessian information",
+        "generalized inverse-power stretches with De fixed from the ZAFF library",
+        "all dissociating couplings between X-H stretches sharing one heavy atom"
+      ],
+      "parameter_owner": "ARCHITECT",
+      "required_qm_derivatives": [
+        "total or declared partial Hessian"
+      ],
+      "selection": "Pareto accuracy, locality, sparsity and symmetry; ZAFF0 priors remain in unconstrained directions of a partial Hessian"
+    },
+    {
+      "id": "ZAFF2",
+      "aliases": [
+        "Z2",
+        "ZAFF-flex",
+        "zaff-flex"
+      ],
+      "extends": "ZAFF1",
+      "geometry": "complete QM harmonic field retained in native asymptotically correct ZAFF forms",
+      "active_terms": [
+        "all ZAFF1 terms",
+        "the same generalized inverse-power stretches constrained by the complete QM Hessian and fixed library De asymptotes",
+        "all harmonic couplings in native switched ZAFF form",
+        "certified pruning of spectroscopically irrelevant couplings only"
+      ],
+      "parameter_owner": "ARCHITECT",
+      "required_qm_derivatives": [
+        "complete Hessian"
+      ]
+    },
+    {
+      "id": "ZAFF3",
+      "aliases": [
+        "Z3",
+        "ZAFF-full",
+        "zaff-full"
+      ],
+      "extends": "ZAFF2",
+      "geometry": "complete anharmonic field in native asymptotically correct ZAFF forms",
+      "active_terms": [
+        "all ZAFF2 terms",
+        "complete diagonal and off-diagonal anharmonic field supported by the acquired derivative order",
+        "periodic Fourier LAM valleys and switched LAM-SAM couplings",
+        "all additional native ZAFF terms required by independent anharmonic certification"
+      ],
+      "reduction_policy": "fit the complete acquired anharmonic field first; any subsequent pruning is a separately certified compression and does not define ZAFF3",
+      "parameter_owner": "ARCHITECT",
+      "required_qm_derivatives": [
+        "Hessian",
+        "displaced Hessians, gradients or equivalent anharmonic training data"
+      ]
+    }
+  ],
+  "hydrogen_bond_contract": {
+    "ordinary_contact": "directional nonbonded term with C2 radial switch and angular envelope",
+    "transferable_hydrogen": "automatic ORACLE promotion to redundant bicoordinated covalent domain",
+    "double_counting": "the ordinary hydrogen-bond term is excluded after promotion"
+  }
+}

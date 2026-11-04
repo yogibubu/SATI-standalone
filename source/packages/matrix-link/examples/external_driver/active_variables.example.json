@@ -1,0 +1,21 @@
+{
+  "schema": "matrix.link.active_variables.v1",
+  "projection_rcond": 1e-08,
+  "projection_tolerance": 1e-05,
+  "variables": [
+    {
+      "name": "symmetric_stretch",
+      "kind": "sonic",
+      "coordinate": "Stre0001",
+      "units": "angstrom",
+      "bounds": [0.85, 1.25]
+    },
+    {
+      "name": "reaction_mode",
+      "kind": "normal_mode",
+      "mode": 1,
+      "units": "angstrom",
+      "bounds": [-0.3, 0.3]
+    }
+  ]
+}

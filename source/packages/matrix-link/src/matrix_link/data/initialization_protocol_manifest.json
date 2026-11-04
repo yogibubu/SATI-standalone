@@ -1,0 +1,131 @@
+{
+  "schema": "matrix.link.initialization_protocol_manifest.v1",
+  "protocol_id": "matrix-multilevel-initialization-v1",
+  "manifest_version": "1.2.0",
+  "status": "frozen",
+  "owners": {
+    "initial_geometry_routing": "KEYMAKER",
+    "connectivity_seed": "SWITCH",
+    "geometry_quality_and_symmetry": "ORACLE",
+    "coordinate_definition": "SMITH",
+    "optimization_and_hessian_projection": "LINK",
+    "electronic_state_and_scf_reuse": "APOC",
+    "uff_and_future_zaff": "ARCHITECT",
+    "backend_capability_resolution": "MATRIX_QM",
+    "human_orchestration": "KEYMAKER"
+  },
+  "algorithm_governance": {
+    "inspect_existing_implementation_before_any_change": true,
+    "reuse_existing_algorithms_and_shared_components": "mandatory",
+    "parallel_reimplementation_of_existing_capability": "forbidden",
+    "molecule_specific_patches": false,
+    "backend_specific_workflow_patches": false,
+    "method_specific_workflow_patches": false,
+    "single_shared_cli_and_keymaker_entry_point": true,
+    "change_policy": "new_manifest_version_and_explicit_user_confirmation"
+  },
+  "geometry_quality": {
+    "schema": "matrix.oracle.initial_geometry_quality.v1",
+    "good_geometry": "preserve_cartesian_geometry_exactly_before_final_or_seed_hessian_evaluation",
+    "preoptimization_geometry": "resident_GFN2_xTB_in_Cartesian_coordinates_with_geometry_seed_thresholds",
+    "preoptimization_handoff": "KEYMAKER_routes_noncredible_geometry_to_LINK_MATRIX_GFN2_before_ORACLE_and_SMITH",
+    "invalid_geometry": "stop_before_any_energy_evaluation",
+    "explicit_override": "recorded_but_cannot_bypass_structural_validity",
+    "source_or_molecule_specific_thresholds": false
+  },
+  "method_classification": {
+    "low_cost": "explicit_verified_method_capability_class_including_GFN_xTB",
+    "higher_level": "explicit_verified_ab_initio_DFT_or_wavefunction_method_class",
+    "backend_identity_does_not_determine_method_class": true,
+    "unknown_class": "fail_closed_and_require_explicit_selection"
+  },
+  "providers": {
+    "GFN-FF": {
+      "owner": "ARCHITECT_xTB_adapter",
+      "method": "GFN-FF",
+      "capabilities": ["energy", "analytic_gradient", "hessian", "optimization"]
+    },
+    "GFN-xTB": {
+      "owner": "MATRIX_GFN2_resident_calculator",
+      "method": "GFN2-xTB",
+      "capabilities": ["energy", "analytic_gradient", "hessian", "optimization"]
+    },
+    "UFF": {
+      "owner": "ARCHITECT",
+      "method": "Universal Force Field",
+      "capabilities": ["energy", "analytic_gradient", "hessian", "optimization"]
+    },
+    "HF/STO-3G": {
+      "owner": "configured_open_QM_backend",
+      "method": "HF",
+      "basis": "STO-3G",
+      "capabilities": ["energy", "analytic_gradient", "hessian", "optimization"],
+      "resolution": "MATRIX_QM_verified_capability_registry"
+    },
+    "FINAL": {
+      "owner": "requested_verified_backend",
+      "method": "unchanged_user_requested_method",
+      "capabilities": ["optimization"]
+    }
+  },
+  "routes": {
+    "xtb_available": {
+      "GOOD_UNCHANGED": {
+        "low_cost": [
+          {"provider": "GFN-xTB", "action": "hessian_at_unchanged_geometry"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ],
+        "higher_level": [
+          {"provider": "GFN-xTB", "action": "hessian_at_unchanged_geometry"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ]
+      },
+      "PREOPTIMIZE": {
+        "low_cost": [
+          {"provider": "GFN-xTB", "action": "optimize_and_hessian"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ],
+        "higher_level": [
+          {"provider": "GFN-xTB", "action": "optimize_and_hessian"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ]
+      }
+    },
+    "xtb_unavailable": {
+      "GOOD_UNCHANGED": {
+        "low_cost": [
+          {"provider": "GFN-xTB", "action": "hessian_at_unchanged_geometry"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ],
+        "higher_level": [
+          {"provider": "GFN-xTB", "action": "hessian_at_unchanged_geometry"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ]
+      },
+      "PREOPTIMIZE": {
+        "low_cost": [
+          {"provider": "GFN-xTB", "action": "optimize_and_hessian"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ],
+        "higher_level": [
+          {"provider": "GFN-xTB", "action": "optimize_and_hessian"},
+          {"provider": "FINAL", "action": "optimize_with_previous_hessian"}
+        ]
+      }
+    }
+  },
+  "stage_contract": {
+    "symmetry": "ORACLE_perception_and_symmetrization_after_any_Cartesian_preoptimization",
+    "coordinates": "Cartesian_for_basin_finding_then_frozen_SMITH_SONIC_for_final_optimization",
+    "optimizer": "same_frozen_LINK_optimizer_protocol_for_every_provider",
+    "hessian_timing": "compute_a_fresh_full_hessian_at_the_completed_stage_geometry",
+    "initial_guess_transform": "linear_congruence_to_SONIC_without_B_prime",
+    "final_method": "never_substitute_requested_method_basis_state_or_gradient_mode",
+    "provenance": "record_geometry_hash_provider_method_basis_backend_executable_and_manifest_hash_for_every_stage",
+    "generated_geometry_handoff": "SWITCH_or_LCB26_seed_to_KEYMAKER_LINK_MATRIX_GFN2_Cartesian_preoptimization_to_ORACLE_to_SMITH_to_LINK"
+  },
+  "future_replacement": {
+    "ZAFF": "replace_the_GFN-FF_or_UFF_low_layer_without_changing_route_semantics",
+    "workflow_change_required": false
+  }
+}

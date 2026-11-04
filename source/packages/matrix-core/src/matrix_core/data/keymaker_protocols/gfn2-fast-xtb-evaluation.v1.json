@@ -1,0 +1,53 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "gfn2",
+  "entrypoint": "KEYMAKER",
+  "dependencies": [],
+  "change_policy": "new_version_and_explicit_approval",
+  "coordinate_policy": "Use the supplied immutable Cartesian atom order and geometry; ORACLE retains topology ownership.",
+  "backend_policy": "In-process matrix_gfn2.GFN2Calculator only; use its SCC charges and native bond orders from the same converged state without APOC/CM5 recomputation or an external xTB/TBLite executable.",
+  "protocol_id": "gfn2-fast-xtb-evaluation.v1",
+  "title": "Resident FAST_XTB energy, gradient and observables",
+  "summary": "Evaluate energy, gradient, SCC charges and native bond orders with one MATRIX-GFN2 state.",
+  "calculation_protocol": "qm.gradient.v1",
+  "aliases": [
+    "fast_xtb",
+    "resident_gfn2"
+  ],
+  "routes": [
+    {
+      "menu": "exploitation",
+      "action": "fast_xtb.evaluate",
+      "option_equals": {
+        "backend": "matrix-gfn2"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "name": "geometry",
+      "schema": "matrix.geometry.seed.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.gfn2.fast_xtb_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "finite Cartesian geometry",
+    "converged resident SCF",
+    "finite analytic energy and gradient",
+    "native SCC charges and bond orders from the same GFN2 result without APOC/CM5 recalculation",
+    "exact input and protocol hashes"
+  ],
+  "implementation": {
+    "owner_api": "matrix_gfn2.keymaker_handoff",
+    "action": "evaluate_fast_xtb"
+  }
+}

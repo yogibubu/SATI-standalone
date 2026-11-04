@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "matrix-engines"
+version = "0.1.0rc8"
+description = "Common potential contracts and backend engine wrappers for MATRIX"
+requires-python = ">=3.11"
+dependencies = [
+  "matrix-core==0.1.0rc8",
+  "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+remote-qm = [
+  "matrix-gaussian==0.1.0rc8",
+  "matrix-molpro==0.1.0rc8",
+  "matrix-orca==0.1.0rc8",
+  "matrix-pyscf==0.1.0rc8",
+  "matrix-qm==0.1.0rc8",
+  "matrix-xtb==0.1.0rc8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

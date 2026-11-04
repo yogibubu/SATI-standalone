@@ -1,0 +1,20 @@
+{
+  "strategy": "monte-carlo",
+  "proposal": "mala",
+  "bounds": [
+    [0.9, 1.04],
+    [1.7, 1.95]
+  ],
+  "walkers": 2,
+  "steps": 3,
+  "temperature_hartree": 0.001,
+  "proposal_scale": 0.04,
+  "drift_scale": 1.0,
+  "max_drift_fraction": 0.2,
+  "initialization": "jitter",
+  "initial_scale": 0.02,
+  "warmup_steps": 1,
+  "adaptation_rate": 0.1,
+  "realization_tolerance": 1e-7,
+  "seed": 61453
+}

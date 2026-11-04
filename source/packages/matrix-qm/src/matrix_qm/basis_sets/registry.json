@@ -1,0 +1,17 @@
+{
+  "schema": "matrix.basis_set_registry.v1",
+  "basis_sets": [
+    {
+      "name": "3F12-",
+      "aliases": [
+        "3F12red",
+        "3F12m",
+        "DPCS3"
+      ],
+      "file": "3F12red.gbs",
+      "format": "gaussian94",
+      "sha256": "82ae7c0786a63b0cc3dad44c54894ff3afc2afcedac6b1afa8177fe9345c499a",
+      "provenance": "Canonical ElecExt 3F12red Gaussian basis resource retrieved from enzo@oracle on 2026-07-24."
+    }
+  ]
+}

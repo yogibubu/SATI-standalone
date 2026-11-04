@@ -1,0 +1,34 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "link-fast-tda-two-photon.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "link",
+  "entrypoint": "KEYMAKER",
+  "title": "LINK optimization of FAST_TDA two-photon strength",
+  "summary": "Maximize a closed-shell FAST_TDA degenerate two-photon strength with its analytic global-adjoint Cartesian gradient and a certified LINK coordinate chart.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": ["link_tda_2pa", "maximize_two_photon_strength"],
+  "dependencies": ["fast-tda-two-photon-gradient.v1"],
+  "routes": [{"menu": "exploitation", "action": "link.optimize_tda_two_photon_strength", "option_equals": {"backend": "matrix-gfn2"}}],
+  "inputs": [
+    {"name": "xyzin", "schema": "matrix.xyzin", "required": true},
+    {"name": "coordinate_model", "schema": "matrix.link.coordinate_model", "required": true},
+    {"name": "target_state_id", "schema": "positive_integer", "required": true}
+  ],
+  "outputs": [
+    {"name": "optimization", "schema": "matrix.link.optimizer_result", "required": true},
+    {"name": "keymaker_provenance", "schema": "matrix.keymaker.protocol_binding.v1", "required": true}
+  ],
+  "gates": [
+    "closed-shell reference",
+    "one-based target state",
+    "analytic global-adjoint two-photon strength gradient",
+    "fixed selected-space policy within every derivative evaluation",
+    "SYCART or SONIC coordinate model supplied by LINK"
+  ],
+  "implementation": {"owner_api": "matrix_link.tda_two_photon_workflow", "action": "optimize_tda_two_photon_strength"},
+  "coordinate_policy": "LINK consumes the supplied nonredundant symmetry-adapted coordinate chart; raw Cartesian optimizer variables are forbidden.",
+  "backend_policy": "FAST_TDA remains resident and the minimized scalar is the negative isotropic two-photon strength.",
+  "change_policy": "new_version_and_explicit_approval"
+}

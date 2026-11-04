@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.keymaker.protocol_manifest.v1",
+  "title": "KEYMAKER protocol manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "protocol_id",
+    "manifest_version",
+    "status",
+    "owner_operation",
+    "entrypoint",
+    "title",
+    "summary",
+    "calculation_protocol",
+    "aliases",
+    "dependencies",
+    "routes",
+    "inputs",
+    "outputs",
+    "gates",
+    "implementation",
+    "coordinate_policy",
+    "backend_policy",
+    "change_policy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "matrix.keymaker.protocol_manifest.v1"
+    },
+    "protocol_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "manifest_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "approved",
+        "deprecated"
+      ]
+    },
+    "owner_operation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entrypoint": {
+      "const": "KEYMAKER"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "calculation_protocol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "menu",
+          "action",
+          "option_equals"
+        ],
+        "properties": {
+          "menu": {
+            "type": "string",
+            "minLength": 1
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "option_equals": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "inputs": {
+      "$ref": "#/$defs/artifacts"
+    },
+    "outputs": {
+      "$ref": "#/$defs/artifacts"
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_api",
+        "action"
+      ],
+      "properties": {
+        "owner_api": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "coordinate_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "backend_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "change_policy": {
+      "const": "new_version_and_explicit_approval"
+    }
+  },
+  "$defs": {
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "schema",
+          "required"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "schema": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

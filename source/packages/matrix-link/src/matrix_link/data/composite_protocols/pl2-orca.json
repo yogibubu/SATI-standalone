@@ -1,0 +1,43 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.pl2.orca.v1",
+  "selector": "pl2-orca",
+  "model": "PL2",
+  "backend": "orca",
+  "frozen": true,
+  "formula": "DLPNO-CCSD(T)/def2-TZVPP + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "def2-TZVPP",
+    "artifact": "def2-TZVPP.orca",
+    "sha256": "238e5ac0a9c2a6b1a6f27c6aa7d7e032c7ef289c93742b8f7da712b022156e40",
+    "definition": "Unmodified Karlsruhe def2-TZVPP orbital basis for H-Ar"
+  },
+  "high_level": {
+    "label": "DLPNO-CCSD(T)/def2-TZVPP",
+    "method": "DLPNO-CCSD(T)",
+    "basis": "def2-TZVPP",
+    "route": "RHF TightPNO VeryTightSCF def2-TZVPP/C def2/J",
+    "reference": "RHF",
+    "correlation_model": "DLPNO",
+    "derivative": "one_sided_totally_symmetric_sonic_numerical",
+    "numerical_gradient_step_bohr": 0.001
+  },
+  "core_valence": {
+    "type": "explicit_mp2_difference",
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "all_electron": {"method": "MP2", "route": "RHF NoFrozenCore VeryTightSCF"},
+    "frozen_core": {"method": "MP2", "route": "RHF FrozenCore VeryTightSCF"},
+    "derivative": "analytic"
+  },
+  "auxiliary_basis": {
+    "correlation": "def2-TZVPP/C",
+    "coulomb": "def2/J"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "orca",
+    "route": "B3LYP 6-31G* VeryTightSCF Freq"
+  }
+}

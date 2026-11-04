@@ -1,0 +1,54 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-isotope-full-field-transform.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "TRINITY complete isotope force-field transformation",
+  "summary": "Transform every supplied Cartesian derivative tensor into each isotope normal frame; retain all modes and separate observable contractions.",
+  "calculation_protocol": "surface.isotope_full_field.v1",
+  "aliases": [
+    "trinity_isotope_full_field_transform"
+  ],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.transform_isotope_field",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "cartesian_field",
+      "schema": "matrix.trinity.cartesian_full_field.v1",
+      "required": true
+    },
+    {
+      "name": "isotope_request",
+      "schema": "matrix.trinity.isotope_field_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "isotope_fields",
+      "schema": "matrix.trinity.isotope_full_field.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "complete permutation-symmetric tensors with explicit coverage",
+    "consistent Cartesian source frame and units",
+    "all supplied derivative orders and all vibrational modes retained",
+    "no electronic calculations or observable-specific term selection"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.isotope_field",
+    "action": "transform_isotope_field_request"
+  },
+  "coordinate_policy": "Cartesian BO derivatives in one consistent frame; isotope-specific mass metric and normal modes, including imaginary modes. Never transform a semidiagonal slice as if it were a complete tensor.",
+  "backend_policy": "Algebraic nano-MATRIX transformation of the existing field. DeltaVib mode exclusions and DVR replacement occur only in a subsequent observable calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

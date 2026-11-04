@@ -1,0 +1,16 @@
+{
+  "schema": "matrix.qm.backend_method_dialects.v1",
+  "atlas_id": "matrix-qm-backend-method-dialects-v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "change_policy": "new_manifest_version_and_explicit_approval",
+  "fallback_policy": "preserve_explicit_engine_spelling_when_no_override_exists",
+  "records": [
+    {
+      "canonical_method": "PBE0",
+      "backend": "gaussian",
+      "engine_method": "PBE1PBE",
+      "scientific_equivalence": "same_PBE0_hybrid_density_functional"
+    }
+  ]
+}

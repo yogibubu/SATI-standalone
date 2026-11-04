@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/qm-element-policy-v1.schema.json",
+  "title": "MATRIX QM element policy v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "policy_id",
+    "manifest_version",
+    "status",
+    "frozen_core_ranges",
+    "ecp_contract",
+    "core_valence_ranges",
+    "backend_translation_contract",
+    "change_policy"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.qm.element_policy.v1"},
+    "policy_id": {"const": "matrix-qm-element-policy-v1"},
+    "manifest_version": {"const": "1.0.0"},
+    "status": {"const": "approved"},
+    "frozen_core_ranges": {
+      "type": "array",
+      "minItems": 4,
+      "items": {"$ref": "#/$defs/frozenRange"}
+    },
+    "ecp_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "karlsruhe_recommended_ecp_mandatory",
+        "ecp_atom_additional_frozen_electrons",
+        "any_ecp_disables_complete_molecular_cv",
+        "partial_cv_forbidden",
+        "all_electron_beyond_atomic_number",
+        "beyond_range_without_ecp"
+      ],
+      "properties": {
+        "karlsruhe_recommended_ecp_mandatory": {"const": true},
+        "ecp_atom_additional_frozen_electrons": {"const": 0},
+        "any_ecp_disables_complete_molecular_cv": {"const": true},
+        "partial_cv_forbidden": {"const": true},
+        "all_electron_beyond_atomic_number": {"const": 36},
+        "beyond_range_without_ecp": {"const": "unsupported"}
+      }
+    },
+    "core_valence_ranges": {
+      "type": "array",
+      "minItems": 9,
+      "items": {"$ref": "#/$defs/cvRange"}
+    },
+    "backend_translation_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "central_representation",
+        "restricted_open_uses_same_spatial_core_for_alpha_and_beta",
+        "backend_default_allowed",
+        "adapter_must_verify_applied_orbitals"
+      ],
+      "properties": {
+        "central_representation": {"const": "lowest_energy_occupied_spatial_orbitals_zero_based"},
+        "restricted_open_uses_same_spatial_core_for_alpha_and_beta": {"const": true},
+        "backend_default_allowed": {"const": false},
+        "adapter_must_verify_applied_orbitals": {"const": true}
+      }
+    },
+    "change_policy": {"const": "new_manifest_version_and_explicit_approval"}
+  },
+  "$defs": {
+    "frozenRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["atomic_number_min", "atomic_number_max", "frozen_electrons", "core_label"],
+      "properties": {
+        "atomic_number_min": {"type": "integer", "minimum": 1, "maximum": 118},
+        "atomic_number_max": {"type": "integer", "minimum": 1, "maximum": 118},
+        "frozen_electrons": {"type": "integer", "minimum": 0},
+        "core_label": {"type": "string", "minLength": 1}
+      }
+    },
+    "cvRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["atomic_number_min", "atomic_number_max", "basis", "intrinsic_cv", "status"],
+      "properties": {
+        "atomic_number_min": {"type": "integer", "minimum": 1, "maximum": 118},
+        "atomic_number_max": {"type": "integer", "minimum": 1, "maximum": 118},
+        "basis": {"type": ["string", "null"]},
+        "intrinsic_cv": {"type": "boolean"},
+        "status": {"enum": ["supported", "companion", "unsupported"]}
+      }
+    }
+  }
+}

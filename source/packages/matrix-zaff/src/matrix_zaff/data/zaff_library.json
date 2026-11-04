@@ -1,0 +1,7972 @@
+{
+  "entries": [
+    {
+      "atoms": [
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "N",
+        "S",
+        "O",
+        "O",
+        "C",
+        "O"
+      ],
+      "charge": 0,
+      "force_field_schema": "matrix.zaff.force_field.v1",
+      "id": "ZAFF_TRANSFERABLE_SEED",
+      "molecule_fingerprint": "511878160772fbf64fdc8bc77d2f3f57a19ae9b243c3d039902a7772fe09004d",
+      "multiplicity": 1,
+      "path": "fields/253abe4bcd198f99e730b7e9ba5545cc29357cfd7f1ae074881c48506965088c.zaff.json",
+      "priority": 0,
+      "sha256": "253abe4bcd198f99e730b7e9ba5545cc29357cfd7f1ae074881c48506965088c"
+    }
+  ],
+  "monomers": [
+    {
+      "aliases": [
+        "thiouracil"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 7,
+          "canonical_signature": [
+            7,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.4389442296792711,
+            "coordination": 3.0,
+            "covalency": 0.49263361781639464,
+            "delocalization": 0.12776517798928083,
+            "effective_radius": 0.71,
+            "electron_domains": 3.4936238120015513,
+            "pi_index": 0.33219529434402606,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.2386799475892154,
+            "sigma_index": 2.8940194781056423,
+            "strain": 0.09888425416604392
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            3
+          ],
+          "descriptor": {
+            "charge": 0.2289099045456988,
+            "coordination": 3.0,
+            "covalency": 0.504323283007809,
+            "delocalization": 0.08644751396897565,
+            "effective_radius": 0.76,
+            "electron_domains": 2.7000636065875927,
+            "pi_index": 1.275169809212328,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.6077309754884268,
+            "sigma_index": 3.0,
+            "strain": 0.24488449910986287
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 7,
+          "canonical_signature": [
+            7,
+            0,
+            4,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.4259983479077367,
+            "coordination": 3.0,
+            "covalency": 0.4887038009436015,
+            "delocalization": 0.13095704740081557,
+            "effective_radius": 0.71,
+            "electron_domains": 3.9567010377921656,
+            "pi_index": 0.28667210300196516,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.244732098131145,
+            "sigma_index": 2.889272432877007,
+            "strain": 0.15486393318592848
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.24494904734537423,
+            "coordination": 3.0,
+            "covalency": 0.4940145191590777,
+            "delocalization": 0.0716104844551356,
+            "effective_radius": 0.76,
+            "electron_domains": 2.588727498760523,
+            "pi_index": 1.1905708193580733,
+            "pi_pi_index": 0.06654090691571317,
+            "polarizability": 1.4890386600642807,
+            "sigma_index": 3.008848938790063,
+            "strain": 0.3196171065093019
+          }
+        },
+        {
+          "atom": 5,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.13345233125984735,
+            "coordination": 3.0,
+            "covalency": 0.4923910231770721,
+            "delocalization": 0.10921062155132849,
+            "effective_radius": 0.76,
+            "electron_domains": 3.15326479161293,
+            "pi_index": 0.8304397220217545,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.3956666666666666,
+            "sigma_index": 2.9475879473460282,
+            "strain": 0.0885841424450317
+          }
+        },
+        {
+          "atom": 6,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.04658784704268696,
+            "coordination": 3.0,
+            "covalency": 0.49413629416586274,
+            "delocalization": 0.09499343361794534,
+            "effective_radius": 0.76,
+            "electron_domains": 3.2672298910487165,
+            "pi_index": 0.85666202971623,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.253027982448669,
+            "sigma_index": 2.9290698513026645,
+            "strain": 0.11648001106767678
+          }
+        },
+        {
+          "atom": 7,
+          "atomic_number": 16,
+          "canonical_signature": [
+            16,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.25729058188100984,
+            "coordination": 1.0,
+            "covalency": 0.5154161571304915,
+            "delocalization": 0.0,
+            "effective_radius": 1.02,
+            "electron_domains": 3.039955143274591,
+            "pi_index": 0.8679634495353974,
+            "pi_pi_index": 0.0,
+            "polarizability": 2.7779419372168612,
+            "sigma_index": 1.0,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 8,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.32459968469496936,
+            "coordination": 1.0,
+            "covalency": 0.5062423282095357,
+            "delocalization": 0.0,
+            "effective_radius": 0.53,
+            "electron_domains": 2.9541844579991423,
+            "pi_index": 1.005132089383488,
+            "pi_pi_index": 0.06654090691571317,
+            "polarizability": 0.9158483990614019,
+            "sigma_index": 1.0,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 9,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.37669127937063135,
+            "coordination": 1.0,
+            "covalency": 0.48581386864782244,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.8013137191048098,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.8940194781056421,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 10,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.15723221543282428,
+            "coordination": 1.0,
+            "covalency": 0.4834556148111413,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.441680002765695,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9290698513026646,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 11,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.14607998920595014,
+            "coordination": 1.0,
+            "covalency": 0.481467299994839,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.459320558054845,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9475879473460281,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 12,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.3798348924796688,
+            "coordination": 1.0,
+            "covalency": 0.4815959683214633,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.7935202099166354,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.8804234940869439,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "N",
+        "C",
+        "N",
+        "C",
+        "C",
+        "C",
+        "S",
+        "O",
+        "H",
+        "H",
+        "H",
+        "H"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          1.3142303076,
+          0.4774301499,
+          0.0
+        ],
+        [
+          0.0029433356,
+          0.8632962261,
+          0.0
+        ],
+        [
+          -0.8690193661,
+          -0.179052501,
+          0.0
+        ],
+        [
+          -0.5775252897,
+          -1.5516994968,
+          -0.0
+        ],
+        [
+          0.8433968631,
+          -1.8396198249,
+          0.0
+        ],
+        [
+          1.7210526297,
+          -0.8238230173,
+          0.0
+        ],
+        [
+          -0.4479366175,
+          2.4467610301,
+          0.0
+        ],
+        [
+          -1.4748333148,
+          -2.3610566947,
+          -0.0
+        ],
+        [
+          1.9806899948,
+          1.2323416869,
+          0.0
+        ],
+        [
+          2.7935347257,
+          -0.9741589221,
+          0.0
+        ],
+        [
+          1.1600478056,
+          -2.8711403728,
+          0.0
+        ],
+        [
+          -1.8499224138,
+          0.0639716713,
+          0.0
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -737.4035110021154,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          -0.08504876088607215,
+          0.08035029606047207,
+          -0.08835238172641822,
+          0.14988476424170982,
+          -0.09395440061285608,
+          0.029614739984783044,
+          -0.2470004039738447,
+          -0.28277441936135816,
+          0.17936750714885397,
+          0.09117132077369096,
+          0.08658240869748525,
+          0.1801593296535542
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "bdcec24cab1ea5e51bc46a5fc386960aee2e8b2a4c0e6c5be986d19e648d3110",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "2-thiouracil",
+      "intrinsic_cm5_charges_e": [
+        -0.4389442296792711,
+        0.2289099045456988,
+        -0.4259983479077367,
+        0.24494904734537423,
+        -0.13345233125984735,
+        0.04658784704268696,
+        -0.25729058188100984,
+        -0.32459968469496936,
+        0.37669127937063135,
+        0.15723221543282428,
+        0.14607998920595014,
+        0.3798348924796688
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          1.1754263511600922
+        ],
+        [
+          1,
+          3,
+          -0.0051139991632166894
+        ],
+        [
+          1,
+          4,
+          0.017485243922429186
+        ],
+        [
+          1,
+          5,
+          0.023096991139501435
+        ],
+        [
+          1,
+          6,
+          1.1567689431839339
+        ],
+        [
+          1,
+          7,
+          0.03240606901842019
+        ],
+        [
+          1,
+          8,
+          0.025021769629037235
+        ],
+        [
+          1,
+          9,
+          0.8940194781056421
+        ],
+        [
+          1,
+          10,
+          -0.001592274999492397
+        ],
+        [
+          1,
+          11,
+          0.006211811089623518
+        ],
+        [
+          1,
+          12,
+          0.006493542610088901
+        ],
+        [
+          2,
+          3,
+          1.2317800085168384
+        ],
+        [
+          2,
+          4,
+          0.03758812449741155
+        ],
+        [
+          2,
+          5,
+          0.0038852509008642346
+        ],
+        [
+          2,
+          6,
+          0.03032953143525909
+        ],
+        [
+          2,
+          7,
+          1.8679634495353974
+        ],
+        [
+          2,
+          8,
+          0.013840755397235874
+        ],
+        [
+          2,
+          9,
+          0.009153410559362416
+        ],
+        [
+          2,
+          10,
+          0.007915884058745553
+        ],
+        [
+          2,
+          11,
+          -0.00028059322178259423
+        ],
+        [
+          2,
+          12,
+          0.006246894045677259
+        ],
+        [
+          3,
+          4,
+          1.06374103327519
+        ],
+        [
+          3,
+          5,
+          -0.034654624734418424
+        ],
+        [
+          3,
+          6,
+          0.020792203632996574
+        ],
+        [
+          3,
+          7,
+          0.05164657237700311
+        ],
+        [
+          3,
+          8,
+          0.006851133450108647
+        ],
+        [
+          3,
+          9,
+          0.006663705564890602
+        ],
+        [
+          3,
+          10,
+          -0.0002399567869810305
+        ],
+        [
+          3,
+          11,
+          0.005914863857977391
+        ],
+        [
+          3,
+          12,
+          0.8804234940869439
+        ],
+        [
+          4,
+          5,
+          1.1305466354894584
+        ],
+        [
+          4,
+          6,
+          0.05379151282713525
+        ],
+        [
+          4,
+          7,
+          0.019304369117598724
+        ],
+        [
+          4,
+          8,
+          2.0716729962992013
+        ],
+        [
+          4,
+          9,
+          0.0005401065662789086
+        ],
+        [
+          4,
+          10,
+          0.006645018596858457
+        ],
+        [
+          4,
+          11,
+          0.0056561036724570544
+        ],
+        [
+          4,
+          12,
+          0.01473978413951767
+        ],
+        [
+          5,
+          6,
+          1.699893086532296
+        ],
+        [
+          5,
+          7,
+          0.045489823033865354
+        ],
+        [
+          5,
+          8,
+          -0.005456595280895924
+        ],
+        [
+          5,
+          9,
+          0.006947586508779754
+        ],
+        [
+          5,
+          10,
+          0.019216624537597975
+        ],
+        [
+          5,
+          11,
+          0.9475879473460281
+        ],
+        [
+          5,
+          12,
+          0.011079888897064747
+        ],
+        [
+          6,
+          7,
+          0.02151466761622789
+        ],
+        [
+          6,
+          8,
+          0.04464825303328223
+        ],
+        [
+          6,
+          9,
+          0.003954810801019731
+        ],
+        [
+          6,
+          10,
+          0.9290698513026646
+        ],
+        [
+          6,
+          11,
+          -0.004030135858954209
+        ],
+        [
+          6,
+          12,
+          -0.00016164579290380688
+        ],
+        [
+          7,
+          8,
+          0.008264334139401728
+        ],
+        [
+          7,
+          9,
+          0.04070825207584161
+        ],
+        [
+          7,
+          10,
+          0.003268305235252222
+        ],
+        [
+          7,
+          11,
+          0.00042608982784664805
+        ],
+        [
+          7,
+          12,
+          0.026570537494419275
+        ],
+        [
+          8,
+          9,
+          0.0005912545460631853
+        ],
+        [
+          8,
+          10,
+          0.001900975105632585
+        ],
+        [
+          8,
+          11,
+          0.00899239053033618
+        ],
+        [
+          8,
+          12,
+          0.01759509922002197
+        ],
+        [
+          9,
+          10,
+          -0.0017300264739892254
+        ],
+        [
+          9,
+          11,
+          0.001511825891512056
+        ],
+        [
+          9,
+          12,
+          0.0016906205737534658
+        ],
+        [
+          10,
+          11,
+          0.0001443343745674212
+        ],
+        [
+          10,
+          12,
+          0.00032025105389349684
+        ],
+        [
+          11,
+          12,
+          0.0016947558272046093
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "LCB25",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "alpha pinene"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.11305055245673337,
+            "coordination": 4.0,
+            "covalency": 0.4538404554050948,
+            "delocalization": 0.11757157045241665,
+            "effective_radius": 0.77,
+            "electron_domains": 3.187861639240362,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.3956666666666666,
+            "sigma_index": 3.684380072895339,
+            "strain": 0.1973655979000693
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.06473235039593041,
+            "coordination": 3.0,
+            "covalency": 0.47640288905462436,
+            "delocalization": 0.05159985234707204,
+            "effective_radius": 0.76,
+            "electron_domains": 3.063858135704121,
+            "pi_index": 0.8413807897977204,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.76,
+            "sigma_index": 2.8076834463096216,
+            "strain": 0.06639773075468564
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.14759016473878137,
+            "coordination": 3.0,
+            "covalency": 0.4793421885939866,
+            "delocalization": 0.11241821322517585,
+            "effective_radius": 0.76,
+            "electron_domains": 2.9834947947776898,
+            "pi_index": 0.9208401452158211,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.3956666666666666,
+            "sigma_index": 2.973710694785538,
+            "strain": 0.019187057416788448
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.1885495663504179,
+            "coordination": 4.0,
+            "covalency": 0.462780374955111,
+            "delocalization": 0.1595044965733989,
+            "effective_radius": 0.77,
+            "electron_domains": 2.772556217785966,
+            "pi_index": 0.07945935541810077,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333332,
+            "sigma_index": 3.859717643197879,
+            "strain": 0.34806306670663895
+          }
+        },
+        {
+          "atom": 5,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.12227633102930316,
+            "coordination": 4.0,
+            "covalency": 0.45172279498615436,
+            "delocalization": 0.11778809192080875,
+            "effective_radius": 0.77,
+            "electron_domains": 3.168304340170014,
+            "pi_index": 2.6812994324996663e-07,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.3956666666666666,
+            "sigma_index": 3.889202092742107,
+            "strain": 0.1933791546322146
+          }
+        },
+        {
+          "atom": 6,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.06954398296974848,
+            "coordination": 4.0,
+            "covalency": 0.4482431909459821,
+            "delocalization": 0.014170392088032023,
+            "effective_radius": 0.77,
+            "electron_domains": 3.150253633425908,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.76,
+            "sigma_index": 3.8305608645185734,
+            "strain": 0.21672513414838587
+          }
+        },
+        {
+          "atom": 7,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.18986598369914595,
+            "coordination": 4.0,
+            "covalency": 0.45658079537590035,
+            "delocalization": 0.1726075868659188,
+            "effective_radius": 0.77,
+            "electron_domains": 3.2172806690787237,
+            "pi_index": 2.6812994324996663e-07,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333332,
+            "sigma_index": 3.854398522206247,
+            "strain": 0.19618036044797912
+          }
+        },
+        {
+          "atom": 8,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.26083808634984146,
+            "coordination": 4.0,
+            "covalency": 0.4692805233420241,
+            "delocalization": 0.12435721752922786,
+            "effective_radius": 0.77,
+            "electron_domains": 2.859559121492329,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.6669999999999998,
+            "sigma_index": 3.8928927057288307,
+            "strain": 0.28198429766131744
+          }
+        },
+        {
+          "atom": 9,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.26906874561662114,
+            "coordination": 4.0,
+            "covalency": 0.4645233686784923,
+            "delocalization": 0.13229297567347525,
+            "effective_radius": 0.77,
+            "electron_domains": 2.8108836789421034,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.6669999999999998,
+            "sigma_index": 3.896885362633767,
+            "strain": 0.31966371376180375
+          }
+        },
+        {
+          "atom": 10,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.26711276342652596,
+            "coordination": 4.0,
+            "covalency": 0.46367091921525383,
+            "delocalization": 0.13437790375804035,
+            "effective_radius": 0.77,
+            "electron_domains": 2.794455805995101,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.6669999999999998,
+            "sigma_index": 3.870024638413714,
+            "strain": 0.3326774918651146
+          }
+        },
+        {
+          "atom": 11,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.11394512797156381,
+            "coordination": 1.0,
+            "covalency": 0.46367157088981886,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3971049526361998,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9494963235434346,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 12,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.11160948733627446,
+            "coordination": 1.0,
+            "covalency": 0.47441482774261556,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4254552896611847,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9718798864977765,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 13,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.1101912606935941,
+            "coordination": 1.0,
+            "covalency": 0.46685358463908755,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3754514841726897,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9277342654813926,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 14,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10960512795555372,
+            "coordination": 1.0,
+            "covalency": 0.4669748357785367,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3777487868611644,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9318111408017731,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 15,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10985825324415646,
+            "coordination": 1.0,
+            "covalency": 0.46282838137910987,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3937897473851724,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9370958912814886,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 16,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.1067116952173295,
+            "coordination": 1.0,
+            "covalency": 0.4656874892889399,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4164960865398162,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9460385832770511,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 17,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10876420477946828,
+            "coordination": 1.0,
+            "covalency": 0.4650900217995371,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4049799552109994,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9365685647542655,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 18,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10469905371868089,
+            "coordination": 1.0,
+            "covalency": 0.46906754118844485,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3849711063400123,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.965590044056074,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 19,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10548309051559146,
+            "coordination": 1.0,
+            "covalency": 0.4700547586509458,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.40384504144074,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9872529801851229,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 20,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10441708265212835,
+            "coordination": 1.0,
+            "covalency": 0.469100085749992,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3855905048670327,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9670213612664061,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 21,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.09955952980225263,
+            "coordination": 1.0,
+            "covalency": 0.4675780326482401,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3901755506318905,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9699117306097229,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 22,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10636061191013785,
+            "coordination": 1.0,
+            "covalency": 0.46872914653836834,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4122591760015526,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.965092584692388,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 23,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.0997260481654041,
+            "coordination": 1.0,
+            "covalency": 0.4675873460613699,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.390353346470207,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9700481024892347,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 24,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.0998033623473781,
+            "coordination": 1.0,
+            "covalency": 0.46706163844357096,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3914293775924589,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9731089746323901,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 25,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.09945004299914653,
+            "coordination": 1.0,
+            "covalency": 0.4670980464027768,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.392125044771439,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9764433583942211,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 26,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.1024445477243891,
+            "coordination": 1.0,
+            "covalency": 0.46796725582903903,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4087986242254753,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.963946407633197,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          0.2776659548,
+          0.2746693691,
+          -0.9121892428
+        ],
+        [
+          -0.7759911599,
+          0.8882079231,
+          -0.0208428211
+        ],
+        [
+          -0.9606275751,
+          0.3154322432,
+          1.1680436893
+        ],
+        [
+          -0.1056514787,
+          -0.850458963,
+          1.5747516195
+        ],
+        [
+          0.8483498303,
+          -1.2308023786,
+          0.4447089716
+        ],
+        [
+          1.595264721,
+          0.0245714013,
+          -0.1032538469
+        ],
+        [
+          0.0588867933,
+          -1.2562467802,
+          -0.880347104
+        ],
+        [
+          -1.5413562207,
+          2.065944518,
+          -0.5183068201
+        ],
+        [
+          2.0766803454,
+          1.0771915775,
+          0.8754889706
+        ],
+        [
+          2.757999725,
+          -0.3544140173,
+          -1.0112727036
+        ],
+        [
+          0.3601781697,
+          0.7802302831,
+          -1.8777828966
+        ],
+        [
+          -1.7104600614,
+          0.6867091927,
+          1.8613206041
+        ],
+        [
+          0.4564799792,
+          -0.6079788237,
+          2.4863133062
+        ],
+        [
+          -0.7341113643,
+          -1.7118999174,
+          1.8345912106
+        ],
+        [
+          1.4575461819,
+          -2.1010804004,
+          0.7053445838
+        ],
+        [
+          0.5826390602,
+          -1.7848998192,
+          -1.674917649
+        ],
+        [
+          -0.9774012424,
+          -1.5956349168,
+          -0.8383802676
+        ],
+        [
+          -0.869448292,
+          2.903692445,
+          -0.7364894238
+        ],
+        [
+          -2.2826769636,
+          2.4015315766,
+          0.2091740744
+        ],
+        [
+          -2.0588382418,
+          1.8313564643,
+          -1.4551912783
+        ],
+        [
+          2.8901405554,
+          0.6782803715,
+          1.4898234224
+        ],
+        [
+          1.2875082531,
+          1.4280755715,
+          1.5398035106
+        ],
+        [
+          2.4726117064,
+          1.9446922023,
+          0.3380451565
+        ],
+        [
+          3.5910796354,
+          -0.7423398644,
+          -0.4170387709
+        ],
+        [
+          3.1216461502,
+          0.5254637217,
+          -1.5505766227
+        ],
+        [
+          2.5000124784,
+          -1.112406049,
+          -1.7514290127
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -390.31934893762946,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          -0.055545572737389866,
+          -0.044036454197706694,
+          -0.08833075930260875,
+          -0.08644233784898375,
+          -0.05964509883672293,
+          -0.04245518907180341,
+          -0.08697283214330515,
+          -0.11705936848788973,
+          -0.12358212913744143,
+          -0.12044003325981872,
+          0.055932397395472004,
+          0.05564641516592122,
+          0.05479553810118259,
+          0.054687802549035984,
+          0.052769339671495046,
+          0.050394390779142144,
+          0.05260155229062629,
+          0.053082152541219334,
+          0.05321056792945216,
+          0.05283442932724774,
+          0.04720007745810378,
+          0.05062980173737946,
+          0.04736964311467511,
+          0.047493970210568275,
+          0.04714596978244839,
+          0.04871572696970088
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "a0985af684106e6f45d66a06eb3ae3ee53531e6329c3d26869d6efb8b899480c",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "alpha-pinene",
+      "intrinsic_cm5_charges_e": [
+        -0.11305055245673337,
+        -0.06473235039593041,
+        -0.14759016473878137,
+        -0.1885495663504179,
+        -0.12227633102930316,
+        -0.06954398296974848,
+        -0.18986598369914595,
+        -0.26083808634984146,
+        -0.26906874561662114,
+        -0.26711276342652596,
+        0.11394512797156381,
+        0.11160948733627446,
+        0.1101912606935941,
+        0.10960512795555372,
+        0.10985825324415646,
+        0.1067116952173295,
+        0.10876420477946828,
+        0.10469905371868089,
+        0.10548309051559146,
+        0.10441708265212835,
+        0.09955952980225263,
+        0.10636061191013785,
+        0.0997260481654041,
+        0.0998033623473781,
+        0.09945004299914653,
+        0.1024445477243891
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          0.834655126088394
+        ],
+        [
+          1,
+          3,
+          -0.04873641667270594
+        ],
+        [
+          1,
+          4,
+          -0.047649232496843066
+        ],
+        [
+          1,
+          5,
+          -0.017702084671483122
+        ],
+        [
+          1,
+          6,
+          0.9292041341580768
+        ],
+        [
+          1,
+          7,
+          0.9710244891054337
+        ],
+        [
+          1,
+          8,
+          -0.021665249988443158
+        ],
+        [
+          1,
+          9,
+          -0.029974792552200705
+        ],
+        [
+          1,
+          10,
+          0.0017752304649223177
+        ],
+        [
+          1,
+          11,
+          0.9494963235434346
+        ],
+        [
+          1,
+          12,
+          0.01268056499629346
+        ],
+        [
+          1,
+          13,
+          0.0011346271099134625
+        ],
+        [
+          1,
+          14,
+          0.0006550513477974094
+        ],
+        [
+          1,
+          15,
+          0.008093330076834078
+        ],
+        [
+          1,
+          16,
+          0.00019296402313821796
+        ],
+        [
+          1,
+          17,
+          0.007421661152914495
+        ],
+        [
+          1,
+          18,
+          0.003418267694647856
+        ],
+        [
+          1,
+          19,
+          0.0058420797974638155
+        ],
+        [
+          1,
+          20,
+          0.0018121100307610727
+        ],
+        [
+          1,
+          21,
+          0.005869328480095426
+        ],
+        [
+          1,
+          22,
+          -0.007338225064687453
+        ],
+        [
+          1,
+          23,
+          -0.0012621590522658673
+        ],
+        [
+          1,
+          24,
+          0.004018512839230175
+        ],
+        [
+          1,
+          25,
+          0.0015299151983944762
+        ],
+        [
+          1,
+          26,
+          -0.008097618286432833
+        ],
+        [
+          2,
+          3,
+          1.8413807897977204
+        ],
+        [
+          2,
+          4,
+          0.007432039534596185
+        ],
+        [
+          2,
+          5,
+          -0.04774234952405177
+        ],
+        [
+          2,
+          6,
+          0.14027405643876262
+        ],
+        [
+          2,
+          7,
+          0.11536442365607358
+        ],
+        [
+          2,
+          8,
+          0.9730283202212276
+        ],
+        [
+          2,
+          9,
+          0.010335218141991473
+        ],
+        [
+          2,
+          10,
+          0.00560132923302541
+        ],
+        [
+          2,
+          11,
+          -0.017543572943519083
+        ],
+        [
+          2,
+          12,
+          -0.003250338723012847
+        ],
+        [
+          2,
+          13,
+          0.008726922202622162
+        ],
+        [
+          2,
+          14,
+          0.010756636822879806
+        ],
+        [
+          2,
+          15,
+          -0.00024171208719027442
+        ],
+        [
+          2,
+          16,
+          0.00481727167890453
+        ],
+        [
+          2,
+          17,
+          0.01138872214994387
+        ],
+        [
+          2,
+          18,
+          -0.016641503280358176
+        ],
+        [
+          2,
+          19,
+          -0.026491743017962345
+        ],
+        [
+          2,
+          20,
+          -0.018290470731460746
+        ],
+        [
+          2,
+          21,
+          -0.000819654062426073
+        ],
+        [
+          2,
+          22,
+          0.004124251377265176
+        ],
+        [
+          2,
+          23,
+          0.000944662517467502
+        ],
+        [
+          2,
+          24,
+          0.0015536653912065375
+        ],
+        [
+          2,
+          25,
+          0.00016576518238185713
+        ],
+        [
+          2,
+          26,
+          -0.0006193871048417564
+        ],
+        [
+          3,
+          4,
+          1.081290163705862
+        ],
+        [
+          3,
+          5,
+          -0.005018567563376692
+        ],
+        [
+          3,
+          6,
+          0.0065795577089822225
+        ],
+        [
+          3,
+          7,
+          -0.013223561271697696
+        ],
+        [
+          3,
+          8,
+          0.021306822812646276
+        ],
+        [
+          3,
+          9,
+          -0.008994805656817635
+        ],
+        [
+          3,
+          10,
+          0.001515980313161092
+        ],
+        [
+          3,
+          11,
+          0.005347830208702189
+        ],
+        [
+          3,
+          12,
+          0.9718798864977765
+        ],
+        [
+          3,
+          13,
+          0.019639331101469946
+        ],
+        [
+          3,
+          14,
+          0.01278161690747883
+        ],
+        [
+          3,
+          15,
+          0.006268930433410242
+        ],
+        [
+          3,
+          16,
+          0.00393968085598345
+        ],
+        [
+          3,
+          17,
+          -0.005201958931150061
+        ],
+        [
+          3,
+          18,
+          0.01411045742523444
+        ],
+        [
+          3,
+          19,
+          0.004883401715531549
+        ],
+        [
+          3,
+          20,
+          0.014872864872625614
+        ],
+        [
+          3,
+          21,
+          0.002842827486262664
+        ],
+        [
+          3,
+          22,
+          0.0015143639055285078
+        ],
+        [
+          3,
+          23,
+          0.0005102604267385852
+        ],
+        [
+          3,
+          24,
+          0.0011768667646678247
+        ],
+        [
+          3,
+          25,
+          0.00013836418064223588
+        ],
+        [
+          3,
+          26,
+          -0.00016480787321203585
+        ],
+        [
+          4,
+          5,
+          0.9983414286269519
+        ],
+        [
+          4,
+          6,
+          0.07735524957833048
+        ],
+        [
+          4,
+          7,
+          0.08682483329582211
+        ],
+        [
+          4,
+          8,
+          0.008006869691546159
+        ],
+        [
+          4,
+          9,
+          0.035572549794132026
+        ],
+        [
+          4,
+          10,
+          0.0074309757201438354
+        ],
+        [
+          4,
+          11,
+          -1.657003630118637e-05
+        ],
+        [
+          4,
+          12,
+          -0.009602640398521128
+        ],
+        [
+          4,
+          13,
+          0.9277342654813926
+        ],
+        [
+          4,
+          14,
+          0.9318111408017731
+        ],
+        [
+          4,
+          15,
+          0.0005355975187659161
+        ],
+        [
+          4,
+          16,
+          0.00567849205336932
+        ],
+        [
+          4,
+          17,
+          0.00656026098705484
+        ],
+        [
+          4,
+          18,
+          0.0014461265416994338
+        ],
+        [
+          4,
+          19,
+          0.001186471206802431
+        ],
+        [
+          4,
+          20,
+          0.0013482972829630601
+        ],
+        [
+          4,
+          21,
+          0.0006495350083740737
+        ],
+        [
+          4,
+          22,
+          0.005815398200255307
+        ],
+        [
+          4,
+          23,
+          0.0023336133791160138
+        ],
+        [
+          4,
+          24,
+          0.00016443188955917644
+        ],
+        [
+          4,
+          25,
+          0.001843220485767048
+        ],
+        [
+          4,
+          26,
+          -7.075386775410729e-05
+        ],
+        [
+          5,
+          6,
+          0.9529978877641698
+        ],
+        [
+          5,
+          7,
+          1.00076715319944
+        ],
+        [
+          5,
+          8,
+          -0.0028922116797497617
+        ],
+        [
+          5,
+          9,
+          -0.02424142356339296
+        ],
+        [
+          5,
+          10,
+          0.0017642888045200729
+        ],
+        [
+          5,
+          11,
+          0.009979408620298977
+        ],
+        [
+          5,
+          12,
+          0.007758995521794145
+        ],
+        [
+          5,
+          13,
+          0.005000034241948528
+        ],
+        [
+          5,
+          14,
+          0.00691215735360333
+        ],
+        [
+          5,
+          15,
+          0.9370958912814886
+        ],
+        [
+          5,
+          16,
+          0.001965166125337045
+        ],
+        [
+          5,
+          17,
+          0.016603155004935224
+        ],
+        [
+          5,
+          18,
+          0.0001089796934890318
+        ],
+        [
+          5,
+          19,
+          -8.679033105147107e-05
+        ],
+        [
+          5,
+          20,
+          0.00024806999463882623
+        ],
+        [
+          5,
+          21,
+          -0.002330434248706778
+        ],
+        [
+          5,
+          22,
+          -0.007863106278472486
+        ],
+        [
+          5,
+          23,
+          0.004539186865264536
+        ],
+        [
+          5,
+          24,
+          0.0015592939348314447
+        ],
+        [
+          5,
+          25,
+          0.003679941588340397
+        ],
+        [
+          5,
+          26,
+          -0.008802581743549457
+        ],
+        [
+          6,
+          7,
+          0.04332239492012139
+        ],
+        [
+          6,
+          8,
+          0.011994811716494884
+        ],
+        [
+          6,
+          9,
+          0.9918329448424215
+        ],
+        [
+          6,
+          10,
+          0.9565258977539054
+        ],
+        [
+          6,
+          11,
+          -0.0077922364942902365
+        ],
+        [
+          6,
+          12,
+          0.0006197975026109528
+        ],
+        [
+          6,
+          13,
+          -0.00502423244522686
+        ],
+        [
+          6,
+          14,
+          0.006085119626640319
+        ],
+        [
+          6,
+          15,
+          -0.0012734670080642206
+        ],
+        [
+          6,
+          16,
+          0.010231981038842094
+        ],
+        [
+          6,
+          17,
+          0.002282055067154555
+        ],
+        [
+          6,
+          18,
+          -0.0005310057587724397
+        ],
+        [
+          6,
+          19,
+          0.0011517791535521082
+        ],
+        [
+          6,
+          20,
+          0.0005390444809690897
+        ],
+        [
+          6,
+          21,
+          -0.0023598640672066054
+        ],
+        [
+          6,
+          22,
+          0.0009209395634904762
+        ],
+        [
+          6,
+          23,
+          -0.0010036240568358297
+        ],
+        [
+          6,
+          24,
+          -0.007273396563258787
+        ],
+        [
+          6,
+          25,
+          -0.009258373958919073
+        ],
+        [
+          6,
+          26,
+          0.010059870324741697
+        ],
+        [
+          7,
+          8,
+          0.01160230162773349
+        ],
+        [
+          7,
+          9,
+          0.013934234620735056
+        ],
+        [
+          7,
+          10,
+          0.010199830489421536
+        ],
+        [
+          7,
+          11,
+          -0.00012312582291977014
+        ],
+        [
+          7,
+          12,
+          -0.0001727534992960162
+        ],
+        [
+          7,
+          13,
+          0.008538435889096816
+        ],
+        [
+          7,
+          14,
+          0.000865965522009525
+        ],
+        [
+          7,
+          15,
+          0.0034250517191487784
+        ],
+        [
+          7,
+          16,
+          0.9460385832770511
+        ],
+        [
+          7,
+          17,
+          0.9365685647542655
+        ],
+        [
+          7,
+          18,
+          0.0007980299027852258
+        ],
+        [
+          7,
+          19,
+          0.0011679574961875148
+        ],
+        [
+          7,
+          20,
+          7.11715054848584e-05
+        ],
+        [
+          7,
+          21,
+          0.0016243582287484512
+        ],
+        [
+          7,
+          22,
+          0.0006604697231495122
+        ],
+        [
+          7,
+          23,
+          0.0019112168423541097
+        ],
+        [
+          7,
+          24,
+          0.0018060526401605095
+        ],
+        [
+          7,
+          25,
+          0.001931177245390066
+        ],
+        [
+          7,
+          26,
+          0.011839225064414783
+        ],
+        [
+          8,
+          9,
+          0.0023042215837314477
+        ],
+        [
+          8,
+          10,
+          0.0009331612533589432
+        ],
+        [
+          8,
+          11,
+          0.00037859695480187404
+        ],
+        [
+          8,
+          12,
+          -0.007486706325715416
+        ],
+        [
+          8,
+          13,
+          0.0011669748799855084
+        ],
+        [
+          8,
+          14,
+          0.001288618084364757
+        ],
+        [
+          8,
+          15,
+          -0.0008747480096873781
+        ],
+        [
+          8,
+          16,
+          0.0010928911718578206
+        ],
+        [
+          8,
+          17,
+          0.0008108746451527687
+        ],
+        [
+          8,
+          18,
+          0.965590044056074
+        ],
+        [
+          8,
+          19,
+          0.9872529801851229
+        ],
+        [
+          8,
+          20,
+          0.9670213612664061
+        ],
+        [
+          8,
+          21,
+          0.00038327675407785354
+        ],
+        [
+          8,
+          22,
+          0.0009225986932635409
+        ],
+        [
+          8,
+          23,
+          -0.00028958250600788146
+        ],
+        [
+          8,
+          24,
+          0.0001839610676616662
+        ],
+        [
+          8,
+          25,
+          3.222330960790549e-05
+        ],
+        [
+          8,
+          26,
+          8.120143843847414e-05
+        ],
+        [
+          9,
+          10,
+          -0.02049513725664503
+        ],
+        [
+          9,
+          11,
+          0.00023991872666737418
+        ],
+        [
+          9,
+          12,
+          0.0004853251778467331
+        ],
+        [
+          9,
+          13,
+          0.005754249242516254
+        ],
+        [
+          9,
+          14,
+          0.0011360233255532028
+        ],
+        [
+          9,
+          15,
+          0.0002761580369208307
+        ],
+        [
+          9,
+          16,
+          0.00017814990273269958
+        ],
+        [
+          9,
+          17,
+          0.0019443816281095006
+        ],
+        [
+          9,
+          18,
+          0.0007958633975642314
+        ],
+        [
+          9,
+          19,
+          4.1241124890516386e-05
+        ],
+        [
+          9,
+          20,
+          5.27831196851899e-05
+        ],
+        [
+          9,
+          21,
+          0.9699117306097229
+        ],
+        [
+          9,
+          22,
+          0.965092584692388
+        ],
+        [
+          9,
+          23,
+          0.9700481024892347
+        ],
+        [
+          9,
+          24,
+          -0.0016980156652882362
+        ],
+        [
+          9,
+          25,
+          -0.0020315645807878475
+        ],
+        [
+          9,
+          26,
+          0.0041708404209952555
+        ],
+        [
+          10,
+          11,
+          0.0038805472111387023
+        ],
+        [
+          10,
+          12,
+          -0.0005112244034457472
+        ],
+        [
+          10,
+          13,
+          2.248793250089301e-05
+        ],
+        [
+          10,
+          14,
+          0.0008950439653627083
+        ],
+        [
+          10,
+          15,
+          0.0024681721492691854
+        ],
+        [
+          10,
+          16,
+          -0.00798211260518197
+        ],
+        [
+          10,
+          17,
+          0.001054554427266188
+        ],
+        [
+          10,
+          18,
+          1.1389667747097486e-05
+        ],
+        [
+          10,
+          19,
+          0.00024109342458515998
+        ],
+        [
+          10,
+          20,
+          4.610790237187254e-05
+        ],
+        [
+          10,
+          21,
+          -0.0018471109872148803
+        ],
+        [
+          10,
+          22,
+          0.004292902899995706
+        ],
+        [
+          10,
+          23,
+          -0.0014470989781143655
+        ],
+        [
+          10,
+          24,
+          0.9731089746323901
+        ],
+        [
+          10,
+          25,
+          0.9764433583942211
+        ],
+        [
+          10,
+          26,
+          0.963946407633197
+        ],
+        [
+          11,
+          12,
+          0.0011144450242207562
+        ],
+        [
+          11,
+          13,
+          -6.95555600432644e-05
+        ],
+        [
+          11,
+          14,
+          -1.993340419377026e-05
+        ],
+        [
+          11,
+          15,
+          0.0036316127906059746
+        ],
+        [
+          11,
+          16,
+          -0.0006795084741984612
+        ],
+        [
+          11,
+          17,
+          0.0006101970870136822
+        ],
+        [
+          11,
+          18,
+          -0.0002511916049836621
+        ],
+        [
+          11,
+          19,
+          0.0004224063115302585
+        ],
+        [
+          11,
+          20,
+          -0.0001628379361798896
+        ],
+        [
+          11,
+          21,
+          0.0006337211261933111
+        ],
+        [
+          11,
+          22,
+          -1.8778059074451804e-05
+        ],
+        [
+          11,
+          23,
+          0.0009600746606824435
+        ],
+        [
+          11,
+          24,
+          0.0007147592833563109
+        ],
+        [
+          11,
+          25,
+          0.0018738622246701204
+        ],
+        [
+          11,
+          26,
+          0.00023255319389785253
+        ],
+        [
+          12,
+          13,
+          -4.7313495106782245e-06
+        ],
+        [
+          12,
+          14,
+          -0.0006964412865942397
+        ],
+        [
+          12,
+          15,
+          0.0015666278051066245
+        ],
+        [
+          12,
+          16,
+          -6.719172603391216e-06
+        ],
+        [
+          12,
+          17,
+          1.0883996891998422e-05
+        ],
+        [
+          12,
+          18,
+          0.0003615260344290859
+        ],
+        [
+          12,
+          19,
+          0.0036212685570318386
+        ],
+        [
+          12,
+          20,
+          0.00034640023315277775
+        ],
+        [
+          12,
+          21,
+          7.134684418591337e-05
+        ],
+        [
+          12,
+          22,
+          0.0006291117889259978
+        ],
+        [
+          12,
+          23,
+          3.64835736667975e-05
+        ],
+        [
+          12,
+          24,
+          0.00014856867888342982
+        ],
+        [
+          12,
+          25,
+          7.79195620815545e-05
+        ],
+        [
+          12,
+          26,
+          3.625739883099315e-05
+        ],
+        [
+          13,
+          14,
+          -0.005226554937491449
+        ],
+        [
+          13,
+          15,
+          -0.0012350441565244516
+        ],
+        [
+          13,
+          16,
+          0.0006625079655426652
+        ],
+        [
+          13,
+          17,
+          0.00026250010874041965
+        ],
+        [
+          13,
+          18,
+          0.0009239767890838877
+        ],
+        [
+          13,
+          19,
+          1.3303401518728714e-05
+        ],
+        [
+          13,
+          20,
+          0.00025532836040567203
+        ],
+        [
+          13,
+          21,
+          -0.00013092923613944776
+        ],
+        [
+          13,
+          22,
+          -0.0021282046930826766
+        ],
+        [
+          13,
+          23,
+          2.4490327223530272e-05
+        ],
+        [
+          13,
+          24,
+          2.4058113347217983e-05
+        ],
+        [
+          13,
+          25,
+          2.068542489879295e-05
+        ],
+        [
+          13,
+          26,
+          1.8545312921532042e-05
+        ],
+        [
+          14,
+          15,
+          -0.001555150322464199
+        ],
+        [
+          14,
+          16,
+          0.00010825866902875958
+        ],
+        [
+          14,
+          17,
+          0.0007508681687764067
+        ],
+        [
+          14,
+          18,
+          0.00022040734017585137
+        ],
+        [
+          14,
+          19,
+          1.192355192835753e-05
+        ],
+        [
+          14,
+          20,
+          0.0008375980284965417
+        ],
+        [
+          14,
+          21,
+          9.422662548940538e-05
+        ],
+        [
+          14,
+          22,
+          5.228080443261306e-05
+        ],
+        [
+          14,
+          23,
+          -3.877496859757995e-05
+        ],
+        [
+          14,
+          24,
+          0.0001361418078084281
+        ],
+        [
+          14,
+          25,
+          0.0004530176101563636
+        ],
+        [
+          14,
+          26,
+          1.8478942658602447e-05
+        ],
+        [
+          15,
+          16,
+          -0.0011532826125897708
+        ],
+        [
+          15,
+          17,
+          0.0013604904666485462
+        ],
+        [
+          15,
+          18,
+          6.341683098040358e-05
+        ],
+        [
+          15,
+          19,
+          0.00022489372857403768
+        ],
+        [
+          15,
+          20,
+          3.655332868877051e-05
+        ],
+        [
+          15,
+          21,
+          0.001171617719025058
+        ],
+        [
+          15,
+          22,
+          -4.3842018817001005e-06
+        ],
+        [
+          15,
+          23,
+          0.0005223775586827204
+        ],
+        [
+          15,
+          24,
+          0.0020469303422186256
+        ],
+        [
+          15,
+          25,
+          0.0007143970172602602
+        ],
+        [
+          15,
+          26,
+          -1.602766069481794e-05
+        ],
+        [
+          16,
+          17,
+          -0.004110573053183807
+        ],
+        [
+          16,
+          18,
+          -1.7583917053235244e-05
+        ],
+        [
+          16,
+          19,
+          0.00013582838268561754
+        ],
+        [
+          16,
+          20,
+          8.245168500870151e-05
+        ],
+        [
+          16,
+          21,
+          -8.208345502691671e-06
+        ],
+        [
+          16,
+          22,
+          0.00015949033552827488
+        ],
+        [
+          16,
+          23,
+          4.447655726020326e-06
+        ],
+        [
+          16,
+          24,
+          0.00016248899267648994
+        ],
+        [
+          16,
+          25,
+          0.00018785981127380602
+        ],
+        [
+          16,
+          26,
+          0.005926656235806682
+        ],
+        [
+          17,
+          18,
+          6.128900820644508e-06
+        ],
+        [
+          17,
+          19,
+          8.424479928159625e-05
+        ],
+        [
+          17,
+          20,
+          0.000165505810665559
+        ],
+        [
+          17,
+          21,
+          0.00032948526267378265
+        ],
+        [
+          17,
+          22,
+          -9.514036337969912e-05
+        ],
+        [
+          17,
+          23,
+          0.0003200687064493587
+        ],
+        [
+          17,
+          24,
+          7.865524836070217e-05
+        ],
+        [
+          17,
+          25,
+          6.748476227520412e-05
+        ],
+        [
+          17,
+          26,
+          0.000432440202231747
+        ],
+        [
+          18,
+          19,
+          -0.0018864056949056936
+        ],
+        [
+          18,
+          20,
+          -0.006792356193470252
+        ],
+        [
+          18,
+          21,
+          0.00012123189401789082
+        ],
+        [
+          18,
+          22,
+          1.3767189871564711e-05
+        ],
+        [
+          18,
+          23,
+          0.00017060704187093372
+        ],
+        [
+          18,
+          24,
+          7.574615310646708e-06
+        ],
+        [
+          18,
+          25,
+          3.217112546721841e-06
+        ],
+        [
+          18,
+          26,
+          4.6739498730257186e-07
+        ],
+        [
+          19,
+          20,
+          -0.002022791256630312
+        ],
+        [
+          19,
+          21,
+          2.751196262917228e-05
+        ],
+        [
+          19,
+          22,
+          -1.564660164900641e-05
+        ],
+        [
+          19,
+          23,
+          2.0018139958985228e-05
+        ],
+        [
+          19,
+          24,
+          8.747443948148543e-05
+        ],
+        [
+          19,
+          25,
+          9.530364422754155e-06
+        ],
+        [
+          19,
+          26,
+          3.90049039079631e-07
+        ],
+        [
+          20,
+          21,
+          -2.7804187481417306e-05
+        ],
+        [
+          20,
+          22,
+          8.028214118286164e-05
+        ],
+        [
+          20,
+          23,
+          4.359589882077929e-05
+        ],
+        [
+          20,
+          24,
+          5.808736323781696e-06
+        ],
+        [
+          20,
+          25,
+          3.1605009401783954e-06
+        ],
+        [
+          20,
+          26,
+          -1.3192144060854317e-06
+        ],
+        [
+          21,
+          22,
+          -0.0021844063322375147
+        ],
+        [
+          21,
+          23,
+          -0.0033171710414196683
+        ],
+        [
+          21,
+          24,
+          0.0034510454703444065
+        ],
+        [
+          21,
+          25,
+          -0.00025062660846262463
+        ],
+        [
+          21,
+          26,
+          0.0006001426631759904
+        ],
+        [
+          22,
+          23,
+          -0.0017719425645779632
+        ],
+        [
+          22,
+          24,
+          0.000498270900843875
+        ],
+        [
+          22,
+          25,
+          0.0005483976715745116
+        ],
+        [
+          22,
+          26,
+          0.0027275771075865995
+        ],
+        [
+          23,
+          24,
+          -0.00031235679813706335
+        ],
+        [
+          23,
+          25,
+          0.003742154635863925
+        ],
+        [
+          23,
+          26,
+          0.0006284455968632573
+        ],
+        [
+          24,
+          25,
+          -0.0032194301037888505
+        ],
+        [
+          24,
+          26,
+          -0.0024905815323563478
+        ],
+        [
+          25,
+          26,
+          -0.002375472789704637
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "SERAPH",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "NH3"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 7,
+          "canonical_signature": [
+            7,
+            0,
+            4,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.8839876417367125,
+            "coordination": 3.0,
+            "covalency": 0.4707301576921692,
+            "delocalization": 5.553204208640885e-08,
+            "effective_radius": 0.71,
+            "electron_domains": 3.8675764497250453,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.6670000000000001,
+            "sigma_index": 2.8309274957313373,
+            "strain": 0.12169738223407484
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.2946625606491937,
+            "coordination": 1.0,
+            "covalency": 0.4707301680687451,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.7891922432340122,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.9436424956516398,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.2946625204383252,
+            "coordination": 1.0,
+            "covalency": 0.4707301369390173,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.789191963257021,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.9436425044280666,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.2946625606491937,
+            "coordination": 1.0,
+            "covalency": 0.4707301680687451,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.7891922432340122,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.9436424956516309,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "N",
+        "H",
+        "H",
+        "H"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          -1.0721e-05,
+          -0.0,
+          -0.0642436446
+        ],
+        [
+          -0.4701533962,
+          -0.8143030824,
+          0.3113536645
+        ],
+        [
+          0.940260673,
+          -0.0,
+          0.3113717777
+        ],
+        [
+          -0.4701533962,
+          0.8143030824,
+          0.3113536645
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -56.51308134482879,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          -0.3367256567710541,
+          0.11224187996206819,
+          0.11224189684691771,
+          0.11224187996206819
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "30f87e0e7fea52309c5da89922cdf8bab3e2139f82cdbcba104f2f0d5af45914",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "ammonia",
+      "intrinsic_cm5_charges_e": [
+        -0.8839876417367125,
+        0.2946625606491937,
+        0.2946625204383252,
+        0.2946625606491937
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          0.9436424956516398
+        ],
+        [
+          1,
+          3,
+          0.9436425044280666
+        ],
+        [
+          1,
+          4,
+          0.9436424956516309
+        ],
+        [
+          2,
+          3,
+          0.0011391685389458663
+        ],
+        [
+          2,
+          4,
+          0.0011391755014129347
+        ],
+        [
+          3,
+          4,
+          0.0011391685389533772
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "LCB26",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "camphor"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.2960035979659596,
+            "coordination": 1.0,
+            "covalency": 0.4959404145153714,
+            "delocalization": 0.0,
+            "effective_radius": 0.53,
+            "electron_domains": 2.8864388858593855,
+            "pi_index": 1.0,
+            "pi_pi_index": 0.2106072277439246,
+            "polarizability": 0.9085674546739524,
+            "sigma_index": 1.0,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.15651832554295245,
+            "coordination": 3.0,
+            "covalency": 0.47031808831350325,
+            "delocalization": 0.10099064772311978,
+            "effective_radius": 0.76,
+            "electron_domains": 2.7750474496168276,
+            "pi_index": 1.0153870418117612,
+            "pi_pi_index": 0.2106072277439246,
+            "polarizability": 1.6514325453260477,
+            "sigma_index": 2.8608851716553882,
+            "strain": 0.2365636802697389
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.07191648661934123,
+            "coordination": 4.0,
+            "covalency": 0.4517152023255547,
+            "delocalization": 0.013115635009656108,
+            "effective_radius": 0.77,
+            "electron_domains": 3.2081042852932207,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.76,
+            "sigma_index": 3.5959346827652157,
+            "strain": 0.14546713205369666
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.19058294691645783,
+            "coordination": 4.0,
+            "covalency": 0.4612625064985728,
+            "delocalization": 0.1657219320768418,
+            "effective_radius": 0.77,
+            "electron_domains": 2.774100623281612,
+            "pi_index": 0.015387041811761232,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333332,
+            "sigma_index": 3.8387391493714853,
+            "strain": 0.3531117780956323
+          }
+        },
+        {
+          "atom": 5,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.2632366352543616,
+            "coordination": 4.0,
+            "covalency": 0.46634563768968207,
+            "delocalization": 0.12938284701507588,
+            "effective_radius": 0.77,
+            "electron_domains": 2.838310110820257,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.6669999999999998,
+            "sigma_index": 3.8270176323595537,
+            "strain": 0.2979851334293423
+          }
+        },
+        {
+          "atom": 6,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.12652212632359355,
+            "coordination": 4.0,
+            "covalency": 0.45337984605838183,
+            "delocalization": 0.11731673096171406,
+            "effective_radius": 0.77,
+            "electron_domains": 3.2028356046349087,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.3956666666666666,
+            "sigma_index": 3.8059207693645716,
+            "strain": 0.1161568489264425
+          }
+        },
+        {
+          "atom": 7,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.06826252498973895,
+            "coordination": 4.0,
+            "covalency": 0.4491057182706337,
+            "delocalization": 0.009684611896060702,
+            "effective_radius": 0.77,
+            "electron_domains": 3.161605233822317,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.76,
+            "sigma_index": 3.798355131047101,
+            "strain": 0.14656650327558704
+          }
+        },
+        {
+          "atom": 8,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.18110220705274527,
+            "coordination": 4.0,
+            "covalency": 0.4557912846097726,
+            "delocalization": 0.1726808563912171,
+            "effective_radius": 0.77,
+            "electron_domains": 3.1604684006810118,
+            "pi_index": 0.0635127589634835,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333332,
+            "sigma_index": 3.8417587799998008,
+            "strain": 0.0935848526960185
+          }
+        },
+        {
+          "atom": 9,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.19573390387438067,
+            "coordination": 4.0,
+            "covalency": 0.4574661146460255,
+            "delocalization": 0.17030412095008518,
+            "effective_radius": 0.77,
+            "electron_domains": 2.6991848804554346,
+            "pi_index": 0.0635127589634835,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333332,
+            "sigma_index": 3.8733183126103032,
+            "strain": 0.40458899461409026
+          }
+        },
+        {
+          "atom": 10,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.2630269721583905,
+            "coordination": 4.0,
+            "covalency": 0.46404619433703964,
+            "delocalization": 0.13452754838846892,
+            "effective_radius": 0.77,
+            "electron_domains": 2.7996726061143615,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.6669999999999998,
+            "sigma_index": 3.854057542184166,
+            "strain": 0.32899062040466404
+          }
+        },
+        {
+          "atom": 11,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.2620395544603282,
+            "coordination": 4.0,
+            "covalency": 0.4635568025154295,
+            "delocalization": 0.13527999518333664,
+            "effective_radius": 0.77,
+            "electron_domains": 2.7905538588412973,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.6669999999999998,
+            "sigma_index": 3.8855033441672973,
+            "strain": 0.33604400526021305
+          }
+        },
+        {
+          "atom": 12,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.11074256019883195,
+            "coordination": 1.0,
+            "covalency": 0.4691255561888047,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4009306187502906,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9709528036010756,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 13,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10766289787377105,
+            "coordination": 1.0,
+            "covalency": 0.4690938045268507,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.400321692950211,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9746016695312514,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 14,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.1017336264931499,
+            "coordination": 1.0,
+            "covalency": 0.46896171109124213,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3977901688579213,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9774243053418812,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 15,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.11692829393716471,
+            "coordination": 1.0,
+            "covalency": 0.46447340150801925,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4026497851009063,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9267215754450128,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 16,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.12569819548613426,
+            "coordination": 1.0,
+            "covalency": 0.46707033887062904,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4001165235496211,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9262576067995615,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 17,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.12441666649895722,
+            "coordination": 1.0,
+            "covalency": 0.4670175450137999,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3991039776488408,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9258650303957254,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 18,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10710522721267945,
+            "coordination": 1.0,
+            "covalency": 0.4655799433013959,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4053728073568719,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9582958061407603,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 19,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10771415293895459,
+            "coordination": 1.0,
+            "covalency": 0.4654070539242168,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4020496183027469,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9443804306784886,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 20,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.11500013036395094,
+            "coordination": 1.0,
+            "covalency": 0.46398572334251714,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4002652200070214,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9441230095644652,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 21,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.11314071860560304,
+            "coordination": 1.0,
+            "covalency": 0.4639660400781572,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3998873098768736,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9566949092307374,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 22,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10346658085142263,
+            "coordination": 1.0,
+            "covalency": 0.4673145366174026,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3927414608170978,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9690248726370972,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 23,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.1038687086574902,
+            "coordination": 1.0,
+            "covalency": 0.467537452276421,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3970069402228749,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9746585523251087,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 24,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10621182816636644,
+            "coordination": 1.0,
+            "covalency": 0.46828130929624573,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4112975506934955,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9634023269484736,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 25,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10484023720480123,
+            "coordination": 1.0,
+            "covalency": 0.4672667346269149,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3979841289060815,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9731625771511595,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 26,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.10321168297070607,
+            "coordination": 1.0,
+            "covalency": 0.4670799168867213,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3944068797995097,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9717205715471303,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 27,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.11016712261236095,
+            "coordination": 1.0,
+            "covalency": 0.46758203870223214,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4040345089551054,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.952752535694649,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "O",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          -2.5651918781,
+          -0.3307472834,
+          0.2895084084
+        ],
+        [
+          -1.4299557566,
+          0.0626435588,
+          0.2727953434
+        ],
+        [
+          -0.2786584924,
+          -0.5029368652,
+          -0.5479342726
+        ],
+        [
+          -0.8642828345,
+          1.239468668,
+          1.0585335652
+        ],
+        [
+          -0.5195986247,
+          -1.8880702908,
+          -1.0848599782
+        ],
+        [
+          0.593238056,
+          1.2566890375,
+          0.5964702355
+        ],
+        [
+          0.9118797262,
+          -0.2516550601,
+          0.4235640454
+        ],
+        [
+          -0.0518795665,
+          0.5920718349,
+          -1.623043875
+        ],
+        [
+          0.5857442823,
+          1.7683399717,
+          -0.8494168851
+        ],
+        [
+          2.2801160255,
+          -0.5200900102,
+          -0.1885943376
+        ],
+        [
+          0.8120652555,
+          -1.057958707,
+          1.7152030143
+        ],
+        [
+          -1.4313772785,
+          -1.9082156213,
+          -1.685785261
+        ],
+        [
+          -0.6526059676,
+          -2.6114933968,
+          -0.2773145608
+        ],
+        [
+          0.3112860642,
+          -2.2190760653,
+          -1.7129473563
+        ],
+        [
+          1.270211314,
+          1.7948232414,
+          1.2628921291
+        ],
+        [
+          -0.9824664118,
+          1.0495711752,
+          2.1277555541
+        ],
+        [
+          -1.415571455,
+          2.1550279566,
+          0.8313719361
+        ],
+        [
+          1.5937760684,
+          1.9842848973,
+          -1.2070236777
+        ],
+        [
+          0.0106578898,
+          2.6918147022,
+          -0.9430587635
+        ],
+        [
+          -0.9868290691,
+          0.8621066716,
+          -2.1191692418
+        ],
+        [
+          0.6136918466,
+          0.2037647396,
+          -2.3973893671
+        ],
+        [
+          3.0673449772,
+          -0.1934208393,
+          0.4973501993
+        ],
+        [
+          2.4212043238,
+          -1.5907245384,
+          -0.357875535
+        ],
+        [
+          2.4399891332,
+          -0.0118773423,
+          -1.1393111578
+        ],
+        [
+          1.0232173383,
+          -2.1127392674,
+          1.5223725633
+        ],
+        [
+          1.5490522079,
+          -0.7065451364,
+          2.4428592523
+        ],
+        [
+          -0.1713540915,
+          -1.0087621102,
+          2.1861332277
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -465.54437154234733,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          -0.2457049146990114,
+          0.131023914972131,
+          -0.05307704719912715,
+          -0.09144368107965734,
+          -0.11888302976933202,
+          -0.06347092863090059,
+          -0.0426681666140592,
+          -0.07707124126317028,
+          -0.08901333882490176,
+          -0.11611788791075811,
+          -0.11584877599049453,
+          0.05626994292751136,
+          0.05382455962700533,
+          0.04901365030034249,
+          0.05912222188805344,
+          0.0681090589302697,
+          0.06708934980540454,
+          0.051366600752975444,
+          0.0521340812967756,
+          0.05820705571949031,
+          0.05670545757495554,
+          0.05093458846374804,
+          0.05094469589355238,
+          0.05144019048343135,
+          0.0517913515340887,
+          0.05071080386473309,
+          0.05461148794694398
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "cba89f092b8bb807a9618787c0c456f2302a7421c2ef35d59756e5820fce4486",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "camphor",
+      "intrinsic_cm5_charges_e": [
+        -0.2960035979659596,
+        0.15651832554295245,
+        -0.07191648661934123,
+        -0.19058294691645783,
+        -0.2632366352543616,
+        -0.12652212632359355,
+        -0.06826252498973895,
+        -0.18110220705274527,
+        -0.19573390387438067,
+        -0.2630269721583905,
+        -0.2620395544603282,
+        0.11074256019883195,
+        0.10766289787377105,
+        0.1017336264931499,
+        0.11692829393716471,
+        0.12569819548613426,
+        0.12441666649895722,
+        0.10710522721267945,
+        0.10771415293895459,
+        0.11500013036395094,
+        0.11314071860560304,
+        0.10346658085142263,
+        0.1038687086574902,
+        0.10621182816636644,
+        0.10484023720480123,
+        0.10321168297070607,
+        0.11016712261236095
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          2.2106072277439246
+        ],
+        [
+          1,
+          3,
+          -0.08603974816506443
+        ],
+        [
+          1,
+          4,
+          -0.03728738728186551
+        ],
+        [
+          1,
+          5,
+          0.022924381472064655
+        ],
+        [
+          1,
+          6,
+          0.010874799233271473
+        ],
+        [
+          1,
+          7,
+          0.01638901023126093
+        ],
+        [
+          1,
+          8,
+          0.007303918018188408
+        ],
+        [
+          1,
+          9,
+          0.0022024122612028197
+        ],
+        [
+          1,
+          10,
+          -0.0015095264372691998
+        ],
+        [
+          1,
+          11,
+          0.001389147045014307
+        ],
+        [
+          1,
+          12,
+          0.012340459684589609
+        ],
+        [
+          1,
+          13,
+          0.0017253101592692697
+        ],
+        [
+          1,
+          14,
+          0.0012051213605827637
+        ],
+        [
+          1,
+          15,
+          0.0008255643632350178
+        ],
+        [
+          1,
+          16,
+          0.014940971315814344
+        ],
+        [
+          1,
+          17,
+          0.014511848048422
+        ],
+        [
+          1,
+          18,
+          0.00010537669639000831
+        ],
+        [
+          1,
+          19,
+          1.4860812623489515e-05
+        ],
+        [
+          1,
+          20,
+          0.005544583583685713
+        ],
+        [
+          1,
+          21,
+          0.004052666004283451
+        ],
+        [
+          1,
+          22,
+          0.0011636282120548545
+        ],
+        [
+          1,
+          23,
+          8.260415220650682e-05
+        ],
+        [
+          1,
+          24,
+          0.0001410974737387825
+        ],
+        [
+          1,
+          25,
+          3.9497245431005866e-05
+        ],
+        [
+          1,
+          26,
+          9.367058782746954e-05
+        ],
+        [
+          1,
+          27,
+          0.0017410693265953272
+        ],
+        [
+          2,
+          3,
+          0.8411859652156154
+        ],
+        [
+          2,
+          4,
+          1.035086248251534
+        ],
+        [
+          2,
+          5,
+          -0.010788544863264707
+        ],
+        [
+          2,
+          6,
+          -0.030065449263822656
+        ],
+        [
+          2,
+          7,
+          0.08030515174788876
+        ],
+        [
+          2,
+          8,
+          0.0733016178087803
+        ],
+        [
+          2,
+          9,
+          -0.010531808884754182
+        ],
+        [
+          2,
+          10,
+          0.007921777149057592
+        ],
+        [
+          2,
+          11,
+          -0.0008660850834320987
+        ],
+        [
+          2,
+          12,
+          -0.0039841111330537055
+        ],
+        [
+          2,
+          13,
+          -0.002835524910313382
+        ],
+        [
+          2,
+          14,
+          0.004220225363916617
+        ],
+        [
+          2,
+          15,
+          0.004587549762531845
+        ],
+        [
+          2,
+          16,
+          0.024130488731487224
+        ],
+        [
+          2,
+          17,
+          0.021956265610815196
+        ],
+        [
+          2,
+          18,
+          -0.00029687416034601774
+        ],
+        [
+          2,
+          19,
+          -0.004112247079555024
+        ],
+        [
+          2,
+          20,
+          0.007985956864289816
+        ],
+        [
+          2,
+          21,
+          0.0061865843659174935
+        ],
+        [
+          2,
+          22,
+          0.0015569091967245028
+        ],
+        [
+          2,
+          23,
+          0.00023791027333556428
+        ],
+        [
+          2,
+          24,
+          -4.673216565066302e-05
+        ],
+        [
+          2,
+          25,
+          -0.0005480441990864144
+        ],
+        [
+          2,
+          26,
+          0.0014923118131244916
+        ],
+        [
+          2,
+          27,
+          -0.0025827310139721867
+        ],
+        [
+          3,
+          4,
+          -0.13206942746358052
+        ],
+        [
+          3,
+          5,
+          0.9040388538853457
+        ],
+        [
+          3,
+          6,
+          0.11729431786009711
+        ],
+        [
+          3,
+          7,
+          0.9158224355334165
+        ],
+        [
+          3,
+          8,
+          0.9348874281308379
+        ],
+        [
+          3,
+          9,
+          -0.0351925227762124
+        ],
+        [
+          3,
+          10,
+          -0.0013169198986854108
+        ],
+        [
+          3,
+          11,
+          -0.0024587036964067084
+        ],
+        [
+          3,
+          12,
+          -0.006726866109541295
+        ],
+        [
+          3,
+          13,
+          -0.008196493312766541
+        ],
+        [
+          3,
+          14,
+          -0.0063426131672434695
+        ],
+        [
+          3,
+          15,
+          0.008942358492954274
+        ],
+        [
+          3,
+          16,
+          0.004558350908907156
+        ],
+        [
+          3,
+          17,
+          0.006485161553259332
+        ],
+        [
+          3,
+          18,
+          -4.7161543144872195e-05
+        ],
+        [
+          3,
+          19,
+          0.0009284227012334106
+        ],
+        [
+          3,
+          20,
+          -0.002999057747870176
+        ],
+        [
+          3,
+          21,
+          -0.008255562667866362
+        ],
+        [
+          3,
+          22,
+          0.002557209507178994
+        ],
+        [
+          3,
+          23,
+          -0.0046794492565435785
+        ],
+        [
+          3,
+          24,
+          -0.004220876144311558
+        ],
+        [
+          3,
+          25,
+          -0.0036715293902526962
+        ],
+        [
+          3,
+          26,
+          0.0024198568221056854
+        ],
+        [
+          3,
+          27,
+          -0.0023306998015189587
+        ],
+        [
+          4,
+          5,
+          0.010249680223284843
+        ],
+        [
+          4,
+          6,
+          0.9669173057364254
+        ],
+        [
+          4,
+          7,
+          0.051745309348273635
+        ],
+        [
+          4,
+          8,
+          -0.00037199912653135096
+        ],
+        [
+          4,
+          9,
+          0.08743253094871584
+        ],
+        [
+          4,
+          10,
+          0.006545185053821057
+        ],
+        [
+          4,
+          11,
+          0.032843984648730104
+        ],
+        [
+          4,
+          12,
+          0.0004984933960893518
+        ],
+        [
+          4,
+          13,
+          0.00027273657194133
+        ],
+        [
+          4,
+          14,
+          0.001267933124850898
+        ],
+        [
+          4,
+          15,
+          0.010245189801855192
+        ],
+        [
+          4,
+          16,
+          0.9262576067995615
+        ],
+        [
+          4,
+          17,
+          0.9258650303957254
+        ],
+        [
+          4,
+          18,
+          0.006733138750036951
+        ],
+        [
+          4,
+          19,
+          0.010439980784156136
+        ],
+        [
+          4,
+          20,
+          -0.0008225028513975664
+        ],
+        [
+          4,
+          21,
+          0.00041444415748124374
+        ],
+        [
+          4,
+          22,
+          -6.617969300225941e-05
+        ],
+        [
+          4,
+          23,
+          0.001617670547700534
+        ],
+        [
+          4,
+          24,
+          -0.00016015586745512475
+        ],
+        [
+          4,
+          25,
+          0.003268729103078178
+        ],
+        [
+          4,
+          26,
+          -0.00019832515588405947
+        ],
+        [
+          4,
+          27,
+          0.014657477635216937
+        ],
+        [
+          5,
+          6,
+          0.006724039843031047
+        ],
+        [
+          5,
+          7,
+          -0.014110096304201847
+        ],
+        [
+          5,
+          8,
+          0.006190946275794596
+        ],
+        [
+          5,
+          9,
+          0.004909130851867944
+        ],
+        [
+          5,
+          10,
+          0.0075499265304500756
+        ],
+        [
+          5,
+          11,
+          0.011808979833094235
+        ],
+        [
+          5,
+          12,
+          0.9709528036010756
+        ],
+        [
+          5,
+          13,
+          0.9746016695312514
+        ],
+        [
+          5,
+          14,
+          0.9774243053418812
+        ],
+        [
+          5,
+          15,
+          0.0013157072480107633
+        ],
+        [
+          5,
+          16,
+          0.0007900446207909071
+        ],
+        [
+          5,
+          17,
+          0.0006582217313392041
+        ],
+        [
+          5,
+          18,
+          0.000454338254797863
+        ],
+        [
+          5,
+          19,
+          0.0001981620246829041
+        ],
+        [
+          5,
+          20,
+          0.0014282380915024131
+        ],
+        [
+          5,
+          21,
+          0.001544554807131445
+        ],
+        [
+          5,
+          22,
+          0.0010376421148300867
+        ],
+        [
+          5,
+          23,
+          0.0015606633132512241
+        ],
+        [
+          5,
+          24,
+          -0.0003676136300716773
+        ],
+        [
+          5,
+          25,
+          0.0006785591215107567
+        ],
+        [
+          5,
+          26,
+          0.0016538576404441531
+        ],
+        [
+          5,
+          27,
+          -0.0005764705164816519
+        ],
+        [
+          6,
+          7,
+          0.9476932454658397
+        ],
+        [
+          6,
+          8,
+          -0.056209972282607566
+        ],
+        [
+          6,
+          9,
+          0.9645886427172938
+        ],
+        [
+          6,
+          10,
+          -0.006581958160548024
+        ],
+        [
+          6,
+          11,
+          -0.018694355954354338
+        ],
+        [
+          6,
+          12,
+          0.0017179700685189569
+        ],
+        [
+          6,
+          13,
+          0.0002482394078497965
+        ],
+        [
+          6,
+          14,
+          0.00019524573931344218
+        ],
+        [
+          6,
+          15,
+          0.9267215754450128
+        ],
+        [
+          6,
+          16,
+          -0.002928791588819987
+        ],
+        [
+          6,
+          17,
+          0.0030357592243869945
+        ],
+        [
+          6,
+          18,
+          -0.006670004264039095
+        ],
+        [
+          6,
+          19,
+          0.0013264167085976965
+        ],
+        [
+          6,
+          20,
+          0.000274941176503547
+        ],
+        [
+          6,
+          21,
+          0.002319368209706923
+        ],
+        [
+          6,
+          22,
+          -0.003829695083696186
+        ],
+        [
+          6,
+          23,
+          0.002900841651855777
+        ],
+        [
+          6,
+          24,
+          -0.007360941700491114
+        ],
+        [
+          6,
+          25,
+          0.0025539114598041655
+        ],
+        [
+          6,
+          26,
+          -0.003144570650392374
+        ],
+        [
+          6,
+          27,
+          -0.011775051946051078
+        ],
+        [
+          7,
+          8,
+          0.04885849054928834
+        ],
+        [
+          7,
+          9,
+          0.04314703836533676
+        ],
+        [
+          7,
+          10,
+          0.9469717902734865
+        ],
+        [
+          7,
+          11,
+          0.9878676597743583
+        ],
+        [
+          7,
+          12,
+          0.003974742754078176
+        ],
+        [
+          7,
+          13,
+          -0.0025984588424476165
+        ],
+        [
+          7,
+          14,
+          -0.006812142816141828
+        ],
+        [
+          7,
+          15,
+          0.0013535155508106692
+        ],
+        [
+          7,
+          16,
+          0.0019495014201262018
+        ],
+        [
+          7,
+          17,
+          0.004645048697637639
+        ],
+        [
+          7,
+          18,
+          0.0026150074423649493
+        ],
+        [
+          7,
+          19,
+          0.005385800464626392
+        ],
+        [
+          7,
+          20,
+          0.00674153053751495
+        ],
+        [
+          7,
+          21,
+          0.0009193996856441891
+        ],
+        [
+          7,
+          22,
+          0.00020408796443377957
+        ],
+        [
+          7,
+          23,
+          -0.004099419230266155
+        ],
+        [
+          7,
+          24,
+          0.0020969114253190685
+        ],
+        [
+          7,
+          25,
+          -0.0023894283473864285
+        ],
+        [
+          7,
+          26,
+          -0.0016496693922313254
+        ],
+        [
+          7,
+          27,
+          0.014148493739817787
+        ],
+        [
+          8,
+          9,
+          1.0695661920372437
+        ],
+        [
+          8,
+          10,
+          0.011484617368695483
+        ],
+        [
+          8,
+          11,
+          0.010881916195700864
+        ],
+        [
+          8,
+          12,
+          0.0005357673864181033
+        ],
+        [
+          8,
+          13,
+          0.00443925065912376
+        ],
+        [
+          8,
+          14,
+          -0.004696649501713021
+        ],
+        [
+          8,
+          15,
+          0.006626137638766267
+        ],
+        [
+          8,
+          16,
+          0.0005294215592955665
+        ],
+        [
+          8,
+          17,
+          -0.0025786248777370097
+        ],
+        [
+          8,
+          18,
+          0.004042945904062002
+        ],
+        [
+          8,
+          19,
+          0.0130810281946841
+        ],
+        [
+          8,
+          20,
+          0.9441230095644652
+        ],
+        [
+          8,
+          21,
+          0.9566949092307374
+        ],
+        [
+          8,
+          22,
+          0.002796857123993018
+        ],
+        [
+          8,
+          23,
+          -6.522091294376714e-05
+        ],
+        [
+          8,
+          24,
+          0.0041434236244776755
+        ],
+        [
+          8,
+          25,
+          0.00016293827086916432
+        ],
+        [
+          8,
+          26,
+          0.0014543627981747935
+        ],
+        [
+          8,
+          27,
+          2.2524347795588684e-06
+        ],
+        [
+          9,
+          10,
+          0.016351799751338308
+        ],
+        [
+          9,
+          11,
+          0.006618100339882785
+        ],
+        [
+          9,
+          12,
+          0.00032014271162036337
+        ],
+        [
+          9,
+          13,
+          0.0017491848693922834
+        ],
+        [
+          9,
+          14,
+          0.0007118848718574209
+        ],
+        [
+          9,
+          15,
+          0.006739928348211595
+        ],
+        [
+          9,
+          16,
+          0.005891254878455971
+        ],
+        [
+          9,
+          17,
+          0.006661224418950446
+        ],
+        [
+          9,
+          18,
+          0.9582958061407603
+        ],
+        [
+          9,
+          19,
+          0.9443804306784886
+        ],
+        [
+          9,
+          20,
+          0.012676012105227513
+        ],
+        [
+          9,
+          21,
+          -0.0015528934499790892
+        ],
+        [
+          9,
+          22,
+          0.00027577491939761214
+        ],
+        [
+          9,
+          23,
+          0.002844237768965114
+        ],
+        [
+          9,
+          24,
+          0.0074845660120544085
+        ],
+        [
+          9,
+          25,
+          0.0017102380568906595
+        ],
+        [
+          9,
+          26,
+          0.00023568349730611235
+        ],
+        [
+          9,
+          27,
+          -7.79046127796411e-05
+        ],
+        [
+          10,
+          11,
+          -0.020700473691922665
+        ],
+        [
+          10,
+          12,
+          0.0007586314624630265
+        ],
+        [
+          10,
+          13,
+          -0.0004941364931493183
+        ],
+        [
+          10,
+          14,
+          0.0044936276344247315
+        ],
+        [
+          10,
+          15,
+          0.0009276778942118409
+        ],
+        [
+          10,
+          16,
+          -3.5632189402248713e-06
+        ],
+        [
+          10,
+          17,
+          0.001092374525725342
+        ],
+        [
+          10,
+          18,
+          -0.0015027363843901128
+        ],
+        [
+          10,
+          19,
+          0.0012731976797879321
+        ],
+        [
+          10,
+          20,
+          0.001237382459056261
+        ],
+        [
+          10,
+          21,
+          -0.00022792764560200483
+        ],
+        [
+          10,
+          22,
+          0.9690248726370972
+        ],
+        [
+          10,
+          23,
+          0.9746585523251087
+        ],
+        [
+          10,
+          24,
+          0.9634023269484736
+        ],
+        [
+          10,
+          25,
+          -0.002547608980163913
+        ],
+        [
+          10,
+          26,
+          -0.002594253944892449
+        ],
+        [
+          10,
+          27,
+          0.004010461625465736
+        ],
+        [
+          11,
+          12,
+          0.0012047470311485288
+        ],
+        [
+          11,
+          13,
+          0.005598180797757198
+        ],
+        [
+          11,
+          14,
+          -0.0003244537181163023
+        ],
+        [
+          11,
+          15,
+          -4.707182370406325e-05
+        ],
+        [
+          11,
+          16,
+          -0.0008061368229574355
+        ],
+        [
+          11,
+          17,
+          0.0016110919441531945
+        ],
+        [
+          11,
+          18,
+          -1.8730505886276797e-05
+        ],
+        [
+          11,
+          19,
+          0.0010616777645586794
+        ],
+        [
+          11,
+          20,
+          0.0010419890677181097
+        ],
+        [
+          11,
+          21,
+          -4.147482794469054e-05
+        ],
+        [
+          11,
+          22,
+          -0.0013079931662617146
+        ],
+        [
+          11,
+          23,
+          -0.0026732062066705873
+        ],
+        [
+          11,
+          24,
+          0.0045386083254683645
+        ],
+        [
+          11,
+          25,
+          0.9731625771511595
+        ],
+        [
+          11,
+          26,
+          0.9717205715471303
+        ],
+        [
+          11,
+          27,
+          0.952752535694649
+        ],
+        [
+          12,
+          13,
+          0.0003513919636583399
+        ],
+        [
+          12,
+          14,
+          -0.004510873947333786
+        ],
+        [
+          12,
+          15,
+          0.00028701634811910724
+        ],
+        [
+          12,
+          16,
+          2.5730973614305133e-05
+        ],
+        [
+          12,
+          17,
+          5.3121228119540546e-05
+        ],
+        [
+          12,
+          18,
+          2.542111726142977e-05
+        ],
+        [
+          12,
+          19,
+          -1.1799805502041081e-06
+        ],
+        [
+          12,
+          20,
+          0.0015825800365422825
+        ],
+        [
+          12,
+          21,
+          -0.0003646089491175601
+        ],
+        [
+          12,
+          22,
+          -1.0682415910615518e-05
+        ],
+        [
+          12,
+          23,
+          0.0001474660016569827
+        ],
+        [
+          12,
+          24,
+          3.2928585581770105e-06
+        ],
+        [
+          12,
+          25,
+          0.00015663618640288885
+        ],
+        [
+          12,
+          26,
+          -2.2232194015010587e-05
+        ],
+        [
+          12,
+          27,
+          8.049700206884345e-06
+        ],
+        [
+          13,
+          14,
+          -0.003774237589654403
+        ],
+        [
+          13,
+          15,
+          -2.5349768887109235e-05
+        ],
+        [
+          13,
+          16,
+          8.644218486011638e-07
+        ],
+        [
+          13,
+          17,
+          2.3152120231058753e-05
+        ],
+        [
+          13,
+          18,
+          0.00017159628124102514
+        ],
+        [
+          13,
+          19,
+          0.0003580101623495467
+        ],
+        [
+          13,
+          20,
+          0.000530989327491115
+        ],
+        [
+          13,
+          21,
+          0.0004797448014763629
+        ],
+        [
+          13,
+          22,
+          6.132840894856881e-05
+        ],
+        [
+          13,
+          23,
+          4.0349277568262086e-05
+        ],
+        [
+          13,
+          24,
+          2.328497471406943e-06
+        ],
+        [
+          13,
+          25,
+          0.0006077432032337803
+        ],
+        [
+          13,
+          26,
+          9.224828410347439e-05
+        ],
+        [
+          13,
+          27,
+          -0.00021121007627924597
+        ],
+        [
+          14,
+          15,
+          7.211470462403182e-06
+        ],
+        [
+          14,
+          16,
+          0.0002458983092036542
+        ],
+        [
+          14,
+          17,
+          0.00017392233824008058
+        ],
+        [
+          14,
+          18,
+          1.697956797429215e-05
+        ],
+        [
+          14,
+          19,
+          2.7093196000882712e-05
+        ],
+        [
+          14,
+          20,
+          -4.038990853716117e-05
+        ],
+        [
+          14,
+          21,
+          0.00311116553321133
+        ],
+        [
+          14,
+          22,
+          0.0001176600910223813
+        ],
+        [
+          14,
+          23,
+          0.0008449598232167893
+        ],
+        [
+          14,
+          24,
+          -0.0001793545296241689
+        ],
+        [
+          14,
+          25,
+          8.194609468218549e-05
+        ],
+        [
+          14,
+          26,
+          0.00010372360705324854
+        ],
+        [
+          14,
+          27,
+          1.6151486531665526e-05
+        ],
+        [
+          15,
+          16,
+          -0.0008421955790676668
+        ],
+        [
+          15,
+          17,
+          -0.0005348162807883338
+        ],
+        [
+          15,
+          18,
+          -0.0009935408535696258
+        ],
+        [
+          15,
+          19,
+          -0.0002483905336725925
+        ],
+        [
+          15,
+          20,
+          0.00028720541910606367
+        ],
+        [
+          15,
+          21,
+          0.0007824994047984259
+        ],
+        [
+          15,
+          22,
+          0.0027001378914204405
+        ],
+        [
+          15,
+          23,
+          0.000598153056328031
+        ],
+        [
+          15,
+          24,
+          -0.00011821717279815356
+        ],
+        [
+          15,
+          25,
+          0.0005205991422099372
+        ],
+        [
+          15,
+          26,
+          0.0029631446525677394
+        ],
+        [
+          15,
+          27,
+          -0.00011449525937071937
+        ],
+        [
+          16,
+          17,
+          0.004611815430424685
+        ],
+        [
+          16,
+          18,
+          0.0016892391750585034
+        ],
+        [
+          16,
+          19,
+          0.0007446222839105994
+        ],
+        [
+          16,
+          20,
+          6.798164894997894e-06
+        ],
+        [
+          16,
+          21,
+          8.997743930834538e-05
+        ],
+        [
+          16,
+          22,
+          0.00010229603063419659
+        ],
+        [
+          16,
+          23,
+          2.51441700924547e-05
+        ],
+        [
+          16,
+          24,
+          6.333781331562892e-06
+        ],
+        [
+          16,
+          25,
+          4.0964728307993344e-05
+        ],
+        [
+          16,
+          26,
+          -0.0001245208820848343
+        ],
+        [
+          16,
+          27,
+          -0.00034017985431471307
+        ],
+        [
+          17,
+          18,
+          0.0006922659646246324
+        ],
+        [
+          17,
+          19,
+          0.0017349854142246679
+        ],
+        [
+          17,
+          20,
+          5.340243840714124e-05
+        ],
+        [
+          17,
+          21,
+          0.0001226713744602306
+        ],
+        [
+          17,
+          22,
+          2.680051952767271e-05
+        ],
+        [
+          17,
+          23,
+          0.00039483867249848567
+        ],
+        [
+          17,
+          24,
+          -6.671166002263359e-05
+        ],
+        [
+          17,
+          25,
+          8.4617095171928e-05
+        ],
+        [
+          17,
+          26,
+          6.036708297137715e-05
+        ],
+        [
+          17,
+          27,
+          0.000332860771287721
+        ],
+        [
+          18,
+          19,
+          -0.0009271301253813827
+        ],
+        [
+          18,
+          20,
+          0.0029300311929765137
+        ],
+        [
+          18,
+          21,
+          -0.0017163003651832049
+        ],
+        [
+          18,
+          22,
+          -5.612694988349139e-05
+        ],
+        [
+          18,
+          23,
+          -9.442055077056327e-05
+        ],
+        [
+          18,
+          24,
+          0.0006398864187128646
+        ],
+        [
+          18,
+          25,
+          4.577378094607349e-05
+        ],
+        [
+          18,
+          26,
+          1.0535265068937394e-05
+        ],
+        [
+          18,
+          27,
+          5.183475834632299e-05
+        ],
+        [
+          19,
+          20,
+          -0.0017237606737992564
+        ],
+        [
+          19,
+          21,
+          0.0025189944963913344
+        ],
+        [
+          19,
+          22,
+          5.888552236831742e-05
+        ],
+        [
+          19,
+          23,
+          8.044972403307736e-05
+        ],
+        [
+          19,
+          24,
+          0.00023791494750674696
+        ],
+        [
+          19,
+          25,
+          0.00037412967183345276
+        ],
+        [
+          19,
+          26,
+          2.3270575028060625e-05
+        ],
+        [
+          19,
+          27,
+          -5.884455734514848e-05
+        ],
+        [
+          20,
+          21,
+          -0.0004932430023068895
+        ],
+        [
+          20,
+          22,
+          6.659355162122873e-05
+        ],
+        [
+          20,
+          23,
+          4.438337946045126e-05
+        ],
+        [
+          20,
+          24,
+          0.00018789097019711939
+        ],
+        [
+          20,
+          25,
+          8.575543415054434e-06
+        ],
+        [
+          20,
+          26,
+          0.00027337017757426654
+        ],
+        [
+          20,
+          27,
+          1.7072653042429342e-05
+        ],
+        [
+          21,
+          22,
+          -0.00010073693931955858
+        ],
+        [
+          21,
+          23,
+          -6.426418752066865e-05
+        ],
+        [
+          21,
+          24,
+          0.0010335167897893174
+        ],
+        [
+          21,
+          25,
+          -2.3351576526535832e-05
+        ],
+        [
+          21,
+          26,
+          3.1221678782289936e-05
+        ],
+        [
+          21,
+          27,
+          1.0518909952165015e-05
+        ],
+        [
+          22,
+          23,
+          -0.0025472256440041566
+        ],
+        [
+          22,
+          24,
+          -0.002194919941582793
+        ],
+        [
+          22,
+          25,
+          -0.0003787325027085846
+        ],
+        [
+          22,
+          26,
+          0.0031861620976590633
+        ],
+        [
+          22,
+          27,
+          0.0005181124842989789
+        ],
+        [
+          23,
+          24,
+          -0.002590079330350744
+        ],
+        [
+          23,
+          25,
+          0.0033369966739175837
+        ],
+        [
+          23,
+          26,
+          -0.00026631706760846567
+        ],
+        [
+          23,
+          27,
+          0.0005606622917011008
+        ],
+        [
+          24,
+          25,
+          0.0005519726813420045
+        ],
+        [
+          24,
+          26,
+          0.0004710912703328782
+        ],
+        [
+          24,
+          27,
+          0.0026655894503047574
+        ],
+        [
+          25,
+          26,
+          -0.0026619224618088383
+        ],
+        [
+          25,
+          27,
+          -0.0020275638666592765
+        ],
+        [
+          26,
+          27,
+          -0.0016862461603975123
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "SERAPH",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "cis formic acid"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.13333469721340013,
+            "coordination": 1.0,
+            "covalency": 0.47311665414081433,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3410854368683214,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.956557357968575,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.1799300793898675,
+            "coordination": 3.0,
+            "covalency": 0.483627856456176,
+            "delocalization": 0.0713926726754295,
+            "effective_radius": 0.76,
+            "electron_domains": 3.038703793864837,
+            "pi_index": 1.1768216876008717,
+            "pi_pi_index": 0.12376335685764328,
+            "polarizability": 1.0787205883057118,
+            "sigma_index": 2.956557357968575,
+            "strain": 0.07514166005882467
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.3107399643215505,
+            "coordination": 1.0,
+            "covalency": 0.5033204266076864,
+            "delocalization": 0.0,
+            "effective_radius": 0.53,
+            "electron_domains": 2.9326384486570287,
+            "pi_index": 1.0,
+            "pi_pi_index": 0.12376335685764328,
+            "polarizability": 0.9130069408274886,
+            "sigma_index": 1.0,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            4,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.38085970178859463,
+            "coordination": 2.0,
+            "covalency": 0.4726862240169026,
+            "delocalization": 0.16392499308115535,
+            "effective_radius": 0.57,
+            "electron_domains": 4.007759962560308,
+            "pi_index": 0.1768216876008717,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.959605804200133,
+            "sigma_index": 1.8706523459111084,
+            "strain": 0.01176539652545272
+          }
+        },
+        {
+          "atom": 5,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.37833488950687755,
+            "coordination": 1.0,
+            "covalency": 0.47092595941377785,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4837635098966722,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.7113333333333334,
+            "sigma_index": 0.8706523459111083,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "H",
+        "C",
+        "O",
+        "O",
+        "H"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          0.0305398741,
+          1.4992823369,
+          -0.0
+        ],
+        [
+          0.1013721536,
+          0.3953571884,
+          -0.0
+        ],
+        [
+          1.1283842225,
+          -0.2006699583,
+          -0.0
+        ],
+        [
+          -1.0911807605,
+          -0.2189035987,
+          -0.0
+        ],
+        [
+          -1.7961478482,
+          0.4380157905,
+          0.0
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -189.6332256688734,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          0.06419359604242884,
+          0.16729215513335,
+          -0.2589968317644415,
+          -0.17764059840090723,
+          0.20515167898956993
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "a6aa116ea0c2b23c5fed106ca3f0757a2d0150c6e832b104e468ffaac6c04fef",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "cis-formic-acid",
+      "intrinsic_cm5_charges_e": [
+        0.13333469721340013,
+        0.1799300793898675,
+        -0.3107399643215505,
+        -0.38085970178859463,
+        0.37833488950687755
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          0.956557357968575
+        ],
+        [
+          1,
+          3,
+          0.026628068817389237
+        ],
+        [
+          1,
+          4,
+          -0.010870702618040573
+        ],
+        [
+          1,
+          5,
+          -0.002045278097597732
+        ],
+        [
+          2,
+          3,
+          2.1237633568576433
+        ],
+        [
+          2,
+          4,
+          1.1768216876008717
+        ],
+        [
+          2,
+          5,
+          0.022647430973070853
+        ],
+        [
+          3,
+          4,
+          0.02533280928318697
+        ],
+        [
+          3,
+          5,
+          0.021832972849268318
+        ],
+        [
+          4,
+          5,
+          0.8706523459111083
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "LCB25",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "imidazole"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.1376065306294853,
+            "coordination": 3.0,
+            "covalency": 0.4917992645117757,
+            "delocalization": 0.08944378811793746,
+            "effective_radius": 0.76,
+            "electron_domains": 3.296091871777887,
+            "pi_index": 0.9076769227249677,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.1634548788017833,
+            "sigma_index": 2.9574065553675846,
+            "strain": 0.1394282722949975
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.024790623473983142,
+            "coordination": 3.0,
+            "covalency": 0.49009736231405926,
+            "delocalization": 0.10056628447312095,
+            "effective_radius": 0.76,
+            "electron_domains": 3.2477211722923354,
+            "pi_index": 1.0114484844085614,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.2751240651721405,
+            "sigma_index": 2.970095544324496,
+            "strain": 0.1481656512536492
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.031121771791120807,
+            "coordination": 3.0,
+            "covalency": 0.4933587734984002,
+            "delocalization": 0.10139944199560548,
+            "effective_radius": 0.76,
+            "electron_domains": 3.253058611081873,
+            "pi_index": 0.8171642755778485,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.255184519670461,
+            "sigma_index": 2.9458326276773943,
+            "strain": 0.19754464416891926
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 7,
+          "canonical_signature": [
+            7,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.45709766408939567,
+            "coordination": 3.0,
+            "covalency": 0.4915782697590676,
+            "delocalization": 0.1278412466668029,
+            "effective_radius": 0.71,
+            "electron_domains": 3.467278708834532,
+            "pi_index": 0.4102537972394029,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.2296734158657772,
+            "sigma_index": 2.9125984306498354,
+            "strain": 0.1609531417175189
+          }
+        },
+        {
+          "atom": 5,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.37226856866457697,
+            "coordination": 1.0,
+            "covalency": 0.48717117723449477,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.8067918918793565,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.9125984306498353,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 6,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.14929310575298343,
+            "coordination": 1.0,
+            "covalency": 0.48480933212003346,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.455380270790521,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9574065553675843,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 7,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.1351205499889846,
+            "coordination": 1.0,
+            "covalency": 0.48394162858316975,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.459563248237185,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9700955443244959,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 8,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.13809042177660188,
+            "coordination": 1.0,
+            "covalency": 0.4844781834709576,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4676572437398794,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9458326276773942,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 9,
+          "atomic_number": 7,
+          "canonical_signature": [
+            7,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.4193691174581326,
+            "coordination": 2.0,
+            "covalency": 0.48906924649127403,
+            "delocalization": 0.02283524968693036,
+            "effective_radius": 0.6,
+            "electron_domains": 2.8849590711092854,
+            "pi_index": 1.0407602713340556,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.3192297871565046,
+            "sigma_index": 2.0,
+            "strain": 0.32725448679845176
+          }
+        }
+      ],
+      "atoms": [
+        "C",
+        "C",
+        "C",
+        "N",
+        "H",
+        "H",
+        "H",
+        "H",
+        "N"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          -1.0825648379,
+          0.2827254502,
+          -0.0
+        ],
+        [
+          0.630826227,
+          -0.9786927938,
+          0.0
+        ],
+        [
+          1.1119412472,
+          0.2990723889,
+          0.0
+        ],
+        [
+          0.0003409839,
+          1.0976016054,
+          -0.0
+        ],
+        [
+          -0.0091127934,
+          2.1020418806,
+          -0.0
+        ],
+        [
+          -2.093544813,
+          0.6623536168,
+          -0.0
+        ],
+        [
+          1.1948813348,
+          -1.8984904113,
+          0.0
+        ],
+        [
+          2.1112255329,
+          0.7012339615,
+          0.0
+        ],
+        [
+          -0.7368122255,
+          -0.9772697298,
+          -0.0
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -226.0432126678624,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          0.0376176734297653,
+          -0.051818132117049664,
+          -0.05241654522419381,
+          -0.09666168963810584,
+          0.1774836498454837,
+          0.07700160437747772,
+          0.07068755602844168,
+          0.07412080287730394,
+          -0.23601491957912302
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "656b9a8b761a35b6321ef4031d71a4eb9fd97cc670c2ba385e5a71f06e1e3186",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "imidazole",
+      "intrinsic_cm5_charges_e": [
+        0.1376065306294853,
+        -0.024790623473983142,
+        -0.031121771791120807,
+        -0.45709766408939567,
+        0.37226856866457697,
+        0.14929310575298343,
+        0.1351205499889846,
+        0.13809042177660188,
+        -0.4193691174581326
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          0.030228067631154577
+        ],
+        [
+          1,
+          3,
+          0.10992203019161578
+        ],
+        [
+          1,
+          4,
+          1.235727328730514
+        ],
+        [
+          1,
+          5,
+          0.008177473679631
+        ],
+        [
+          1,
+          6,
+          0.9574065553675843
+        ],
+        [
+          1,
+          7,
+          0.008760963425399535
+        ],
+        [
+          1,
+          8,
+          0.01096066387066913
+        ],
+        [
+          1,
+          9,
+          1.6719495939944538
+        ],
+        [
+          2,
+          3,
+          1.6426378070689596
+        ],
+        [
+          2,
+          4,
+          0.016957675181189975
+        ],
+        [
+          2,
+          5,
+          0.008090294546872177
+        ],
+        [
+          2,
+          6,
+          0.013183873956855167
+        ],
+        [
+          2,
+          7,
+          0.9700955443244959
+        ],
+        [
+          2,
+          8,
+          0.010573273239088311
+        ],
+        [
+          2,
+          9,
+          1.3688106773396018
+        ],
+        [
+          3,
+          4,
+          1.174526468508889
+        ],
+        [
+          3,
+          5,
+          0.00763598359608631
+        ],
+        [
+          3,
+          6,
+          0.010134336276743013
+        ],
+        [
+          3,
+          7,
+          -0.008121974852098266
+        ],
+        [
+          3,
+          8,
+          0.9458326276773942
+        ],
+        [
+          3,
+          9,
+          0.01686483840644881
+        ],
+        [
+          4,
+          5,
+          0.9125984306498353
+        ],
+        [
+          4,
+          6,
+          -0.009265311301997547
+        ],
+        [
+          4,
+          7,
+          0.00506727572821121
+        ],
+        [
+          4,
+          8,
+          -0.004081787688919647
+        ],
+        [
+          4,
+          9,
+          0.031183574195317032
+        ],
+        [
+          5,
+          6,
+          -0.0009596370208020146
+        ],
+        [
+          5,
+          7,
+          0.0015084421327495
+        ],
+        [
+          5,
+          8,
+          -0.000837660833249977
+        ],
+        [
+          5,
+          9,
+          0.013928691834838252
+        ],
+        [
+          6,
+          7,
+          0.0009749815565467903
+        ],
+        [
+          6,
+          8,
+          0.001197216975718093
+        ],
+        [
+          6,
+          9,
+          0.006580038733156527
+        ],
+        [
+          7,
+          8,
+          0.0005455755574450412
+        ],
+        [
+          7,
+          9,
+          0.002628517781254106
+        ],
+        [
+          8,
+          9,
+          0.01358038886396486
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "LCB25",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "trans formic acid"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.14949617120832934,
+            "coordination": 1.0,
+            "covalency": 0.47583211283117555,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.3709477401956915,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9476665424161255,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.18393066966564398,
+            "coordination": 3.0,
+            "covalency": 0.48505829418452867,
+            "delocalization": 0.06929421148131992,
+            "effective_radius": 0.76,
+            "electron_domains": 3.089912070895736,
+            "pi_index": 1.205687114722292,
+            "pi_pi_index": 0.07731570908641472,
+            "polarizability": 1.0808249424938117,
+            "sigma_index": 2.9476665424161252,
+            "strain": 0.1250524871394908
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.33344083282892734,
+            "coordination": 1.0,
+            "covalency": 0.50282941681571,
+            "delocalization": 0.0,
+            "effective_radius": 0.53,
+            "electron_domains": 2.953518688428244,
+            "pi_index": 1.0022883623171353,
+            "pi_pi_index": 0.07731570908641472,
+            "polarizability": 0.9154065830607945,
+            "sigma_index": 1.0,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            4,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.38510342591711166,
+            "coordination": 2.0,
+            "covalency": 0.47299774317751275,
+            "delocalization": 0.15885902089492224,
+            "effective_radius": 0.57,
+            "electron_domains": 3.9938622281860185,
+            "pi_index": 0.2033987524051568,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.9551018077787272,
+            "sigma_index": 1.853929800202986,
+            "strain": 0.04153027918192587
+          }
+        },
+        {
+          "atom": 5,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.38511741787206577,
+            "coordination": 1.0,
+            "covalency": 0.4694821334483251,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4588003263371865,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.7113333333333334,
+            "sigma_index": 0.8539298002029861,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "H",
+        "C",
+        "O",
+        "O",
+        "H"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          0.0316078792,
+          1.5066245061,
+          0.0
+        ],
+        [
+          0.100846523,
+          0.4096973279,
+          0.0
+        ],
+        [
+          1.1190551678,
+          -0.2142256535,
+          -0.0
+        ],
+        [
+          -1.1249243433,
+          -0.1197149204,
+          0.0
+        ],
+        [
+          -1.0224130353,
+          -1.0834224514,
+          0.0
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -189.64020631930734,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          0.07821970617568956,
+          0.17282231066591086,
+          -0.27787403336868705,
+          -0.18205471006167867,
+          0.20888672658876534
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "e819941121e7b873b47de7de84727200d5a180d4b3d35f2cf118405a09de473a",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "trans-formic-acid",
+      "intrinsic_cm5_charges_e": [
+        0.14949617120832934,
+        0.18393066966564398,
+        -0.33344083282892734,
+        -0.38510342591711166,
+        0.38511741787206577
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          0.9476665424161255
+        ],
+        [
+          1,
+          3,
+          0.024555407350657386
+        ],
+        [
+          1,
+          4,
+          -0.021387957281571213
+        ],
+        [
+          1,
+          5,
+          0.021712100750129974
+        ],
+        [
+          2,
+          3,
+          2.07960407140355
+        ],
+        [
+          2,
+          4,
+          1.2033987524051568
+        ],
+        [
+          2,
+          5,
+          0.0214304385258444
+        ],
+        [
+          3,
+          4,
+          0.03606685520792279
+        ],
+        [
+          3,
+          5,
+          0.02642549622874886
+        ],
+        [
+          4,
+          5,
+          0.8539298002029861
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "LCB25",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "uracil"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 7,
+          "canonical_signature": [
+            7,
+            0,
+            4,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.43668660335753434,
+            "coordination": 3.0,
+            "covalency": 0.4875157565288804,
+            "delocalization": 0.1324996770840516,
+            "effective_radius": 0.71,
+            "electron_domains": 3.9620211401858865,
+            "pi_index": 0.25723415652738424,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.2483724419491034,
+            "sigma_index": 2.883425630216491,
+            "strain": 0.15825698262394283
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            3
+          ],
+          "descriptor": {
+            "charge": 0.36238062192736414,
+            "coordination": 3.0,
+            "covalency": 0.4998524957086629,
+            "delocalization": 0.05722285740357293,
+            "effective_radius": 0.76,
+            "electron_domains": 2.629370294304765,
+            "pi_index": 1.2785650230068435,
+            "pi_pi_index": 0.09399539597599188,
+            "polarizability": 1.355516242308664,
+            "sigma_index": 3.0,
+            "strain": 0.2928303722377403
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 7,
+          "canonical_signature": [
+            7,
+            0,
+            4,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.44816141820807265,
+            "coordination": 3.0,
+            "covalency": 0.49051807908306827,
+            "delocalization": 0.13039900431300488,
+            "effective_radius": 0.71,
+            "electron_domains": 3.5006897603419533,
+            "pi_index": 0.2767127946650443,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.2457557057068822,
+            "sigma_index": 2.8993650979675687,
+            "strain": 0.09737699701130519
+          }
+        },
+        {
+          "atom": 4,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.04118147393231807,
+            "coordination": 3.0,
+            "covalency": 0.49380143631496803,
+            "delocalization": 0.09492429416941395,
+            "effective_radius": 0.76,
+            "electron_domains": 3.2658095693047047,
+            "pi_index": 0.8815616439765208,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.25440579762693,
+            "sigma_index": 2.931486093691407,
+            "strain": 0.11583256658755989
+          }
+        },
+        {
+          "atom": 5,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": -0.14283489726593687,
+            "coordination": 3.0,
+            "covalency": 0.49229687508178493,
+            "delocalization": 0.10935365127223969,
+            "effective_radius": 0.76,
+            "electron_domains": 3.1469882197810612,
+            "pi_index": 0.8378850916628817,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.3956666666666666,
+            "sigma_index": 2.949176767455484,
+            "strain": 0.08649964723969866
+          }
+        },
+        {
+          "atom": 6,
+          "atomic_number": 6,
+          "canonical_signature": [
+            6,
+            0,
+            3,
+            2
+          ],
+          "descriptor": {
+            "charge": 0.2412942249068992,
+            "coordination": 3.0,
+            "covalency": 0.49406398456631945,
+            "delocalization": 0.07083901820158732,
+            "effective_radius": 0.76,
+            "electron_domains": 2.5793427404137117,
+            "pi_index": 1.2168889413016988,
+            "pi_pi_index": 0.06661996200438147,
+            "polarizability": 1.4924951910360804,
+            "sigma_index": 3.0005581957234138,
+            "strain": 0.3242853384053491
+          }
+        },
+        {
+          "atom": 7,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.3831838024108022,
+            "coordination": 1.0,
+            "covalency": 0.4811937811084394,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.7944548827745214,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.882867434493077,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 8,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.3486730050434337,
+            "coordination": 1.0,
+            "covalency": 0.5100474347094318,
+            "delocalization": 0.0,
+            "effective_radius": 0.53,
+            "electron_domains": 2.9432485496741134,
+            "pi_index": 1.0000749620539675,
+            "pi_pi_index": 0.09399539597599188,
+            "polarizability": 0.9146093296625358,
+            "sigma_index": 1.0,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 9,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.3816791022033764,
+            "coordination": 1.0,
+            "covalency": 0.4848495774736463,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.8031819929041224,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.8113333333333334,
+            "sigma_index": 0.8993650979675689,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 10,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.15464536573398535,
+            "coordination": 1.0,
+            "covalency": 0.48339570965190465,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4411357721545348,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.9314860936914073,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 11,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "descriptor": {
+            "charge": 0.14331844259463958,
+            "coordination": 1.0,
+            "covalency": 0.4813718706093242,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 1.4596548033595986,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 1.0313333333333334,
+            "sigma_index": 0.949176767455484,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 12,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            3,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.3313271098344076,
+            "coordination": 1.0,
+            "covalency": 0.5061337025187237,
+            "delocalization": 0.0,
+            "effective_radius": 0.53,
+            "electron_domains": 2.9538203620369297,
+            "pi_index": 1.0051086033757854,
+            "pi_pi_index": 0.06661996200438147,
+            "polarizability": 0.9158452917098044,
+            "sigma_index": 1.0,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "N",
+        "C",
+        "N",
+        "C",
+        "C",
+        "C",
+        "H",
+        "O",
+        "H",
+        "H",
+        "H",
+        "O"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          -0.0004082627,
+          0.9794175148,
+          0.0
+        ],
+        [
+          -1.2247753073,
+          0.3587411941,
+          0.0
+        ],
+        [
+          -1.1327124156,
+          -1.0204423546,
+          0.0
+        ],
+        [
+          0.0514653325,
+          -1.697379078,
+          0.0
+        ],
+        [
+          1.2334747327,
+          -1.0626854824,
+          0.0
+        ],
+        [
+          1.2678613106,
+          0.3883047302,
+          -0.0
+        ],
+        [
+          -0.0228264211,
+          1.9893041991,
+          0.0
+        ],
+        [
+          -2.2818358197,
+          0.9422612114,
+          0.0
+        ],
+        [
+          -2.0135883875,
+          -1.5066432343,
+          0.0
+        ],
+        [
+          -0.029839098,
+          -2.7774125736,
+          0.0
+        ],
+        [
+          2.17017976,
+          -1.5981530492,
+          0.0
+        ],
+        [
+          2.2616678503,
+          1.0778712721,
+          -0.0
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -414.5324469038742,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          -0.10259281235606357,
+          0.19877723227588914,
+          -0.09883223967618163,
+          0.02430410973332295,
+          -0.10328141308991048,
+          0.1457007607898346,
+          0.18162876393151026,
+          -0.3107364187370425,
+          0.18229918633071893,
+          0.08861625519104052,
+          0.08375631052947571,
+          -0.28963973492259387
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "59ae25b943716fabd8605cd71a0384cc6c824377df37e219574e03a3ffa401bc",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "uracil",
+      "intrinsic_cm5_charges_e": [
+        -0.43668660335753434,
+        0.36238062192736414,
+        -0.44816141820807265,
+        0.04118147393231807,
+        -0.14283489726593687,
+        0.2412942249068992,
+        0.3831838024108022,
+        -0.3486730050434337,
+        0.3816791022033764,
+        0.15464536573398535,
+        0.14331844259463958,
+        -0.3313271098344076
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          1.1698289788508167
+        ],
+        [
+          1,
+          3,
+          -0.02593884314926579
+        ],
+        [
+          1,
+          4,
+          0.022986251557262024
+        ],
+        [
+          1,
+          5,
+          -0.037871229329475634
+        ],
+        [
+          1,
+          6,
+          1.0879633733999812
+        ],
+        [
+          1,
+          7,
+          0.882867434493077
+        ],
+        [
+          1,
+          8,
+          0.008622944600938749
+        ],
+        [
+          1,
+          9,
+          0.008000208100157849
+        ],
+        [
+          1,
+          10,
+          -0.000498767438961953
+        ],
+        [
+          1,
+          11,
+          0.0056990518366303285
+        ],
+        [
+          1,
+          12,
+          0.007890298322046317
+        ],
+        [
+          2,
+          3,
+          1.1086610821020593
+        ],
+        [
+          2,
+          4,
+          0.033206729965990056
+        ],
+        [
+          2,
+          5,
+          -0.0009979815523703773
+        ],
+        [
+          2,
+          6,
+          0.04094961708901454
+        ],
+        [
+          2,
+          7,
+          0.010139891109432881
+        ],
+        [
+          2,
+          8,
+          2.0940703580299593
+        ],
+        [
+          2,
+          9,
+          0.011938673996925643
+        ],
+        [
+          2,
+          10,
+          0.008168662525236332
+        ],
+        [
+          2,
+          11,
+          -0.00024077391433211234
+        ],
+        [
+          2,
+          12,
+          0.013538676577922626
+        ],
+        [
+          3,
+          4,
+          1.168051712562985
+        ],
+        [
+          3,
+          5,
+          0.02845656964198162
+        ],
+        [
+          3,
+          6,
+          0.01852115024381604
+        ],
+        [
+          3,
+          7,
+          0.007754666964438106
+        ],
+        [
+          3,
+          8,
+          -0.00316682348086095
+        ],
+        [
+          3,
+          9,
+          0.8993650979675689
+        ],
+        [
+          3,
+          10,
+          -0.0031549172838505474
+        ],
+        [
+          3,
+          11,
+          0.006199468939154186
+        ],
+        [
+          3,
+          12,
+          0.02225705483591794
+        ],
+        [
+          4,
+          5,
+          1.7135099314135358
+        ],
+        [
+          4,
+          6,
+          0.05371222120016794
+        ],
+        [
+          4,
+          7,
+          -0.00016176824955662185
+        ],
+        [
+          4,
+          8,
+          0.009864801814103062
+        ],
+        [
+          4,
+          9,
+          0.004037394748469922
+        ],
+        [
+          4,
+          10,
+          0.9314860936914073
+        ],
+        [
+          4,
+          11,
+          -0.00422753719864724
+        ],
+        [
+          4,
+          12,
+          0.042426095247028464
+        ],
+        [
+          5,
+          6,
+          1.124375160249346
+        ],
+        [
+          5,
+          7,
+          0.01194041045554011
+        ],
+        [
+          5,
+          8,
+          0.02467841480999168
+        ],
+        [
+          5,
+          9,
+          0.007486214207564729
+        ],
+        [
+          5,
+          10,
+          0.0197942417013253
+        ],
+        [
+          5,
+          11,
+          0.949176767455484
+        ],
+        [
+          5,
+          12,
+          -0.007820159633810046
+        ],
+        [
+          6,
+          7,
+          0.015043102609260506
+        ],
+        [
+          6,
+          8,
+          0.010562775052013284
+        ],
+        [
+          6,
+          9,
+          0.00040329870154055624
+        ],
+        [
+          6,
+          10,
+          0.006956199846103152
+        ],
+        [
+          6,
+          11,
+          0.005509219320088199
+        ],
+        [
+          6,
+          12,
+          2.071728565380167
+        ],
+        [
+          7,
+          8,
+          0.012329386543069231
+        ],
+        [
+          7,
+          9,
+          0.001590815970109846
+        ],
+        [
+          7,
+          10,
+          0.00036897649822128034
+        ],
+        [
+          7,
+          11,
+          0.0017216159776280123
+        ],
+        [
+          7,
+          12,
+          0.01903069301240616
+        ],
+        [
+          8,
+          9,
+          0.016979996255941134
+        ],
+        [
+          8,
+          10,
+          0.002624483509421086
+        ],
+        [
+          8,
+          11,
+          0.00016756601487582826
+        ],
+        [
+          8,
+          12,
+          0.0049783162050993455
+        ],
+        [
+          9,
+          10,
+          -0.0019949626317582523
+        ],
+        [
+          9,
+          11,
+          0.0015579417758747962
+        ],
+        [
+          9,
+          12,
+          0.0005423114707625882
+        ],
+        [
+          10,
+          11,
+          7.235399081735763e-05
+        ],
+        [
+          10,
+          12,
+          0.0018335924260308584
+        ],
+        [
+          11,
+          12,
+          0.009584244838440574
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "LCB25",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    },
+    {
+      "aliases": [
+        "H2O"
+      ],
+      "atomic_synthons": [
+        {
+          "atom": 1,
+          "atomic_number": 8,
+          "canonical_signature": [
+            8,
+            0,
+            4,
+            1
+          ],
+          "descriptor": {
+            "charge": -0.6731846081068076,
+            "coordination": 2.0,
+            "covalency": 0.46977680700988633,
+            "delocalization": 6.977952663569502e-11,
+            "effective_radius": 0.57,
+            "electron_domains": 4.00202061193667,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.7113333333333334,
+            "sigma_index": 1.8148688785869096,
+            "strain": 0.07172266870835481
+          }
+        },
+        {
+          "atom": 2,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.33659230406861224,
+            "coordination": 1.0,
+            "covalency": 0.4697768070272675,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.7510103061194393,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.7113333333333334,
+            "sigma_index": 0.907434439305329,
+            "strain": 0.0
+          }
+        },
+        {
+          "atom": 3,
+          "atomic_number": 1,
+          "canonical_signature": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "descriptor": {
+            "charge": 0.33659230403819534,
+            "coordination": 1.0,
+            "covalency": 0.4697768069925052,
+            "delocalization": 0.0,
+            "effective_radius": 0.32,
+            "electron_domains": 0.751010305817231,
+            "pi_index": 0.0,
+            "pi_pi_index": 0.0,
+            "polarizability": 0.7113333333333334,
+            "sigma_index": 0.9074344392815807,
+            "strain": 0.0
+          }
+        }
+      ],
+      "atoms": [
+        "O",
+        "H",
+        "H"
+      ],
+      "charge": 0,
+      "coordinates_angstrom": [
+        [
+          2.117e-07,
+          0.1154754265,
+          0.0
+        ],
+        [
+          0.7615654141,
+          -0.4682703171,
+          0.0
+        ],
+        [
+          -0.761565625,
+          -0.4682694898,
+          0.0
+        ]
+      ],
+      "electronic_observables": {
+        "backend": "PySCF/APOC canonical PBE0/def2-TZVP state",
+        "bond_order_model": "Mayer",
+        "charge_model": "CM5",
+        "energy_hartree": -76.3773306060948,
+        "environment": "isolated rigid monomer",
+        "hirshfeld_charges_e": [
+          -0.33861425466221773,
+          0.1693071273186062,
+          0.16930712734361153
+        ],
+        "level": "PBE0/def2-TZVP"
+      },
+      "geometry": {
+        "level": "PBE0/def2-TZVP optimized",
+        "sha256": "3ca45174a66efb5dc7cdae66add426e7a1f5059417cde801d79767fd70700bf3",
+        "source": "canonical ZAFF L0 optimization"
+      },
+      "id": "water",
+      "intrinsic_cm5_charges_e": [
+        -0.6731846081068076,
+        0.33659230406861224,
+        0.33659230403819534
+      ],
+      "mayer_bond_orders": [
+        [
+          1,
+          2,
+          0.907434439305329
+        ],
+        [
+          1,
+          3,
+          0.9074344392815807
+        ],
+        [
+          2,
+          3,
+          0.005529231927125023
+        ]
+      ],
+      "multiplicity": 1,
+      "provenance": {
+        "intramolecular_only": true,
+        "noncovalent_contacts_modify_intrinsic_state": false,
+        "source_dataset": "canonical-zaff-l0",
+        "source_library": "LCB26",
+        "supersedes_reference_status": "TRANSITIONAL_NOT_FOR_PRODUCTION_GA"
+      },
+      "reference_status": "DEFINITIVE",
+      "schema": "matrix.zaff.monomer_reference.v1"
+    }
+  ],
+  "schema": "matrix.zaff.force_field_library.v1"
+}

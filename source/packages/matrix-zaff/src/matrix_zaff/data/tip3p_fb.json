@@ -1,0 +1,70 @@
+{
+  "schema": "matrix.zaff.water_model.v1",
+  "name": "TIP3P-FB",
+  "rigid": true,
+  "provenance": {
+    "water_model_doi": "10.1021/jz500737m",
+    "uvdw_doi": "10.1021/acs.jctc.2c00046",
+    "uvdw_source": "Table 1 and Eq. 17",
+    "uvdw_translation": "SOURCE_POLYNOMIAL_COMPACTIFIED_C2_THEN_FITTED_TO_MORSE_PLUS_SIGNED_GAUSSIANS"
+  },
+  "geometry": {
+    "oh_distance_angstrom": 1.0118,
+    "hoh_angle_degree": 108.15
+  },
+  "sites": {
+    "O": {
+      "mass_dalton": 15.99943,
+      "charge_e": -0.84844,
+      "sigma_angstrom": 3.1780,
+      "epsilon_kcal_per_mol": 0.15587
+    },
+    "H": {
+      "mass_dalton": 1.007947,
+      "charge_e": 0.42422,
+      "sigma_angstrom": 0.0,
+      "epsilon_kcal_per_mol": 0.0
+    }
+  },
+  "uvdw": {
+    "application_site": "O",
+    "source_coordinate": "distance_from_wall_angstrom",
+    "source_energy_unit": "kJ/mol",
+    "source_polynomial_coefficients_ascending": [
+      6.958446,
+      -13.81768,
+      -7.095241,
+      26.78593,
+      -22.24122,
+      9.410601,
+      -2.343013,
+      0.3571387,
+      -0.03280733,
+      0.001669372,
+      -0.00003616741
+    ],
+    "compact_cutoff_angstrom": 9.0,
+    "morse_parameters_atomic_units": [
+      0.0009036154600151354,
+      5.102260538736135,
+      0.23518987140888892
+    ],
+    "gaussian_terms_atomic_units": [
+      [-0.0015808750640908958, 1.0629709455700282, 0.22577255352379472],
+      [0.0005082170407579141, 3.1889128367100845, 0.22577255352379472],
+      [0.00016371958405112563, 5.3148547278501415, 0.22577255352379472],
+      [0.00015032029025827823, 7.4407966189901975, 0.22577255352379472],
+      [0.0004807363429769483, 9.566738510130254, 0.22577255352379472],
+      [-0.0000947247105984893, 11.69268040127031, 0.22577255352379472],
+      [0.0004303643479860436, 13.818622292410367, 0.22577255352379472],
+      [-0.0005104781427385762, 15.944564183550424, 0.22577255352379472]
+    ],
+    "fit_grid": {
+      "minimum_angstrom": 0.0,
+      "maximum_angstrom": 9.0,
+      "points": 361
+    },
+    "fit_rmse_kj_per_mol": 0.03746025398426733,
+    "fit_max_abs_error_kj_per_mol": 0.35885794095213064
+  }
+}

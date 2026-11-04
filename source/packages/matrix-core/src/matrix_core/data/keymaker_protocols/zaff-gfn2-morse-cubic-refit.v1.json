@@ -1,0 +1,37 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "zaff-gfn2-morse-cubic-refit.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "architect",
+  "entrypoint": "KEYMAKER",
+  "title": "B3LYP normal-cubic calibration of QM Morse exponents",
+  "summary": "Refit only QM Morse exponents of a frozen GFN2 plus Delta(ZAFF) field against matched B3LYP normal-mode cubics; retain the independent GFN2 exponents and reference energy, gradient and Hessian.",
+  "calculation_protocol": "field.fit.v1",
+  "aliases": ["zaff_gfn2_morse_cubic_refit"],
+  "dependencies": ["zaff-gfn2-residual-fit.v3"],
+  "routes": [{"menu": "prediction_assignment", "action": "architect.fit_validate_zaff", "option_equals": {"model": "gfn2_morse_cubic_refit"}}],
+  "inputs": [
+    {"name": "two_morse_field", "schema": "matrix.zaff.force_field.v1", "required": true},
+    {"name": "same_method_computed_cubic_job", "schema": "matrix.trinity.computed_cubic_job.v1", "required": true},
+    {"name": "b3lyp_anharmonic_log", "schema": "matrix.qm.anharmonic_log.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "calibrated_field", "schema": "matrix.zaff.force_field.v1", "required": true},
+    {"name": "cubic_refit_report", "schema": "matrix.architect.morse_cubic_refit.v1", "required": true}
+  ],
+  "gates": [
+    "base field and computed F2/F3 job hashes agree",
+    "B3LYP atom order and aligned geometry agree with the composite",
+    "normal modes are matched by mass-weighted overlap and arbitrary phases are resolved explicitly",
+    "only QM Morse alphas are fitted; GFN2 third-derivative alphas remain fixed",
+    "QM Morse alphas remain positive and within one half to twice their library values",
+    "normal-mode semidiagonal cubic RMSE improves",
+    "ZAFF correction energy, gradient and Hessian at G remain fixed",
+    "original library alphas and full provenance are retained"
+  ],
+  "implementation": {"owner_api": "matrix_architect.morse_cubic_refit", "action": "refit_gfn2_zaff_morse_cubics"},
+  "coordinate_policy": "Fit the QM Morse exponents through the exact rank-one primitive-to-normal cubic response. Match B3LYP normal modes by overlap after rigid alignment and retain distinct resident GFN2 exponents.",
+  "backend_policy": "Use the approved v3 two-Morse field and its same-method TRINITY F2/F3 job; use a Gaussian B3LYP Freq=Anharm log only as the cubic calibration reference.",
+  "change_policy": "new_version_and_explicit_approval"
+}

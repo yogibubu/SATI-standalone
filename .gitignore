@@ -1,0 +1,14 @@
+env/
+.venv/
+wheels/
+bin/
+results/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.so
+*.dylib
+wheelhouse-manifest.json
+.DS_Store

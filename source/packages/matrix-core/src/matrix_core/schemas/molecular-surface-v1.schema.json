@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.core.molecular_surface.v1",
+  "title": "Shared sampled molecular surface envelope",
+  "description": "The typed reader additionally verifies the digest, cross-array shapes, canonical units, atom identity, grid ordering, frame agreement and modal representation. This schema is not a physical accuracy certificate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sha256",
+    "surface"
+  ],
+  "properties": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "identifier",
+        "atom_ids",
+        "atomic_numbers",
+        "masses_amu",
+        "coordinates",
+        "geometries",
+        "states",
+        "cartesian_frame",
+        "energy_reference",
+        "provenance",
+        "representation",
+        "charge",
+        "reference_geometry",
+        "modal_displacements"
+      ],
+      "properties": {
+        "schema": {
+          "const": "matrix.core.molecular_surface.v1"
+        },
+        "identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "atom_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "atomic_numbers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 118
+          }
+        },
+        "masses_amu": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/coordinate"
+          }
+        },
+        "geometries": {
+          "$ref": "#/$defs/tensor"
+        },
+        "states": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/state"
+          }
+        },
+        "cartesian_frame": {
+          "type": "string",
+          "minLength": 1
+        },
+        "energy_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance": {
+          "type": "object",
+          "required": [
+            "producer",
+            "source_identifier"
+          ],
+          "properties": {
+            "producer": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_identifier": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "representation": {
+          "enum": [
+            "INTERNAL_PATH",
+            "LINEAR_CARTESIAN_MODAL"
+          ]
+        },
+        "charge": {
+          "type": "integer"
+        },
+        "reference_geometry": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/tensor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modal_displacements": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/tensor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "tensor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shape",
+        "values",
+        "unit",
+        "frame"
+      ],
+      "properties": {
+        "shape": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number"
+          }
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frame": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "coordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identifier",
+        "values",
+        "unit",
+        "period",
+        "frequency_cm"
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "values": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "unit": {
+          "enum": [
+            "radian",
+            "angstrom",
+            "dimensionless"
+          ]
+        },
+        "period": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "frequency_cm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "identifier",
+        "energies",
+        "gradients",
+        "hessians",
+        "properties"
+      ],
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "energies": {
+          "$ref": "#/$defs/tensor"
+        },
+        "gradients": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/tensor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hessians": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/tensor"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/tensor"
+          }
+        }
+      }
+    }
+  }
+}

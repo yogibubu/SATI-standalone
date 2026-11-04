@@ -1,0 +1,38 @@
+{
+  "schema": "matrix.chem.ean_pca_lcb25.v2",
+  "source": "LCB26 enriched PCS2 records derived from LCB25",
+  "record_count": 328,
+  "atom_count": 1871,
+  "elements": [6, 7, 8],
+  "features": ["cm5_charge_e", "compactness", "delocalization", "strain"],
+  "mean": [
+    -0.13734891022163218,
+    0.4824380525481825,
+    1.716369402396528,
+    0.1812098962371966
+  ],
+  "scale": [
+    0.1669606535412635,
+    0.01620347815126661,
+    0.6780359588282264,
+    0.1600734214110363
+  ],
+  "pc1": [
+    -0.04999999999999991,
+    0.6108907966204574,
+    0.5983707522244285,
+    -0.5160086021441839
+  ],
+  "eigenvalue": 2.157597772933552,
+  "unconstrained_eigenvalue": 2.294834404174794,
+  "variance_loss_fraction": 0.05980241144702181,
+  "constraints": {
+    "cm5_charge_loading": "<= -0.05",
+    "compactness_loading": ">= +0.05"
+  },
+  "score_center": 0.5418505456328849,
+  "score_scale": 2.1860288719985888,
+  "amplitude": 0.5,
+  "orientation": "sign-constrained: negative CM5-charge and positive compactness loadings; positive CM5 charge lowers Zeff",
+  "mapping": "EAN = 0.5 + amplitude*tanh((PC1-score_center)/score_scale)"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "lcb26-link-xtb-harmonic.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "keymaker",
+  "entrypoint": "KEYMAKER",
+  "title": "LCB26 LINK-XTB harmonic campaign",
+  "summary": "Optimize an exact ordered LCB26 geometry with resident LINK-XTB, certify the minimum, and compute its symmetry-adapted Cartesian Hessian and native SCC/Mayer descriptors.",
+  "calculation_protocol": "optimization.minimum.v1",
+  "aliases": ["lcb26_link_xtb_harmonic", "xtb_hessian_transferability_inputs"],
+  "dependencies": ["sonic-soop-default.v1", "link-sycart-hessian.v1"],
+  "routes": [],
+  "inputs": [
+    {"name": "lcb26_geometry", "schema": "matrix.geometry.xyz.v1", "required": true},
+    {"name": "oracle_perception", "schema": "matrix.oracle.topology_snapshot.v1", "required": true},
+    {"name": "sonic_definition", "schema": "matrix.smith.definition.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "xtb_cartesian_hessian", "schema": "matrix.link.final_cartesian_hessian.v1", "required": true},
+    {"name": "xtb_scaling_observables", "schema": "matrix.gfn2.scaling_observables.v1", "required": true},
+    {"name": "primitive_manifest", "schema": "matrix.smith.xtb_primitive_manifest.v1", "required": true}
+  ],
+  "gates": [
+    "exact LCB26 atom order and starting geometry",
+    "ORACLE perception and complete SMITH SONIC optimization chart",
+    "resident LINK-XTB/MATRIX-GFN2 only; external xTB and TBLite forbidden",
+    "frozen symmetry-adapted translation-rotation-free SYCART Hessian",
+    "one displacement for coordinates certified symmetric under sign reversal",
+    "native GFN2-SCC charges and Mayer bond orders from the final state",
+    "zero significant imaginary frequencies at the certified minimum",
+    "exact requested execution target with fail-closed routing"
+  ],
+  "implementation": {
+    "owner_api": "matrix_gui.keymaker_exploitation",
+    "action": "run_exploitation"
+  },
+  "coordinate_policy": "Use the complete symmetry-adapted SONIC chart for minimum refinement and the immutable symmetry-adapted TR-free SYCART chart for the final Hessian; retain LCB26 atom order throughout.",
+  "backend_policy": "KeyMaker alone authorizes resident LINK-XTB/MATRIX-GFN2 calculations. Population descriptors are SCC charges and Mayer bond orders from the same final resident state; CM5, external xTB and TBLite are forbidden.",
+  "change_policy": "new_version_and_explicit_approval"
+}

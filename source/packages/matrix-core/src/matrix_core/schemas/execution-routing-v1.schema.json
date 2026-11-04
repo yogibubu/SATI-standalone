@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "matrix.execution-routing.v1",
+  "title": "MATRIX execution-routing decision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "target",
+    "target_name",
+    "workload_class",
+    "reason",
+    "rejected_targets"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.execution-routing.v1"},
+    "target": {"type": ["object", "null"]},
+    "target_name": {"type": "string"},
+    "workload_class": {"enum": ["interactive", "standard", "heavy"]},
+    "reason": {"type": "string", "minLength": 1},
+    "rejected_targets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

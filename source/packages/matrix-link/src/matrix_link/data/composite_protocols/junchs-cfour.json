@@ -1,0 +1,72 @@
+{
+  "schema": "matrix.link.composite_protocol.v1",
+  "protocol_id": "matrix.link.junchs.cfour.v1",
+  "selector": "junchs-cfour",
+  "model": "jun-ChS",
+  "backend": "cfour",
+  "frozen": true,
+  "formula": "fc-CCSD(T)/jun-cc-pVTZ + (64/37)[fc-MP2/jun-cc-pVQZ - fc-MP2/jun-cc-pVTZ] + ae-MP2/cc-pwCVTZ - fc-MP2/cc-pwCVTZ",
+  "orbital_basis": {
+    "name": "jun-cc-pVTZ",
+    "artifact": "junchs-cfour.GENBAS",
+    "sha256": "6296f68fb681a21db8dfd87b00d4e9ab913cdba4e7ba2a32ffec1ff3bf8aa055",
+    "source": "Packaged CFOUR GENBAS assembled from Basis Set Exchange jun-cc-pV(T+d)Z and jun-cc-pV(Q+d)Z data and the validated MATRIX cc-pwCVTZ artifact",
+    "definition": "Standard jun-cc-pV(T+d)Z and jun-cc-pV(Q+d)Z orbital bases, retaining the additional tight d function on Na-Ar; cc-pwCVTZ for heavy atoms and cc-pVTZ on H/He"
+  },
+  "high_level": {
+    "label": "fc-CCSD(T)/jun-cc-pVTZ",
+    "method": "CCSD(T)",
+    "basis": "jun-cc-pVTZ",
+    "route": "FROZEN_CORE=ON",
+    "reference": "RHF",
+    "correlation_model": "canonical",
+    "triples": "(T)",
+    "core_treatment": "frozen_core",
+    "derivative": "analytic"
+  },
+  "cbs_correction": {
+    "formula": "E_MP2_CBS(3,4) - E_fc-MP2/jun-cc-pVTZ = (64/37)[E_fc-MP2/jun-cc-pVQZ - E_fc-MP2/jun-cc-pVTZ]",
+    "exponent": 3,
+    "lower_cardinal": 3,
+    "upper_cardinal": 4,
+    "lower": {
+      "label": "fc-MP2/jun-cc-pVTZ",
+      "method": "MP2",
+      "basis": "jun-cc-pVTZ",
+      "route": "FROZEN_CORE=ON",
+      "coefficient": -1.7297297297297298,
+      "derivative": "analytic"
+    },
+    "upper": {
+      "label": "fc-MP2/jun-cc-pVQZ",
+      "method": "MP2",
+      "basis": "jun-cc-pVQZ",
+      "route": "FROZEN_CORE=ON",
+      "coefficient": 1.7297297297297298,
+      "derivative": "analytic"
+    }
+  },
+  "core_valence": {
+    "basis": "cc-pwCVTZ",
+    "hydrogen_basis": "cc-pVTZ",
+    "artifact": "junchs-cfour.GENBAS",
+    "sha256": "6296f68fb681a21db8dfd87b00d4e9ab913cdba4e7ba2a32ffec1ff3bf8aa055",
+    "source": "Packaged CFOUR GENBAS assembled from the validated MATRIX cc-pwCVTZ artifact",
+    "definition": "cc-pwCVTZ for heavy atoms and cc-pVTZ for H/He",
+    "all_electron": {
+      "method": "MP2",
+      "route": "FROZEN_CORE=OFF"
+    },
+    "frozen_core": {
+      "method": "MP2",
+      "route": "FROZEN_CORE=ON"
+    },
+    "derivative": "analytic"
+  },
+  "initialization": {
+    "geometry": "B3LYP/6-31G*",
+    "hessian": "B3LYP/6-31G*",
+    "backend": "gdv",
+    "route": "# B3LYP/6-31G* Freq"
+  }
+}

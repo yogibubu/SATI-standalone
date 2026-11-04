@@ -1,0 +1,65 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "trinity-native-pes-variational.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "Direct native ZAFF local variational states for vibronic calculations",
+  "summary": "Consume immutable grids evaluated from the complete native ARCHITECT/ZAFF PES and qualify a local initial state by independent box, grid and oscillator-projection controls without a polynomial re-expansion.",
+  "calculation_protocol": "surface.selective_anharmonic.v1",
+  "aliases": [
+    "native_zaff_variational"
+  ],
+  "dependencies": [
+    "zaff-sparse-coupling-fit.v1",
+    "trinity-harmonic-field.v1"
+  ],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "trinity.native_pes_variational",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "native_pes_request",
+      "schema": "matrix.trinity.native_pes_variational_request.v1",
+      "required": true
+    },
+    {
+      "name": "native_potential_grids",
+      "schema": "matrix.trinity.native_modal_grid.v1",
+      "required": true
+    },
+    {
+      "name": "native_field_certificate",
+      "schema": "matrix.architect.native_field_evidence",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "local_state_qualification",
+      "schema": "matrix.trinity.native_pes_variational_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Native field identifier, electronic state, coordinate-frame and geometry hashes agree in every control",
+    "The full native field includes mixed terms and every declared nonbonded contribution; bare quadratic tails and polynomial re-expansion are forbidden",
+    "Fixed orthonormal Cartesian-modal subspace with positive kinetic frequencies; nonlinear paths require a separate metric-aware solver",
+    "Explicit remote execution host, 128 GiB memory per process, declared grid and oscillator-state budgets",
+    "At least four controls include independent width, grid and HO-projection variations",
+    "Energy, wavefunction overlap, outer-box probability, eigensolver residual and projection-norm gates all pass",
+    "Local-state acceptance does not certify final accepting-state spectra, all-mode convergence or a molecular Golden Rule rate"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.native_pes_variational",
+    "action": "run_native_pes_variational_protocol"
+  },
+  "coordinate_policy": "ARCHITECT/ZAFF owns the native radial, angular, periodic and mixed functions. TRINITY samples the complete field in a frozen linear Cartesian-modal subspace and retains its constant diagonal kinetic metric. Preserve the stated state-specific ZAFF2 quadratic reference and ZAFF3 refinement; no additive bare harmonic tail is allowed.",
+  "backend_policy": "Native field evaluation is resident and restartable. Any missing electronic energies, gradients or analytic Hessians must be acquired by LINK on the declared remote host using GDV and 128 GB per calculation. v1 consumes precomputed native grids and submits no QM work implicitly.",
+  "change_policy": "new_version_and_explicit_approval"
+}

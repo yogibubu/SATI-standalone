@@ -1,0 +1,41 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "beyond-pmm-tight-binding.v1",
+  "manifest_version": "1.1.0",
+  "status": "approved",
+  "owner_operation": "gfn2",
+  "entrypoint": "KEYMAKER",
+  "title": "Post-MD differential tight-binding discrete/continuum analysis",
+  "summary": "Build provisional geometric clusters for a completed solution trajectory, refine them by certified electronic fluctuation residuals, evaluate each final representative independently at the accurate level, and transfer only resident tight-binding energy, Hamiltonian and gradient fluctuations within the same immutable explicit-solvent/ellipsoid cluster.",
+  "calculation_protocol": "spectroscopy.electronic.v1",
+  "aliases": ["beyond_pmm", "differential_tb_solution", "cluster_delta_sf_tda"],
+  "dependencies": [],
+  "routes": [
+    {"menu": "prediction_assignment", "action": "cypher.beyond_pmm_tight_binding", "option_equals": {"backend": "matrix-gfn2"}}
+  ],
+  "inputs": [
+    {"name": "clustered_trajectory", "schema": "matrix.cypher.clustered_trajectory.v1", "required": true},
+    {"name": "accurate_representatives", "schema": "matrix.qm.cluster_reference_manifolds.v1", "required": true},
+    {"name": "environment_contracts", "schema": "matrix.gfn2.cluster_environment_contract.v1", "required": true}
+  ],
+  "outputs": [
+    {"name": "adaptive_cluster_certificates", "schema": "matrix.gfn2.adaptive_electronic_clustering.v1", "required": true},
+    {"name": "differential_properties", "schema": "matrix.gfn2.differential_tb_results.v1", "required": true},
+    {"name": "state_assignment_audit", "schema": "matrix.apoc.state_assignment_audit.v1", "required": true}
+  ],
+  "gates": [
+    "accurate calculations are external reference calculations on cluster representatives",
+    "explicit near-solvent membership and ellipsoidal continuum contract are immutable within each cluster",
+    "far solvent uses declared pure-solvent charges with an optional published additive hydrogen-bond correction",
+    "geometric clusters are provisional and are bisected deterministically when the electronic fluctuation residual exceeds either frozen threshold",
+    "every final cluster carries a complete electronic certificate; a depth-limited or undersized unqualified cluster is a hard protocol failure",
+    "MATRIX-GFN2 supplies only frame-minus-representative fluctuations",
+    "state permutation and phase are matched from electronic descriptors before Hamiltonian subtraction",
+    "a discontinuous state character or explicit-region crossing starts a new cluster",
+    "corrected energy and analytic gradient obey one conservative differential expression"
+  ],
+  "implementation": {"owner_api": "matrix_gfn2.beyond_pmm", "action": "evaluate_differential_states"},
+  "coordinate_policy": "Every frame uses the representative atom map and fixed explicit region; geometry derivatives are Cartesian and may subsequently be transformed by LINK/SMITH.",
+  "backend_policy": "No polarizable force field or ONIOM interpolation is used: an independently computed accurate representative is combined with resident tight-binding fluctuations and the declared discrete/continuum environment.",
+  "change_policy": "new_version_and_explicit_approval"
+}

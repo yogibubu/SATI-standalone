@@ -1,0 +1,14 @@
+{
+  "schema": "matrix.gfn2.refinement-policy.v1",
+  "id": "m3-ultra-fp64-refinement-20261020",
+  "fingerprint": {"hardware": "Apple M3 Ultra", "torch": "2.13.0", "numpy": "2.3.5"},
+  "host_threads": 1,
+  "accuracy_passed": true,
+  "nve_passed": true,
+  "source_report": "benchmarks/gfn2_mps/m3_ultra_fp64_refinement_qualification.json",
+  "cases": [
+    {"orbitals": 384, "canonical_seconds": 0.10289045795798302, "occupied_seconds": 0.10602049995213747},
+    {"orbitals": 768, "canonical_seconds": 0.47683558403514326, "occupied_seconds": 0.49652016698382795},
+    {"orbitals": 1536, "canonical_seconds": 2.079997417051345, "occupied_seconds": 2.40003020898439}
+  ]
+}

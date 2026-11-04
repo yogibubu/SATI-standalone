@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.invalid/schema/qm-selection-v1.schema.json",
+  "title": "Keymaker QM resolution v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema", "backend", "method", "method_family", "derivative", "explicit",
+    "reason", "candidates", "status", "requested_method", "derivative_policy",
+    "ecp_required", "alternatives", "requires_confirmation"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.keymaker.qm_selection.v1"},
+    "backend": {"type": "string"},
+    "method": {"type": "string", "minLength": 1},
+    "method_family": {"type": "string", "minLength": 1},
+    "derivative": {"enum": ["energy", "gradient", "hessian"]},
+    "explicit": {"type": "boolean"},
+    "reason": {"type": "string", "minLength": 1},
+    "status": {"enum": ["exact", "alternative"]},
+    "requested_method": {"type": "string", "minLength": 1},
+    "derivative_policy": {"enum": ["analytic", "prefer-analytic", "allow-numerical"]},
+    "ecp_required": {"type": "boolean"},
+    "requires_confirmation": {"type": "boolean"},
+    "candidates": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/candidate"}
+    },
+    "alternatives": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/alternative"}
+    }
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "backend", "available", "compatible", "analytic_gradient", "efficiency_rank",
+        "reason", "analytic_hessian", "derivative_support", "execution_locations",
+        "basis_contract", "ecp_contract", "license_model", "platforms",
+        "accelerators", "suggestible"
+      ],
+      "properties": {
+        "backend": {"type": "string", "minLength": 1},
+        "available": {"type": "boolean"},
+        "compatible": {"type": "boolean"},
+        "analytic_gradient": {"type": "boolean"},
+        "analytic_hessian": {"type": "boolean"},
+        "derivative_support": {"enum": ["analytic", "numerical", "unavailable"]},
+        "efficiency_rank": {"type": "integer", "minimum": 0},
+        "reason": {"type": "string"},
+        "execution_locations": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "basis_contract": {"type": "string"},
+        "ecp_contract": {"type": "string"},
+        "license_model": {"type": "string"},
+        "platforms": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "accelerators": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "suggestible": {"type": "boolean"}
+      }
+    },
+    "alternative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "backend", "derivative_support", "accuracy_distance", "reason"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "backend": {"type": "string", "minLength": 1},
+        "derivative_support": {"enum": ["analytic", "numerical"]},
+        "accuracy_distance": {"type": "integer", "minimum": 0},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# The standalone ORACLE distribution exposes only molecular perception,
+# redundant PIC/B construction and primitive-space structural improvement.
+# These source-tree modules are retained temporarily for migration tests, but
+# belong to other MATRIX tools and must not leak into the publication wheel.
+exclude src/matrix_oracle/app.py
+exclude src/matrix_oracle/commands.py
+exclude src/matrix_oracle/contracts.py
+exclude src/matrix_oracle/dashboard.py
+exclude src/matrix_oracle/dvr_state.py
+exclude src/matrix_oracle/electronic.py
+exclude src/matrix_oracle/gf.py
+exclude src/matrix_oracle/gicforge.py
+exclude src/matrix_oracle/guidance.py
+exclude src/matrix_oracle/project.py
+exclude src/matrix_oracle/publication.py
+exclude src/matrix_oracle/qm_jobs.py
+exclude src/matrix_oracle/sefit.py
+exclude src/matrix_oracle/structure.py
+exclude src/matrix_oracle/thermo_kinetics.py
+exclude src/matrix_oracle/trinity.py
+exclude src/matrix_oracle/vpt2_vci_state.py
+exclude src/matrix_oracle/workbench.py
+exclude src/matrix_oracle/workflows.py

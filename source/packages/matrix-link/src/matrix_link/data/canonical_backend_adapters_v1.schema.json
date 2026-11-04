@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix.local/schemas/canonical-backend-adapters-v1.schema.json",
+  "title": "MATRIX canonical backend adapter registry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "registry_id",
+    "manifest_version",
+    "status",
+    "execution_contract",
+    "records",
+    "governance"
+  ],
+  "properties": {
+    "schema": {"const": "matrix.link.canonical_backend_adapters.v1"},
+    "registry_id": {"const": "matrix-canonical-backend-adapters-v1"},
+    "manifest_version": {"const": "1.1.12"},
+    "status": {"const": "approved_validation"},
+    "execution_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "point_result",
+        "optimizer",
+        "modal_hessian",
+        "state_identity_owner",
+        "frozen_core_owner",
+        "external_qm_source_modified"
+      ],
+      "properties": {
+        "point_result": {"const": "oracle.link.point_result.v1"},
+        "optimizer": {"const": "link-sonic-optimizer-v2@2.39.0"},
+        "modal_hessian": {"const": "matrix.link.modal_hessian_result.v2"},
+        "state_identity_owner": {"const": "APOC"},
+        "frozen_core_owner": {"const": "MATRIX_QM"},
+        "external_qm_source_modified": {"const": false}
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "capability_id",
+          "backend",
+          "engine_method",
+          "engine_reference",
+          "point_adapter",
+          "status",
+          "blockers"
+        ],
+        "properties": {
+          "capability_id": {"type": "string", "minLength": 1},
+          "backend": {"enum": ["xtb", "pyscf", "et", "orca", "psi4"]},
+          "engine_method": {"type": "string", "minLength": 1},
+          "engine_reference": {"type": "string", "minLength": 1},
+          "engine_route": {"type": "string", "minLength": 1},
+          "scf_convergence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "energy_tolerance",
+              "orbital_gradient_tolerance",
+              "diis_error_tolerance"
+            ],
+            "properties": {
+              "energy_tolerance": {"type": "number", "exclusiveMinimum": 0.0},
+              "orbital_gradient_tolerance": {"type": "number", "exclusiveMinimum": 0.0},
+              "diis_error_tolerance": {"type": "number", "exclusiveMinimum": 0.0}
+            }
+          },
+          "restart_policy": {
+            "enum": ["central_point_orbitals", "independent_points"]
+          },
+          "point_adapter": {"type": "string", "minLength": 1},
+          "status": {
+            "enum": [
+              "implemented_certified",
+              "implemented_pending_certification",
+              "mapping_only"
+            ]
+          },
+          "blockers": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mapping_key",
+        "uncertified_execution",
+        "missing_mapping",
+        "molecule_specific_patches",
+        "backend_specific_optimizer_patches",
+        "change_policy"
+      ],
+      "properties": {
+        "mapping_key": {"const": "exact_capability_id"},
+        "uncertified_execution": {"const": "explicit_validation_only"},
+        "missing_mapping": {"const": "fail_closed"},
+        "molecule_specific_patches": {"const": false},
+        "backend_specific_optimizer_patches": {"const": false},
+        "change_policy": {"const": "new_manifest_version_and_explicit_approval"}
+      }
+    }
+  }
+}

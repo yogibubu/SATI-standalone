@@ -1,0 +1,45 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "sati-resonance-raman.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "trinity",
+  "entrypoint": "KEYMAKER",
+  "title": "Coherent FC/HT resonance Raman spectroscopy",
+  "summary": "Coherent FC/HT resonance Raman spectroscopy through its existing scientific owner; registration validates the contract and does not imply molecular or experimental accuracy.",
+  "calculation_protocol": "spectroscopy.variational.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "sati.raman",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "configuration",
+      "schema": "matrix.sati.resonance_raman_request.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "schema": "matrix.sati.resonance_raman_result.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Coherent intermediate-state amplitudes retain their phases",
+    "The declared TI or TD method and laser grid are validated"
+  ],
+  "implementation": {
+    "owner_api": "matrix_trinity.vibronic_raman",
+    "action": "run_esalc_resonance_raman_workflow"
+  },
+  "coordinate_policy": "Consume explicit frozen initial/final ESALC states and transport properties through the same native GF basis.",
+  "backend_policy": "Use declared local numerical kernels and resource budgets. This protocol submits no implicit electronic-structure calculation.",
+  "change_policy": "new_version_and_explicit_approval"
+}

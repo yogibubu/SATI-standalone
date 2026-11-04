@@ -1,0 +1,46 @@
+{
+  "schema": "matrix.keymaker.protocol_manifest.v1",
+  "protocol_id": "et-uv-vis.v1",
+  "manifest_version": "1.0.0",
+  "status": "approved",
+  "owner_operation": "et",
+  "entrypoint": "KEYMAKER",
+  "title": "Build the UV-visible spectrum from owner-produced excited states",
+  "summary": "Build the UV-visible spectrum from owner-produced excited states. The contract registers the existing owner API and does not certify the accuracy of a particular molecular calculation.",
+  "calculation_protocol": "spectroscopy.electronic.v1",
+  "aliases": [],
+  "dependencies": [],
+  "routes": [
+    {
+      "menu": "prediction_assignment",
+      "action": "et.excited_states_uv_vis",
+      "option_equals": {}
+    }
+  ],
+  "inputs": [
+    {
+      "name": "owner_inputs",
+      "schema": "matrix.qm.result.v1",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "owner_result",
+      "schema": "matrix.et.uv_vis.v1",
+      "required": true
+    }
+  ],
+  "gates": [
+    "Require positive excitation energies and nonnegative oscillator strengths",
+    "Preserve electronic-state matches, declared broadening and wavelength units",
+    "Any electronic-structure acquisition remains separately authorized"
+  ],
+  "implementation": {
+    "owner_api": "matrix_et.spectroscopy",
+    "action": "build_uv_vis_spectrum"
+  },
+  "coordinate_policy": "Preserve the ordered molecular identity, isotope masses, coordinate frame and declared owner representation; no geometry remapping or method substitution is implicit.",
+  "backend_policy": "The scientific owner validates the inputs and numerical controls. Any missing electronic-structure acquisition uses the separately authorized calculation gateway; registration alone launches nothing.",
+  "change_policy": "new_version_and_explicit_approval"
+}
