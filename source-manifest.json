@@ -1117,12 +1117,12 @@
     "source/packages/matrix-oracle/src/matrix_oracle/workbench.py": "dbe0ff9fc252d03e66a9ffe5ccc3f98f915f9c090abfb9c49f9e41f6f755d2d7",
     "source/packages/matrix-oracle/src/matrix_oracle/workflows.py": "59766834e09fd020101cf3043cd4530e42b73848ae1680a3e56d9cf666b38087",
     "source/packages/matrix-orca/pyproject.toml": "83a3df095438ac79b5880e5a7c2f75a357418447f4f4d6923261a27968b63a36",
-    "source/packages/matrix-orca/src/matrix_orca/__init__.py": "8e5fbefc63c5cda204dc5b0708b673daf60d33afba71b12acebf694e30ed6bf9",
+    "source/packages/matrix-orca/src/matrix_orca/__init__.py": "bc2ab0d24ebaf5882e58d81df1dae2d8ff9db21831d6e04d8a41292083f8c426",
     "source/packages/matrix-orca/src/matrix_orca/esd.py": "a887ab40130468e2c157ae15892f54280be5575448ef3643aa1ca61ccc3ceac0",
     "source/packages/matrix-orca/src/matrix_orca/hessian_io.py": "07fee155242f47ca5808f3adb5c0beed49f3f5b7a87970b1224e489f5bde07ec",
     "source/packages/matrix-orca/src/matrix_orca/jobs.py": "305a8b405f6a7227b7f8648f846dccca6328550abcfa078cd35ea3cbf59b5004",
     "source/packages/matrix-orca/src/matrix_orca/parsers.py": "66e77945a97ec7721d1201645e5dcdcb4d81c939242006fe96f51504f2536ef7",
-    "source/packages/matrix-orca/src/matrix_orca/properties.py": "9710b430d535a3f2880356411cf70f6b9be1b3bf00e3f048beb3c839993e4943",
+    "source/packages/matrix-orca/src/matrix_orca/properties.py": "2841ce7ede83981ba2c9f7dd2096a7385dec0f51ad87436bf337c8f63a2d1c97",
     "source/packages/matrix-pyscf/pyproject.toml": "ee07f0c719f9e0c68298c0b727131acc6e8c47b5b82fc5763cfdb1b9b6ab23f2",
     "source/packages/matrix-pyscf/src/matrix_pyscf/__init__.py": "9a7082a54b888250d34e35f7371628662fe203ac9d19ea87f1aadbf140c4c15e",
     "source/packages/matrix-pyscf/src/matrix_pyscf/dispersion.py": "c8873de8421e77ad10113a44637be3acf6c1e2d0f75b410039b484e7cd80a586",
@@ -1828,6 +1828,13 @@
       ],
       "owner_revision": "0ca62363",
       "status": "Finite-state spectral forms and convolution adapter; production thermal TI bath convergence is evaluated separately."
+    },
+    "orca_soc_dipoles": {
+      "files": [
+        "source/packages/matrix-orca/src/matrix_orca/properties.py",
+        "source/packages/matrix-orca/src/matrix_orca/__init__.py"
+      ],
+      "validation": "Anthracene PBE0/6-31G(d), complex SOC dipoles from structured length-gauge tables; electronic root controls recorded in PHOTOPHYSICS 2026-11-04"
     },
     "radiative_td": {
       "files": [

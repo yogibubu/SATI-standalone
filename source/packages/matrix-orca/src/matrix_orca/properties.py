@@ -5,6 +5,83 @@ from pathlib import Path
 import re
 
 
+def read_orca_soc_transition_properties(path: Path | str, *, geometry_index: int = 1) -> dict:
+    """Read full-precision SOC length-gauge transitions from .property.txt.
+
+    Printed stdout strengths can round weak phosphorescence to zero. ORCA's
+    structured RPA spectrum retains real and imaginary dipole components.
+    Explicit state IDs are preserved; no emitting triplet, population, phase,
+    intensity normalization or state assignment is inferred by this importer.
+    """
+    import hashlib
+    import numpy as np
+
+    source = Path(path)
+    content = source.read_text(encoding='utf-8')
+    sections = re.findall(r'^\$RPA_Absorption_Spectrum\s*\n(.*?)^\$End\s*$',
+                          content, flags=re.M | re.S)
+    selected = [s for s in sections
+        if re.search(r'&RelCorrection\s+\[.*?\]\s+2\b', s)
+        and re.search(r'&Representation\s+\[.*?\]\s+"Length"', s)
+        and re.search(r'&GeometryIndex\s+'+str(geometry_index)+r'\b', s)]
+    if len(selected) != 1:
+        raise ValueError('one identified SOC length-gauge property section required')
+    section = selected[0]
+
+    def array(name):
+        match = re.search(r'&'+name+r'\s+\[.*?&Dim\s*\((\d+),(\d+)\)\].*?\n', section)
+        if match is None:
+            raise ValueError('missing structured ORCA property array: '+name)
+        rows, columns = map(int, match.groups())
+        result = np.full((rows, columns), np.nan)
+        lines = iter(section[match.end():].splitlines())
+        seen = set()
+        try:
+            while len(seen) < columns:
+                line = next(lines)
+                while not line.strip():
+                    line = next(lines)
+                ids = tuple(map(int, line.split()))
+                if (not ids or len(set(ids)) != len(ids) or any(i in seen or not 0 <= i < columns for i in ids)):
+                    raise ValueError('invalid structured ORCA column indices')
+                seen.update(ids)
+                for row in range(rows):
+                    line = next(lines)
+                    while not line.strip():
+                        line = next(lines)
+                    fields = line.split()
+                    if len(fields) != len(ids)+1 or int(fields[0]) != row:
+                        raise ValueError('incomplete structured ORCA property rows')
+                    result[row, ids] = [float(v.replace('D', 'E')) for v in fields[1:]]
+        except (StopIteration, TypeError) as error:
+            raise ValueError('truncated structured ORCA property array') from error
+        if not np.all(np.isfinite(result)):
+            raise ValueError('nonfinite structured ORCA property array')
+        return result
+
+    values = array('ExcitationEnergies')
+    states = array('States')
+    if (values.shape[1] != 11 or states.shape != (len(values), 4)
+            or not np.array_equal(states, np.rint(states)) or np.any(values[:, 1] <= 0)):
+        raise ValueError('unsupported SOC transition table dimensions or state IDs')
+    dipoles = values[:, 5:8]+1j*values[:, 8:11]
+    norms = np.sum(abs(dipoles)**2, axis=1)
+    # Some very weak reported D2 values are deliberately zero in ORCA. Keep
+    # those raw values alongside the unrounded complex-vector norm.
+    discrepancy = abs(norms-values[:, 4])
+    if np.any(discrepancy > 1e-12+1e-8*np.maximum(norms, abs(values[:, 4]))):
+        raise ValueError('SOC complex dipoles disagree with reported vector strengths')
+    return dict(schema='matrix.orca.soc_transition_properties.v1',
+        source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+        geometry_index=geometry_index, gauge='length',
+        initial_state_ids=states[:, 0].astype(int), final_state_ids=states[:, 2].astype(int),
+        energies_cm=values[:, 1], dipoles_au=dipoles, strengths_au2=norms,
+        reported_strengths_au2=values[:, 4], oscillator_strengths=values[:, 3],
+        diagnostics=dict(maximum_vector_strength_discrepancy=float(discrepancy.max(initial=0.)),
+            complex_phases_preserved=True, populations_assumed=False,
+            emitting_state_assignment_inferred=False))
+
+
 @dataclass(frozen=True)
 class OrcaQuadrupolePromotion:
     xyzin: Path
