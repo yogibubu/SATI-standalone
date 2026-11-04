@@ -339,39 +339,23 @@ def acquire_modal_momentum_derivatives_from_values(
     only the last two indices of the cubic tensor are symmetrized.  One-mode
     stencils give b_i,jj for all i,j, while pair stencils give b_i,jk.
     """
-    transform = np.asarray(displacement_per_q, dtype=float)
-    if transform.ndim != 2 or transform.shape[0] != transform.shape[1]:
+    from .coefficient_derivatives import acquire_coefficient_derivative_jet
+    transform=np.asarray(displacement_per_q,dtype=float)
+    if transform.ndim!=2 or transform.shape[0]!=transform.shape[1]:
         raise ValueError("momentum stencil requires a square SONIC GF transform")
-    n = len(transform)
-    steps = np.broadcast_to(np.asarray(step_dimensionless, dtype=float), (n,))
-    if (component_count < 1 or not np.all(np.isfinite(steps))
-            or np.any(steps <= 0)):
-        raise ValueError("momentum stencil requires positive finite steps")
-
-    def value(q: np.ndarray) -> np.ndarray:
-        result = np.asarray(coefficients_at_s(transform @ q), dtype=float)
-        if result.shape != (component_count, n) or not np.all(np.isfinite(result)):
-            raise ValueError("momentum coefficient provider has invalid shape or values")
+    n=len(transform)
+    if component_count<1:raise ValueError("positive momentum component count required")
+    def coefficients(s):
+        result=np.asarray(coefficients_at_s(s),dtype=float)
+        if result.shape!=(component_count,n):
+            raise ValueError("momentum coefficient provider has invalid shape")
         return result
-
-    zero = np.zeros(n)
-    first = value(zero)
-    second = np.zeros((component_count, n, n))
-    third = np.zeros((component_count, n, n, n))
-    for j in range(n):
-        shift = steps[j] * np.eye(n)[j]
-        minus, plus = value(-shift), value(shift)
-        second[:, :, j] = (plus - minus) / (2 * steps[j])
-        third[:, :, j, j] = (plus - 2 * first + minus) / steps[j] ** 2
-    if not single_mode_only:
-        for j in range(n):
-            for k in range(j + 1, n):
-                dj = steps[j] * np.eye(n)[j]
-                dk = steps[k] * np.eye(n)[k]
-                mixed = (value(dj + dk) - value(dj - dk)
-                         - value(-dj + dk) + value(-dj - dk)) / (4 * steps[j] * steps[k])
-                third[:, :, j, k] = third[:, :, k, j] = mixed
-    return SonicMomentumPropertyDerivatives(first, second, third)
+    jet=acquire_coefficient_derivative_jet(coefficients,transform,
+        step_dimensionless=step_dimensionless,single_mode_only=single_mode_only)
+    # Preserve the established semidiagonal momentum-property API; callers
+    # requesting only single-mode stencils already declare that coverage.
+    third=np.where(jet.second_observed,jet.second,0.)
+    return SonicMomentumPropertyDerivatives(jet.value,jet.first,third)
 
 
 def _basis_moments(
