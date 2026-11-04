@@ -1499,7 +1499,7 @@
     "source/packages/matrix-trinity/README.md": "c0257c1971f540e4baae8b39d151cc5e0658c66e00e8ee0bd45be88318e53b75",
     "source/packages/matrix-trinity/VIBRONIC_TD_FGR.md": "e18b7ae7535bc301b6ac112cfd5b8c30c644d1ea58ea347c14666e5048097149",
     "source/packages/matrix-trinity/pyproject.toml": "9fe0c931b14f623be626ddd32f3f16e31aaf2c3bcec58895becdbd575f61f1c6",
-    "source/packages/matrix-trinity/src/matrix_trinity/__init__.py": "2bd3cf4db1452c4ccc78a5360bbb895b059188a102c54107df3ad81be5fc9f23",
+    "source/packages/matrix-trinity/src/matrix_trinity/__init__.py": "fe4ac23bfe447530bc983333383901f898f762db2c98594e5def57f164328ed8",
     "source/packages/matrix-trinity/src/matrix_trinity/_hdc_anchor_kernel.py": "645ed9c4d43f7c39cbee0d8cf150d5f7935e4b6d1e3602399389915e201c42d3",
     "source/packages/matrix-trinity/src/matrix_trinity/active_bath_partition.py": "4f24dd17ab4ac3828f7042ed5764366d9ea50f4169ba7adfc86a4768c9c904d6",
     "source/packages/matrix-trinity/src/matrix_trinity/active_metric_galerkin.py": "d382ffe77de0f243fc7ec11e4c6c10afc23fc126290a9daeda631c59d5b155d7",
@@ -1632,6 +1632,7 @@
     "source/packages/matrix-trinity/src/matrix_trinity/quantum_dynamics.py": "29598512daf2216aa190361ce8214e2dddd39e364ef5215885aaec6a0b4c03ec",
     "source/packages/matrix-trinity/src/matrix_trinity/quantum_wang_landau.py": "5d7edb6de3a0819c8597620ace42cfdb2d4eade2e8f880cccebae422592bef88",
     "source/packages/matrix-trinity/src/matrix_trinity/radiative_cascade.py": "6f9208ff11dd23d679e8b2e1eeb54fb660af704fc1881fb3eed876e8a04fcca7",
+    "source/packages/matrix-trinity/src/matrix_trinity/radiative_td.py": "5b024537b58111258ba20b01f6015f1727fcff44cce5879ccd036eb24cf7de83",
     "source/packages/matrix-trinity/src/matrix_trinity/raman_derivatives.py": "dcdd04d4f5fe80c6d3b0b8d9210a5f3b08b05cf4c4b69722ede22f63fb797ce2",
     "source/packages/matrix-trinity/src/matrix_trinity/rectilinear_rovibrational.py": "e945fb178632fc1b29359c51906141c56d7dad3b982eee4a91fbc29806f99105",
     "source/packages/matrix-trinity/src/matrix_trinity/reduced_resonant_transitions.py": "3714f26d628172a1cd1c183b3894190265e29d09aa21255f2ecc99253575d07c",
@@ -1820,5 +1821,15 @@
   },
   "python_requires": ">=3.11",
   "schema": "sati.standalone.source.v1",
+  "scientific_extensions": {
+    "radiative_td": {
+      "files": [
+        "source/packages/matrix-trinity/src/matrix_trinity/radiative_td.py",
+        "source/packages/matrix-trinity/src/matrix_trinity/__init__.py"
+      ],
+      "owner_revision": "84a893a5",
+      "validation": "Anthracene zero-temperature FC+HT radiative TI/TD, paired Fourier grids; PHOTOPHYSICS records 2026-11-04"
+    }
+  },
   "scientific_revision": "e801a16f1e7b065ccdc7975d669ebcbce18e23b3"
 }

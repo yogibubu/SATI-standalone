@@ -71,6 +71,7 @@ _LAZY_EXPORT_GROUPS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ('vibronic_workflow', ('run_esalc_vibronic_workflow',)),
     ('vibronic_raman', ('harmonic_resonance_raman','run_esalc_resonance_raman_workflow')),
     ('vibronic_rates', ('harmonic_radiative_emission_rate','harmonic_nonradiative_rate','sam_vpt2_nonradiative_rate','spin_orbit_mixed_electronic_states')),
+    ('radiative_td', ('radiative_rate_from_td_density','harmonic_radiative_emission_rate_td')),
     ('vibronic_wang_landau', ('diagonal_anharmonicity_from_assigned_levels','sam_vpt2_transition_strength_callback','wang_landau_nonradiative_rate','importance_nonradiative_rate')),
     ('vibronic_harmonic', ('ESALCHarmonicState','HarmonicVibronicModel','harmonic_vibronic_from_esalc','harmonic_strength_sum_rule')),
     ('vibronic_ti', ('harmonic_vibronic_ti','harmonic_vibronic_occupations')),
@@ -544,3 +545,5 @@ __all__.append("NativeResonantProperty")
 __all__.extend(("VibrationalModePartition", "BlockVibrationalModel", "BlockTransitionProperty", "solve_mode_blocks"))
 
 __all__.extend(("NativePreparationCache","save_vibronic_columns"))
+
+__all__.extend(("radiative_rate_from_td_density", "harmonic_radiative_emission_rate_td"))

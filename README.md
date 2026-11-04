@@ -126,3 +126,14 @@ identifier was pending when this release was prepared.
 
 Please cite [CITATION.cff](CITATION.cff). The original code uses the BSD 3-Clause
 license; bundled third-party sources retain their accompanying licenses.
+
+## TD radiative rates in the development source
+
+The general `matrix_trinity.harmonic_radiative_emission_rate_td` service
+reuses the harmonic thermal correlation and applies a Gaussian cubic-moment
+correction with an explicit smoothing bound. It computes vacuum spontaneous
+emission without enumerating vibrational transitions. This extension is in the
+development source; the existing v0.1.0rc8 release archives remain unchanged.
+Paired time grids, Gaussian widths and a TI positive-strength interval were
+checked on the 66-mode anthracene model on Oracle. The source inventory records
+the extension revision separately from the frozen base revision.
