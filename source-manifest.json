@@ -1692,7 +1692,7 @@
     "source/packages/matrix-trinity/src/matrix_trinity/vibronic_optical_workflow.py": "9f7a2d60869461b645285e2b81b94ee8446c27073ba6e67c6f41d7be5df25574",
     "source/packages/matrix-trinity/src/matrix_trinity/vibronic_parallel.py": "0be613e4122ff804aff75a5f60235f8db4276b80e049f2ad594c8547d610e530",
     "source/packages/matrix-trinity/src/matrix_trinity/vibronic_preparation.py": "54e3002858526b6e1a57a6bcaa424ac96a600b58975000910e5a4124b0403173",
-    "source/packages/matrix-trinity/src/matrix_trinity/vibronic_product_trace.py": "978db384fcd3677b8d145b333645abc0c2edc31230a0fd61844683daaa09de42",
+    "source/packages/matrix-trinity/src/matrix_trinity/vibronic_product_trace.py": "904767c671c0af052adcaa6c96255fbc047bdf582d9e7193647bfdeccf6a26ee",
     "source/packages/matrix-trinity/src/matrix_trinity/vibronic_raman.py": "4d0ff44d97adf8ee1f2f0397d8d87f717e9921ee96301255f8ff3a24a5f362fe",
     "source/packages/matrix-trinity/src/matrix_trinity/vibronic_rates.py": "b7c1f7881ef3caaabb3195703e3d0a9960be1da5d8f8eac576112f170211206e",
     "source/packages/matrix-trinity/src/matrix_trinity/vibronic_recycled_subspace.py": "047d9261cd74b0892982c095f6fc057fbf5dcccbd817c9ef6e31ab4d646cf1a3",
@@ -1822,6 +1822,13 @@
   "python_requires": ">=3.11",
   "schema": "sati.standalone.source.v1",
   "scientific_extensions": {
+    "active_bath_radiative": {
+      "files": [
+        "source/packages/matrix-trinity/src/matrix_trinity/vibronic_product_trace.py"
+      ],
+      "owner_revision": "0ca62363",
+      "status": "Finite-state spectral forms and convolution adapter; production thermal TI bath convergence is evaluated separately."
+    },
     "radiative_td": {
       "files": [
         "source/packages/matrix-trinity/src/matrix_trinity/radiative_td.py",

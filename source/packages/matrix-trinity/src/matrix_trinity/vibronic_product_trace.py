@@ -30,26 +30,75 @@ def project_sine_linear_operators(initial,final,basis_counts,bounds,constants,gr
     return overlap,amplitudes
 
 
-def active_dipole_traces(initial_energies,final_energies,overlap,dipole_amplitudes,
-                         populations,times_fs,*,energy_bin_cm=1.):
-    """Return scalar, dipole-norm and three mixed active spectral traces.
+def active_dipole_histograms(initial_energies,final_energies,overlap,dipole_amplitudes,
+                             populations,*,energy_bin_cm=1.):
+    """Five finite-state spectral forms, retaining signed mixed insertions.
 
-    Real bound-state amplitudes permit a five-form bath contraction: the bath
-    mixed forms already include both Hermitian orders of the insertion.
+    Bin weights are integrated strengths, not densities. The same forms feed
+    the time correlation and a TI convolution with a harmonic-bath progression.
+    Their binning error is controlled by paired smaller energy bins.
     """
-    ei=np.asarray(initial_energies,float);ef=np.asarray(final_energies,float);o=np.asarray(overlap);mu=np.asarray(dipole_amplitudes);p=np.asarray(populations,float);t=np.asarray(times_fs,float)
-    if (o.shape!=(len(ef),len(ei)) or mu.shape!=(3,)+o.shape or p.shape!=ei.shape
+    ei=np.asarray(initial_energies,float);ef=np.asarray(final_energies,float)
+    o=np.asarray(overlap);mu=np.asarray(dipole_amplitudes);p=np.asarray(populations,float)
+    if (ei.ndim!=1 or ef.ndim!=1 or not len(ei) or not len(ef)
+            or o.shape!=(len(ef),len(ei)) or mu.shape!=(3,)+o.shape or p.shape!=ei.shape
             or np.iscomplexobj(o) or np.iscomplexobj(mu) or np.any(p<0)
-            or energy_bin_cm<=0 or not all(np.all(np.isfinite(x)) for x in (ei,ef,o,mu,p,t))):
+            or not np.isfinite(energy_bin_cm) or energy_bin_cm<=0
+            or not all(np.all(np.isfinite(x)) for x in (ei,ef,o,mu,p))):
         raise ValueError('Compatible finite real active amplitudes and populations required')
     energy=ei[None,:]-ef[:,None];low=np.floor(energy.min()/energy_bin_cm)*energy_bin_cm
     high=np.ceil(energy.max()/energy_bin_cm)*energy_bin_cm+energy_bin_cm
     bins=np.arange(low,high+energy_bin_cm/2,energy_bin_cm);center=(bins[:-1]+bins[1:])/2
     weights=[o*o,np.sum(mu*mu,axis=0),*(mu[j]*o for j in range(3))]
-    hist=np.array([np.histogram(energy,bins,weights=w*p[None,:])[0] for w in weights]);live=np.flatnonzero(np.any(hist!=0,axis=0));traces=np.zeros((5,len(t)),complex)
+    hist=np.array([np.histogram(energy,bins,weights=w*p[None,:])[0] for w in weights])
+    return center,hist,dict(scalar_strength=float(hist[0].sum()),
+        dipole_strength=float(hist[1].sum()),energy_bin_cm=energy_bin_cm)
+
+
+def active_dipole_traces(initial_energies,final_energies,overlap,dipole_amplitudes,
+                         populations,times_fs,*,energy_bin_cm=1.):
+    """Scalar, dipole-norm and mixed active traces from the shared finite sums."""
+    t=np.asarray(times_fs,float)
+    if t.ndim!=1 or not np.all(np.isfinite(t)):
+        raise ValueError('Finite one-dimensional time samples required')
+    center,hist,diagnostics=active_dipole_histograms(initial_energies,final_energies,
+        overlap,dipole_amplitudes,populations,energy_bin_cm=energy_bin_cm)
+    live=np.flatnonzero(np.any(hist!=0,axis=0));traces=np.zeros((5,len(t)),complex)
     for ids in np.array_split(live,max(1,(len(live)+255)//256)):
         traces+=hist[:,ids]@np.exp(-1j*PHASE_PER_CM_FS*center[ids,None]*t)
-    return traces,dict(scalar_strength=float(hist[0].sum()),dipole_strength=float(hist[1].sum()),energy_bin_cm=energy_bin_cm)
+    return traces,diagnostics
+
+
+def product_dipole_radiative_spectrum(active_energies,active_forms,bath_energies,bath_forms,
+                                      *,origin_cm=0.):
+    """TI contraction of five active/bath strength histograms by convolution.
+
+    Both energy axes have the same uniform spacing and exclude the common
+    electronic/zero-point origin. No explicit active-by-bath product list is
+    formed. The FC, bath HT and signed mixed forms interfere before the rate
+    is summed over positive photon energies. Input bins contain strengths.
+    """
+    from scipy.signal import fftconvolve
+    from .vibronic_rates import EINSTEIN_A_FACTOR
+    ae=np.asarray(active_energies,float);be=np.asarray(bath_energies,float)
+    a=np.asarray(active_forms,float);b=np.asarray(bath_forms,float)
+    if (ae.ndim!=1 or be.ndim!=1 or min(len(ae),len(be))<2
+            or a.shape!=(5,len(ae)) or b.shape!=(5,len(be))
+            or not np.isfinite(origin_cm) or not all(np.all(np.isfinite(x)) for x in (ae,be,a,b))):
+        raise ValueError('Finite compatible five-form spectra required')
+    step=float(ae[1]-ae[0])
+    if step<=0 or not np.allclose(np.diff(ae),step) or not np.allclose(np.diff(be),step):
+        raise ValueError('Matching increasing uniform energy grids required')
+    weights=fftconvolve(a[1],b[0])+fftconvolve(a[0],b[1])
+    for j in range(3):weights+=fftconvolve(a[j+2],b[j+2])
+    photon=origin_cm+ae[0]+be[0]+step*np.arange(len(weights))
+    rate=float(EINSTEIN_A_FACTOR*np.dot(np.maximum(photon,0.)**3,weights))
+    return dict(schema='matrix.trinity.product_dipole_radiative_spectrum.v1',
+        wavenumbers_cm=photon,strengths_au2=weights,rate_s_1=rate,
+        diagnostics=dict(energy_bin_cm=step,integrated_strength_au2=float(weights.sum()),
+            negative_numerical_strength=float(-np.minimum(weights,0.).sum()),
+            active_bath_product_list_materialized=False,interference_retained=True,
+            broadening_used_for_rate=False,bin_convergence_requires_paired_calculations=True))
 
 
 def product_dipole_correlation(active,bath):
