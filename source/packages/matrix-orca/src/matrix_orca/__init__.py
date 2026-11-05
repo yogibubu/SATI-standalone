@@ -26,6 +26,8 @@ from .parsers import (
     write_orca_state_fingerprint_archive,
 )
 from .properties import (
+    read_orca_soc_matrix,
+    read_orca_nacme,
     read_orca_soc_transition_properties,
     OrcaQuadrupolePromotion,
     parse_orca_quadrupole_properties,
@@ -33,6 +35,8 @@ from .properties import (
 )
 
 __all__ = [
+    "read_orca_soc_matrix",
+    "read_orca_nacme",
     "read_orca_soc_transition_properties",
     "ORCA_EXECUTABLE",
     "ORCA_OUTPUT_FORMAT",

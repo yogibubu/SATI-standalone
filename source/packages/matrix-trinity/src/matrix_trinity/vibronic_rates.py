@@ -88,15 +88,25 @@ def harmonic_nonradiative_rate(model,coupling_hartree,*,gradient_hartree=None,
         transition_gradient_dimensionless_au=gradient*scale[:,None],
         transition_momentum_dimensionless_au=momentum*scale[:,None])
     if method=='TI':
+        controls.setdefault('line_format','columns')
         result=harmonic_vibronic_ti(coupling_model,temperature_K=temperature_K,kind=kind,**controls)
-        lines=_harmonic_ti_lines(result)
+        if result.get('line_format')=='columns':
+            columns=result['line_columns']
+            energies=np.asarray(columns['wavenumber_cm']) if columns else np.empty(0)
+            strengths=np.asarray(columns['weighted_strength_au2']) if columns else np.empty(0)
+        else:
+            energies=np.asarray([row['wavenumber_cm'] for row in result['lines']])
+            strengths=np.asarray([row['weighted_strength_au2'] for row in result['lines']])
         if controls.get('backend')=='cpp':
             from .vibronic_native_kernels import NativeKernels
             _,density,peak=NativeKernels(str(controls['native_executable'])+'.kernels.so').rate_moments(
-                [row['wavenumber_cm'] for row in lines],
-                [row['weighted_strength_au2'] for row in lines],gaussian_sigma_cm,lorentz_hwhm_cm)
+                energies,strengths,gaussian_sigma_cm,lorentz_hwhm_cm)
         else:
-            density=float(sum(row['weighted_strength_au2']*voigt_profile(row['wavenumber_cm'],gaussian_sigma_cm,lorentz_hwhm_cm) for row in lines))
+            # Bounded temporary storage, including when columns are disk-backed.
+            density=0.
+            for start in range(0,len(energies),65536):
+                stop=start+65536
+                density+=float(np.dot(strengths[start:stop],voigt_profile(energies[start:stop],gaussian_sigma_cm,lorentz_hwhm_cm)))
             peak=float(voigt_profile(0.,gaussian_sigma_cm,lorentz_hwhm_cm))
         diagnostics=dict(TI=result['diagnostics'],energy_conservation_sampling='direct Voigt sum',
             missing_rate_upper_bound_s_1=float(GOLDEN_RULE_FACTOR*peak*max(0.,result['diagnostics']['strength_sum_rule']['total']-result['diagnostics']['reported_strength_au2'])))

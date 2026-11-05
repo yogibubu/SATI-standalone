@@ -43,7 +43,7 @@ def run_esalc_vibronic_workflow(configuration):
     controls={
         'ti':{'maximum_initial_quanta','maximum_final_quanta','maximum_class','maximum_states',
               'maximum_transitions','maximum_integrals','minimum_strength_au2','target_fraction','workers',
-              'selection','selection_proposal','selection_windows_cm','selection_reference_controls','selection_profile_points',
+              'selection','selection_proposal','selection_windows_cm','selection_reference_controls','selection_profile_points','selection_rate_at_cm','selection_energy_range_cm',
               'selection_energy_bias_per_cm','selection_profile_peak_tolerance','selection_profile_L1_tolerance',
               'selection_profile_absolute_tolerance','selection_window_rankings','selection_assignment_limit',
               'selection_assignment_report_path','selection_batch_size','selection_maximum_per_mode_quanta','line_format',

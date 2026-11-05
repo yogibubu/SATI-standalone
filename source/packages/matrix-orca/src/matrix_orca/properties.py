@@ -5,6 +5,62 @@ from pathlib import Path
 import re
 
 
+def read_orca_soc_matrix(path: Path | str, *, matrix_index: int = 0) -> dict:
+    """Read ORCA's full complex SOC Hamiltonian printed at higher PrintLevel.
+
+    The matrix includes scalar excitation energies on the diagonal, in Hartree.
+    Basis-state and spin-sector assignment is deliberately left to the caller.
+    Unlike the two-decimal SOCME table, this record retains small couplings.
+    """
+    import hashlib
+    import numpy as np
+
+    source = Path(path)
+    content = source.read_text(encoding='utf-8', errors='replace')
+    sections = content.split('The full SOC matrix:')[1:]
+    if not 0 <= matrix_index < len(sections):
+        raise ValueError('requested full SOC matrix is absent from the ORCA output')
+    section = sections[matrix_index].split('Diagonalizing the SOC matrix:', 1)[0]
+    parts = re.split(r'(?:Real|Image|Imaginary) part:\s*', section)
+    if len(parts) != 3:
+        raise ValueError('full SOC matrix requires real and imaginary parts')
+
+    def read_part(text):
+        entries = {}
+        columns = ()
+        for line in text.splitlines():
+            tokens = line.split()
+            if tokens and all(re.fullmatch(r'\d+', t) for t in tokens):
+                columns = tuple(map(int, tokens))
+            elif columns and len(tokens) == len(columns)+1 and re.fullmatch(r'\d+', tokens[0]):
+                try:
+                    values = [float(t.replace('D', 'E')) for t in tokens[1:]]
+                except ValueError:
+                    continue
+                for column, value in zip(columns, values):
+                    key = (int(tokens[0]), column)
+                    if key in entries:
+                        raise ValueError('duplicate SOC matrix entry')
+                    entries[key] = value
+        if not entries:
+            raise ValueError('empty SOC matrix part')
+        n = 1+max(max(k) for k in entries)
+        if len(entries) != n*n:
+            raise ValueError('incomplete full SOC matrix')
+        return np.array([[entries[i, j] for j in range(n)] for i in range(n)])
+
+    real, imag = map(read_part, parts[1:])
+    if real.shape != imag.shape:
+        raise ValueError('SOC matrix part dimensions differ')
+    matrix = real+1j*imag
+    if not np.all(np.isfinite(matrix)) or not np.allclose(matrix, matrix.conj().T, rtol=2e-6, atol=1e-14):
+        raise ValueError('nonfinite or non-Hermitian full SOC matrix')
+    return dict(schema='matrix.orca.soc_hamiltonian.v1', hamiltonian_hartree=matrix,
+                source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+                matrix_index=matrix_index, units='Hartree',
+                assignment='caller must identify scalar states and spin components')
+
+
 def read_orca_soc_transition_properties(path: Path | str, *, geometry_index: int = 1) -> dict:
     """Read full-precision SOC length-gauge transitions from .property.txt.
 
@@ -323,3 +379,38 @@ def _normalize_isotope(text: str) -> str:
 
 def _section_ended(upper: str) -> bool:
     return upper.startswith(("----", "====", "CARTESIAN", "VIBRATIONAL", "ORCA TERMINATED"))
+
+
+def read_orca_nacme(path: Path | str, *, expected_atoms: int,
+                    require_electron_translation_factors: bool = True) -> dict:
+    """Read one printed Cartesian GS/ES derivative-coupling vector.
+
+    This returns first derivatives only. It does not infer scalar second
+    derivatives, electronic symmetry, state tracking or a complete IC operator.
+    """
+    import hashlib
+    import numpy as np
+    source = Path(path)
+    text = source.read_text(errors='replace')
+    if 'ORCA TERMINATED NORMALLY' not in text:
+        raise ValueError('Normally terminated ORCA acquisition required')
+    parts = text.split('CARTESIAN NON-ADIABATIC COUPLINGS')[1:]
+    if len(parts) != 1 or expected_atoms <= 0:
+        raise ValueError('One identified NAC vector and a positive atom count required')
+    part = parts[0].split('Difference to translation invariance:', 1)[0]
+    etf = 'with built-in ETFs' in part
+    if require_electron_translation_factors and not etf:
+        raise ValueError('Electron-translation-factor corrected NAC required')
+    rows = re.findall(r'^\s*(\d+)\s+([A-Za-z]+)\s*:\s*([-+0-9.Ee]+)\s+([-+0-9.Ee]+)\s+([-+0-9.Ee]+)\s*$', part, re.M)
+    if len(rows) != expected_atoms or [int(x[0]) for x in rows] != list(range(1, expected_atoms+1)):
+        raise ValueError('Complete sequential atom-resolved NAC vector required')
+    vector = np.asarray([[float(v) for v in x[2:]] for x in rows])
+    if not np.all(np.isfinite(vector)):
+        raise ValueError('Finite Cartesian NAC components required')
+    return dict(schema='matrix.orca.cartesian_nacme.v1',
+        source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+        atom_symbols=[x[1] for x in rows], coupling_per_bohr=vector,
+        convention='<GS|d/dR|ES>', electron_translation_factors=etf,
+        norm_per_bohr=float(np.linalg.norm(vector)),
+        translation_residual_per_bohr=vector.sum(axis=0),
+        complete_operator_inferred=False)

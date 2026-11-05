@@ -99,13 +99,15 @@ def harmonic_vibronic_ti(model,*,temperature_K=0.,kind='absorption',operator='FC
         selection_windows_cm=None,selection_reference_controls=None,selection_profile_points=65,
         selection_energy_bias_per_cm=None,selection_profile_peak_tolerance=.02,selection_profile_L1_tolerance=.01,
         selection_profile_absolute_tolerance=0.,selection_window_rankings=True,selection_assignment_limit=50,
-        selection_assignment_report_path=None):
+        selection_assignment_report_path=None,selection_rate_at_cm=None,selection_energy_range_cm=None):
     """Compute a finite TI progression without renormalizing it.
 
     C++ recurrence_mode='levels' contracts dependencies by total occupation;
     recurrence_workers bounds its independent-node executor (one by default).
     selection='targeted' uses a same-model TD reference and converges the
     requested fraction in every selection_windows_cm interval. Optional
+    selection_rate_at_cm instead stops on the positive density at one energy,
+    using a same-model TD reference; this does not certify the full window.
     selection_reference_controls set its time grid and line width. Global
     strength completeness remains a separate diagnostic. Targeted stopping
     requires every observable profile to meet its peak/L1 tolerances too.
@@ -133,10 +135,10 @@ def harmonic_vibronic_ti(model,*,temperature_K=0.,kind='absorption',operator='FC
             lorentz_hwhm_cm=controls['lorentz_hwhm_cm'],profile_points=selection_profile_points,
             profile_peak_tolerance=selection_profile_peak_tolerance,profile_L1_tolerance=selection_profile_L1_tolerance,
             profile_absolute_tolerance=selection_profile_absolute_tolerance,window_rankings=selection_window_rankings,
-            assignment_limit=selection_assignment_limit)
+            assignment_limit=selection_assignment_limit,rate_at_cm=selection_rate_at_cm)
         selection='adaptive'
         if selection_proposal is None:selection_proposal='operator_c2'
-    elif selection_windows_cm is not None or selection_reference_controls is not None or selection_assignment_report_path is not None:
+    elif selection_windows_cm is not None or selection_reference_controls is not None or selection_assignment_report_path is not None or selection_rate_at_cm is not None or selection_energy_range_cm is not None:
         raise ValueError('spectral windows and TD reference controls require selection=targeted')
     if selection_proposal is None:selection_proposal='gaussian_c2'
     if selection_energy_bias_per_cm is None and spectral_target is None:selection_energy_bias_per_cm=0.
@@ -162,7 +164,7 @@ def harmonic_vibronic_ti(model,*,temperature_K=0.,kind='absorption',operator='FC
             checkpoint_path=checkpoint_path,resume=resume,checkpoint_async=checkpoint_async,checkpoint_interval_batches=checkpoint_interval_batches, checkpoint_interval_seconds=checkpoint_interval_seconds,
             selection_proposal=selection_proposal,native_library=native_library,line_storage_path=line_storage_path,preparation_cache=preparation_cache,
             spectral_target=spectral_target,selection_energy_bias_per_cm=selection_energy_bias_per_cm,
-            assignment_report_path=selection_assignment_report_path)
+            assignment_report_path=selection_assignment_report_path,selection_energy_range_cm=selection_energy_range_cm)
     if selection_energy_bias_per_cm!=0:raise ValueError('energy bias requires adaptive or targeted TI')
     if line_storage_path is not None:raise ValueError('Disk-backed line storage requires adaptive selection')
     if selection_proposal!='gaussian_c2':raise ValueError('selection_proposal requires adaptive selection')

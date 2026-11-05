@@ -18,7 +18,7 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
         selection_batch_size=None, selection_maximum_per_mode_quanta=128, line_format="records", progress_callback=None,
         checkpoint_path=None, resume=False, checkpoint_interval_batches=10, checkpoint_interval_seconds=60.,
         selection_proposal='gaussian_c2',native_library=None,line_storage_path=None,preparation_cache=None,checkpoint_async=True,
-        spectral_target=None,selection_energy_bias_per_cm=0.,assignment_report_path=None):
+        spectral_target=None,selection_energy_bias_per_cm=0.,assignment_report_path=None,selection_energy_range_cm=None):
     started=perf_counter();timings=dict(preparation=0.,selection=0.,recurrence=0.,amplitudes_and_reductions=0.,
         line_management=0.,checkpoint=0.,materialization=0.)
     if line_storage_path is not None and line_format!='columns':raise ValueError('Disk-backed line storage requires columns')
@@ -49,7 +49,14 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
         preparation_cache.checkpoint_gaussian(native_library,model,temperature_K))
     if g['log_ground'] < np.log(np.finfo(float).tiny)+4:
         raise FloatingPointError('adaptive TI ground overlap underflows; use the analytic TD engine')
-    budget = min(maximum_states, maximum_transitions)
+    energy_range=None
+    if selection_energy_range_cm is not None:
+        energy_range=np.asarray(selection_energy_range_cm,float)
+        if (energy_range.shape!=(2,) or not np.all(np.isfinite(energy_range)) or energy_range[0]>=energy_range[1]
+                or spectral_target is None or np.min(spectral_target.windows[:,0])<=energy_range[0]
+                or np.max(spectral_target.windows[:,1])>=energy_range[1]):
+            raise ValueError('Energy filter must strictly contain all requested spectral windows')
+    budget = maximum_states if energy_range is not None else min(maximum_states, maximum_transitions)
     from .vibronic_checkpoint import AdaptiveCheckpoint
     cap = max(maximum_initial_quanta, maximum_final_quanta, selection_maximum_per_mode_quanta)
     identity=dict(engine='dipole', temperature_K=temperature_K, kind=kind, operator=operator,
@@ -92,7 +99,7 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
     elif native_library is not None:tree.enable_native(native_library)
     if getattr(tree,'is_window_forest',False):tree.attach(spectral_target,target_fraction)
     store=None if line_storage_path is None else LineBlockStore(line_storage_path)
-    rows = []; column_batches = []; total = 0.; reported = 0.; components = np.zeros(3)
+    rows = []; column_batches = []; total = 0.; reported = 0.; components = np.zeros(3);energy_filtered=0
     by_class = {}; initial_states = {}; cache_exhausted = False; evaluated = 0; batches = 0
     pending = payload.get('pending', np.empty((0, 2*n), np.int64))
     def records(batch):
@@ -103,7 +110,12 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
             interference_au2=float(amplitudes[i, 3]), strength_au2=float(values[i]), weighted_strength_au2=float(weighted[i]))
             for i, state in enumerate(states)]
     if payload:
+        previous_range=payload.get('energy_range',np.empty(0))
+        if len(previous_range) and (energy_range is None or energy_range[0]<previous_range[0] or energy_range[1]>previous_range[1]):
+            raise ValueError('A resumed energy filter cannot widen a previously filtered domain')
+        energy_filtered=int(payload.get('energy_filtered',0))
         total, reported, evaluated = float(payload['total']), float(payload['reported']), int(payload['evaluated'])
+        if evaluated>maximum_transitions:raise ValueError('Transition budget is below the saved evaluated count')
         components = payload['components']
         by_class = dict(zip(map(int, payload['classes']), map(float, payload['class_values']), strict=True))
         initial_states = {tuple(state): float(pop) for state, pop in zip(payload['initial_states'], payload['initial_populations'], strict=True)}
@@ -112,6 +124,7 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
         if store is None:column_batches.append(batch)
         else:store.append(batch)
         if line_format == 'records': rows.extend(records(batch))
+        payload.clear();del batch
     def save(final=False):
         if checkpoint.path is None: return
         empty = (np.empty((0, 2*n), np.int64), np.empty(0), np.empty(0), np.empty((0, 5)), np.empty(0), np.empty(0))
@@ -120,28 +133,40 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
         data = dict(total=total, reported=reported, evaluated=evaluated, components=components,
             classes=np.array(list(by_class), np.int64), class_values=np.array(list(by_class.values())),
             initial_states=np.array(list(initial_states), np.int64).reshape(-1, n) if temperature_K != 0 else np.empty((len(initial_states), 0), np.int64),
-            initial_populations=np.array(list(initial_states.values())), pending=pending)
+            initial_populations=np.array(list(initial_states.values())), pending=pending,
+            energy_range=np.empty(0) if energy_range is None else energy_range,energy_filtered=np.asarray(energy_filtered))
         data.update({'column_'+str(k): value for k, value in enumerate(columns)})
         before=perf_counter();checkpoint.save(tree, cache, data,final=final,append_only=True);timings['checkpoint']+=perf_counter()-before
     timings['preparation']=perf_counter()-started
     def reached_target():
         return spectral_target.converged(target_fraction) if spectral_target is not None else reported>=target_fraction*rule['total']
     try:
-        while (len(pending) or (tree.heap and tree.visited < budget)) and (rule['total'] > 0 and not reached_target()):
+        while (len(pending) or (tree.heap and tree.visited < budget)) and (rule['total'] > 0 and not reached_target()) and evaluated<maximum_transitions:
             checkpoint.poll()
+            count=min(selection_batch_size,maximum_transitions-evaluated)
+            deferred_pending=pending[count:].copy();pending=pending[:count]
+            # Discard only completed proposal states, never their descendants.
+            # Every retained state still uses the shared exact recurrence.
+            if energy_range is not None and not len(pending):
+                before=perf_counter();pending=tree.batch(count)
+                energies=direction*(model.origin_cm+pending[:,n:]@model.final_frequencies_cm-pending[:,:n]@model.initial_frequencies_cm)
+                keep=(energies>=energy_range[0])&(energies<=energy_range[1])
+                energy_filtered+=int(np.count_nonzero(~keep));pending=pending[keep]
+                timings['selection']+=perf_counter()-before
+                if not len(pending):continue
             if native_library is not None:
                 native_tree=tree
                 if use_forest:
-                    if not len(pending):pending=tree.batch(selection_batch_size)
+                    if not len(pending):pending=tree.batch(count)
                     if not len(pending):continue
                     native_tree=tree.children[tree.last_window]
                 (states,pending,amplitudes,columns,summary,class_weights,class_counts,cache_exhausted,costs)=native_library.dipole_ti_batch(
-                    native_tree,cache,pending,selection_batch_size,model,g,q,direction,minimum_strength_au2,operator)
+                    native_tree,cache,pending,count,model,g,q,direction,minimum_strength_au2,operator)
                 for name,value in zip(('selection','recurrence','amplitudes_and_reductions'),costs):timings[name]+=float(value)
                 energies,populations,values,weighted=columns.T
                 total+=float(summary[0]);components+=summary[2:]
             else:
-                before=perf_counter();states=pending if len(pending) else tree.batch(selection_batch_size)
+                before=perf_counter();states=pending if len(pending) else tree.batch(count)
                 timings['selection']+=perf_counter()-before
                 if not len(states):continue
                 before=perf_counter();ids,cache_exhausted=cache.evaluate(states)
@@ -156,6 +181,7 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
                 components+=(amplitudes[:,1:4]*populations[:,None]).sum(axis=0)
                 energies=direction*(model.origin_cm+states[:,n:]@model.final_frequencies_cm-states[:,:n]@model.initial_frequencies_cm)
                 timings['amplitudes_and_reductions']+=perf_counter()-before
+            if len(deferred_pending):pending=np.concatenate((pending,deferred_pending))
             managed_at=perf_counter()
             if len(states):
                 keep = weighted > minimum_strength_au2
@@ -235,13 +261,17 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
             line_storage_path=None if line_storage_path is None else str(Path(line_storage_path).resolve()),strength_sum_rule=rule, computed_strength_au2=total, reported_strength_au2=reported,
             component_totals_au2=dict(zip(('FC', 'HT', 'interference'), map(float, components), strict=True)),
             captured_fraction=fraction, target_fraction=target_fraction, converged=reached_target(),global_norm_converged=bool(fraction>=target_fraction),
-            convergence_scope='global' if spectral_target is None else 'requested_spectral_windows',targeted_selection=targeted,
+            convergence_scope=('global' if spectral_target is None else
+                'requested_rate_density' if spectral_target.rate_at_cm is not None else 'requested_spectral_windows'),targeted_selection=targeted,
             selection_energy_bias_per_cm=np.asarray(selection_energy_bias_per_cm).tolist(),
             window_ranking_statistics=tree.statistics() if use_forest else None,
             omitted_strength_bound_au2=missing, initial_population_retained=float(sum(initial_states.values())),
             evaluated_transitions=evaluated, visited_proposal_states=tree.visited, queued_proposal_states=len(tree.heap),
             checkpoint_resumed=checkpoint.resumed, checkpoint_path=checkpoint.path, pending_transitions=len(pending),
-            transition_budget_exhausted=bool(tree.visited >= budget and not reached_target()),
+            transition_budget_exhausted=bool((tree.visited >= budget or evaluated>=maximum_transitions) and not reached_target()),
+            selection_energy_range_cm=energy_range,energy_filtered_proposal_states=energy_filtered,
+            energy_filter_density_upper_bound=(None if energy_range is None else float(rule['total']*spectral_target._kernel(
+                min(np.min(spectral_target.windows[:,0])-energy_range[0],energy_range[1]-np.max(spectral_target.windows[:,1]))))),
             proposal_domain_exhausted=bool(not tree.heap and not len(pending) and not reached_target()),
             cache_budget_exhausted=cache_exhausted, cached_integrals=cache.count,
             recurrence_dependency_edges=cache.edge_count, recurrence_cache='collision-checked packed multiword keys; compiled shared recurrence without retained edges',
@@ -260,7 +290,10 @@ def harmonic_vibronic_ti_adaptive(model, *, temperature_K=0., kind='absorption',
             maximum_initial_quanta=maximum_initial_quanta, maximum_final_quanta=maximum_final_quanta,
             selection_maximum_per_mode_quanta=selection_maximum_per_mode_quanta,
             scope=('proposal orders candidates only; global completeness uses the exact harmonic strength sum rule; no renormalization'
-                if spectral_target is None else 'requested windows use numerical TD-reference recovery; the exact global omitted-strength bound is retained; no renormalization')),
+                if spectral_target is None else
+                'requested rate point uses numerical TD-reference recovery; global and window completeness are reported separately; no renormalization'
+                if spectral_target.rate_at_cm is not None else
+                'requested windows use numerical TD-reference recovery; the exact global omitted-strength bound is retained; no renormalization')),
         provenance=model.provenance, scope='adaptive high-class harmonic FC/HT strengths; incomplete budgets remain explicitly unconverged')
 
 

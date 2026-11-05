@@ -15,7 +15,7 @@ class SpectralSelectionTarget:
     def __init__(self, windows_cm, axis_cm, densities, bank_density, *,
                  gaussian_sigma_cm, lorentz_hwhm_cm=0., profile_points=65,
                  profile_peak_tolerance=.02,profile_L1_tolerance=.01,
-                 profile_absolute_tolerance=0.,window_rankings=True,assignment_limit=50):
+                 profile_absolute_tolerance=0.,window_rankings=True,assignment_limit=50,rate_at_cm=None):
         windows=np.asarray(windows_cm,float);x=np.asarray(axis_cm,float)
         y=np.asarray(densities,float);bank=np.asarray(bank_density,float)
         if (windows.ndim!=2 or windows.shape[1]!=2 or not len(windows)
@@ -88,9 +88,19 @@ class SpectralSelectionTarget:
         self.reference_areas=np.asarray(self.reference_areas);self.reference_bank=np.asarray(self.reference_bank)
         if np.any(self.reference_bank<=0):raise ValueError('each target window needs positive reference strength')
         self.computed_bank=np.zeros(len(windows));self.computed_areas=np.zeros_like(self.reference_areas)
+        self.rate_at_cm=None if rate_at_cm is None else float(rate_at_cm)
+        if self.rate_at_cm is not None:
+            if (not np.isfinite(self.rate_at_cm) or len(windows)!=1
+                    or not windows[0,0]<=self.rate_at_cm<=windows[0,1]
+                    or np.any(y< -1e-6*peak)):
+                raise ValueError('rate targeting requires one window containing the point and positive strengths')
+            self.rate_reference=self._reference_at(np.array([self.rate_at_cm]))[:-1,0]
+            if np.any(self.rate_reference<=0):raise ValueError('positive TD density required at the rate target')
+            self.rate_computed=np.zeros(len(y))
         digest=hashlib.sha256()
         for value in (windows,x,y,bank,np.array([self.sigma,self.gamma,profile_points])):
             digest.update(np.ascontiguousarray(value,dtype='<f8').tobytes())
+        if self.rate_at_cm is not None:digest.update(np.asarray([self.rate_at_cm],dtype='<f8').tobytes())
         self.identity=digest.hexdigest()
 
     def _reference_at(self,grid):
@@ -119,6 +129,9 @@ class SpectralSelectionTarget:
             delta=x[:,None]-self.grid.ravel()
             profile=strengths[:,start:stop]@self._kernel(delta)
             self.computed_profiles+=profile.reshape(strengths.shape[0],*self.grid.shape).transpose(1,0,2)
+            if self.rate_at_cm is not None:
+                if np.any(strengths[:,start:stop]<0):raise ValueError('rate targeting requires positive line strengths')
+                self.rate_computed+=strengths[:,start:stop]@self._kernel(x-self.rate_at_cm)
         self.line_count+=len(energies)
 
     def profile_status(self):
@@ -134,6 +147,9 @@ class SpectralSelectionTarget:
         return ready,peak_error,l1_error,peak,l1
 
     def window_ready(self,fraction):
+        if self.rate_at_cm is not None:
+            return np.array([bool(np.all(self.rate_computed>=fraction*self.rate_reference)
+                and np.all(self.rate_computed<=(2-fraction)*self.rate_reference))])
         return (self.computed_bank>=fraction*self.reference_bank)&np.all(self.profile_status()[0],axis=1)
 
     def converged(self,fraction):
@@ -154,9 +170,43 @@ class SpectralSelectionTarget:
             exponent=-.5*bias*frequencies
             if np.max(abs(exponent))<=300:
                 scale=base*np.exp(exponent);matrix=scale[:,None]*gaussian['matrix']*scale[None,:]
-                if np.max(abs(np.linalg.eigvalsh(matrix)))<1-1e-10:return bias
+                if np.max(abs(np.linalg.eigvalsh(matrix)))<1-1e-10:
+                    if self.rate_at_cm is None:return bias
+                    return self._rate_bias(model,gaussian,base,frequencies,direction,bias,cap)
             bias*=.5
         raise ValueError('could not construct a normalizable targeted ranking')
+
+    def _rate_bias(self,model,gaussian,base,frequencies,direction,bias,cap):
+        """Damped moment matching of the Gaussian energy-shell proposal.
+
+        Only ranking changes. The common recurrence still evaluates the exact
+        physical amplitudes for every operator component and selected state.
+        """
+        eye=np.eye(len(base));target=direction*self.rate_at_cm-model.origin_cm
+        def moments(value):
+            exponent=-.5*value*frequencies
+            if np.max(abs(exponent))>300:return None
+            scale=base*np.exp(exponent);a=scale[:,None]*gaussian['matrix']*scale[None,:]
+            if np.max(abs(np.linalg.eigvalsh(a)))>=1-1e-10:return None
+            vx=.5*np.linalg.solve(eye-a,eye+a);vp=.5*np.linalg.solve(eye+a,eye-a)
+            mean=np.sqrt(2)*np.linalg.solve(eye-a,gaussian['linear']*scale)
+            number=(np.diag(vx)+np.diag(vp)+mean*mean-1)/2
+            covariance=.5*(vx*vx+vp*vp)+mean[:,None]*vx*mean[None,:]
+            covariance[np.diag_indices(len(base))]-=.25
+            return float(frequencies@number),max(0.,float(frequencies@covariance@frequencies))
+        current=moments(bias)
+        for _ in range(12):
+            error=current[0]-target
+            if abs(error)<1. or current[1]<=0:break
+            step=error/current[1]
+            for _ in range(16):
+                trial=float(np.clip(bias+step,-cap,cap));candidate=moments(trial)
+                if candidate is not None and abs(candidate[0]-target)<abs(error):
+                    bias=trial;current=candidate;break
+                step*=.5
+            else:break
+        self.rate_ranking_mean_cm=float(direction*(model.origin_cm+current[0]))
+        return bias
 
     def report(self, energies, strengths, observable_norms):
         if self.line_count!=len(energies):raise ValueError('profile accumulator and assigned lines differ')
@@ -164,7 +214,7 @@ class SpectralSelectionTarget:
         profiles=self.computed_profiles
         ready,peak_error,l1_error,peak,l1=self.profile_status()
         missing=np.maximum(0.,self.reference_bank-self.computed_bank)
-        return dict(windows_cm=self.windows,gaussian_sigma_cm=self.sigma,lorentz_hwhm_cm=self.gamma,
+        result=dict(windows_cm=self.windows,gaussian_sigma_cm=self.sigma,lorentz_hwhm_cm=self.gamma,
             reference_bank_areas=self.reference_bank,computed_bank_areas=self.computed_bank,
             bank_recovery_fraction=self.computed_bank/self.reference_bank,
             reference_observable_areas=self.reference_areas,computed_observable_areas=self.computed_areas,
@@ -182,6 +232,13 @@ class SpectralSelectionTarget:
             TD_time_step_and_aliasing_require_separate_qualification=True,
             reference_sha256=self.identity,rigorous_global_certificate=False,
             physical_strengths_reweighted=False,signed_strengths_clipped=False)
+        if self.rate_at_cm is not None:
+            result['rate_target']=dict(wavenumber_cm=self.rate_at_cm,
+                reference_density=self.rate_reference,computed_density=self.rate_computed,
+                recovery_fraction=self.rate_computed/self.rate_reference,
+                ranking_gaussian_mean_cm=getattr(self,'rate_ranking_mean_cm',None),
+                rigorous_bound=False,scope='Pointwise positive density; not full-window or global completeness')
+        return result
 
 
 __all__=['SpectralSelectionTarget']

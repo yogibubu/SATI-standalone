@@ -137,3 +137,20 @@ development source; the existing v0.1.0rc8 release archives remain unchanged.
 Paired time grids, Gaussian widths and a TI positive-strength interval were
 checked on the 66-mode anthracene model on Oracle. The source inventory records
 the extension revision separately from the frozen base revision.
+
+## Photophysical rates and resolved accepting transitions
+
+Source APIs include operator-aware TI selection, Gaussian-block product sums,
+complex SOC channels and evidence-backed frozen-reference nonadiabatic kinetic
+operators. The general ORCA adapter reads Cartesian derivative couplings with
+electron-translation factors; a scalar Born--Huang term is always explicit.
+Electronic symmetry may certify a zero reference scalar. This is a declared
+frozen-reference approximation, not a coordinate-dependent NAC field.
+
+The frozen momentum source has an exact position-source representation for a
+zero-temperature harmonic ground state; hot initial states retain their
+original momentum operator. TI block tables preserve individual occupations.
+Rate and window recovery are checked against the same-model TD response.
+The included KeyMaker protocol requires evidence for every required operator
+and rejects missing electronic data. Existing release archives are unchanged;
+rebuild from this source for these extensions.

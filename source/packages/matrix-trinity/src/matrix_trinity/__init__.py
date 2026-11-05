@@ -10,6 +10,8 @@ TRINITY_LONG_NAME = (
 
 
 _LAZY_EXPORT_GROUPS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ('nonadiabatic_operator', ('symmetry_forbidden_scalar', 'frozen_born_huang_operator', 'symmetry_project_cartesian_nac')),
+    ('vibronic_gaussian_blocks', ('zero_temperature_gaussian_blocks', 'convolve_gaussian_block_lines', 'gaussian_block_line_strengths')),
     ("common_quadratic_correlation", ("common_quadratic_correlation", "common_quadratic_operator_correlation", "retain_common_quadratic_pairs", "screen_common_quadratic_pairs", "common_quadratic_dressed_correlation")),
     ("common_mode_rates", ("common_vci_lines", "common_vci_operator_lines", "common_vci_nonradiative_rate", "common_vci_radiative_emission_rate")),
     ("common_mode_vci", ("CommonModeVCI", "CommonVCIHamiltonian", "CommonVCIStates", "CommonVCIProperty", "solve_common_mode_vci", "common_vci_transition_orders")),
@@ -547,3 +549,7 @@ __all__.extend(("VibrationalModePartition", "BlockVibrationalModel", "BlockTrans
 __all__.extend(("NativePreparationCache","save_vibronic_columns"))
 
 __all__.extend(("radiative_rate_from_td_density", "harmonic_radiative_emission_rate_td"))
+
+__all__.extend(('zero_temperature_gaussian_blocks', 'convolve_gaussian_block_lines', 'gaussian_block_line_strengths'))
+
+__all__.extend(('symmetry_forbidden_scalar', 'frozen_born_huang_operator', 'symmetry_project_cartesian_nac'))

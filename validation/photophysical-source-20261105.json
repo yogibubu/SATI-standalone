@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "source_only_import": true,
+  "rate_s_1": 58.87225080417819,
+  "rate_difference_s_1": 0.0,
+  "python_source": "/Users/vincenzobarone/mac_jobs/PHOTOPHYSICS/sati-public-rate-validation-20261105/packages/matrix-trinity/src/matrix_trinity/__init__.py",
+  "native_kernel": "existing matching shared C++ harmonic kernel",
+  "fresh_wheel_build_performed": false
+}
