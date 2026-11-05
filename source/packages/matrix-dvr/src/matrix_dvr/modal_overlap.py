@@ -17,9 +17,45 @@ def _coefficients(vectors, width):
     return dst(u, type=1, norm='ortho', axis=0)
 
 
-def sine_dvr_modal_overlap(initial_vectors, final_vectors, *, initial_width, final_width):
-    """Exact sine integrals on the intersection of two fixed Dirichlet boxes."""
+def sine_dvr_modal_overlap(initial_vectors, final_vectors, *, initial_width, final_width,
+        initial_center=0., final_center=0., initial_momentum=False, final_momentum=False,
+        coordinate_power=0, coordinate_origin=0., quadrature_count=None):
+    """Physical sine overlaps and weak momentum/coordinate insertions.
+
+    Rows are final bra states and columns initial ket states. A requested
+    momentum acts on its primitive sine function before modal truncation;
+    the final action is conjugated in the weak product. Coordinates and
+    physical boxes share the caller's units. Restricted boxes are never
+    renormalized. Defaults retain the original analytic centered overlap.
+    """
     left = _coefficients(initial_vectors, initial_width); right = _coefficients(final_vectors, final_width)
+    if (not all(np.isscalar(x) and np.isreal(x) and np.isfinite(x)
+                for x in (initial_center,final_center,coordinate_origin))
+            or not isinstance(initial_momentum,(bool,np.bool_))
+            or not isinstance(final_momentum,(bool,np.bool_))
+            or isinstance(coordinate_power,(bool,np.bool_))
+            or not isinstance(coordinate_power,(int,np.integer)) or not 0<=coordinate_power<=2):
+        raise ValueError('Finite physical centers and weak insertions through coordinate degree two required')
+    if initial_center!=0 or final_center!=0 or initial_momentum or final_momentum or coordinate_power:
+        lo=max(initial_center-initial_width/2,final_center-final_width/2)
+        hi=min(initial_center+initial_width/2,final_center+final_width/2)
+        if hi<=lo:
+            return np.zeros((right.shape[1],left.shape[1]),
+                dtype=np.result_type(left,right,complex if initial_momentum or final_momentum else float))
+        count=max(80,4*max(len(left),len(right))) if quadrature_count is None else quadrature_count
+        if (isinstance(count,(bool,np.bool_)) or not isinstance(count,(int,np.integer))
+                or not max(len(left),len(right))<count<=4096):
+            raise ValueError('Resolved bounded physical sine quadrature required')
+        initial=sine_product_quadrature(
+            [[initial_center-initial_width/2,initial_center+initial_width/2]],
+            [len(left)],[count],quadrature_bounds=[[lo,hi]],orthonormalize=False)
+        final=sine_product_quadrature(
+            [[final_center-final_width/2,final_center+final_width/2]],
+            [len(right)],[count],quadrature_bounds=[[lo,hi]],orthonormalize=False)
+        ket=(initial['momenta'][:,0,:] if initial_momentum else initial['values'])@left
+        bra=(final['momenta'][:,0,:] if final_momentum else final['values'])@right
+        profile=(initial['points'][:,0]-coordinate_origin)**coordinate_power
+        return bra.conj().T@(profile[:,None]*ket)
     if initial_width == final_width:
         primitive = np.eye(len(right), len(left))
     else:
